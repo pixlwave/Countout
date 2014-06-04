@@ -9,8 +9,13 @@ class AppDelegate
     @countdown = CountdownTimer.sharedClient
     @countdown.delegate = self
 
+    if UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone
+      @storyboard = UIStoryboard.storyboardWithName("Storyboard", bundle:nil)
+    else
+      @storyboard = UIStoryboard.storyboardWithName("Storyboard-iPad", bundle:nil)
+    end
+
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
-    @storyboard = UIStoryboard.storyboardWithName("Storyboard", bundle:nil)
     @window.rootViewController = @storyboard.instantiateInitialViewController
     @window.makeKeyAndVisible
 

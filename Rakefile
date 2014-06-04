@@ -13,6 +13,6 @@ Motion::Project::App.setup do |app|
   app.name = 'Countdown'
   app.icons = ["Icon@2x.png"]
   app.identifier = 'uk.pixlwave.Countdown'
+  app.device_family = [:iphone, :ipad]
   app.status_bar_style = :light_content
-  app.info_plist["UIViewControllerBasedStatusBarAppearance"] = false
 end

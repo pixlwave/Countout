@@ -37,6 +37,7 @@
 @property IBOutlet NSLayoutConstraint * countdownLengthViewVerticalConstraint;
 
 -(IBAction) viewDidLoad;
+-(IBAction) preferredStatusBarStyle;
 -(IBAction) viewWillAppear:(id) animated;
 -(IBAction) updateLengthLabel;
 -(IBAction) start;

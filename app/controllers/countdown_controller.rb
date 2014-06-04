@@ -27,14 +27,22 @@ class CountdownController < UIViewController
 
     @minutesTextField.text = @countdownMinutes.to_s
     @minutesTextField.delegate = self
+    # @minutesTextField.inputAccessoryView = @countdownLengthView
 
     @secondsTextField.text = @countdownSeconds.to_s
     @secondsTextField.delegate = self
+    # @secondsTextField.inputAccessoryView = @countdownLengthView
 
-    if UIScreen.mainScreen.bounds.size.height < 568
-      @countdownLengthViewVerticalConstraint.constant = -@countdownLengthView.frame.size.height
-    end
+    # if UIScreen.mainScreen.bounds.size.height < 568
+    #   @countdownLengthViewVerticalConstraint.constant = -@countdownLengthView.frame.size.height
+    # end
 
+  end
+
+  def preferredStatusBarStyle
+
+    UIStatusBarStyleLightContent
+  
   end
 
   def viewWillAppear(animated)
@@ -82,6 +90,9 @@ class CountdownController < UIViewController
     @countdownLengthView.fade_out
 
   end
+
+
+  #### text field delegate methods ####
 
   def textField(textField, shouldChangeCharactersInRange:range, replacementString:string)
 
