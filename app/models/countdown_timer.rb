@@ -36,6 +36,15 @@ class CountdownTimer
 
   end
 
+  def reset
+
+    stop
+    @remaining = @length
+
+    @delegate.countdownHasChanged
+
+  end
+
   def tick
 
     @remaining -= 1

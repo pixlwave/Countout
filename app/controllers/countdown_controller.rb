@@ -23,7 +23,7 @@ class CountdownController < UIViewController
     @countdownMinutes = 5
     @countdownSeconds = 0
 
-    updateLengthLabel
+    updateCountdownLength
 
     @minutesTextField.text = @countdownMinutes.to_s
     @minutesTextField.delegate = self
@@ -51,6 +51,16 @@ class CountdownController < UIViewController
 
   end
 
+  def updateCountdownLength
+
+    length = @countdownMinutes.minutes + @countdownSeconds
+    @countdown.setTime(length)
+
+    UIApplication.sharedApplication.delegate.countdownHasChanged
+    updateLengthLabel
+
+  end
+
   def updateLengthLabel
 
     @lengthLabel.text = "#{@countdownMinutes.to_s} minutes"
@@ -60,10 +70,6 @@ class CountdownController < UIViewController
 
   def start
 
-    length = @countdownMinutes.minutes + @countdownSeconds
-
-    @countdown.setTime(length)
-    UIApplication.sharedApplication.delegate.countdownHasChanged
     @countdown.start
 
   end
@@ -71,6 +77,13 @@ class CountdownController < UIViewController
   def stop
 
     @countdown.stop
+
+  end
+
+  def reset
+
+    updateCountdownLength
+    @countdown.reset
 
   end
 
@@ -86,7 +99,7 @@ class CountdownController < UIViewController
     self.view.endEditing(true)
     @countdownMinutes = @minutesTextField.text.to_i
     @countdownSeconds = @secondsTextField.text.to_i
-    updateLengthLabel
+    updateLengthLabel   # update length label but not countdown length to prevent change from effecting active countdown
     @countdownLengthView.fade_out
 
   end

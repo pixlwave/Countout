@@ -42,6 +42,7 @@
 -(IBAction) updateLengthLabel;
 -(IBAction) start;
 -(IBAction) stop;
+-(IBAction) reset;
 -(IBAction) editCountdownLength;
 -(IBAction) finishCountdownLength;
 
@@ -69,6 +70,7 @@
 -(IBAction) setTime:(id) length;
 -(IBAction) start;
 -(IBAction) stop;
+-(IBAction) reset;
 -(IBAction) tick;
 
 @end
