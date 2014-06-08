@@ -41,7 +41,11 @@ class CountdownController < UIViewController
 
   def preferredStatusBarStyle
 
-    UIStatusBarStyleLightContent
+    if UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone
+      UIStatusBarStyleLightContent
+    else
+      UIStatusBarStyleDefault
+    end
   
   end
 
