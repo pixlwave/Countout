@@ -184,7 +184,7 @@
                                     <constraint firstItem="H1G-IY-EQK" firstAttribute="leading" secondItem="alm-BS-QNx" secondAttribute="trailing" constant="8" id="bNE-xh-xhQ"/>
                                     <constraint firstItem="CdC-jV-2rr" firstAttribute="leading" secondItem="H1G-IY-EQK" secondAttribute="trailing" constant="20" id="cAD-CR-pkH"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="fhv-VR-0ds"/>
-                                    <constraint firstAttribute="centerY" secondItem="bWN-xp-iDF" secondAttribute="centerY" id="jFf-j5-0it"/>
+                                    <constraint firstItem="bWN-xp-iDF" firstAttribute="top" secondItem="3tw-8c-bYA" secondAttribute="top" constant="40" id="jrQ-Di-1PX"/>
                                     <constraint firstAttribute="trailing" secondItem="bWN-xp-iDF" secondAttribute="trailing" constant="20" id="l7F-iX-A1z"/>
                                     <constraint firstItem="CdC-jV-2rr" firstAttribute="centerY" secondItem="bWN-xp-iDF" secondAttribute="centerY" constant="-0.5" id="z6x-or-XgZ"/>
                                 </constraints>
@@ -228,7 +228,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countdownDoneButtonTopConstraint" destination="jrQ-Di-1PX" id="sdO-wS-uFG"/>
                         <outlet property="countdownLengthView" destination="3tw-8c-bYA" id="4gE-Ce-14n"/>
+                        <outlet property="countdownLengthViewBottomConstraint" destination="1HL-fE-OkL" id="Ar9-rH-Ds2"/>
+                        <outlet property="countdownLengthViewTopConstraint" destination="8mP-6P-FAZ" id="XWx-Lv-zOg"/>
                         <outlet property="lengthLabel" destination="GuM-AL-tRd" id="OKq-Ko-sBh"/>
                         <outlet property="minutesTextField" destination="H1G-IY-EQK" id="aKc-fM-eqh"/>
                         <outlet property="previewImageView" destination="kgN-1S-701" id="Rix-GW-ufV"/>

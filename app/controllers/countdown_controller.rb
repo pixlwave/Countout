@@ -11,7 +11,9 @@ class CountdownController < UIViewController
   outlet :secondsTextField, UITextField
   outlet :countdownLengthView, UIView
 
-  outlet :countdownLengthViewVerticalConstraint, NSLayoutConstraint
+  outlet :countdownLengthViewTopConstraint, NSLayoutConstraint
+  outlet :countdownDoneButtonTopConstraint, NSLayoutConstraint
+  outlet :countdownLengthViewBottomConstraint, NSLayoutConstraint
 
   attr_accessor :outputVC
 
@@ -33,9 +35,11 @@ class CountdownController < UIViewController
     @secondsTextField.delegate = self
     # @secondsTextField.inputAccessoryView = @countdownLengthView
 
-    # if UIScreen.mainScreen.bounds.size.height < 568
-    #   @countdownLengthViewVerticalConstraint.constant = -@countdownLengthView.frame.size.height
-    # end
+    if UIScreen.mainScreen.bounds.size.height < 568
+      @countdownLengthViewTopConstraint.constant = -36
+      @countdownDoneButtonTopConstraint.constant = 15
+      @countdownLengthViewBottomConstraint.constant = 0
+    end
 
   end
 

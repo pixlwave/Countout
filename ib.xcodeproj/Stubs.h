@@ -34,7 +34,9 @@
 @property IBOutlet UITextField * minutesTextField;
 @property IBOutlet UITextField * secondsTextField;
 @property IBOutlet UIView * countdownLengthView;
-@property IBOutlet NSLayoutConstraint * countdownLengthViewVerticalConstraint;
+@property IBOutlet NSLayoutConstraint * countdownLengthViewTopConstraint;
+@property IBOutlet NSLayoutConstraint * countdownDoneButtonTopConstraint;
+@property IBOutlet NSLayoutConstraint * countdownLengthViewBottomConstraint;
 
 -(IBAction) viewDidLoad;
 -(IBAction) preferredStatusBarStyle;
