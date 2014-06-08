@@ -39,6 +39,7 @@
 -(IBAction) viewDidLoad;
 -(IBAction) preferredStatusBarStyle;
 -(IBAction) viewWillAppear:(id) animated;
+-(IBAction) updateCountdownLength;
 -(IBAction) updateLengthLabel;
 -(IBAction) start;
 -(IBAction) stop;
