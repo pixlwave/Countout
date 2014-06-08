@@ -42,6 +42,8 @@ class AppDelegate
 
       @window.rootViewController.outputVC = @outputVC
 
+      countdownHasChanged
+
     else
 
       @window.rootViewController.outputVC = nil

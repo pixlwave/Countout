@@ -33,12 +33,12 @@
 @property IBOutlet UILabel * lengthLabel;
 @property IBOutlet UITextField * minutesTextField;
 @property IBOutlet UITextField * secondsTextField;
-@property IBOutlet UIView * dimControlView;
 @property IBOutlet UIView * countdownLengthView;
 @property IBOutlet NSLayoutConstraint * countdownLengthViewVerticalConstraint;
 
 -(IBAction) viewDidLoad;
 -(IBAction) preferredStatusBarStyle;
+-(IBAction) supportedInterfaceOrientations;
 -(IBAction) viewWillAppear:(id) animated;
 -(IBAction) updateCountdownLength;
 -(IBAction) updateLengthLabel;
@@ -58,7 +58,6 @@
 -(IBAction) viewDidLoad;
 -(IBAction) viewWillAppear:(id) animated;
 -(IBAction) updateAppearance;
--(IBAction) countdownHasChanged;
 
 @end
 

@@ -24,11 +24,4 @@ class OutputController < UIViewController
 
   end
 
-  def countdownHasChanged
-
-    remainingString = "#{(@countdown.remaining / 60).to_s}:#{(@countdown.remaining % 60).to_s.rjust(2,'0')}"
-    @timeLabel.text = remainingString
-
-  end
-
 end
