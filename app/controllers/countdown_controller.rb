@@ -7,9 +7,9 @@ class CountdownController < UIViewController
   outlet :previewImageView, UIImageView
   outlet :previewLabel, UILabel
   outlet :lengthLabel, UILabel
-  outlet :countdownLengthView, UIView
   outlet :minutesTextField, UITextField
   outlet :secondsTextField, UITextField
+  outlet :countdownLengthView, UIView
 
   outlet :countdownLengthViewVerticalConstraint, NSLayoutConstraint
 
@@ -43,6 +43,16 @@ class CountdownController < UIViewController
 
     UIStatusBarStyleLightContent
   
+  end
+
+  def supportedInterfaceOrientations
+
+    if UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone
+      UIInterfaceOrientationMaskPortrait
+    else
+      UIInterfaceOrientationMaskAll
+    end
+
   end
 
   def viewWillAppear(animated)

@@ -15,4 +15,5 @@ Motion::Project::App.setup do |app|
   app.identifier = 'uk.pixlwave.Countdown'
   app.device_family = [:iphone, :ipad]
   app.status_bar_style = :light_content
+  app.interface_orientations = [:portrait, :landscape_left, :landscape_right, :portrait_upside_down]
 end

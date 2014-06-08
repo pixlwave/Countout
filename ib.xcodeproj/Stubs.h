@@ -31,9 +31,10 @@
 @property IBOutlet UIImageView * previewImageView;
 @property IBOutlet UILabel * previewLabel;
 @property IBOutlet UILabel * lengthLabel;
-@property IBOutlet UIView * countdownLengthView;
 @property IBOutlet UITextField * minutesTextField;
 @property IBOutlet UITextField * secondsTextField;
+@property IBOutlet UIView * dimControlView;
+@property IBOutlet UIView * countdownLengthView;
 @property IBOutlet NSLayoutConstraint * countdownLengthViewVerticalConstraint;
 
 -(IBAction) viewDidLoad;
