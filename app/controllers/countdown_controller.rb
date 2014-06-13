@@ -66,6 +66,7 @@ class CountdownController < UIViewController
   def viewWillAppear(animated)
 
     @previewImageView.image = @appearance.backgroundImage
+    @previewLabel.setFont(UIFont.fontWithName("AvenirNext-UltraLight", size:(@appearance.fontScale * @previewLabel.frame.size.width)))
 
   end
 

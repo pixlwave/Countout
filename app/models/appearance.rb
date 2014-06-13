@@ -1,6 +1,6 @@
 class Appearance
 
-  attr_accessor :backgroundColour, :backgroundImage, :fontColour, :font
+  attr_accessor :backgroundColour, :backgroundImage, :fontColour, :font, :fontScale
 
   def self.sharedClient
     Dispatch.once { @instance ||= new }
@@ -10,6 +10,7 @@ class Appearance
   def initialize
 
     # load from defaults
+    @fontScale = 0.25
 
   end
 

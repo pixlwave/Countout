@@ -20,7 +20,7 @@ class OutputController < UIViewController
   def updateAppearance
 
     @backgroundImageView.image = @appearance.backgroundImage
-    @timeLabel.setFont(UIFont.fontWithName("AvenirNext-UltraLight", size:(256 / (1024 / self.view.frame.size.width))))
+    @timeLabel.setFont(UIFont.fontWithName("AvenirNext-UltraLight", size:(@appearance.fontScale * self.view.frame.size.width)))
 
   end
 
