@@ -119,6 +119,7 @@ class CountdownController < UIViewController
     self.view.endEditing(true)
     @countdownMinutes = @minutesTextField.text.to_i
     @countdownSeconds = @secondsTextField.text.to_i
+    @countdownMinutes = 1 if @countdownMinutes + @countdownSeconds == 0
     updateLengthLabel   # update length label but not countdown length to prevent change from effecting active countdown
     @countdownLengthView.fade_out
 
