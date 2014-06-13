@@ -6,6 +6,7 @@ class CountdownController < UIViewController
   outlet :previewView, UIView
   outlet :previewImageView, UIImageView
   outlet :previewLabel, UILabel
+  outlet :outputStatusLabel, UILabel
   outlet :lengthLabel, UILabel
   outlet :minutesTextField, UITextField
   outlet :secondsTextField, UITextField

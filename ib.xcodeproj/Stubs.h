@@ -30,6 +30,7 @@
 @property IBOutlet UIView * previewView;
 @property IBOutlet UIImageView * previewImageView;
 @property IBOutlet UILabel * previewLabel;
+@property IBOutlet UILabel * outputStatusLabel;
 @property IBOutlet UILabel * lengthLabel;
 @property IBOutlet UITextField * minutesTextField;
 @property IBOutlet UITextField * secondsTextField;

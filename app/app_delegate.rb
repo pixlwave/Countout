@@ -41,6 +41,7 @@ class AppDelegate
       @externalWindow.hidden = false
 
       @window.rootViewController.outputVC = @outputVC
+      @window.rootViewController.outputStatusLabel.fade_out
 
       countdownHasChanged
 
@@ -49,6 +50,8 @@ class AppDelegate
       @window.rootViewController.outputVC = nil
       @outputVC = nil
       @externalWindow = nil
+
+      @window.rootViewController.outputStatusLabel.fade_in
 
     end
 

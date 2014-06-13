@@ -31,11 +31,20 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display not connected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTP-SF-3Wu">
+                                        <rect key="frame" x="192" y="221" width="123" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                        <color key="textColor" red="0.98594826459884644" green="0.0" blue="0.026950567960739136" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="3RV-rV-xcX" firstAttribute="top" secondItem="oOP-lM-PmW" secondAttribute="top" id="1si-xc-zMo"/>
                                     <constraint firstAttribute="bottom" secondItem="3RV-rV-xcX" secondAttribute="bottom" id="3PX-vn-s7M"/>
+                                    <constraint firstAttribute="bottom" secondItem="kTP-SF-3Wu" secondAttribute="bottom" constant="2" id="9rm-z3-zmz"/>
+                                    <constraint firstAttribute="trailing" secondItem="kTP-SF-3Wu" secondAttribute="trailing" constant="5" id="CXG-Z3-plT"/>
                                     <constraint firstItem="kgN-1S-701" firstAttribute="leading" secondItem="oOP-lM-PmW" secondAttribute="leading" id="INV-bC-He4"/>
                                     <constraint firstAttribute="trailing" secondItem="kgN-1S-701" secondAttribute="trailing" id="evH-Vq-DZg"/>
                                     <constraint firstAttribute="trailing" secondItem="3RV-rV-xcX" secondAttribute="trailing" id="j1j-ph-3yV"/>
@@ -234,6 +243,7 @@
                         <outlet property="countdownLengthViewTopConstraint" destination="8mP-6P-FAZ" id="XWx-Lv-zOg"/>
                         <outlet property="lengthLabel" destination="GuM-AL-tRd" id="OKq-Ko-sBh"/>
                         <outlet property="minutesTextField" destination="H1G-IY-EQK" id="aKc-fM-eqh"/>
+                        <outlet property="outputStatusLabel" destination="kTP-SF-3Wu" id="exi-zz-nIV"/>
                         <outlet property="previewImageView" destination="kgN-1S-701" id="Rix-GW-ufV"/>
                         <outlet property="previewLabel" destination="3RV-rV-xcX" id="zx4-8c-8ke"/>
                         <outlet property="previewView" destination="oOP-lM-PmW" id="4vR-Os-NRM"/>
