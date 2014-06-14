@@ -28,13 +28,8 @@ class CountdownController < UIViewController
 
     updateCountdownLength
 
-    @minutesTextField.text = @countdownMinutes.to_s
     @minutesTextField.delegate = self
-    # @minutesTextField.inputAccessoryView = @countdownLengthView
-
-    @secondsTextField.text = @countdownSeconds.to_s
     @secondsTextField.delegate = self
-    # @secondsTextField.inputAccessoryView = @countdownLengthView
 
     if UIScreen.mainScreen.bounds.size.height < 568
       @countdownLengthViewTopConstraint.constant = -36
@@ -83,8 +78,14 @@ class CountdownController < UIViewController
 
   def updateLengthLabel
 
-    @lengthLabel.text = "#{@countdownMinutes.to_s} minutes"
-    @lengthLabel.text += ", #{@countdownSeconds.to_s} seconds" unless @countdownSeconds == 0
+    if @countdownMinutes == 1 then minutesSuffix = "minute" else minutesSuffix = "minutes" end
+    if @countdownSeconds == 1 then secondsSuffix = "second" else secondsSuffix = "seconds" end
+    @lengthLabel.text = "#{@countdownMinutes.to_s} #{minutesSuffix}"
+    @lengthLabel.text += ", #{@countdownSeconds.to_s} #{secondsSuffix}" unless @countdownSeconds == 0
+
+    # update the 
+    @minutesTextField.text = @countdownMinutes.to_s
+    @secondsTextField.text = @countdownSeconds.to_s
 
   end
 

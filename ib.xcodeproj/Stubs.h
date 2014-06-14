@@ -8,6 +8,8 @@
 @interface AppDelegate: UIResponder <UIApplicationDelegate>
 -(IBAction) updateOutput;
 -(IBAction) countdownHasChanged;
+-(IBAction) applicationDidEnterBackground:(id) application;
+-(IBAction) applicationDidBecomeActive:(id) application;
 
 @end
 
@@ -76,6 +78,7 @@
 -(IBAction) stop;
 -(IBAction) reset;
 -(IBAction) tick;
+-(IBAction) addToRemaining:(id) amount;
 
 @end
 

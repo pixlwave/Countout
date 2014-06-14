@@ -1,7 +1,7 @@
 class CountdownTimer
 
   attr_accessor :delegate
-  attr_reader :length, :remaining, :runTimer
+  attr_reader :length, :remaining
 
   def self.sharedClient
     Dispatch.once { @instance ||= new }
