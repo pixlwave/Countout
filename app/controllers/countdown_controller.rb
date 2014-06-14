@@ -120,7 +120,15 @@ class CountdownController < UIViewController
     @countdownMinutes = @minutesTextField.text.to_i
     @countdownSeconds = @secondsTextField.text.to_i
     @countdownMinutes = 1 if @countdownMinutes + @countdownSeconds == 0
-    updateLengthLabel   # update length label but not countdown length to prevent change from effecting active countdown
+
+    if @countdown.active?
+      updateLengthLabel   # only update countdown length label to reflect what reset will do
+    else
+      reset               # reset which updates countdown length and length label
+    end
+
+    # if @countdown.active? then updateLengthLabel else reset end
+
     @countdownLengthView.fade_out
 
   end

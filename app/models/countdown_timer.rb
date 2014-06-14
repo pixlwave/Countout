@@ -24,8 +24,9 @@ class CountdownTimer
 
   def start
 
-    stop if @runTimer
-    @runTimer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector:"tick", userInfo:nil, repeats:true)
+    unless @runTimer || @remaining.zero?
+      @runTimer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector:"tick", userInfo:nil, repeats:true)
+    end
 
   end
 
@@ -45,12 +46,32 @@ class CountdownTimer
 
   end
 
+  def active?
+
+    !@runTimer.nil?
+
+  end
+
   def tick
 
     @remaining -= 1
     @delegate.countdownHasChanged
 
     stop if @remaining == 0
+
+  end
+
+  def addToRemaining(amount)
+
+    @remaining += amount
+
+    if @remaining < 0
+      @remaining = 0
+      @delegate.countdownHasChanged
+      stop
+    else
+      @delegate.countdownHasChanged
+    end
 
   end
 

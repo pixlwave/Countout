@@ -65,4 +65,23 @@ class AppDelegate
 
   end
 
+  def applicationDidEnterBackground(application)
+
+    @backgroundTime = NSDate.now if @countdown.active?
+
+  end
+
+  def applicationDidBecomeActive(application)
+
+    if @backgroundTime
+
+      timePassed = (NSDate.now - @backgroundTime).to_i
+      @countdown.addToRemaining(-timePassed)
+
+      @backgroundTime = nil
+
+    end
+
+  end
+
 end
