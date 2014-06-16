@@ -8,13 +8,10 @@ class CountdownController < UIViewController
   outlet :previewLabel, UILabel
   outlet :outputStatusLabel, UILabel
   outlet :lengthLabel, UILabel
+  
+  outlet :countdownLengthView, UIView
   outlet :minutesTextField, UITextField
   outlet :secondsTextField, UITextField
-  outlet :countdownLengthView, UIView
-
-  outlet :countdownLengthViewTopConstraint, NSLayoutConstraint
-  outlet :countdownDoneButtonTopConstraint, NSLayoutConstraint
-  outlet :countdownLengthViewBottomConstraint, NSLayoutConstraint
 
   attr_accessor :outputVC
 
@@ -23,6 +20,10 @@ class CountdownController < UIViewController
     @countdown = CountdownTimer.sharedClient
     @appearance = Appearance.sharedClient
 
+    NSBundle.mainBundle.loadNibNamed("CountdownLengthView", owner:self, options:nil)
+    @countdownLengthView.alpha = 0
+    self.view.addSubview(@countdownLengthView)
+
     @countdownMinutes = 5
     @countdownSeconds = 0
 
@@ -30,12 +31,6 @@ class CountdownController < UIViewController
 
     @minutesTextField.delegate = self
     @secondsTextField.delegate = self
-
-    if UIScreen.mainScreen.bounds.size.height < 568
-      @countdownLengthViewTopConstraint.constant = -36
-      @countdownDoneButtonTopConstraint.constant = 15
-      @countdownLengthViewBottomConstraint.constant = 0
-    end
 
   end
 
@@ -55,6 +50,16 @@ class CountdownController < UIViewController
       UIInterfaceOrientationMaskPortrait
     else
       UIInterfaceOrientationMaskAll
+    end
+
+  end
+
+  def viewWillLayoutSubviews
+
+    if UIScreen.mainScreen.bounds.size.height < 568
+      @countdownLengthView.frame = CGRectMake(0, CGRectGetMaxY(@previewView.frame) - 36, self.view.frame.size.width, self.view.frame.size.height - CGRectGetMaxY(@previewView.frame) - 180)
+    else
+      @countdownLengthView.frame = CGRectMake(0, CGRectGetMaxY(@previewView.frame), self.view.frame.size.width, self.view.frame.size.height - CGRectGetMaxY(@previewView.frame) - 216)
     end
 
   end
