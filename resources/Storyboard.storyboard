@@ -69,7 +69,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOM-bm-JL6">
-                                <rect key="frame" x="50" y="318" width="42" height="40"/>
+                                <rect key="frame" x="50" y="322" width="42" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <state key="normal" title="Start">
@@ -80,7 +80,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdl-rH-gEL">
-                                <rect key="frame" x="135" y="318" width="50" height="40"/>
+                                <rect key="frame" x="135" y="322" width="50" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <state key="normal" title="Reset">
@@ -91,7 +91,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x27-Lc-Pu8">
-                                <rect key="frame" x="227" y="318" width="43" height="40"/>
+                                <rect key="frame" x="227" y="322" width="43" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <state key="normal" title="Stop">
@@ -102,7 +102,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFB-Oc-lQD">
-                                <rect key="frame" x="50" y="399" width="221" height="37"/>
+                                <rect key="frame" x="50" y="402" width="221" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                 <state key="normal" title="Change countdown length">
@@ -113,7 +113,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKs-hD-RwF">
-                                <rect key="frame" x="110" y="478" width="101" height="37"/>
+                                <rect key="frame" x="110" y="479" width="101" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                 <state key="normal" title="Appearance">
@@ -124,29 +124,29 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLe-Cb-OiH">
-                                <rect key="frame" x="92" y="474" width="136" height="44"/>
+                                <rect key="frame" x="92" y="476" width="136" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="32"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a pixlwave creation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9r-1I-vz2">
-                                <rect key="frame" x="155" y="507" width="100" height="17"/>
+                                <rect key="frame" x="155" y="509" width="100" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piV-0n-eSe">
-                                <rect key="frame" x="123" y="366" width="74" height="25"/>
+                                <rect key="frame" x="123" y="370" width="74" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="kU0-FV-b7x"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfL-pl-9Bp">
-                                <rect key="frame" x="219" y="366" width="74" height="25"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfL-pl-9Bp">
+                                <rect key="frame" x="124" y="290" width="74" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -154,12 +154,12 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4w-x8-5RJ">
-                                <rect key="frame" x="123" y="444" width="74" height="26"/>
+                                <rect key="frame" x="123" y="447" width="74" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYa-nV-6gO">
-                                <rect key="frame" x="123" y="523" width="74" height="25"/>
+                                <rect key="frame" x="123" y="524" width="74" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -173,11 +173,12 @@
                             <constraint firstItem="z9r-1I-vz2" firstAttribute="top" secondItem="wLe-Cb-OiH" secondAttribute="bottom" constant="-11" id="8to-Xt-CeV"/>
                             <constraint firstItem="piV-0n-eSe" firstAttribute="width" secondItem="a4w-x8-5RJ" secondAttribute="width" id="BGq-cV-QPZ"/>
                             <constraint firstItem="piV-0n-eSe" firstAttribute="width" secondItem="kYa-nV-6gO" secondAttribute="width" id="Dzz-N5-MuR"/>
+                            <constraint firstItem="xfL-pl-9Bp" firstAttribute="top" secondItem="GuM-AL-tRd" secondAttribute="bottom" constant="8" id="EsM-Ue-2dW"/>
                             <constraint firstItem="a4w-x8-5RJ" firstAttribute="top" secondItem="vFB-Oc-lQD" secondAttribute="bottom" constant="8" id="HDa-Ad-f7n"/>
                             <constraint firstItem="oOP-lM-PmW" firstAttribute="leading" secondItem="snQ-GM-oHw" secondAttribute="leading" id="Hbf-iu-NM2"/>
                             <constraint firstAttribute="centerX" secondItem="NKs-hD-RwF" secondAttribute="centerX" constant="-0.5" id="I5B-uV-bWo"/>
+                            <constraint firstItem="xfL-pl-9Bp" firstAttribute="height" secondItem="piV-0n-eSe" secondAttribute="height" id="I7h-7o-XLC"/>
                             <constraint firstItem="Hae-Su-Q9f" firstAttribute="top" secondItem="kYa-nV-6gO" secondAttribute="bottom" constant="20" id="M0r-N1-TCN"/>
-                            <constraint firstItem="piV-0n-eSe" firstAttribute="top" secondItem="JOM-bm-JL6" secondAttribute="bottom" constant="8" id="Moi-J8-FSF"/>
                             <constraint firstItem="piV-0n-eSe" firstAttribute="height" secondItem="a4w-x8-5RJ" secondAttribute="height" id="P6i-AB-Rm4"/>
                             <constraint firstAttribute="centerX" secondItem="vFB-Oc-lQD" secondAttribute="centerX" constant="-0.5" id="PBu-sa-hNn"/>
                             <constraint firstItem="GuM-AL-tRd" firstAttribute="top" secondItem="oOP-lM-PmW" secondAttribute="bottom" constant="18" id="QyC-MR-Mow"/>
@@ -190,11 +191,13 @@
                             <constraint firstAttribute="centerX" secondItem="GuM-AL-tRd" secondAttribute="centerX" priority="750" id="cY3-fI-SGF"/>
                             <constraint firstItem="kYa-nV-6gO" firstAttribute="top" secondItem="NKs-hD-RwF" secondAttribute="bottom" constant="8" id="ejf-28-mk2"/>
                             <constraint firstAttribute="trailing" secondItem="oOP-lM-PmW" secondAttribute="trailing" id="fpx-Mt-hVf"/>
+                            <constraint firstAttribute="centerX" secondItem="xfL-pl-9Bp" secondAttribute="centerX" constant="-1" id="hbb-U1-wlW"/>
+                            <constraint firstItem="piV-0n-eSe" firstAttribute="top" secondItem="vdl-rH-gEL" secondAttribute="bottom" constant="8" id="jUI-HF-gFd"/>
                             <constraint firstItem="NKs-hD-RwF" firstAttribute="top" secondItem="a4w-x8-5RJ" secondAttribute="bottom" constant="8" id="jey-Vc-Sf9"/>
                             <constraint firstItem="piV-0n-eSe" firstAttribute="height" secondItem="kYa-nV-6gO" secondAttribute="height" id="jrV-o8-8Ns"/>
                             <constraint firstItem="NKs-hD-RwF" firstAttribute="centerY" secondItem="wLe-Cb-OiH" secondAttribute="centerY" id="nJy-3O-VtP"/>
                             <constraint firstAttribute="centerX" secondItem="piV-0n-eSe" secondAttribute="centerX" id="qYT-dH-8eb"/>
-                            <constraint firstItem="JOM-bm-JL6" firstAttribute="top" secondItem="GuM-AL-tRd" secondAttribute="bottom" constant="36" id="uhl-fi-OCv"/>
+                            <constraint firstItem="vdl-rH-gEL" firstAttribute="top" secondItem="xfL-pl-9Bp" secondAttribute="bottom" constant="8" id="tXN-eK-cg4"/>
                             <constraint firstItem="piV-0n-eSe" firstAttribute="centerX" secondItem="a4w-x8-5RJ" secondAttribute="centerX" id="uzv-4r-XSY"/>
                             <constraint firstItem="JOM-bm-JL6" firstAttribute="baseline" secondItem="x27-Lc-Pu8" secondAttribute="baseline" id="vm0-Ok-eQX"/>
                             <constraint firstItem="vdl-rH-gEL" firstAttribute="leading" secondItem="JOM-bm-JL6" secondAttribute="trailing" constant="43" id="zOW-D2-YxO"/>
