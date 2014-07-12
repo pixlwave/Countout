@@ -34,16 +34,14 @@
 @property IBOutlet UILabel * previewLabel;
 @property IBOutlet UILabel * outputStatusLabel;
 @property IBOutlet UILabel * lengthLabel;
+@property IBOutlet UIView * countdownLengthView;
 @property IBOutlet UITextField * minutesTextField;
 @property IBOutlet UITextField * secondsTextField;
-@property IBOutlet UIView * countdownLengthView;
-@property IBOutlet NSLayoutConstraint * countdownLengthViewTopConstraint;
-@property IBOutlet NSLayoutConstraint * countdownDoneButtonTopConstraint;
-@property IBOutlet NSLayoutConstraint * countdownLengthViewBottomConstraint;
 
 -(IBAction) viewDidLoad;
 -(IBAction) preferredStatusBarStyle;
 -(IBAction) supportedInterfaceOrientations;
+-(IBAction) viewWillLayoutSubviews;
 -(IBAction) viewWillAppear:(id) animated;
 -(IBAction) updateCountdownLength;
 -(IBAction) updateLengthLabel;
