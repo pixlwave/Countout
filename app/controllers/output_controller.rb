@@ -7,11 +7,15 @@ class OutputController < UIViewController
 
   def viewDidLoad
 
+    super
+
     @appearance = Appearance.sharedClient
 
   end
 
   def viewWillAppear(animated)
+
+    super
 
     updateAppearance
 

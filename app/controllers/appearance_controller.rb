@@ -7,6 +7,8 @@ class AppearanceController < UIViewController
 
   def viewDidLoad
 
+    super
+
     @appearance = Appearance.sharedClient
 
     @previewImageView.image = @appearance.backgroundImage

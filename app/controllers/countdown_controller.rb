@@ -21,6 +21,8 @@ class CountdownController < UIViewController
 
   def viewDidLoad
 
+    super
+
     @countdown = CountdownTimer.sharedClient
     @appearance = Appearance.sharedClient
 
@@ -60,6 +62,8 @@ class CountdownController < UIViewController
 
   def viewWillLayoutSubviews
 
+    super
+
     if UIScreen.mainScreen.bounds.size.height < 568
       @countdownLengthView.frame = CGRectMake(0, CGRectGetMaxY(@previewView.frame) - 36, self.view.frame.size.width, self.view.frame.size.height - CGRectGetMaxY(@previewView.frame) - 180)
     else
@@ -69,6 +73,8 @@ class CountdownController < UIViewController
   end
 
   def viewWillAppear(animated)
+
+    super
 
     @previewImageView.image = @appearance.backgroundImage
     @previewLabel.setFont(UIFont.fontWithName("AvenirNext-UltraLight", size:(@appearance.fontScale * @previewLabel.frame.size.width)))
