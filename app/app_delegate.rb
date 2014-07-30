@@ -65,6 +65,12 @@ class AppDelegate
 
   end
 
+  def countdownHasFinished
+
+    @window.rootViewController.countdownHasFinished
+
+  end
+
   def applicationDidEnterBackground(application)
 
     @backgroundTime = NSDate.now if @countdown.active?

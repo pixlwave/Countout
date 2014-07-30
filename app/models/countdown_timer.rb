@@ -57,7 +57,10 @@ class CountdownTimer
     @remaining -= 1
     @delegate.countdownHasChanged
 
-    stop if @remaining == 0
+    if @remaining == 0
+      stop
+      delegate.countdownHasFinished
+    end
 
   end
 
@@ -66,9 +69,10 @@ class CountdownTimer
     @remaining += amount
 
     if @remaining < 0
+      stop
       @remaining = 0
       @delegate.countdownHasChanged
-      stop
+      @delegate.countdownHasFinished
     else
       @delegate.countdownHasChanged
     end

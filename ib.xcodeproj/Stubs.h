@@ -8,6 +8,7 @@
 @interface AppDelegate: UIResponder <UIApplicationDelegate>
 -(IBAction) updateOutput;
 -(IBAction) countdownHasChanged;
+-(IBAction) countdownHasFinished;
 -(IBAction) applicationDidEnterBackground:(id) application;
 -(IBAction) applicationDidBecomeActive:(id) application;
 
@@ -37,6 +38,9 @@
 @property IBOutlet UIView * countdownLengthView;
 @property IBOutlet UITextField * minutesTextField;
 @property IBOutlet UITextField * secondsTextField;
+@property IBOutlet UIButton * startButton;
+@property IBOutlet UIButton * stopButton;
+@property IBOutlet UIButton * resetButton;
 
 -(IBAction) viewDidLoad;
 -(IBAction) preferredStatusBarStyle;
@@ -48,8 +52,10 @@
 -(IBAction) start;
 -(IBAction) stop;
 -(IBAction) reset;
+-(IBAction) plusOneMinute;
 -(IBAction) editCountdownLength;
 -(IBAction) finishCountdownLength;
+-(IBAction) countdownHasFinished;
 
 @end
 

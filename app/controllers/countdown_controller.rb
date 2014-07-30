@@ -13,6 +13,10 @@ class CountdownController < UIViewController
   outlet :minutesTextField, UITextField
   outlet :secondsTextField, UITextField
 
+  outlet :startButton, UIButton
+  outlet :stopButton, UIButton
+  outlet :resetButton, UIButton
+
   attr_accessor :outputVC
 
   def viewDidLoad
@@ -98,11 +102,19 @@ class CountdownController < UIViewController
 
     @countdown.start
 
+    @startButton.enabled = false
+    @stopButton.enabled = true
+    @resetButton.enabled = true
+
   end
 
   def stop
 
     @countdown.stop
+
+    @startButton.enabled = true
+    @stopButton.enabled = false
+    @resetButton.enabled = true
 
   end
 
@@ -110,6 +122,16 @@ class CountdownController < UIViewController
 
     updateCountdownLength
     @countdown.reset
+
+    @startButton.enabled = true
+    @stopButton.enabled = false
+    @resetButton.enabled = false
+
+  end
+
+  def plusOneMinute
+
+    @countdown.addToRemaining(60)
 
   end
 
@@ -136,6 +158,14 @@ class CountdownController < UIViewController
     # if @countdown.active? then updateLengthLabel else reset end
 
     @countdownLengthView.fade_out
+
+  end
+
+  def countdownHasFinished
+
+    @startButton.enabled = false
+    @stopButton.enabled = false
+    @resetButton.enabled = true 
 
   end
 
