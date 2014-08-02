@@ -76,8 +76,10 @@ class CountdownController < UIViewController
 
     super
 
+    @previewView.backgroundColor = @appearance.backgroundColor
     @previewImageView.image = @appearance.backgroundImage
-    @previewLabel.setFont(UIFont.fontWithName("AvenirNext-UltraLight", size:(@appearance.fontScale * @previewLabel.frame.size.width)))
+    @previewLabel.setFont(UIFont.fontWithName(@appearance.fontName, size:(@appearance.fontScale * @previewLabel.frame.size.width)))
+    @previewLabel.textColor = @appearance.textColor
 
   end
 

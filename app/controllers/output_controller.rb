@@ -1,7 +1,6 @@
 class OutputController < UIViewController
   extend IB
 
-  # attr_accessor :timeLabel
   outlet :timeLabel, UILabel
   outlet :backgroundImageView, UIImageView
 
@@ -23,8 +22,10 @@ class OutputController < UIViewController
 
   def updateAppearance
 
+    self.view.backgroundColor = @appearance.backgroundColor
     @backgroundImageView.image = @appearance.backgroundImage
-    @timeLabel.setFont(UIFont.fontWithName("AvenirNext-UltraLight", size:(@appearance.fontScale * self.view.frame.size.width)))
+    @timeLabel.setFont(UIFont.fontWithName(@appearance.fontName, size:(@appearance.fontScale * self.view.frame.size.width)))
+    @timeLabel.textColor = @appearance.textColor
 
   end
 

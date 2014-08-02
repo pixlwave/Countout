@@ -19,10 +19,13 @@
 @property IBOutlet UIView * previewView;
 @property IBOutlet UIImageView * previewImageView;
 @property IBOutlet UILabel * previewLabel;
+@property IBOutlet UISlider * fontScaleSlider;
 
 -(IBAction) viewDidLoad;
 -(IBAction) done;
 -(IBAction) chooseBackground;
+-(IBAction) clearBackground;
+-(IBAction) fontScaleChanged;
 -(IBAction) updateAppearance;
 -(IBAction) imagePickerControllerDidCancel:(id) picker;
 

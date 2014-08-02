@@ -5,14 +5,17 @@ class AppearanceController < UIViewController
   outlet :previewImageView, UIImageView
   outlet :previewLabel, UILabel
 
+  outlet :fontScaleSlider, UISlider
+
   def viewDidLoad
 
     super
 
     @appearance = Appearance.sharedClient
 
-    @previewImageView.image = @appearance.backgroundImage
-    @previewLabel.setFont(UIFont.fontWithName("AvenirNext-UltraLight", size:(@appearance.fontScale * @previewLabel.frame.size.width)))
+    @fontScaleSlider.value = @appearance.fontScale
+
+    updateAppearance
 
   end
 
@@ -33,9 +36,26 @@ class AppearanceController < UIViewController
 
   end
 
+  def clearBackground
+
+    @appearance.backgroundImage = nil
+    updateAppearance
+
+  end
+
+  def fontScaleChanged
+
+    @appearance.fontScale = @fontScaleSlider.value
+    updateAppearance
+
+  end
+
   def updateAppearance
 
+    @previewView.backgroundColor = @appearance.backgroundColor
     @previewImageView.image = @appearance.backgroundImage
+    @previewLabel.setFont(UIFont.fontWithName(@appearance.fontName, size:(@appearance.fontScale * @previewLabel.frame.size.width)))
+    @previewLabel.textColor = @appearance.textColor
 
     presentingViewController.outputVC.updateAppearance if presentingViewController.outputVC
 
