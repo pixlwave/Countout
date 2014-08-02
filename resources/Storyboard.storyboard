@@ -265,7 +265,6 @@
                                 </state>
                                 <connections>
                                     <action selector="chooseBackground" destination="mdG-AS-imG" eventType="touchUpInside" id="ofZ-xs-RnS"/>
-                                    <action selector="stop" destination="bDn-6d-Ff0" eventType="touchUpInside" id="g5D-mw-KMC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh6-4l-cW8">
@@ -275,8 +274,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="chooseBackground" destination="mdG-AS-imG" eventType="touchUpInside" id="FvB-eT-byL"/>
-                                    <action selector="stop" destination="bDn-6d-Ff0" eventType="touchUpInside" id="jj2-W2-xLy"/>
+                                    <action selector="clearBackground" destination="mdG-AS-imG" eventType="touchUpInside" id="MBk-S3-cBc"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.25" minValue="0.10000000000000001" maxValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xVx-XN-fbK">
