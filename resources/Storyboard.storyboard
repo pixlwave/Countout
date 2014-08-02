@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bDn-6d-Ff0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bDn-6d-Ff0">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Countdown Controller-->
@@ -63,7 +63,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOM-bm-JL6">
-                                <rect key="frame" x="51" y="325" width="42" height="40"/>
+                                <rect key="frame" x="51" y="323" width="42" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdl-rH-gEL">
-                                <rect key="frame" x="135" y="325" width="50" height="40"/>
+                                <rect key="frame" x="135" y="323" width="50" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <state key="normal" title="Reset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,7 +83,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x27-Lc-Pu8">
-                                <rect key="frame" x="227" y="325" width="43" height="40"/>
+                                <rect key="frame" x="227" y="323" width="43" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <state key="normal" title="Stop">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,20 +92,21 @@
                                     <action selector="stop" destination="bDn-6d-Ff0" eventType="touchUpInside" id="1uc-fW-i7p"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFB-Oc-lQD">
-                                <rect key="frame" x="149" y="408" width="24" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFB-Oc-lQD">
+                                <rect key="frame" x="143" y="403" width="36" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" image="countdownlength.png">
+                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                <state key="normal" image="countdown_length.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="editCountdownLength" destination="bDn-6d-Ff0" eventType="touchUpInside" id="epa-Th-lTl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKs-hD-RwF">
-                                <rect key="frame" x="215" y="401" width="30" height="37"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                <state key="normal" title="Aa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKs-hD-RwF">
+                                <rect key="frame" x="214" y="403" width="36" height="36"/>
+                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                <state key="normal" image="appearance.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -113,43 +114,43 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLe-Cb-OiH">
-                                <rect key="frame" x="92" y="472" width="136" height="44"/>
+                                <rect key="frame" x="92" y="475" width="136" height="44"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="32"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a pixlwave creation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9r-1I-vz2">
-                                <rect key="frame" x="155" y="505" width="100" height="17"/>
+                                <rect key="frame" x="155" y="508" width="100" height="17"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="piV-0n-eSe">
-                                <rect key="frame" x="123" y="373" width="74" height="27"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piV-0n-eSe">
+                                <rect key="frame" x="123" y="371" width="74" height="24"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="kU0-FV-b7x"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfL-pl-9Bp">
-                                <rect key="frame" x="124" y="290" width="74" height="27"/>
+                                <rect key="frame" x="124" y="290" width="74" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="voP-Hh-LUI"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4w-x8-5RJ">
-                                <rect key="frame" x="123" y="440" width="74" height="27"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4w-x8-5RJ">
+                                <rect key="frame" x="123" y="447" width="74" height="24"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYa-nV-6gO">
-                                <rect key="frame" x="123" y="521" width="74" height="27"/>
+                                <rect key="frame" x="123" y="524" width="74" height="24"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXc-yy-gXf">
-                                <rect key="frame" x="77" y="402" width="30" height="37"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                <state key="normal" title="+ 1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXc-yy-gXf">
+                                <rect key="frame" x="72" y="403" width="36" height="36"/>
+                                <inset key="contentEdgeInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                                <state key="normal" image="plus_one.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -173,7 +174,7 @@
                             <constraint firstItem="oOP-lM-PmW" firstAttribute="leading" secondItem="snQ-GM-oHw" secondAttribute="leading" id="Hbf-iu-NM2"/>
                             <constraint firstItem="xfL-pl-9Bp" firstAttribute="height" secondItem="piV-0n-eSe" secondAttribute="height" id="I7h-7o-XLC"/>
                             <constraint firstItem="Hae-Su-Q9f" firstAttribute="top" secondItem="kYa-nV-6gO" secondAttribute="bottom" constant="20" id="M0r-N1-TCN"/>
-                            <constraint firstItem="NKs-hD-RwF" firstAttribute="leading" secondItem="vFB-Oc-lQD" secondAttribute="trailing" constant="42" id="Ms6-WE-Hbd"/>
+                            <constraint firstItem="NKs-hD-RwF" firstAttribute="leading" secondItem="vFB-Oc-lQD" secondAttribute="trailing" constant="35" id="Ms6-WE-Hbd"/>
                             <constraint firstItem="wLe-Cb-OiH" firstAttribute="top" secondItem="a4w-x8-5RJ" secondAttribute="bottom" constant="4" id="NBK-p1-bWd"/>
                             <constraint firstItem="piV-0n-eSe" firstAttribute="height" secondItem="a4w-x8-5RJ" secondAttribute="height" id="P6i-AB-Rm4"/>
                             <constraint firstAttribute="centerX" secondItem="vFB-Oc-lQD" secondAttribute="centerX" constant="-0.5" id="PBu-sa-hNn"/>
@@ -191,7 +192,7 @@
                             <constraint firstItem="piV-0n-eSe" firstAttribute="height" secondItem="kYa-nV-6gO" secondAttribute="height" id="jrV-o8-8Ns"/>
                             <constraint firstAttribute="centerX" secondItem="piV-0n-eSe" secondAttribute="centerX" id="qYT-dH-8eb"/>
                             <constraint firstItem="vdl-rH-gEL" firstAttribute="top" secondItem="xfL-pl-9Bp" secondAttribute="bottom" constant="8" id="tXN-eK-cg4"/>
-                            <constraint firstItem="vFB-Oc-lQD" firstAttribute="leading" secondItem="WXc-yy-gXf" secondAttribute="trailing" constant="42" id="u1P-R3-vql"/>
+                            <constraint firstItem="vFB-Oc-lQD" firstAttribute="leading" secondItem="WXc-yy-gXf" secondAttribute="trailing" constant="35" id="u1P-R3-vql"/>
                             <constraint firstItem="piV-0n-eSe" firstAttribute="centerX" secondItem="a4w-x8-5RJ" secondAttribute="centerX" id="uzv-4r-XSY"/>
                             <constraint firstItem="kYa-nV-6gO" firstAttribute="top" secondItem="wLe-Cb-OiH" secondAttribute="bottom" constant="5" id="vWK-mS-ljt"/>
                             <constraint firstItem="JOM-bm-JL6" firstAttribute="baseline" secondItem="x27-Lc-Pu8" secondAttribute="baseline" id="vm0-Ok-eQX"/>
@@ -337,14 +338,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="countdownlength.png" width="24" height="24"/>
+        <image name="appearance.png" width="24" height="24"/>
+        <image name="countdown_length.png" width="24" height="24"/>
+        <image name="plus_one.png" width="24" height="24"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4">
-            <size key="portraitSize" width="320" height="568"/>
-            <size key="landscapeSize" width="568" height="320"/>
-        </simulatedScreenMetrics>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
