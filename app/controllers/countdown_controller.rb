@@ -140,6 +140,7 @@ class CountdownController < UIViewController
   def plusOneMinute
 
     @countdown.addToRemaining(60)
+    @resetButton.enabled = true
 
   end
 
