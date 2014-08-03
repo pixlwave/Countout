@@ -6,6 +6,7 @@ class AppearanceController < UIViewController
   outlet :previewLabel, UILabel
 
   outlet :fontScaleSlider, UISlider
+  outlet :colorPickerBorder, UIView
 
   def viewDidLoad
 
@@ -14,6 +15,22 @@ class AppearanceController < UIViewController
     @appearance = Appearance.sharedClient
 
     @fontScaleSlider.value = @appearance.fontScale
+
+    @colorPickerBorder.backgroundColor = UIColor.clearColor
+    @colorPickerBorder.layer.cornerRadius = 6.0
+    @colorPickerBorder.layer.masksToBounds = true
+    @colorPickerBorder.layer.borderWidth = 1.0
+    @colorPickerBorder.layer.borderColor = UIColor.darkGrayColor.CGColor
+
+    @colorPicker = STColorPicker.alloc.initWithFrame([[0, 0], @colorPickerBorder.frame.size])
+    @colorPicker.setColorHasChanged(lambda { |color, location|
+      @appearance.send("#{@pickColorOf}=", color)# = color
+      updateAppearance
+    })
+
+    @colorPickerBorder.addSubview(@colorPicker)
+
+    @pickColorOf = "backgroundColor"
 
     updateAppearance
 
@@ -47,6 +64,30 @@ class AppearanceController < UIViewController
 
     @appearance.fontScale = @fontScaleSlider.value
     updateAppearance
+
+  end
+
+  def toggleBoldFont
+
+    if @appearance.fontName == "AvenirNext-UltraLight"
+      @appearance.fontName = "AvenirNext-DemiBold"
+    else
+      @appearance.fontName = "AvenirNext-UltraLight"
+    end
+
+    updateAppearance
+
+  end
+
+  def pickFontColor
+
+    @pickColorOf = "textColor"
+
+  end
+
+  def pickBackgroundColor
+
+    @pickColorOf = "backgroundColor"
 
   end
 
