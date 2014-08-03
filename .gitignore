@@ -15,3 +15,6 @@ nbproject
 .sass-cache
 .idea
 .sublime_cache_tasklist
+vendor/*/build
+vendor/*/build-*
+vendor/*/.build
