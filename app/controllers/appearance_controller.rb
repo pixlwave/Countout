@@ -13,6 +13,7 @@ class AppearanceController < UIViewController
     super
 
     @appearance = Appearance.sharedClient
+    @previewLabel.text = "#{(CountdownTimer.sharedClient.length / 60).to_s}:#{(CountdownTimer.sharedClient.length % 60).to_s.rjust(2,'0')}"
 
     @fontScaleSlider.value = @appearance.fontScale
 
