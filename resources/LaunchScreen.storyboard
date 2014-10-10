@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nn0-M9-6Ju">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="4Qj-34-BhV">
+            <objects>
+                <viewController id="nn0-M9-6Ju" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Ux-xJ-c6a"/>
+                        <viewControllerLayoutGuide type="bottom" id="cMa-zW-VLU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VdQ-3W-jcG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a pixlwave creation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h15-Wd-qUO">
+                                <rect key="frame" x="443" y="568" width="141" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNU-zw-kpd">
+                                <rect key="frame" x="164" y="86" width="272" height="88"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="64"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.73721362429207193" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="cMa-zW-VLU" firstAttribute="top" secondItem="h15-Wd-qUO" secondAttribute="bottom" constant="8" id="MUp-ts-ZWc"/>
+                            <constraint firstItem="h15-Wd-qUO" firstAttribute="trailing" secondItem="VdQ-3W-jcG" secondAttribute="trailingMargin" id="Z4E-kp-sVw"/>
+                            <constraint firstItem="iNU-zw-kpd" firstAttribute="top" secondItem="4Ux-xJ-c6a" secondAttribute="bottom" constant="66" id="ooB-vb-nNZ"/>
+                            <constraint firstAttribute="centerX" secondItem="iNU-zw-kpd" secondAttribute="centerX" id="zJX-yD-9rP"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NPZ-FX-Qw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496" y="306"/>
+        </scene>
+    </scenes>
+</document>

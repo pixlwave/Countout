@@ -6,9 +6,3 @@
 // project.
 
 
-// STColorPicker
-#define COCOAPODS_POD_AVAILABLE_STColorPicker
-#define COCOAPODS_VERSION_MAJOR_STColorPicker 1
-#define COCOAPODS_VERSION_MINOR_STColorPicker 0
-#define COCOAPODS_VERSION_PATCH_STColorPicker 0
-

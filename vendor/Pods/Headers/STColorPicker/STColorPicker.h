@@ -1,1 +1,0 @@
-../../STColorPicker/STColorPicker/STColorPicker.h
