@@ -9,7 +9,6 @@ class AppearanceController < UIViewController
   outlet :colorPickerBorder, UIView
 
   def viewDidLoad
-
     super
 
     @appearance = Appearance.sharedClient

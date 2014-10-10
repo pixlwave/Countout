@@ -5,15 +5,13 @@ class OutputController < UIViewController
   outlet :backgroundImageView, UIImageView
 
   def viewDidLoad
-
     super
 
     @appearance = Appearance.sharedClient
 
   end
 
-  def viewWillAppear(animated)
-
+  def viewDidLayoutSubviews
     super
 
     updateAppearance

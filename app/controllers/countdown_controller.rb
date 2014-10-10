@@ -20,7 +20,6 @@ class CountdownController < UIViewController
   attr_accessor :outputVC
 
   def viewDidLoad
-
     super
 
     @countdown = CountdownTimer.sharedClient
@@ -61,7 +60,6 @@ class CountdownController < UIViewController
   end
 
   def viewWillLayoutSubviews
-
     super
 
     if UIScreen.mainScreen.bounds.size.height < 568
@@ -72,8 +70,7 @@ class CountdownController < UIViewController
 
   end
 
-  def viewWillAppear(animated)
-
+  def viewDidLayoutSubviews
     super
 
     @previewView.backgroundColor = @appearance.backgroundColor
