@@ -6,6 +6,7 @@ class AppearanceController < UIViewController
   outlet :previewLabel, UILabel
 
   outlet :fontScaleSlider, UISlider
+  outlet :fontBackgroundControl, UISegmentedControl
   outlet :colorPickerBorder, UIView
 
   def viewDidLoad
@@ -23,14 +24,14 @@ class AppearanceController < UIViewController
     @colorPickerBorder.layer.borderColor = UIColor.darkGrayColor.CGColor
 
     @colorPicker = STColorPicker.alloc.initWithFrame([[0, 0], @colorPickerBorder.frame.size])
-    @colorPicker.setColorHasChanged(lambda { |color, location|
-      @appearance.send("#{@pickColorOf}=", color)# = color
+    @colorPicker.setColorHasChanged(lambda { |colorPointer, location|
+      @appearance.send("#{@pickColorOf}=", colorPointer.to_object)# = color
       updateAppearance
     })
 
     @colorPickerBorder.addSubview(@colorPicker)
 
-    @pickColorOf = "backgroundColor"
+    @pickColorOf = "textColor"
 
     updateAppearance
 
@@ -58,6 +59,8 @@ class AppearanceController < UIViewController
     @appearance.backgroundImage = nil
     updateAppearance
 
+    @fontBackgroundControl.setEnabled(true, forSegmentAtIndex: 1)
+
   end
 
   def fontScaleChanged
@@ -79,15 +82,13 @@ class AppearanceController < UIViewController
 
   end
 
-  def pickFontColor
+  def fontBackgroundToggle
 
-    @pickColorOf = "textColor"
-
-  end
-
-  def pickBackgroundColor
-
-    @pickColorOf = "backgroundColor"
+    if @fontBackgroundControl.selectedSegmentIndex == 0
+      @pickColorOf = "textColor"
+    else
+      @pickColorOf = "backgroundColor"
+    end
 
   end
 
@@ -107,12 +108,15 @@ class AppearanceController < UIViewController
 
   def imagePickerController(picker, didFinishPickingMediaWithInfo:info)
 
-    # image = info.valueForKey(UIImagePickerControllerOriginalImage)
     image = info[UIImagePickerControllerOriginalImage]
 
     @appearance.backgroundImage = image
     updateAppearance
 
+    @fontBackgroundControl.selectedSegmentIndex = 0
+    @fontBackgroundControl.setEnabled(false, forSegmentAtIndex: 1)
+    fontBackgroundToggle
+    
     self.dismissViewControllerAnimated(true, completion:nil)
 
   end

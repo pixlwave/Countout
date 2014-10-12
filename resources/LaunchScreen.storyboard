@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nn0-M9-6Ju">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nn0-M9-6Ju">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -18,23 +18,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a pixlwave creation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h15-Wd-qUO">
-                                <rect key="frame" x="443" y="568" width="141" height="24"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="17"/>
+                                <rect key="frame" x="434" y="567" width="150" height="25"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNU-zw-kpd">
-                                <rect key="frame" x="164" y="86" width="272" height="88"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="64"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Countout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNU-zw-kpd">
+                                <rect key="frame" x="181" y="55" width="238" height="105"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="56"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="64"/>
+                                </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="launch_logo" translatesAutoresizingMaskIntoConstraints="NO" id="uhW-xb-oJR">
+                                <rect key="frame" x="225" y="230" width="150" height="150"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.73721362429207193" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.42745098039215684" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="uhW-xb-oJR" firstAttribute="centerY" secondItem="VdQ-3W-jcG" secondAttribute="centerY" constant="5" id="6uz-pc-c98"/>
+                            <constraint firstItem="uhW-xb-oJR" firstAttribute="top" secondItem="iNU-zw-kpd" secondAttribute="bottom" constant="70" id="HK3-tL-2EB"/>
+                            <constraint firstItem="iNU-zw-kpd" firstAttribute="top" secondItem="4Ux-xJ-c6a" secondAttribute="bottom" priority="750" constant="35" id="Kky-VI-dvj">
+                                <variation key="heightClass=regular-widthClass=regular" constant="65"/>
+                            </constraint>
                             <constraint firstItem="cMa-zW-VLU" firstAttribute="top" secondItem="h15-Wd-qUO" secondAttribute="bottom" constant="8" id="MUp-ts-ZWc"/>
                             <constraint firstItem="h15-Wd-qUO" firstAttribute="trailing" secondItem="VdQ-3W-jcG" secondAttribute="trailingMargin" id="Z4E-kp-sVw"/>
-                            <constraint firstItem="iNU-zw-kpd" firstAttribute="top" secondItem="4Ux-xJ-c6a" secondAttribute="bottom" constant="66" id="ooB-vb-nNZ"/>
+                            <constraint firstAttribute="centerX" secondItem="uhW-xb-oJR" secondAttribute="centerX" id="qDh-vh-wEi"/>
                             <constraint firstAttribute="centerX" secondItem="iNU-zw-kpd" secondAttribute="centerX" id="zJX-yD-9rP"/>
                         </constraints>
                     </view>
@@ -44,4 +55,7 @@
             <point key="canvasLocation" x="496" y="306"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launch_logo" width="150" height="150"/>
+    </resources>
 </document>

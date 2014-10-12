@@ -21,6 +21,7 @@
 @property IBOutlet UIImageView * previewImageView;
 @property IBOutlet UILabel * previewLabel;
 @property IBOutlet UISlider * fontScaleSlider;
+@property IBOutlet UISegmentedControl * fontBackgroundControl;
 @property IBOutlet UIView * colorPickerBorder;
 
 -(IBAction) viewDidLoad;
@@ -29,8 +30,7 @@
 -(IBAction) clearBackground;
 -(IBAction) fontScaleChanged;
 -(IBAction) toggleBoldFont;
--(IBAction) pickFontColor;
--(IBAction) pickBackgroundColor;
+-(IBAction) fontBackgroundToggle;
 -(IBAction) updateAppearance;
 -(IBAction) imagePickerControllerDidCancel:(id) picker;
 

@@ -51,7 +51,7 @@
                                     <constraint firstItem="kgN-1S-701" firstAttribute="top" secondItem="oOP-lM-PmW" secondAttribute="top" id="sJX-Ok-jLw"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Timer Length:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mL5-MK-ziy">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Timer Length:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mL5-MK-ziy">
                                 <rect key="frame" x="180" y="473" width="74" height="17"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -60,7 +60,7 @@
                                     <rect key="frame" x="280" y="603" width="74" height="17"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="5 minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuM-AL-tRd">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="5 minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuM-AL-tRd">
                                 <rect key="frame" x="262" y="468" width="76" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -146,7 +146,7 @@
                                     <rect key="frame" x="363" y="686" width="74" height="0.0"/>
                                 </variation>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfL-pl-9Bp">
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfL-pl-9Bp">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="voP-Hh-LUI"/>
@@ -155,13 +155,13 @@
                                     <rect key="frame" x="364" y="630" width="74" height="0.0"/>
                                 </variation>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4w-x8-5RJ">
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4w-x8-5RJ">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
                                     <rect key="frame" x="363" y="738" width="74" height="0.0"/>
                                 </variation>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYa-nV-6gO">
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kYa-nV-6gO">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXc-yy-gXf">
@@ -177,7 +177,7 @@
                                     <action selector="plusOneMinute" destination="bDn-6d-Ff0" eventType="touchUpInside" id="BZf-LF-1nx"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dL0-eQ-Ffc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dL0-eQ-Ffc">
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
                                     <rect key="frame" x="332" y="748" width="164" height="33"/>
                                 </variation>
@@ -313,16 +313,6 @@
                                     <action selector="clearBackground" destination="mdG-AS-imG" eventType="touchUpInside" id="MBk-S3-cBc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cd6-IH-du2">
-                                <rect key="frame" x="236" y="403" width="37" height="37"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                <state key="normal" title="Font">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pickFontColor" destination="mdG-AS-imG" eventType="touchUpInside" id="0a3-zD-iuA"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxe-wq-nhp">
                                 <rect key="frame" x="234" y="331" width="39" height="37"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
@@ -331,16 +321,6 @@
                                 </state>
                                 <connections>
                                     <action selector="toggleBoldFont" destination="mdG-AS-imG" eventType="touchUpInside" id="Qhc-FE-ReG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X94-Ma-ZqF">
-                                <rect key="frame" x="47" y="403" width="101" height="37"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                <state key="normal" title="Background">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pickBackgroundColor" destination="mdG-AS-imG" eventType="touchUpInside" id="ZIe-9k-MXw"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.25" minValue="0.10000000000000001" maxValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xVx-XN-fbK">
@@ -371,6 +351,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hCj-bM-3Jn">
+                                <rect key="frame" x="73" y="403" width="175" height="29"/>
+                                <segments>
+                                    <segment title="Font"/>
+                                    <segment title="Background"/>
+                                </segments>
+                                <connections>
+                                    <action selector="fontBackgroundToggle" destination="mdG-AS-imG" eventType="valueChanged" id="dZn-dv-jP4"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -383,6 +373,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="colorPickerBorder" destination="xkh-Yd-4At" id="Aek-hQ-atq"/>
+                        <outlet property="fontBackgroundControl" destination="hCj-bM-3Jn" id="NMP-wt-Lnc"/>
                         <outlet property="fontScaleSlider" destination="xVx-XN-fbK" id="alC-9P-WDJ"/>
                         <outlet property="previewImageView" destination="iOU-9l-Y1j" id="Xpg-zo-CXK"/>
                         <outlet property="previewLabel" destination="bmP-zl-ZhS" id="Nae-E7-2Lp"/>
@@ -391,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNi-Zt-8Gw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="693.75" y="30.633802816901408"/>
+            <point key="canvasLocation" x="693" y="30"/>
         </scene>
         <!--Output Controller-->
         <scene sceneID="pFW-hX-JVs">
