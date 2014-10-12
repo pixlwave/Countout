@@ -54,7 +54,7 @@
 -(IBAction) preferredStatusBarStyle;
 -(IBAction) supportedInterfaceOrientations;
 -(IBAction) viewWillLayoutSubviews;
--(IBAction) viewWillAppear:(id) animated;
+-(IBAction) viewDidLayoutSubviews;
 -(IBAction) updateCountdownLength;
 -(IBAction) updateLengthLabel;
 -(IBAction) start;
@@ -73,7 +73,7 @@
 @property IBOutlet UIImageView * backgroundImageView;
 
 -(IBAction) viewDidLoad;
--(IBAction) viewWillAppear:(id) animated;
+-(IBAction) viewDidLayoutSubviews;
 -(IBAction) updateAppearance;
 
 @end
