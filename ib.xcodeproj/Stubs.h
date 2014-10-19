@@ -21,11 +21,13 @@
 @property IBOutlet UIImageView * previewImageView;
 @property IBOutlet UILabel * previewLabel;
 @property IBOutlet UISlider * fontScaleSlider;
+@property IBOutlet UIView * colorBorder;
 @property IBOutlet UISegmentedControl * fontBackgroundControl;
 @property IBOutlet UIView * colorPickerBorder;
 
 -(IBAction) viewDidLoad;
 -(IBAction) done;
+-(IBAction) reset;
 -(IBAction) chooseBackground;
 -(IBAction) clearBackground;
 -(IBAction) fontScaleChanged;
@@ -80,6 +82,7 @@
 
 @interface Appearance: NSObject
 -(IBAction) initialize;
+-(IBAction) reset;
 
 @end
 

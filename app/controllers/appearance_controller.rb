@@ -6,6 +6,8 @@ class AppearanceController < UIViewController
   outlet :previewLabel, UILabel
 
   outlet :fontScaleSlider, UISlider
+
+  outlet :colorBorder, UIView
   outlet :fontBackgroundControl, UISegmentedControl
   outlet :colorPickerBorder, UIView
 
@@ -16,6 +18,12 @@ class AppearanceController < UIViewController
     @previewLabel.text = "#{(CountdownTimer.sharedClient.length / 60).to_s}:#{(CountdownTimer.sharedClient.length % 60).to_s.rjust(2,'0')}"
 
     @fontScaleSlider.value = @appearance.fontScale
+
+    @colorBorder.backgroundColor = UIColor.clearColor
+    @colorBorder.layer.cornerRadius = 6.0
+    @colorBorder.layer.masksToBounds = true
+    @colorBorder.layer.borderWidth = 1.0
+    @colorBorder.layer.borderColor = UIColor.lightGrayColor.CGColor
 
     @colorPickerBorder.backgroundColor = UIColor.clearColor
     @colorPickerBorder.layer.cornerRadius = 6.0
@@ -40,6 +48,15 @@ class AppearanceController < UIViewController
   def done
 
     presentingViewController.dismissModalViewControllerAnimated(true)
+
+  end
+
+  def reset
+
+    @appearance.reset
+    @fontScaleSlider.value = @appearance.fontScale
+    
+    updateAppearance
 
   end
 

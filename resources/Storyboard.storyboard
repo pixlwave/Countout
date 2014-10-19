@@ -329,6 +329,21 @@
                                     <action selector="fontScaleChanged" destination="mdG-AS-imG" eventType="valueChanged" id="a9K-QJ-0mI"/>
                                 </connections>
                             </slider>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jzr-S9-sm1" userLabel="Color Border">
+                                <rect key="frame" x="24" y="419" width="272" height="145"/>
+                                <color key="backgroundColor" white="0.98999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hCj-bM-3Jn">
+                                <rect key="frame" x="73" y="403" width="175" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <segments>
+                                    <segment title="Font"/>
+                                    <segment title="Background"/>
+                                </segments>
+                                <connections>
+                                    <action selector="fontBackgroundToggle" destination="mdG-AS-imG" eventType="valueChanged" id="dZn-dv-jP4"/>
+                                </connections>
+                            </segmentedControl>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xkh-Yd-4At" userLabel="Color Picker Border">
                                 <rect key="frame" x="47" y="441" width="226" height="107"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -351,20 +366,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hCj-bM-3Jn">
-                                <rect key="frame" x="73" y="403" width="175" height="29"/>
-                                <segments>
-                                    <segment title="Font"/>
-                                    <segment title="Background"/>
-                                </segments>
-                                <connections>
-                                    <action selector="fontBackgroundToggle" destination="mdG-AS-imG" eventType="valueChanged" id="dZn-dv-jP4"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Appearance" id="wjB-9e-Y3E">
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="8zW-4L-YEj">
+                            <connections>
+                                <action selector="reset" destination="mdG-AS-imG" id="uAo-aE-4Os"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="Bmq-Xx-Eft">
                             <connections>
                                 <action selector="done" destination="mdG-AS-imG" id="cLe-Lh-7t9"/>
@@ -372,6 +382,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="colorBorder" destination="Jzr-S9-sm1" id="JGQ-G3-aRw"/>
                         <outlet property="colorPickerBorder" destination="xkh-Yd-4At" id="Aek-hQ-atq"/>
                         <outlet property="fontBackgroundControl" destination="hCj-bM-3Jn" id="NMP-wt-Lnc"/>
                         <outlet property="fontScaleSlider" destination="xVx-XN-fbK" id="alC-9P-WDJ"/>
