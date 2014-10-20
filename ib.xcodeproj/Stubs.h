@@ -20,12 +20,18 @@
 @property IBOutlet UIView * previewView;
 @property IBOutlet UIImageView * previewImageView;
 @property IBOutlet UILabel * previewLabel;
+@property IBOutlet UIView * borderView;
+@property IBOutlet UIView * settingsView;
+@property IBOutlet UIView * fontView;
 @property IBOutlet UISlider * fontScaleSlider;
-@property IBOutlet UIView * colorBorder;
+@property IBOutlet UIButton * fontWeightButton;
+@property IBOutlet UIView * backgroundView;
 @property IBOutlet UISegmentedControl * fontBackgroundControl;
 @property IBOutlet UIView * colorPickerBorder;
 
 -(IBAction) viewDidLoad;
+-(IBAction) viewDidLayoutSubviews;
+-(IBAction) viewDidAppear:(id) animated;
 -(IBAction) done;
 -(IBAction) reset;
 -(IBAction) chooseBackground;

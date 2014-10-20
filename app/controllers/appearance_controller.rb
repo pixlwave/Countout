@@ -5,9 +5,15 @@ class AppearanceController < UIViewController
   outlet :previewImageView, UIImageView
   outlet :previewLabel, UILabel
 
-  outlet :fontScaleSlider, UISlider
+  outlet :borderView, UIView
+  outlet :settingsView, UIView
 
-  outlet :colorBorder, UIView
+  outlet :fontView, UIView
+  outlet :fontScaleSlider, UISlider
+  outlet :fontWeightButton, UIButton
+
+  outlet :backgroundView, UIView
+
   outlet :fontBackgroundControl, UISegmentedControl
   outlet :colorPickerBorder, UIView
 
@@ -17,13 +23,21 @@ class AppearanceController < UIViewController
     @appearance = Appearance.sharedClient
     @previewLabel.text = "#{(CountdownTimer.sharedClient.length / 60).to_s}:#{(CountdownTimer.sharedClient.length % 60).to_s.rjust(2,'0')}"
 
-    @fontScaleSlider.value = @appearance.fontScale
+    @borderView.backgroundColor = UIColor.clearColor
+    @borderView.layer.cornerRadius = 6.0
+    @borderView.layer.masksToBounds = true
+    @borderView.layer.borderWidth = 1.0
+    @borderView.layer.borderColor = UIColor.lightGrayColor.CGColor
 
-    @colorBorder.backgroundColor = UIColor.clearColor
-    @colorBorder.layer.cornerRadius = 6.0
-    @colorBorder.layer.masksToBounds = true
-    @colorBorder.layer.borderWidth = 1.0
-    @colorBorder.layer.borderColor = UIColor.lightGrayColor.CGColor
+    NSBundle.mainBundle.loadNibNamed("FontAppearanceView", owner:self, options:nil)
+    @fontScaleSlider.value = @appearance.fontScale
+    @borderView.addSubview(@fontView)
+    layoutView(@fontView, toMatchView: @settingsView)
+
+    NSBundle.mainBundle.loadNibNamed("BackgroundAppearanceView", owner:self, options:nil)
+    @backgroundView.alpha = 0
+    @borderView.addSubview(@backgroundView)
+    layoutView(@backgroundView, toMatchView: @settingsView)
 
     @colorPickerBorder.backgroundColor = UIColor.clearColor
     @colorPickerBorder.layer.cornerRadius = 6.0
@@ -31,7 +45,7 @@ class AppearanceController < UIViewController
     @colorPickerBorder.layer.borderWidth = 1.0
     @colorPickerBorder.layer.borderColor = UIColor.darkGrayColor.CGColor
 
-    @colorPicker = STColorPicker.alloc.initWithFrame([[0, 0], @colorPickerBorder.frame.size])
+    @colorPicker = STColorPicker.alloc.initWithFrame(@colorPickerBorder.bounds)
     @colorPicker.setColorHasChanged(lambda { |colorPointer, location|
       @appearance.send("#{@pickColorOf}=", colorPointer.to_object)# = color
       updateAppearance
@@ -42,6 +56,22 @@ class AppearanceController < UIViewController
     @pickColorOf = "textColor"
 
     updateAppearance
+
+  end
+
+  def layoutView(view1, toMatchView: view2)
+
+    view1.translatesAutoresizingMaskIntoConstraints = false
+    view1.superview.addConstraint(NSLayoutConstraint.constraintWithItem(view1, attribute: NSLayoutAttributeLeading, relatedBy: NSLayoutRelationEqual, toItem: view2, attribute: NSLayoutAttributeLeading, multiplier: 1, constant: 0))
+    view1.superview.addConstraint(NSLayoutConstraint.constraintWithItem(view1, attribute: NSLayoutAttributeTrailing, relatedBy: NSLayoutRelationEqual, toItem: view2, attribute: NSLayoutAttributeTrailing, multiplier: 1, constant: 0))
+    view1.superview.addConstraint(NSLayoutConstraint.constraintWithItem(view1, attribute: NSLayoutAttributeTop, relatedBy: NSLayoutRelationEqual, toItem: view2, attribute: NSLayoutAttributeTop, multiplier: 1, constant: 0))
+    view1.superview.addConstraint(NSLayoutConstraint.constraintWithItem(view1, attribute: NSLayoutAttributeBottom, relatedBy: NSLayoutRelationEqual, toItem: view2, attribute: NSLayoutAttributeBottom, multiplier: 1, constant: 0))
+
+  end
+
+  def viewDidLayoutSubviews
+
+    @colorPicker.frame = @colorPickerBorder.bounds
 
   end
 
@@ -76,8 +106,6 @@ class AppearanceController < UIViewController
     @appearance.backgroundImage = nil
     updateAppearance
 
-    @fontBackgroundControl.setEnabled(true, forSegmentAtIndex: 1)
-
   end
 
   def fontScaleChanged
@@ -89,10 +117,10 @@ class AppearanceController < UIViewController
 
   def toggleBoldFont
 
-    if @appearance.fontName == "AvenirNext-UltraLight"
-      @appearance.fontName = "AvenirNext-DemiBold"
+    if @appearance.fontWeight == "UltraLight"
+      @appearance.fontWeight = "DemiBold"
     else
-      @appearance.fontName = "AvenirNext-UltraLight"
+      @appearance.fontWeight = "UltraLight"
     end
 
     updateAppearance
@@ -103,8 +131,12 @@ class AppearanceController < UIViewController
 
     if @fontBackgroundControl.selectedSegmentIndex == 0
       @pickColorOf = "textColor"
+      @fontView.alpha = 1
+      @backgroundView.alpha = 0
     else
       @pickColorOf = "backgroundColor"
+      @fontView.alpha = 0
+      @backgroundView.alpha = 1
     end
 
   end
@@ -115,6 +147,12 @@ class AppearanceController < UIViewController
     @previewImageView.image = @appearance.backgroundImage
     @previewLabel.setFont(UIFont.fontWithName(@appearance.fontName, size:(@appearance.fontScale * @previewLabel.frame.size.width)))
     @previewLabel.textColor = @appearance.textColor
+
+    if @appearance.fontWeight == "UltraLight"
+      @fontWeightButton.setTitle("Bold", forState: UIControlStateNormal)
+    else
+      @fontWeightButton.setTitle("Light", forState: UIControlStateNormal)
+    end
 
     presentingViewController.outputVC.updateAppearance if presentingViewController.outputVC
 
@@ -129,10 +167,6 @@ class AppearanceController < UIViewController
 
     @appearance.backgroundImage = image
     updateAppearance
-
-    @fontBackgroundControl.selectedSegmentIndex = 0
-    @fontBackgroundControl.setEnabled(false, forSegmentAtIndex: 1)
-    fontBackgroundToggle
     
     self.dismissViewControllerAnimated(true, completion:nil)
 

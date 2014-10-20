@@ -25,6 +25,8 @@ class CountdownController < UIViewController
     @countdown = CountdownTimer.sharedClient
     @appearance = Appearance.sharedClient
 
+    # loaded view has outlet set in it's xib file
+    # frame is set in layout subviews method
     NSBundle.mainBundle.loadNibNamed("CountdownLengthView", owner:self, options:nil)
     @countdownLengthView.alpha = 0
     self.view.addSubview(@countdownLengthView)

@@ -42,6 +42,12 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    _pickerImageView.frame = self.bounds;
+    _resizedImage = [self resizeImage:_pickerImageView.image width:self.frame.size.width height:self.frame.size.height];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self touchesMoved:touches withEvent:event];

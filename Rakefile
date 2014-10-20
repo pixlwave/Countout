@@ -20,12 +20,11 @@ Motion::Project::App.setup do |app|
 
   app.info_plist['UILaunchStoryboardName'] = 'LaunchScreen'
 
+  app.vendor_project('vendor/STColorPicker', :static, :cflags => '-fobjc-arc')
+  app.resources_dirs << 'vendor/STColorPicker/resources'
+
   app.development do
     app.provisioning_profile = '/Users/Douglas/Documents/RubyMotion/Certificates/Countoutdevelopment.mobileprovision'
   end
 
-  app.pods do
-    pod 'STColorPicker'
-    # pod 'NKOColorPickerView'
-  end
 end
