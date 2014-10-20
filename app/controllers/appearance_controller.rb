@@ -154,6 +154,7 @@ class AppearanceController < UIViewController
       @fontWeightButton.setTitle("Light", forState: UIControlStateNormal)
     end
 
+    presentingViewController.updateAppearance if UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad
     presentingViewController.outputVC.updateAppearance if presentingViewController.outputVC
 
   end

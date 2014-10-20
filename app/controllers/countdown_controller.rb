@@ -75,6 +75,12 @@ class CountdownController < UIViewController
   def viewDidLayoutSubviews
     super
 
+    updateAppearance
+
+  end
+
+  def updateAppearance
+
     @previewView.backgroundColor = @appearance.backgroundColor
     @previewImageView.image = @appearance.backgroundImage
     @previewLabel.setFont(UIFont.fontWithName(@appearance.fontName, size:(@appearance.fontScale * @previewLabel.frame.size.width)))

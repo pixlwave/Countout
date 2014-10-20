@@ -376,6 +376,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="520"/>
                     <connections>
                         <outlet property="borderView" destination="Jzr-S9-sm1" id="Xms-KA-cX4"/>
                         <outlet property="colorPickerBorder" destination="xkh-Yd-4At" id="Aek-hQ-atq"/>
