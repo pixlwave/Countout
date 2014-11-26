@@ -24,7 +24,7 @@ Motion::Project::App.setup do |app|
   app.resources_dirs << 'vendor/STColorPicker/resources'
 
   app.development do
-    app.provisioning_profile = '/Users/Douglas/Documents/RubyMotion/Certificates/Countoutdevelopment.mobileprovision'
+    app.provisioning_profile = '/Users/Douglas/Documents/RubyMotion/Certificates/Countout_development.mobileprovision'
   end
 
 end
