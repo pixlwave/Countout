@@ -1,5 +1,7 @@
 class Appearance
 
+  IAP = PM::IAP::Product.new("uk.pixlwave.Countout.appearance")
+  
   attr_accessor :backgroundColor, :backgroundImage, :fontName, :fontScale, :fontWeight, :textColor
 
   def self.sharedClient

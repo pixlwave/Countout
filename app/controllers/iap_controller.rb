@@ -7,8 +7,7 @@ class IAPController < UIViewController
 
   def viewDidLoad
 
-    @appearanceProduct = PM::IAP::Product.new("uk.pixlwave.Countout.appearance")
-    @appearanceProduct.retrieve do |product, error|
+    Appearance::IAP.retrieve do |product, error|
       if product
         @titleLabel.text = product[:title]
         @descriptionLabel.text = product[:description]
@@ -28,7 +27,7 @@ class IAPController < UIViewController
 
   def purchase
 
-    @appearanceProduct.purchase do |status, transaction|
+    Appearance::IAP.purchase do |status, transaction|
       case status
       when :in_progress
         puts "In progress"
@@ -48,7 +47,7 @@ class IAPController < UIViewController
 
   def restore
 
-    @appearanceProduct.restore do |status, product|
+    Appearance::IAP.restore do |status, product|
       if status == :restored
         puts "Restored"
         Turnkey.archive(true, "Appearance")
