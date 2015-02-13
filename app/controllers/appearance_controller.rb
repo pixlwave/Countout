@@ -72,6 +72,7 @@ class AppearanceController < UIViewController
   def viewDidLayoutSubviews
 
     @colorPicker.frame = @colorPickerBorder.bounds
+    @colorPicker.setColor(@appearance.send(@pickColorOf))
 
   end
 
@@ -131,10 +132,12 @@ class AppearanceController < UIViewController
 
     if @fontBackgroundControl.selectedSegmentIndex == 0
       @pickColorOf = "textColor"
+      @colorPicker.setColor(@appearance.textColor)
       @fontView.alpha = 1
       @backgroundView.alpha = 0
     else
       @pickColorOf = "backgroundColor"
+      @colorPicker.setColor(@appearance.backgroundColor)
       @fontView.alpha = 0
       @backgroundView.alpha = 1
     end
