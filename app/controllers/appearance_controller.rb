@@ -78,6 +78,7 @@ class AppearanceController < UIViewController
 
   def done
 
+    @appearance.save
     presentingViewController.dismissModalViewControllerAnimated(true)
 
   end
