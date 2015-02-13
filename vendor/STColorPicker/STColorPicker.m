@@ -48,6 +48,29 @@
     _resizedImage = [self resizeImage:_pickerImageView.image width:self.frame.size.width height:self.frame.size.height];
 }
 
+- (void)setColor:(UIColor *)color
+{
+    CGFloat x, y, hue, saturation, brightness, alpha;
+    
+    if ([color getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha]) {
+        
+        // hue is mapped right to left on the colormap image
+        x = ((1 - hue) * self.frame.size.width) - 1;
+        
+        // approximation of brightness/saturation values on the colormap image
+        if (brightness == 1.0) {
+            y = (saturation * 0.875 * self.frame.size.height) - 1; 
+        } else {
+            y = self.frame.size.height - (brightness * 0.2875 * self.frame.size.height);
+        }
+
+        CGPoint position = CGPointMake(x, y);
+        _glass.center = position;
+        _glass.color = color;
+        
+    }
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self touchesMoved:touches withEvent:event];
