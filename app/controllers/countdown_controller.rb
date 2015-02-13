@@ -79,6 +79,20 @@ class CountdownController < UIViewController
 
   end
 
+  def shouldPerformSegueWithIdentifier(identifier, sender: sender)
+
+    if identifier == "AppearanceSegue"
+      if Turnkey.unarchive("Appearance")
+        true
+      else
+        iap_controller = storyboard.instantiateViewControllerWithIdentifier("IAPNavigationController")
+        self.presentModalViewController(iap_controller, animated: true)
+        false
+      end
+    end
+
+  end
+
   def updateAppearance
 
     @previewView.backgroundColor = @appearance.backgroundColor
