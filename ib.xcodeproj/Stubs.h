@@ -101,6 +101,7 @@
 
 @interface Appearance: NSObject
 -(IBAction) initialize;
+-(IBAction) save;
 -(IBAction) reset;
 -(IBAction) fontName;
 

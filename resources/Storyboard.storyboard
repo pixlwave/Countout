@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bDn-6d-Ff0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -421,31 +420,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customise Appearance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hta-zm-fbi">
-                                <rect key="frame" x="193" y="104" width="214" height="28"/>
+                                <rect key="frame" x="16" y="104" width="214" height="28"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDO-6Z-zyr">
-                                <rect key="frame" x="300" y="232" width="82" height="25"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fq-De-1TS">
-                                <rect key="frame" x="251" y="233" width="41" height="23"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some blurb here about how wonderful it is to have the appearance options, what they do etc etc etc" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXg-Up-5UG">
-                                <rect key="frame" x="16" y="152" width="568" height="50"/>
+                                <rect key="frame" x="16" y="175" width="568" height="50"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGr-sp-edR">
-                                <rect key="frame" x="211" y="354" width="178" height="33"/>
+                                <rect key="frame" x="211" y="559" width="178" height="33"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <state key="normal" title="Restore Previous Purchase">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -454,46 +441,44 @@
                                     <action selector="restore" destination="Y1i-Yt-NfC" eventType="touchUpInside" id="VYa-Fl-DRZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcD-AC-4EL">
-                                <rect key="frame" x="0.0" y="-22" width="45" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DC4-Jm-RVp">
-                                <rect key="frame" x="263" y="297" width="75" height="37"/>
+                                <rect key="frame" x="270" y="100" width="32" height="37"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                <state key="normal" title="Purchase">
+                                <state key="normal" title="Buy">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="purchase" destination="Y1i-Yt-NfC" eventType="touchUpInside" id="Tn7-Ya-Wlt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDO-6Z-zyr">
+                                <rect key="frame" x="16" y="140" width="64" height="20"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" image="appearance-iap" translatesAutoresizingMaskIntoConstraints="NO" id="znh-Mm-QG8">
+                                <rect key="frame" x="16" y="233" width="568" height="318"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IDO-6Z-zyr" firstAttribute="leading" secondItem="2Fq-De-1TS" secondAttribute="trailing" constant="8" symbolic="YES" id="0E7-fy-vWL"/>
                             <constraint firstAttribute="centerX" secondItem="qGr-sp-edR" secondAttribute="centerX" id="0VB-cr-Vfd"/>
-                            <constraint firstItem="2Fq-De-1TS" firstAttribute="centerY" secondItem="IDO-6Z-zyr" secondAttribute="centerY" id="4fc-8I-14N"/>
-                            <constraint firstItem="qGr-sp-edR" firstAttribute="top" secondItem="DC4-Jm-RVp" secondAttribute="bottom" constant="20" id="5xe-nv-o22"/>
+                            <constraint firstItem="IDO-6Z-zyr" firstAttribute="leading" secondItem="6O9-UH-0Oh" secondAttribute="leadingMargin" id="3cx-Ms-7ot"/>
+                            <constraint firstItem="DC4-Jm-RVp" firstAttribute="leading" secondItem="hta-zm-fbi" secondAttribute="trailing" constant="40" id="B3N-bO-Yc8"/>
+                            <constraint firstItem="hta-zm-fbi" firstAttribute="leading" secondItem="6O9-UH-0Oh" secondAttribute="leadingMargin" id="Glt-d1-cYz"/>
+                            <constraint firstItem="hta-zm-fbi" firstAttribute="baseline" secondItem="DC4-Jm-RVp" secondAttribute="baseline" id="MYK-7A-ptQ"/>
                             <constraint firstItem="wXg-Up-5UG" firstAttribute="leading" secondItem="6O9-UH-0Oh" secondAttribute="leadingMargin" id="NU2-Z4-Mvm"/>
-                            <constraint firstAttribute="centerX" secondItem="hta-zm-fbi" secondAttribute="centerX" id="WrM-qz-ihi"/>
-                            <constraint firstItem="yVB-h9-rMa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qGr-sp-edR" secondAttribute="bottom" constant="8" symbolic="YES" id="YZf-tS-eWV"/>
+                            <constraint firstItem="znh-Mm-QG8" firstAttribute="top" secondItem="wXg-Up-5UG" secondAttribute="bottom" constant="8" id="S8c-3V-cqm"/>
+                            <constraint firstItem="yVB-h9-rMa" firstAttribute="top" secondItem="qGr-sp-edR" secondAttribute="bottom" constant="8" symbolic="YES" id="YZf-tS-eWV"/>
                             <constraint firstItem="hta-zm-fbi" firstAttribute="top" secondItem="gyk-zU-jJc" secondAttribute="bottom" constant="40" id="caN-UD-EkC"/>
-                            <constraint firstAttribute="centerX" secondItem="DC4-Jm-RVp" secondAttribute="centerX" id="lik-N7-7Y1"/>
-                            <constraint firstItem="2Fq-De-1TS" firstAttribute="baseline" secondItem="IDO-6Z-zyr" secondAttribute="baseline" id="oFS-pe-Q2v"/>
-                            <constraint firstItem="wXg-Up-5UG" firstAttribute="top" secondItem="hta-zm-fbi" secondAttribute="bottom" constant="20" id="oZP-pl-1P2"/>
-                            <constraint firstAttribute="centerX" secondItem="IDO-6Z-zyr" secondAttribute="leading" id="pK4-Rp-PV4"/>
+                            <constraint firstItem="znh-Mm-QG8" firstAttribute="trailing" secondItem="6O9-UH-0Oh" secondAttribute="trailingMargin" id="j3c-S0-prW"/>
+                            <constraint firstItem="wXg-Up-5UG" firstAttribute="top" secondItem="IDO-6Z-zyr" secondAttribute="bottom" constant="15" id="lMZ-Me-4yF"/>
+                            <constraint firstItem="znh-Mm-QG8" firstAttribute="leading" secondItem="6O9-UH-0Oh" secondAttribute="leadingMargin" id="pWn-b5-aph"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wXg-Up-5UG" secondAttribute="trailing" id="rNJ-k1-NcZ"/>
-                            <constraint firstItem="DC4-Jm-RVp" firstAttribute="top" secondItem="IDO-6Z-zyr" secondAttribute="bottom" constant="40" id="xxA-Xt-n0a"/>
-                            <constraint firstItem="IDO-6Z-zyr" firstAttribute="top" secondItem="wXg-Up-5UG" secondAttribute="bottom" constant="30" id="yJG-TF-Wdr"/>
+                            <constraint firstItem="IDO-6Z-zyr" firstAttribute="top" secondItem="hta-zm-fbi" secondAttribute="bottom" constant="8" symbolic="YES" id="u7s-da-Qlf"/>
+                            <constraint firstItem="qGr-sp-edR" firstAttribute="top" secondItem="znh-Mm-QG8" secondAttribute="bottom" constant="8" id="xag-xx-WGM"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="mcD-AC-4EL"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Unlock" id="Dah-qX-xzU">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="hha-En-eg3">
@@ -563,6 +548,7 @@
     </scenes>
     <resources>
         <image name="appearance" width="24" height="24"/>
+        <image name="appearance-iap" width="1051" height="1502"/>
         <image name="countdown_length" width="24" height="24"/>
         <image name="logo" width="164" height="44"/>
         <image name="plus_one" width="24" height="24"/>
