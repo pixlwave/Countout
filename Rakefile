@@ -13,8 +13,9 @@ Motion::Project::App.setup do |app|
   app.name = 'Countout'
   app.icons = ['Icon@2x.png', 'Icon-iPad@2x']
   app.identifier = 'uk.pixlwave.Countout'
-  app.device_family = [:iphone, :ipad]
+  app.device_family = [:iphone]
   app.status_bar_style = :light_content
+  app.deployment_target = "7.0"
   app.interface_orientations = [:portrait, :portrait_upside_down]
   # app.interface_orientations = [:portrait, :landscape_left, :landscape_right, :portrait_upside_down]
 
