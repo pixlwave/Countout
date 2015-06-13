@@ -4,4 +4,3 @@ gem 'rake'
 gem 'ib'
 gem 'sugarcube', :require => ['sugarcube-numbers', 'sugarcube-nsdate', 'sugarcube-animations']
 gem 'turnkey'
-gem 'ProMotion-iap'

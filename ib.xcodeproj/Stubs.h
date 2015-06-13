@@ -4,7 +4,6 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
-#import <StoreKit/StoreKit.h>
 
 @interface AppDelegate: UIResponder <UIApplicationDelegate>
 -(IBAction) updateOutput;
@@ -72,19 +71,6 @@
 -(IBAction) editCountdownLength;
 -(IBAction) finishCountdownLength;
 -(IBAction) countdownHasFinished;
-
-@end
-
-@interface IAPController: UIViewController
-
-@property IBOutlet UILabel * titleLabel;
-@property IBOutlet UILabel * descriptionLabel;
-@property IBOutlet UILabel * priceLabel;
-
--(IBAction) viewDidLoad;
--(IBAction) done;
--(IBAction) purchase;
--(IBAction) restore;
 
 @end
 

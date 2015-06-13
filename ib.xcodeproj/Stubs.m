@@ -12,9 +12,6 @@
 @implementation CountdownController
 @end
 
-@implementation IAPController
-@end
-
 @implementation OutputController
 @end
 
