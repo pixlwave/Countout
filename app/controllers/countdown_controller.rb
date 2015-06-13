@@ -53,11 +53,7 @@ class CountdownController < UIViewController
 
   def supportedInterfaceOrientations
 
-    if UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone
-      UIInterfaceOrientationMaskPortrait
-    else
-      UIInterfaceOrientationMaskAll
-    end
+    UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown
 
   end
 
