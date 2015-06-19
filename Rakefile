@@ -14,7 +14,7 @@ Motion::Project::App.setup do |app|
   app.identifier = 'uk.pixlwave.Countout'
   app.device_family = [:iphone]
   app.status_bar_style = :light_content
-  app.deployment_target = "7.0"
+  app.deployment_target = "8.0"
   app.interface_orientations = [:portrait, :portrait_upside_down]
   # app.interface_orientations = [:portrait, :landscape_left, :landscape_right, :portrait_upside_down]
 
@@ -25,6 +25,10 @@ Motion::Project::App.setup do |app|
 
   app.development do
     app.provisioning_profile = '/Users/Douglas/Documents/RubyMotion/Certificates/Countout_development.mobileprovision'
+  end
+
+  app.release do
+    app.provisioning_profile = '/Users/Douglas/Documents/RubyMotion/Certificates/Countout.mobileprovision'
   end
 
 end
