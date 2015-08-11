@@ -71,8 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: CountdownTimerDelegate {
     func countdownHasChanged() {
         let remainingString = String(countdown.remaining / 60) + ":" + String(format: "%02d", (countdown.remaining % 60))
-        outputVC?.timeLabel?.text = remainingString
-        countdownVC?.previewLabel?.text = remainingString
+        outputVC?.countdownView?.text = remainingString
+        countdownVC?.countdownView?.text = remainingString
     }
     
     func countdownHasFinished() {

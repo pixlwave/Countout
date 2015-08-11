@@ -12,9 +12,7 @@ class AppearanceController: UIViewController {
         case Background
     }
 
-    @IBOutlet weak var previewView: UIView!
-    @IBOutlet weak var previewImageView: UIImageView!
-    @IBOutlet weak var previewLabel: UILabel!
+    @IBOutlet weak var countdownView: CountdownView!
     
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var settingsView: UIView!
@@ -31,7 +29,7 @@ class AppearanceController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        previewLabel.text = String(CountdownTimer.sharedClient.length / 60) + ":" + String(format: "%02d", (CountdownTimer.sharedClient.length % 60))
+        countdownView.text = String(CountdownTimer.sharedClient.length / 60) + ":" + String(format: "%02d", (CountdownTimer.sharedClient.length % 60))
         
         borderView.backgroundColor = UIColor.clearColor()
         borderView.layer.cornerRadius = 6.0
@@ -42,12 +40,12 @@ class AppearanceController: UIViewController {
         NSBundle.mainBundle().loadNibNamed("FontAppearanceView", owner: self, options: nil)
         fontScaleSlider.value = Float(appearance.fontScale)
         borderView.addSubview(fontView)
-        layoutView(fontView, toMatchView: settingsView)
+        fontView.constrainToMatchView(settingsView)
         
         NSBundle.mainBundle().loadNibNamed("BackgroundAppearanceView", owner: self, options: nil)
         backgroundView.alpha = 0
         borderView.addSubview(backgroundView)
-        layoutView(backgroundView, toMatchView: settingsView)
+        backgroundView.constrainToMatchView(settingsView)
         
         colorPickerBorder.backgroundColor = UIColor.clearColor()
         colorPickerBorder.layer.cornerRadius = 6.0
@@ -64,14 +62,6 @@ class AppearanceController: UIViewController {
         colorPickerBorder.addSubview(colorPicker)
         
         updateAppearance()
-    }
-    
-    func layoutView(view1: UIView, toMatchView view2: UIView) {
-        view1.setTranslatesAutoresizingMaskIntoConstraints(false)
-        view1.superview?.addConstraint(NSLayoutConstraint(item: view1, attribute: .Leading, relatedBy: .Equal, toItem: view2, attribute: .Leading, multiplier: 1, constant: 0))
-        view1.superview?.addConstraint(NSLayoutConstraint(item: view1, attribute: .Trailing, relatedBy: .Equal, toItem: view2, attribute: .Trailing, multiplier: 1, constant: 0))
-        view1.superview?.addConstraint(NSLayoutConstraint(item: view1, attribute: .Top, relatedBy: .Equal, toItem: view2, attribute: .Top, multiplier: 1, constant: 0))
-        view1.superview?.addConstraint(NSLayoutConstraint(item: view1, attribute: .Bottom, relatedBy: .Equal, toItem: view2, attribute: .Bottom, multiplier: 1, constant: 0))
     }
     
     override func viewDidLayoutSubviews() {
@@ -129,10 +119,10 @@ class AppearanceController: UIViewController {
     }
     
     func updateAppearance() {
-        previewView.backgroundColor = appearance.backgroundColor
-        previewImageView.image = appearance.backgroundImage
-        previewLabel.font = UIFont(name: appearance.fullFontName(), size: appearance.fontScale * previewLabel.frame.width)
-        previewLabel.textColor = appearance.textColor
+        countdownView.backgroundColor = appearance.backgroundColor
+        countdownView.backgroundImage = appearance.backgroundImage
+        countdownView.setFont(name: appearance.fontName, size: appearance.fontScale)
+        countdownView.textColor = appearance.textColor
         
         fontWeightButton.setTitle(appearance.fontWeight == "UltraLight" ? "Bold" : "Light", forState: .Normal)
         

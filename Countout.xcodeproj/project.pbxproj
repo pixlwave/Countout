@@ -15,6 +15,7 @@
 		A50FF8AE1B70D5E7007834FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50FF8A91B70D5E7007834FE /* LaunchScreen.storyboard */; };
 		A50FF8AF1B70D5E7007834FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50FF8AA1B70D5E7007834FE /* Main.storyboard */; };
 		A54FDBFA1B76903F008CECFA /* Extends.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FDBF91B76903F008CECFA /* Extends.swift */; };
+		A55FD61D1B78DA58000C6A4F /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55FD61C1B78DA58000C6A4F /* CountdownView.swift */; };
 		A59AA5711B70D80F007B3856 /* CountdownController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AA5701B70D80F007B3856 /* CountdownController.swift */; };
 		A59AA5731B70D81A007B3856 /* AppearanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AA5721B70D81A007B3856 /* AppearanceController.swift */; };
 		A59AA5751B70D828007B3856 /* OutputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AA5741B70D828007B3856 /* OutputController.swift */; };
@@ -40,6 +41,7 @@
 		A50FF8A91B70D5E7007834FE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A50FF8AA1B70D5E7007834FE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A54FDBF91B76903F008CECFA /* Extends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extends.swift; sourceTree = "<group>"; };
+		A55FD61C1B78DA58000C6A4F /* CountdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		A59AA5701B70D80F007B3856 /* CountdownController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownController.swift; sourceTree = "<group>"; };
 		A59AA5721B70D81A007B3856 /* AppearanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceController.swift; sourceTree = "<group>"; };
 		A59AA5741B70D828007B3856 /* OutputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A55FD61B1B78DA41000C6A4F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A55FD61C1B78DA58000C6A4F /* CountdownView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		A59AA56C1B70D796007B3856 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +133,7 @@
 			children = (
 				A59AA56E1B70D7C1007B3856 /* Controllers */,
 				A59AA56F1B70D7C9007B3856 /* Models */,
+				A55FD61B1B78DA41000C6A4F /* Views */,
 				A50FF8861B70D4CE007834FE /* AppDelegate.swift */,
 				A54FDBF91B76903F008CECFA /* Extends.swift */,
 			);
@@ -256,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A55FD61D1B78DA58000C6A4F /* CountdownView.swift in Sources */,
 				A59AA5771B70D83A007B3856 /* Appearance.swift in Sources */,
 				A59AA5791B70D840007B3856 /* CountdownTimer.swift in Sources */,
 				A5B629F21B762435009996D0 /* STColorPicker.m in Sources */,

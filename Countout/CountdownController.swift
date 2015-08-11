@@ -14,9 +14,7 @@ class CountdownController: UIViewController {
     var countdownMinutes = 5
     var countdownSeconds = 0
     
-    @IBOutlet weak var previewView: UIView!
-    @IBOutlet weak var previewImageView: UIImageView!
-    @IBOutlet weak var previewLabel: UILabel!
+    @IBOutlet weak var countdownView: CountdownView!
     @IBOutlet weak var outputStatusLabel: UILabel!
     @IBOutlet weak var lengthLabel: UILabel!
     
@@ -37,14 +35,18 @@ class CountdownController: UIViewController {
         // loaded view has outlet set in the xib
         // frame is set in layout subviews method
         NSBundle.mainBundle().loadNibNamed("CountdownLengthView", owner: self, options: nil)
-        countdownLengthView.alpha = 0
+        countdownLengthView.alpha = 0.0
         view.addSubview(countdownLengthView)
         
         updateCountdownLength()
-        updateOutputStatus()
         
         minutesTextField.delegate = self
         secondsTextField.delegate = self
+        
+        // calling updateOutputStatus results in a fade out on appear
+        outputStatusLabel.alpha = outputExists ? 0.0 : 1.0
+        
+        updateAppearance()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -63,23 +65,17 @@ class CountdownController: UIViewController {
         super.viewWillLayoutSubviews()
         
         if UIScreen.mainScreen().bounds.height < 568 {
-            countdownLengthView.frame = CGRect(x: 0, y: previewView.frame.maxY - 36, width: view.frame.width, height: view.frame.height - previewView.frame.maxY - 180)
+            countdownLengthView.frame = CGRect(x: 0, y: countdownView.frame.maxY - 36, width: view.frame.width, height: view.frame.height - countdownView.frame.maxY - 180)
         } else {
-            countdownLengthView.frame = CGRect(x: 0, y: previewView.frame.maxY, width: view.frame.width, height: view.frame.height - previewView.frame.maxY - 216)
+            countdownLengthView.frame = CGRect(x: 0, y: countdownView.frame.maxY, width: view.frame.width, height: view.frame.height - countdownView.frame.maxY - 216)
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        updateAppearance()
-    }
-    
     func updateAppearance() {
-        previewView.backgroundColor = appearance.backgroundColor
-        previewImageView.image = appearance.backgroundImage
-        previewLabel.font = UIFont(name: appearance.fullFontName(), size: appearance.fontScale * previewLabel.frame.width)
-        previewLabel.textColor = appearance.textColor
+        countdownView.backgroundColor = appearance.backgroundColor
+        countdownView.backgroundImage = appearance.backgroundImage
+        countdownView.setFont(name: appearance.fontName, size: appearance.fontScale)
+        countdownView.textColor = appearance.textColor
     }
     
     func updateCountdownLength() {

@@ -3,19 +3,18 @@ import UIKit
 class OutputController: UIViewController {
     var appearance = Appearance.sharedClient
     
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var countdownView: CountdownView!
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         updateAppearance()
     }
     
     func updateAppearance() {
-        self.view.backgroundColor = appearance.backgroundColor
-        backgroundImageView.image = appearance.backgroundImage
-        timeLabel.font = UIFont(name: appearance.fullFontName(), size: appearance.fontScale * self.view.frame.width)
-        timeLabel.textColor = appearance.textColor
+        countdownView.backgroundColor = appearance.backgroundColor
+        countdownView.backgroundImage = appearance.backgroundImage
+        countdownView.setFont(name: appearance.fontName, size: appearance.fontScale)
+        countdownView.textColor = appearance.textColor
     }
 }
