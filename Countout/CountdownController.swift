@@ -15,6 +15,7 @@ class CountdownController: UIViewController {
     var countdownSeconds = 0
     
     @IBOutlet weak var countdownView: CountdownView!
+    @IBOutlet weak var countdownViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var outputStatusLabel: UILabel!
     @IBOutlet weak var lengthLabel: UILabel!
     
@@ -50,7 +51,7 @@ class CountdownController: UIViewController {
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Phone {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
             return .LightContent
         } else {
             return .Default
@@ -58,7 +59,22 @@ class CountdownController: UIViewController {
     }
     
     override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue) | Int(UIInterfaceOrientationMask.PortraitUpsideDown.rawValue)
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            return Int(UIInterfaceOrientationMask.Portrait.rawValue) | Int(UIInterfaceOrientationMask.PortraitUpsideDown.rawValue)
+        } else {
+            return Int(UIInterfaceOrientationMask.All.rawValue)
+        }
+    }
+    
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            switch toInterfaceOrientation {
+            case .LandscapeLeft, .LandscapeRight:
+                countdownViewWidthConstraint.constant = 600
+            default:
+                countdownViewWidthConstraint.constant = 688
+            }
+        }
     }
     
     override func viewWillLayoutSubviews() {

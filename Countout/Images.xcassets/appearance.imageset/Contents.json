@@ -1,8 +1,12 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "filename" : "appearance.pdf"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "appearance-iPad.pdf"
     }
   ],
   "info" : {

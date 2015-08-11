@@ -1,8 +1,12 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "filename" : "countdown_length.pdf"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "countdown_length-iPad.pdf"
     }
   ],
   "info" : {
