@@ -11,6 +11,11 @@ class OutputController: UIViewController {
         updateAppearance()
     }
     
+    // prevent external screen from appearing rotated
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
+    
     func updateAppearance() {
         countdownView.backgroundColor = appearance.backgroundColor
         countdownView.backgroundImage = appearance.backgroundImage
