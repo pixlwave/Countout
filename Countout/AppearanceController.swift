@@ -70,6 +70,12 @@ class AppearanceController: UIViewController {
     }
     
     @IBAction func done() {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            if let countdownController = presentingViewController as? CountdownController {
+                countdownController.updateAppearance()
+            }
+        }
+        
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
