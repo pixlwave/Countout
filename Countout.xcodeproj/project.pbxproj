@@ -28,6 +28,8 @@
 		A5B629F21B762435009996D0 /* STColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B629EB1B762435009996D0 /* STColorPicker.m */; };
 		A5B629F31B762435009996D0 /* STGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B629ED1B762435009996D0 /* STGlass.m */; };
 		A5B629F71B7638D9009996D0 /* SwiftyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B629F61B7638D9009996D0 /* SwiftyUserDefaults.swift */; };
+		A5D957EF1B7B705D009CCC62 /* CountdownLengthController-iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D957EE1B7B705D009CCC62 /* CountdownLengthController-iPad.swift */; };
+		A5D957F11B7BE965009CCC62 /* KeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D957F01B7BE965009CCC62 /* KeypadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		A5B629ED1B762435009996D0 /* STGlass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGlass.m; sourceTree = "<group>"; };
 		A5B629F41B76245C009996D0 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		A5B629F61B7638D9009996D0 /* SwiftyUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaults.swift; sourceTree = "<group>"; };
+		A5D957EE1B7B705D009CCC62 /* CountdownLengthController-iPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CountdownLengthController-iPad.swift"; sourceTree = "<group>"; };
+		A5D957F01B7BE965009CCC62 /* KeypadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeypadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				A55FD61C1B78DA58000C6A4F /* CountdownView.swift */,
+				A5D957F01B7BE965009CCC62 /* KeypadView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 				A59AA5701B70D80F007B3856 /* CountdownController.swift */,
 				A59AA5741B70D828007B3856 /* OutputController.swift */,
 				A59AA5721B70D81A007B3856 /* AppearanceController.swift */,
+				A5D957EE1B7B705D009CCC62 /* CountdownLengthController-iPad.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -268,6 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A55FD61D1B78DA58000C6A4F /* CountdownView.swift in Sources */,
+				A5D957F11B7BE965009CCC62 /* KeypadView.swift in Sources */,
+				A5D957EF1B7B705D009CCC62 /* CountdownLengthController-iPad.swift in Sources */,
 				A59AA5771B70D83A007B3856 /* Appearance.swift in Sources */,
 				A59AA5791B70D840007B3856 /* CountdownTimer.swift in Sources */,
 				A5B629F21B762435009996D0 /* STColorPicker.m in Sources */,

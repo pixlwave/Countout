@@ -44,6 +44,13 @@ class CountdownController: UIViewController {
         minutesTextField.delegate = self
         secondsTextField.delegate = self
         
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            let orientation = UIDevice.currentDevice().orientation
+            if orientation == .LandscapeLeft || orientation == .LandscapeRight {
+                countdownViewWidthConstraint.constant = 600
+            }
+        }
+        
         // calling updateOutputStatus results in a fade out on appear
         outputStatusLabel.alpha = outputExists ? 0.0 : 1.0
         
@@ -67,14 +74,7 @@ class CountdownController: UIViewController {
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            switch toInterfaceOrientation {
-            case .LandscapeLeft, .LandscapeRight:
-                countdownViewWidthConstraint.constant = 600
-            default:
-                countdownViewWidthConstraint.constant = 688
-            }
-        }
+
     }
     
     override func viewWillLayoutSubviews() {
@@ -85,6 +85,26 @@ class CountdownController: UIViewController {
         } else {
             countdownLengthView.frame = CGRect(x: 0, y: countdownView.frame.maxY, width: view.frame.width, height: view.frame.height - countdownView.frame.maxY - 216)
         }
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            switch UIDevice.currentDevice().orientation {
+            case .LandscapeLeft, .LandscapeRight:
+                countdownViewWidthConstraint.constant = 600
+            default:
+                countdownViewWidthConstraint.constant = 688
+            }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "CountdownLength-iPad" {
+            if let navC = segue.destinationViewController as? UINavigationController, lengthVC = navC.visibleViewController as? CountdownLengthController {
+                lengthVC.countdownMinutes = countdownMinutes
+                lengthVC.countdownSeconds = countdownSeconds
+                lengthVC.delegate = self
+            }
+        }
+            
     }
     
     func updateAppearance() {
@@ -152,8 +172,12 @@ class CountdownController: UIViewController {
     }
     
     @IBAction func editCountdownLength() {
-        countdownLengthView.fadeIn()
-        minutesTextField.becomeFirstResponder()
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            countdownLengthView.fadeIn()
+            minutesTextField.becomeFirstResponder()
+        } else {
+            performSegueWithIdentifier("CountdownLength-iPad", sender: self)
+        }
     }
     
     func finishCountdownLength() {
