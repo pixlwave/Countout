@@ -16,6 +16,8 @@ class CountdownController: UIViewController {
     
     @IBOutlet weak var countdownView: CountdownView!
     @IBOutlet weak var countdownViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet var countdownViewPortraintConstraints: [NSLayoutConstraint]!
+    @IBOutlet var countdownViewLandscapeConstraints: [NSLayoutConstraint]!
     @IBOutlet weak var outputStatusLabel: UILabel!
     @IBOutlet weak var lengthLabel: UILabel!
     
@@ -45,10 +47,7 @@ class CountdownController: UIViewController {
         secondsTextField.delegate = self
         
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            let orientation = UIDevice.currentDevice().orientation
-            if orientation == .LandscapeLeft || orientation == .LandscapeRight {
-                countdownViewWidthConstraint.constant = 600
-            }
+            layoutSubviewsPad()
         }
         
         // calling updateOutputStatus results in a fade out on appear
@@ -87,12 +86,26 @@ class CountdownController: UIViewController {
         }
         
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            switch UIDevice.currentDevice().orientation {
-            case .LandscapeLeft, .LandscapeRight:
-                countdownViewWidthConstraint.constant = 600
-            default:
-                countdownViewWidthConstraint.constant = 688
-            }
+            layoutSubviewsPad()
+        }
+    }
+    
+    func layoutSubviewsPad() {
+        switch UIDevice.currentDevice().orientation {
+        case .LandscapeLeft, .LandscapeRight:
+            countdownViewWidthConstraint.constant = 600
+            setConstraints(countdownViewPortraintConstraints, enabled: false)
+            setConstraints(countdownViewLandscapeConstraints, enabled: true)
+        default:
+            countdownViewWidthConstraint.constant = 688
+            setConstraints(countdownViewLandscapeConstraints, enabled: false)
+            setConstraints(countdownViewPortraintConstraints, enabled: true)
+        }
+    }
+    
+    func setConstraints(constraints: [NSLayoutConstraint]!, enabled: Bool) {
+        for constraint in constraints {
+            constraint.active = enabled
         }
     }
     
