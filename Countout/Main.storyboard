@@ -34,7 +34,7 @@
                                 </variation>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display not connected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pnk-sd-jny">
-                                <rect key="frame" x="397" y="339" width="123" height="17"/>
+                                <rect key="frame" x="397" y="339" width="123" height="16.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <color key="textColor" red="0.98594826459999996" green="0.0" blue="0.026950567960000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -42,14 +42,14 @@
                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                 </variation>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7RM-j6-D38" userLabel="Controls View">
-                                <rect key="frame" x="16" y="357" width="568" height="243"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7RM-j6-D38" userLabel="Controls View">
+                                <rect key="frame" x="16" y="358" width="568" height="242"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7m-Cl-pIV" userLabel="Length Container">
                                         <rect key="frame" x="0.0" y="18" width="568" height="51"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuM-AL-tRd">
-                                                <rect key="frame" x="246" y="0.0" width="76" height="24"/>
+                                                <rect key="frame" x="246" y="0.0" width="76" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer Length:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mL5-MK-ziy">
-                                                <rect key="frame" x="164" y="5" width="74" height="17"/>
+                                                <rect key="frame" x="164" y="5" width="74" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="12"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -69,8 +69,9 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="GuM-AL-tRd" firstAttribute="leading" secondItem="mL5-MK-ziy" secondAttribute="trailing" constant="8" id="04I-Qv-R2l"/>
+                                            <constraint firstItem="mL5-MK-ziy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O7m-Cl-pIV" secondAttribute="leading" id="Pqz-FS-T5H"/>
                                             <constraint firstItem="GuM-AL-tRd" firstAttribute="baseline" secondItem="mL5-MK-ziy" secondAttribute="baseline" id="aFc-d0-JvQ"/>
-                                            <constraint firstAttribute="centerX" secondItem="GuM-AL-tRd" secondAttribute="centerX" id="fhS-Se-OJ0"/>
+                                            <constraint firstAttribute="centerX" secondItem="GuM-AL-tRd" secondAttribute="centerX" priority="500" id="fhS-Se-OJ0"/>
                                             <constraint firstItem="GuM-AL-tRd" firstAttribute="top" secondItem="O7m-Cl-pIV" secondAttribute="top" id="xVV-w9-2wO"/>
                                         </constraints>
                                     </view>
@@ -92,7 +93,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOM-bm-JL6">
-                                                <rect key="frame" x="175" y="-8" width="42" height="40"/>
+                                                <rect key="frame" x="175" y="-8.5" width="42" height="40"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                                 <state key="normal" title="Start">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,11 +106,17 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x27-Lc-Pu8">
-                                                <rect key="frame" x="351" y="-8" width="43" height="40"/>
+                                                <rect key="frame" x="351" y="-8.5" width="43" height="40"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                                 <state key="normal" title="Stop">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <variation key="widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="251" y="-9" width="43" height="40"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="251" y="-9" width="43" height="40"/>
+                                                </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="28"/>
                                                 </variation>
@@ -225,9 +232,10 @@
                             <constraint firstItem="oOP-lM-PmW" firstAttribute="top" secondItem="N9M-N8-b8S" secondAttribute="top" id="Lkf-4s-Aa6" userLabel="P: Top Alignment - (40) - Countdown View - Top Layout Guide">
                                 <variation key="heightClass=regular-widthClass=regular" constant="40"/>
                             </constraint>
-                            <constraint firstItem="Hae-Su-Q9f" firstAttribute="top" secondItem="7RM-j6-D38" secondAttribute="bottom" id="auN-Jx-dVb"/>
+                            <constraint firstItem="7RM-j6-D38" firstAttribute="bottom" secondItem="oOP-lM-PmW" secondAttribute="bottom" constant="60" id="ONw-bH-0Qk" userLabel="L: Bottom Alignment - (60) - Controls View - Countdown View"/>
+                            <constraint firstItem="Hae-Su-Q9f" firstAttribute="top" secondItem="7RM-j6-D38" secondAttribute="bottom" id="auN-Jx-dVb" userLabel="P: Vertical Space - Bottom Layout Guide - Controls View"/>
                             <constraint firstItem="oOP-lM-PmW" firstAttribute="leading" secondItem="snQ-GM-oHw" secondAttribute="leadingMargin" id="bER-f4-nYb" userLabel="L: Horizontal Space - Countdown View - View"/>
-                            <constraint firstItem="oOP-lM-PmW" firstAttribute="trailing" secondItem="7RM-j6-D38" secondAttribute="leading" constant="8" symbolic="YES" id="lB4-LQ-zpM" userLabel="L: Horizontal Space - Countdown View - Controls View"/>
+                            <constraint firstItem="7RM-j6-D38" firstAttribute="leading" secondItem="oOP-lM-PmW" secondAttribute="trailing" constant="20" id="lB4-LQ-zpM" userLabel="L: Horizontal Space - Countdown View - Controls View"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7RM-j6-D38" secondAttribute="trailing" id="lXo-qq-PDp"/>
                             <constraint firstAttribute="trailing" secondItem="oOP-lM-PmW" secondAttribute="trailing" id="nYm-iR-FJG"/>
                             <constraint firstItem="oOP-lM-PmW" firstAttribute="top" secondItem="7RM-j6-D38" secondAttribute="top" id="oNO-LX-TPT" userLabel="L: Top Alignment - Countdown View - Controls View"/>
@@ -238,10 +246,11 @@
                             <mask key="constraints">
                                 <exclude reference="Bmy-0u-B4P"/>
                                 <exclude reference="DN7-8l-G5w"/>
+                                <exclude reference="ONw-bH-0Qk"/>
                                 <exclude reference="bER-f4-nYb"/>
-                                <exclude reference="lB4-LQ-zpM"/>
                                 <exclude reference="nYm-iR-FJG"/>
                                 <exclude reference="oNO-LX-TPT"/>
+                                <exclude reference="lB4-LQ-zpM"/>
                                 <exclude reference="lXo-qq-PDp"/>
                             </mask>
                         </variation>
@@ -269,6 +278,8 @@
                         <outletCollection property="countdownViewLandscapeConstraints" destination="bER-f4-nYb" collectionClass="NSMutableArray" id="iW3-bw-0QO"/>
                         <outletCollection property="countdownViewLandscapeConstraints" destination="lB4-LQ-zpM" collectionClass="NSMutableArray" id="WrB-fc-5rQ"/>
                         <outletCollection property="countdownViewLandscapeConstraints" destination="oNO-LX-TPT" collectionClass="NSMutableArray" id="KQk-Ut-GRO"/>
+                        <outletCollection property="countdownViewPortraintConstraints" destination="auN-Jx-dVb" collectionClass="NSMutableArray" id="RBu-5G-QgE"/>
+                        <outletCollection property="countdownViewLandscapeConstraints" destination="ONw-bH-0Qk" collectionClass="NSMutableArray" id="On2-hu-ewS"/>
                         <segue destination="CaN-RL-Zbw" kind="popoverPresentation" identifier="CountdownLength-iPad" popoverAnchorView="vFB-Oc-lQD" id="gtk-0O-QBL">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES"/>
                         </segue>
@@ -325,6 +336,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xkh-Yd-4At" userLabel="Color Picker Border">
                                         <rect key="frame" x="20" y="123" width="528" height="137"/>
                                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                        <variation key="heightClass=compact-widthClass=compact" ambiguous="YES">
+                                            <rect key="frame" x="20" y="122" width="328" height="0.0"/>
+                                        </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uon-mE-213" userLabel="Settings View">
                                         <rect key="frame" x="20" y="30" width="528" height="60"/>

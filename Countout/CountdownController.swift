@@ -93,7 +93,7 @@ class CountdownController: UIViewController {
     func layoutSubviewsPad() {
         switch UIDevice.currentDevice().orientation {
         case .LandscapeLeft, .LandscapeRight:
-            countdownViewWidthConstraint.constant = 600
+            countdownViewWidthConstraint.constant = 550
             setConstraints(countdownViewPortraintConstraints, enabled: false)
             setConstraints(countdownViewLandscapeConstraints, enabled: true)
         default:
