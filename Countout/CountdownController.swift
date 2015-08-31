@@ -72,10 +72,6 @@ class CountdownController: UIViewController {
         }
     }
     
-    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-
-    }
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
@@ -91,7 +87,7 @@ class CountdownController: UIViewController {
     }
     
     func layoutSubviewsPad() {
-        switch UIDevice.currentDevice().orientation {
+        switch interfaceOrientation {
         case .LandscapeLeft, .LandscapeRight:
             countdownViewWidthConstraint.constant = 550
             setConstraints(countdownViewPortraintConstraints, enabled: false)
