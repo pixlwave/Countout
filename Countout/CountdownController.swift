@@ -90,12 +90,12 @@ class CountdownController: UIViewController {
         switch interfaceOrientation {
         case .LandscapeLeft, .LandscapeRight:
             countdownViewWidthConstraint.constant = 550
-            setConstraints(countdownViewPortraintConstraints, enabled: false)
-            setConstraints(countdownViewLandscapeConstraints, enabled: true)
+            // setConstraints(countdownViewPortraintConstraints, enabled: false)
+            // setConstraints(countdownViewLandscapeConstraints, enabled: true)
         default:
             countdownViewWidthConstraint.constant = 688
-            setConstraints(countdownViewLandscapeConstraints, enabled: false)
-            setConstraints(countdownViewPortraintConstraints, enabled: true)
+            // setConstraints(countdownViewLandscapeConstraints, enabled: false)
+            // setConstraints(countdownViewPortraintConstraints, enabled: true)
         }
     }
     
