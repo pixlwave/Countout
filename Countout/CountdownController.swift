@@ -108,6 +108,7 @@ class CountdownController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "CountdownLength-iPad" {
             if let navC = segue.destinationViewController as? UINavigationController, lengthVC = navC.visibleViewController as? CountdownLengthController {
+                navC.popoverPresentationController?.delegate = self
                 lengthVC.countdownMinutes = countdownMinutes
                 lengthVC.countdownSeconds = countdownSeconds
                 lengthVC.delegate = self
@@ -224,5 +225,13 @@ extension CountdownController: UITextFieldDelegate {
         }
         
         return true
+    }
+}
+
+// MARK: UIPopoverPresentationControllerDelegate
+extension CountdownController: UIPopoverPresentationControllerDelegate {
+    func popoverPresentationControllerShouldDismissPopover(popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        // enforce confirm or cancel of change in presented controller
+        return false
     }
 }

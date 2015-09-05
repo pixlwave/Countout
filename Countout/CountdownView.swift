@@ -52,7 +52,6 @@ class CountdownView: UIView {
         updateFont()
     }
     
-    // TODO: this gets called twice so make a setter of fontname with size
     func updateFont() {
         timeLabel.font = UIFont(name: fontName, size: fontScale * frame.width)
     }
