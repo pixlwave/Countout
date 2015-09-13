@@ -141,7 +141,7 @@ class AppearanceController: UIViewController {
 
 // MARK: UIImagePickerControllerDelegate
 extension AppearanceController: UIImagePickerControllerDelegate {
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             appearance.backgroundImage = image
             updateAppearance()

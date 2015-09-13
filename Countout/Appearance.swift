@@ -4,7 +4,13 @@ class Appearance {
     static let sharedClient = Appearance()
     
     var backgroundColor: UIColor { didSet { Defaults["Background Color"] = NSKeyedArchiver.archivedDataWithRootObject(backgroundColor) } }
-    var backgroundImage: UIImage? { didSet { Defaults["Background Image"] = UIImagePNGRepresentation(backgroundImage) } }
+    var backgroundImage: UIImage? { didSet {
+        if let image = backgroundImage {
+            Defaults["Background Image"] = UIImagePNGRepresentation(image)
+        } else {
+            Defaults["Background Image"] = nil
+        }
+    } }
     var fontFamily: String { didSet { Defaults["Font Family"] = fontFamily } }
     var fontScale: CGFloat { didSet { Defaults["Font Scale"] = fontScale } }
     var fontWeight: String { didSet { Defaults["Font Weight"] = fontWeight } }

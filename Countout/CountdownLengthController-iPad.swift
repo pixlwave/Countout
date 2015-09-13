@@ -54,13 +54,14 @@ class CountdownLengthController: UIViewController {
     }
     
     func validateInput(string: String, forTextField textField: UITextField) -> Bool {
-        let text = textField.text
-        if text.toInt() == 0 || text.toInt() == nil { textField.text = "" }
-        
-        if textField == secondsTextField && (text + string).toInt() > 59 {
-            return false
-        } else if textField == minutesTextField && (text + string).toInt() > 999 {
-            return false
+        if let text = textField.text {
+            if Int(text) == 0 || Int(text) == nil { textField.text = "" }
+            
+            if textField == secondsTextField && Int(text + string) > 59 {
+                return false
+            } else if textField == minutesTextField && Int(text + string) > 999 {
+                return false
+            }
         }
         
         return true

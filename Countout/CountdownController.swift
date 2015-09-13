@@ -64,11 +64,11 @@ class CountdownController: UIViewController {
         }
     }
     
-    override func supportedInterfaceOrientations() -> Int {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.Portrait.rawValue) | Int(UIInterfaceOrientationMask.PortraitUpsideDown.rawValue)
+            return [UIInterfaceOrientationMask.Portrait, UIInterfaceOrientationMask.PortraitUpsideDown]
         } else {
-            return Int(UIInterfaceOrientationMask.All.rawValue)
+            return UIInterfaceOrientationMask.All
         }
     }
     
@@ -139,8 +139,8 @@ class CountdownController: UIViewController {
         lengthLabel.text = countdownSeconds == 0 ? "\(countdownMinutes) \(minutesSuffix)" : "\(countdownMinutes) \(minutesSuffix), \(countdownSeconds) \(secondsSuffix)"
         
         // update text fields
-        minutesTextField.text = toString(countdownMinutes)
-        secondsTextField.text = toString(countdownSeconds)
+        minutesTextField.text = String(countdownMinutes)
+        secondsTextField.text = String(countdownSeconds)
     }
     
     func updateOutputStatus() {
@@ -192,8 +192,8 @@ class CountdownController: UIViewController {
     
     func finishCountdownLength() {
         view.endEditing(true)
-        countdownMinutes = minutesTextField.text.toInt() ?? 0
-        countdownSeconds = secondsTextField.text.toInt() ?? 0
+        countdownMinutes = Int(minutesTextField.text!) ?? 0
+        countdownSeconds = Int(secondsTextField.text!) ?? 0
         if countdownMinutes + countdownSeconds == 0 { countdownMinutes = 1 }
         
         if countdown.isActive() {
@@ -215,13 +215,14 @@ class CountdownController: UIViewController {
 // MARK: UITextFieldDelegate
 extension CountdownController: UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let text = textField.text
-        if text.toInt() == 0 || text.toInt() == nil { textField.text = "" }
-        
-        if textField == secondsTextField && (text + string).toInt() > 59 {
-            return false
-        } else if textField == minutesTextField && (text + string).toInt() > 999 {
-            return false
+        if let text = textField.text {
+            if Int(text) == 0 || Int(text) == nil { textField.text = "" }
+            
+            if textField == secondsTextField && Int(text + string) > 59 {
+                return false
+            } else if textField == minutesTextField && Int(text + string) > 999 {
+                return false
+            }
         }
         
         return true

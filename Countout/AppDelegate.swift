@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func updateOutput() {
         if UIScreen.screens().count > 1 {
             externalWindow = UIWindow(frame: UIScreen.screens()[1].bounds)
-            externalWindow?.screen = UIScreen.screens()[1] as! UIScreen
+            externalWindow?.screen = UIScreen.screens()[1] 
             
             outputVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Output") as? OutputController
             
