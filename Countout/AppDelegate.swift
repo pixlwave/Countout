@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         updateOutput()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateOutput", name: UIScreenDidConnectNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateOutput", name: UIScreenDidDisconnectNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateOutput), name: UIScreenDidConnectNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateOutput), name: UIScreenDidDisconnectNotification, object: nil)
         
         return true
     }

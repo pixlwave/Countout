@@ -11,7 +11,7 @@ class CountdownTimer: NSObject {
     
     func start() {
         if runTimer == nil && remaining != 0 {
-            runTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "tick", userInfo: nil, repeats: true)
+            runTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
         }
     }
     
