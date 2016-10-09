@@ -230,6 +230,7 @@
 					A50FF8801B70D4CE007834FE = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = NU8A5Y875P;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -390,6 +391,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.pixlwave.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Countout/Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -404,6 +406,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.pixlwave.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Countout/Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
