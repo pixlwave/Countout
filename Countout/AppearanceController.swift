@@ -5,11 +5,11 @@ class AppearanceController: UIViewController {
     let appearance = Appearance.sharedClient
     
     var colorPicker: STColorPicker!
-    var pickColorOf = ColorOf.Text
+    var pickColorOf = ColorOf.text
     
     enum ColorOf {
-        case Text
-        case Background
+        case text
+        case background
     }
 
     @IBOutlet weak var countdownView: CountdownView!
@@ -31,31 +31,32 @@ class AppearanceController: UIViewController {
         
         countdownView.text = String(CountdownTimer.sharedClient.length / 60) + ":" + String(format: "%02d", (CountdownTimer.sharedClient.length % 60))
         
-        borderView.backgroundColor = UIColor.clearColor()
+        borderView.backgroundColor = UIColor.clear
         borderView.layer.cornerRadius = 6.0
         borderView.layer.masksToBounds = true
         borderView.layer.borderWidth = 1.0
-        borderView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        borderView.layer.borderColor = UIColor.lightGray.cgColor
         
-        NSBundle.mainBundle().loadNibNamed("FontAppearanceView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("FontAppearanceView", owner: self, options: nil)
         fontScaleSlider.value = Float(appearance.fontScale)
         borderView.addSubview(fontView)
         fontView.constrainToMatchView(settingsView)
         
-        NSBundle.mainBundle().loadNibNamed("BackgroundAppearanceView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("BackgroundAppearanceView", owner: self, options: nil)
         backgroundView.alpha = 0
         borderView.addSubview(backgroundView)
         backgroundView.constrainToMatchView(settingsView)
         
-        colorPickerBorder.backgroundColor = UIColor.clearColor()
+        colorPickerBorder.backgroundColor = UIColor.clear
         colorPickerBorder.layer.cornerRadius = 6.0
         colorPickerBorder.layer.masksToBounds = true
         colorPickerBorder.layer.borderWidth = 1.0
-        colorPickerBorder.layer.borderColor = UIColor.darkGrayColor().CGColor
+        colorPickerBorder.layer.borderColor = UIColor.darkGray.cgColor
         
         colorPicker = STColorPicker(frame: colorPickerBorder.bounds)
-        colorPicker.colorHasChanged = { (color: UIColor!, location: CGPoint) in
-            if self.pickColorOf == .Text { self.appearance.textColor = color } else { self.appearance.backgroundColor = color }
+        colorPicker.colorHasChanged = { (color: UIColor?, location: CGPoint) in
+            // FIXME: Forced unwraps
+            if self.pickColorOf == .text { self.appearance.textColor = color! } else { self.appearance.backgroundColor = color! }
             self.updateAppearance()
         }
         
@@ -66,17 +67,17 @@ class AppearanceController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         colorPicker.frame = colorPickerBorder.bounds
-        colorPicker.setColor(self.pickColorOf == .Text ? appearance.textColor : appearance.backgroundColor)
+        colorPicker.setColor(self.pickColorOf == .text ? appearance.textColor : appearance.backgroundColor)
     }
     
     @IBAction func done() {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+        if UIDevice.current.userInterfaceIdiom == .phone {
             if let countdownController = presentingViewController as? CountdownController {
                 countdownController.updateAppearance()
             }
         }
         
-        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func reset() {
@@ -88,11 +89,11 @@ class AppearanceController: UIViewController {
     
     @IBAction func chooseBackground() {
         let imagePicker = UIImagePickerController()
-        imagePicker.modalPresentationStyle = .CurrentContext
-        imagePicker.sourceType = .PhotoLibrary
+        imagePicker.modalPresentationStyle = .currentContext
+        imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func clearBackground() {
@@ -112,12 +113,12 @@ class AppearanceController: UIViewController {
     
     @IBAction func fontBackgroundToggle() {
         if fontBackgroundControl.selectedSegmentIndex == 0 {
-            pickColorOf = .Text
+            pickColorOf = .text
             colorPicker.setColor(appearance.textColor)
             fontView.alpha = 1
             backgroundView.alpha = 0
         } else {
-            pickColorOf = .Background
+            pickColorOf = .background
             colorPicker.setColor(appearance.backgroundColor)
             fontView.alpha = 0
             backgroundView.alpha = 1
@@ -130,10 +131,10 @@ class AppearanceController: UIViewController {
         countdownView.setFont(name: appearance.fontName, size: appearance.fontScale)
         countdownView.textColor = appearance.textColor
         
-        fontWeightButton.setTitle(appearance.fontWeight == "UltraLight" ? "Bold" : "Light", forState: .Normal)
+        fontWeightButton.setTitle(appearance.fontWeight == "UltraLight" ? "Bold" : "Light", for: UIControlState())
         
         if let countdownController = presentingViewController as? CountdownController {
-            if UIDevice.currentDevice().userInterfaceIdiom == .Pad { countdownController.updateAppearance() }
+            if UIDevice.current.userInterfaceIdiom == .pad { countdownController.updateAppearance() }
             countdownController.outputVC?.updateAppearance()
         }
     }
@@ -141,17 +142,17 @@ class AppearanceController: UIViewController {
 
 // MARK: UIImagePickerControllerDelegate
 extension AppearanceController: UIImagePickerControllerDelegate {
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             appearance.backgroundImage = image
             updateAppearance()
         }
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }
 

@@ -37,7 +37,7 @@ class CountdownController: UIViewController {
         // this controller is owner in xib file
         // loaded view has outlet set in the xib
         // frame is set in layout subviews method
-        NSBundle.mainBundle().loadNibNamed("CountdownLengthView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("CountdownLengthView", owner: self, options: nil)
         countdownLengthView.alpha = 0.0
         view.addSubview(countdownLengthView)
         
@@ -46,7 +46,7 @@ class CountdownController: UIViewController {
         minutesTextField.delegate = self
         secondsTextField.delegate = self
         
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+        if UIDevice.current.userInterfaceIdiom == .pad {
             layoutSubviewsPad()
         }
         
@@ -56,39 +56,39 @@ class CountdownController: UIViewController {
         updateAppearance()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return .LightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .lightContent
         } else {
-            return .Default
+            return .default
         }
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return [UIInterfaceOrientationMask.Portrait, UIInterfaceOrientationMask.PortraitUpsideDown]
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return [UIInterfaceOrientationMask.portrait, UIInterfaceOrientationMask.portraitUpsideDown]
         } else {
-            return UIInterfaceOrientationMask.All
+            return UIInterfaceOrientationMask.all
         }
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        if UIScreen.mainScreen().bounds.height < 568 {
+        if UIScreen.main.bounds.height < 568 {
             countdownLengthView.frame = CGRect(x: 0, y: countdownView.frame.maxY - 36, width: view.frame.width, height: view.frame.height - countdownView.frame.maxY - 180)
         } else {
             countdownLengthView.frame = CGRect(x: 0, y: countdownView.frame.maxY, width: view.frame.width, height: view.frame.height - countdownView.frame.maxY - 216)
         }
         
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+        if UIDevice.current.userInterfaceIdiom == .pad {
             layoutSubviewsPad()
         }
     }
     
     func layoutSubviewsPad() {
         switch interfaceOrientation {
-        case .LandscapeLeft, .LandscapeRight:
+        case .landscapeLeft, .landscapeRight:
             countdownViewWidthConstraint.constant = 550
             // setConstraints(countdownViewPortraintConstraints, enabled: false)
             // setConstraints(countdownViewLandscapeConstraints, enabled: true)
@@ -99,15 +99,15 @@ class CountdownController: UIViewController {
         }
     }
     
-    func setConstraints(constraints: [NSLayoutConstraint]!, enabled: Bool) {
+    func setConstraints(_ constraints: [NSLayoutConstraint]!, enabled: Bool) {
         for constraint in constraints {
-            constraint.active = enabled
+            constraint.isActive = enabled
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CountdownLength-iPad" {
-            if let navC = segue.destinationViewController as? UINavigationController, lengthVC = navC.visibleViewController as? CountdownLengthController {
+            if let navC = segue.destination as? UINavigationController, let lengthVC = navC.visibleViewController as? CountdownLengthController {
                 navC.popoverPresentationController?.delegate = self
                 lengthVC.countdownMinutes = countdownMinutes
                 lengthVC.countdownSeconds = countdownSeconds
@@ -128,7 +128,7 @@ class CountdownController: UIViewController {
         let length = (countdownMinutes * 60) + countdownSeconds // TODO: countdownMinutes.minutes
         countdown.length = length
         
-        (UIApplication.sharedApplication().delegate as! CountdownTimerDelegate).countdownHasChanged()
+        (UIApplication.shared.delegate as! CountdownTimerDelegate).countdownHasChanged()
         updateLengthLabel()
     }
     
@@ -154,39 +154,39 @@ class CountdownController: UIViewController {
     @IBAction func start() {
         countdown.start()
         
-        startButton.enabled = false
-        stopButton.enabled = true
-        resetButton.enabled = true
+        startButton.isEnabled = false
+        stopButton.isEnabled = true
+        resetButton.isEnabled = true
     }
     
     @IBAction func stop() {
         countdown.stop()
         
-        startButton.enabled = true
-        stopButton.enabled = false
-        resetButton.enabled = true
+        startButton.isEnabled = true
+        stopButton.isEnabled = false
+        resetButton.isEnabled = true
     }
     
     @IBAction func reset() {
         updateCountdownLength()
         countdown.reset()
         
-        startButton.enabled = true
-        stopButton.enabled = false
-        resetButton.enabled = false
+        startButton.isEnabled = true
+        stopButton.isEnabled = false
+        resetButton.isEnabled = false
     }
     
     @IBAction func plusOneMinute() {
         countdown.addToRemaining(60)
-        resetButton.enabled = true
+        resetButton.isEnabled = true
     }
     
     @IBAction func editCountdownLength() {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+        if UIDevice.current.userInterfaceIdiom == .phone {
             countdownLengthView.fadeIn()
             minutesTextField.becomeFirstResponder()
         } else {
-            performSegueWithIdentifier("CountdownLength-iPad", sender: self)
+            performSegue(withIdentifier: "CountdownLength-iPad", sender: self)
         }
     }
     
@@ -206,23 +206,26 @@ class CountdownController: UIViewController {
     }
     
     func countdownHasFinished() {
-        startButton.enabled = false
-        stopButton.enabled = false
-        resetButton.enabled = true
+        startButton.isEnabled = false
+        stopButton.isEnabled = false
+        resetButton.isEnabled = true
     }
 }
 
 // MARK: UITextFieldDelegate
 extension CountdownController: UITextFieldDelegate {
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if let text = textField.text {
-            if Int(text) == 0 || Int(text) == nil { textField.text = "" }
-            
-            if textField == secondsTextField && Int(text + string) > 59 {
-                return false
-            } else if textField == minutesTextField && Int(text + string) > 999 {
-                return false
-            }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return false }    // must have an existing string
+        
+        if Int(text) == 0 || Int(text) == nil { textField.text = "" }
+        
+        guard let newInt = Int(text + string) else { return false }     // must be an Int
+        
+        // TODO: Swifty this more
+        if textField == secondsTextField && newInt > 59 {
+            return false
+        } else if textField == minutesTextField && newInt > 999 {
+            return false
         }
         
         return true
@@ -231,7 +234,7 @@ extension CountdownController: UITextFieldDelegate {
 
 // MARK: UIPopoverPresentationControllerDelegate
 extension CountdownController: UIPopoverPresentationControllerDelegate {
-    func popoverPresentationControllerShouldDismissPopover(popoverPresentationController: UIPopoverPresentationController) -> Bool {
+    func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
         // enforce confirm or cancel of change in presented controller
         return false
     }

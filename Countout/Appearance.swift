@@ -3,7 +3,7 @@ import UIKit
 class Appearance {
     static let sharedClient = Appearance()
     
-    var backgroundColor: UIColor { didSet { Defaults["Background Color"] = NSKeyedArchiver.archivedDataWithRootObject(backgroundColor) } }
+    var backgroundColor: UIColor { didSet { Defaults["Background Color"] = NSKeyedArchiver.archivedData(withRootObject: backgroundColor) } }
     var backgroundImage: UIImage? { didSet {
         if let image = backgroundImage {
             Defaults["Background Image"] = UIImagePNGRepresentation(image)
@@ -14,9 +14,10 @@ class Appearance {
     var fontFamily: String { didSet { Defaults["Font Family"] = fontFamily } }
     var fontScale: CGFloat { didSet { Defaults["Font Scale"] = fontScale } }
     var fontWeight: String { didSet { Defaults["Font Weight"] = fontWeight } }
-    var textColor: UIColor { didSet { Defaults["Text Color"] = NSKeyedArchiver.archivedDataWithRootObject(textColor) } }
+    var textColor: UIColor { didSet { Defaults["Text Color"] = NSKeyedArchiver.archivedData(withRootObject: textColor) } }
     
-    let defaults = NSUserDefaults.standardUserDefaults()
+    // TODO: Why am I here?!
+    let defaults = UserDefaults.standard
     
     init() {
         backgroundColor = Defaults["Background Color"].color ?? UIColor(red: 0.0, green: 0.0, blue: 72.0/255.0, alpha: 1.0)

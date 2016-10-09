@@ -21,7 +21,7 @@ class CountdownLengthController: UIViewController {
         secondsTextField.inputView = UIView()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         minutesTextField.text = String(countdownMinutes)
         secondsTextField.text = String(countdownSeconds)
         
@@ -29,40 +29,46 @@ class CountdownLengthController: UIViewController {
     }
     
     var activeTextField: UITextField? {
-        if minutesTextField.isFirstResponder() {
+        if minutesTextField.isFirstResponder {
             return minutesTextField
-        } else if secondsTextField.isFirstResponder() {
+        } else if secondsTextField.isFirstResponder {
             return secondsTextField
         }
         return nil
     }
     
-    @IBAction func keyPress(sender: UIButton) {
+    @IBAction func keyPress(_ sender: UIButton) {
         if let textField = activeTextField {
             let input = "\(sender.tag)"
             if validateInput(input, forTextField: textField) {
                 textField.insertText(input)
-                UIDevice.currentDevice().playInputClick()
+                UIDevice.current.playInputClick()
             }
-        }
-    }
-    @IBAction func deleteKeyPress(sender: UIButton) {
-        if let textField = activeTextField {
-            textField.deleteBackward()
-            UIDevice.currentDevice().playInputClick()
         }
     }
     
-    func validateInput(string: String, forTextField textField: UITextField) -> Bool {
-        if let text = textField.text {
-            if Int(text) == 0 || Int(text) == nil { textField.text = "" }
-            
-            if textField == secondsTextField && Int(text + string) > 59 {
-                return false
-            } else if textField == minutesTextField && Int(text + string) > 999 {
-                return false
-            }
+    @IBAction func deleteKeyPress(_ sender: UIButton) {
+        if let textField = activeTextField {
+            textField.deleteBackward()
+            UIDevice.current.playInputClick()
         }
+    }
+    
+    // FIXME: Only called manually on UIButton touch. Needs to be called for BT Keyboard
+    func validateInput(_ string: String, forTextField textField: UITextField) -> Bool {
+        guard let text = textField.text else { return false }    // must have an existing string
+        
+        if Int(text) == 0 || Int(text) == nil { textField.text = "" }
+        
+        guard let newInt = Int(text + string) else { return false }     // must be an Int
+        
+        // TODO: Swifty this more
+        if textField == secondsTextField && newInt > 59 {
+            return false
+        } else if textField == minutesTextField && newInt > 999 {
+            return false
+        }
+        print("Hello iPad")
         
         return true
     }
@@ -72,10 +78,10 @@ class CountdownLengthController: UIViewController {
         delegate.secondsTextField.text = secondsTextField.text
         delegate.finishCountdownLength()
         
-        delegate.dismissViewControllerAnimated(true, completion: nil)
+        delegate.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancel() {
-        delegate.dismissViewControllerAnimated(true, completion: nil)
+        delegate.dismiss(animated: true, completion: nil)
     }
 }

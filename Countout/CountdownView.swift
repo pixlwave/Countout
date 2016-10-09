@@ -5,7 +5,7 @@ class CountdownView: UIView {
     
     var text = "5:00" { didSet { timeLabel.text = text } }
     
-    var textColor = UIColor.whiteColor() { didSet { timeLabel.textColor = textColor } }
+    var textColor = UIColor.white { didSet { timeLabel.textColor = textColor } }
     var backgroundImage: UIImage? { didSet { backgroundImageView.image = backgroundImage } }
     
     private var fontName = "AvenirNext-UltraLight"
@@ -25,7 +25,7 @@ class CountdownView: UIView {
     }
     
     func load() {
-        backgroundImageView.contentMode = .ScaleAspectFill
+        backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.clipsToBounds = true
         backgroundImageView.image = backgroundImage
         
@@ -33,7 +33,7 @@ class CountdownView: UIView {
         backgroundImageView.constrainToMatchView(self)
         
         timeLabel.text = text
-        timeLabel.textAlignment = .Center
+        timeLabel.textAlignment = .center
         timeLabel.textColor = textColor
         
         self.addSubview(timeLabel)

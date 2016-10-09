@@ -7,11 +7,11 @@ class CountdownTimer: NSObject {
     var delegate: CountdownTimerDelegate?
     var length = 0 { didSet { remaining = length } }
     private(set) var remaining = 0
-    var runTimer: NSTimer?
+    var runTimer: Timer?
     
     func start() {
         if runTimer == nil && remaining != 0 {
-            runTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+            runTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
         }
     }
     
@@ -41,7 +41,7 @@ class CountdownTimer: NSObject {
         }
     }
     
-    func addToRemaining(amount: Int) {
+    func addToRemaining(_ amount: Int) {
         remaining += amount
         
         if remaining < 0 {

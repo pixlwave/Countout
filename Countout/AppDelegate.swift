@@ -10,10 +10,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var outputVC: OutputController?
     
     let countdown = CountdownTimer.sharedClient
-    var backgroundTime: NSDate?
+    var backgroundTime: Date?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        application.idleTimerDisabled = true
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        application.isIdleTimerDisabled = true
         
         countdown.delegate = self
         
@@ -21,21 +21,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         updateOutput()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateOutput), name: UIScreenDidConnectNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateOutput), name: UIScreenDidDisconnectNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateOutput), name: NSNotification.Name.UIScreenDidConnect, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateOutput), name: NSNotification.Name.UIScreenDidDisconnect, object: nil)
         
         return true
     }
     
     func updateOutput() {
-        if UIScreen.screens().count > 1 {
-            externalWindow = UIWindow(frame: UIScreen.screens()[1].bounds)
-            externalWindow?.screen = UIScreen.screens()[1] 
+        if UIScreen.screens.count > 1 {
+            externalWindow = UIWindow(frame: UIScreen.screens[1].bounds)
+            externalWindow?.screen = UIScreen.screens[1] 
             
-            outputVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Output") as? OutputController
+            outputVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Output") as? OutputController
             
             externalWindow?.rootViewController = outputVC
-            externalWindow?.hidden = false
+            externalWindow?.isHidden = false
             
             countdownVC?.outputVC = outputVC
             countdownVC?.outputExists = true
@@ -50,15 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         if countdown.isActive() {
-            backgroundTime = NSDate()
+            backgroundTime = Date()
         }
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         if let backgroundTime = backgroundTime {
-            let timePassed = Int(NSDate().timeIntervalSinceDate(backgroundTime))
+            let timePassed = Int(Date().timeIntervalSince(backgroundTime))
             countdown.addToRemaining(-timePassed)
             
             self.backgroundTime = nil

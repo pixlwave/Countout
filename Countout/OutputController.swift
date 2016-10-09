@@ -12,8 +12,8 @@ class OutputController: UIViewController {
     }
     
     // prevent external screen from appearing rotated
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
     func updateAppearance() {
