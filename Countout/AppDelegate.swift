@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func updateOutput() {
+    @objc func updateOutput() {
         if UIScreen.screens.count > 1 {
             externalWindow = UIWindow(frame: UIScreen.screens[1].bounds)
             externalWindow?.screen = UIScreen.screens[1] 

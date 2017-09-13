@@ -31,7 +31,7 @@ class CountdownTimer: NSObject {
         return runTimer != nil
     }
     
-    func tick() {
+    @objc func tick() {
         remaining -= 1
         delegate?.countdownHasChanged()
         
