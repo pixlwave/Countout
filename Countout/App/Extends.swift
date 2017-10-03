@@ -22,6 +22,22 @@ extension UserDefaults {
         return object(forKey: defaultName) as? CGFloat
     }
     
+    func set(_ value: UIColor?, forKey key: String) {
+        if let value = value {
+            setValue(NSKeyedArchiver.archivedData(withRootObject: value), forKey: key)
+        } else {
+            setValue(nil, forKey: key)
+        }
+    }
+    
+    func set(_ value: UIImage?, forKey key: String) {
+        if let value = value {
+            setValue(UIImagePNGRepresentation(value), forKey: key)
+        } else {
+            setValue(nil, forKey: key)
+        }
+    }
+    
 }
 
 extension UIView {
