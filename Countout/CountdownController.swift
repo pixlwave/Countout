@@ -190,7 +190,7 @@ class CountdownController: UIViewController {
         }
     }
     
-    func finishCountdownLength() {
+    @IBAction func finishCountdownLength() {
         view.endEditing(true)
         countdownMinutes = Int(minutesTextField.text!) ?? 0
         countdownSeconds = Int(secondsTextField.text!) ?? 0
