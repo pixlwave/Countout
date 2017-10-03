@@ -93,76 +93,14 @@
 		A50FF8831B70D4CE007834FE /* Countout */ = {
 			isa = PBXGroup;
 			children = (
-				A59AA56D1B70D7BC007B3856 /* App */,
-				A59AA56C1B70D796007B3856 /* Resources */,
+				A5C1CBE51F83BE9000B108F0 /* App */,
+				A5C1CBE91F83BF0400B108F0 /* Resources */,
 				A5B629E41B762435009996D0 /* STColorPicker */,
 				A5B629F51B7638D9009996D0 /* SwiftyUserDefaults */,
-				A50FF8841B70D4CE007834FE /* Supporting Files */,
-			);
-			path = Countout;
-			sourceTree = "<group>";
-		};
-		A50FF8841B70D4CE007834FE /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
 				A5B629F41B76245C009996D0 /* Bridging-Header.h */,
 				A50FF8851B70D4CE007834FE /* Info.plist */,
 			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A55FD61B1B78DA41000C6A4F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				A55FD61C1B78DA58000C6A4F /* CountdownView.swift */,
-				A5D957F01B7BE965009CCC62 /* KeypadView.swift */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		A59AA56C1B70D796007B3856 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A50FF8AA1B70D5E7007834FE /* Main.storyboard */,
-				A50FF8A91B70D5E7007834FE /* LaunchScreen.storyboard */,
-				A50FF88D1B70D4CE007834FE /* Images.xcassets */,
-				A50FF8A61B70D5E7007834FE /* BackgroundAppearanceView.xib */,
-				A50FF8A71B70D5E7007834FE /* CountdownLengthView.xib */,
-				A50FF8A81B70D5E7007834FE /* FontAppearanceView.xib */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		A59AA56D1B70D7BC007B3856 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				A59AA56E1B70D7C1007B3856 /* Controllers */,
-				A59AA56F1B70D7C9007B3856 /* Models */,
-				A55FD61B1B78DA41000C6A4F /* Views */,
-				A50FF8861B70D4CE007834FE /* AppDelegate.swift */,
-				A54FDBF91B76903F008CECFA /* Extends.swift */,
-			);
-			name = App;
-			sourceTree = "<group>";
-		};
-		A59AA56E1B70D7C1007B3856 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				A59AA5701B70D80F007B3856 /* CountdownController.swift */,
-				A59AA5741B70D828007B3856 /* OutputController.swift */,
-				A59AA5721B70D81A007B3856 /* AppearanceController.swift */,
-				A5D957EE1B7B705D009CCC62 /* CountdownLengthController-iPad.swift */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		A59AA56F1B70D7C9007B3856 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				A59AA5761B70D83A007B3856 /* Appearance.swift */,
-				A59AA5781B70D840007B3856 /* CountdownTimer.swift */,
-			);
-			name = Models;
+			path = Countout;
 			sourceTree = "<group>";
 		};
 		A5B629E41B762435009996D0 /* STColorPicker */ = {
@@ -194,6 +132,60 @@
 				A5B629F61B7638D9009996D0 /* SwiftyUserDefaults.swift */,
 			);
 			path = SwiftyUserDefaults;
+			sourceTree = "<group>";
+		};
+		A5C1CBE51F83BE9000B108F0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A50FF8861B70D4CE007834FE /* AppDelegate.swift */,
+				A54FDBF91B76903F008CECFA /* Extends.swift */,
+				A5C1CBE61F83BEAB00B108F0 /* Controllers */,
+				A5C1CBE71F83BEBB00B108F0 /* Models */,
+				A5C1CBE81F83BEC100B108F0 /* Views */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A5C1CBE61F83BEAB00B108F0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A59AA5701B70D80F007B3856 /* CountdownController.swift */,
+				A59AA5741B70D828007B3856 /* OutputController.swift */,
+				A59AA5721B70D81A007B3856 /* AppearanceController.swift */,
+				A5D957EE1B7B705D009CCC62 /* CountdownLengthController-iPad.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A5C1CBE71F83BEBB00B108F0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A59AA5761B70D83A007B3856 /* Appearance.swift */,
+				A59AA5781B70D840007B3856 /* CountdownTimer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A5C1CBE81F83BEC100B108F0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A55FD61C1B78DA58000C6A4F /* CountdownView.swift */,
+				A5D957F01B7BE965009CCC62 /* KeypadView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A5C1CBE91F83BF0400B108F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A50FF8AA1B70D5E7007834FE /* Main.storyboard */,
+				A50FF8A91B70D5E7007834FE /* LaunchScreen.storyboard */,
+				A50FF88D1B70D4CE007834FE /* Images.xcassets */,
+				A50FF8A61B70D5E7007834FE /* BackgroundAppearanceView.xib */,
+				A50FF8A71B70D5E7007834FE /* CountdownLengthView.xib */,
+				A50FF8A81B70D5E7007834FE /* FontAppearanceView.xib */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
