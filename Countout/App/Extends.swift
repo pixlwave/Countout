@@ -1,5 +1,29 @@
 import UIKit
 
+extension UserDefaults {
+    
+    func color(forKey defaultName: String) -> UIColor? {
+        if let colorData = data(forKey: defaultName) {
+            return NSKeyedUnarchiver.unarchiveObject(with: colorData) as? UIColor
+        } else {
+            return nil
+        }
+    }
+    
+    func image(forKey defaultName: String) -> UIImage? {
+        if let imageData = data(forKey: defaultName) {
+            return UIImage(data: imageData)
+        } else {
+            return nil
+        }
+    }
+    
+    func cgFloat(forKey defaultName: String) -> CGFloat? {
+        return object(forKey: defaultName) as? CGFloat
+    }
+    
+}
+
 extension UIView {
     
     func fadeIn() {

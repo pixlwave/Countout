@@ -27,7 +27,6 @@
 		A5B629F11B762435009996D0 /* glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A5B629E91B762435009996D0 /* glass@2x.png */; };
 		A5B629F21B762435009996D0 /* STColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B629EB1B762435009996D0 /* STColorPicker.m */; };
 		A5B629F31B762435009996D0 /* STGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B629ED1B762435009996D0 /* STGlass.m */; };
-		A5B629F71B7638D9009996D0 /* SwiftyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B629F61B7638D9009996D0 /* SwiftyUserDefaults.swift */; };
 		A5D957EF1B7B705D009CCC62 /* CountdownLengthController-iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D957EE1B7B705D009CCC62 /* CountdownLengthController-iPad.swift */; };
 		A5D957F11B7BE965009CCC62 /* KeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D957F01B7BE965009CCC62 /* KeypadView.swift */; };
 /* End PBXBuildFile section */
@@ -58,7 +57,6 @@
 		A5B629EC1B762435009996D0 /* STGlass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STGlass.h; sourceTree = "<group>"; };
 		A5B629ED1B762435009996D0 /* STGlass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STGlass.m; sourceTree = "<group>"; };
 		A5B629F41B76245C009996D0 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		A5B629F61B7638D9009996D0 /* SwiftyUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyUserDefaults.swift; sourceTree = "<group>"; };
 		A5D957EE1B7B705D009CCC62 /* CountdownLengthController-iPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CountdownLengthController-iPad.swift"; sourceTree = "<group>"; };
 		A5D957F01B7BE965009CCC62 /* KeypadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeypadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +94,6 @@
 				A5C1CBE51F83BE9000B108F0 /* App */,
 				A5C1CBE91F83BF0400B108F0 /* Resources */,
 				A5B629E41B762435009996D0 /* STColorPicker */,
-				A5B629F51B7638D9009996D0 /* SwiftyUserDefaults */,
 				A5B629F41B76245C009996D0 /* Bridging-Header.h */,
 				A50FF8851B70D4CE007834FE /* Info.plist */,
 			);
@@ -124,14 +121,6 @@
 				A5B629E91B762435009996D0 /* glass@2x.png */,
 			);
 			path = resources;
-			sourceTree = "<group>";
-		};
-		A5B629F51B7638D9009996D0 /* SwiftyUserDefaults */ = {
-			isa = PBXGroup;
-			children = (
-				A5B629F61B7638D9009996D0 /* SwiftyUserDefaults.swift */,
-			);
-			path = SwiftyUserDefaults;
 			sourceTree = "<group>";
 		};
 		A5C1CBE51F83BE9000B108F0 /* App */ = {
@@ -281,7 +270,6 @@
 				A59AA5751B70D828007B3856 /* OutputController.swift in Sources */,
 				A54FDBFA1B76903F008CECFA /* Extends.swift in Sources */,
 				A59AA5711B70D80F007B3856 /* CountdownController.swift in Sources */,
-				A5B629F71B7638D9009996D0 /* SwiftyUserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
