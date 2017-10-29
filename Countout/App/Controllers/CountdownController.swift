@@ -108,10 +108,18 @@ class CountdownController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CountdownLength-iPad" {
             if let navC = segue.destination as? UINavigationController, let lengthVC = navC.visibleViewController as? CountdownLengthController {
-                navC.popoverPresentationController?.delegate = self
+                if let popoverController = navC.popoverPresentationController {
+                    popoverController.delegate = self
+                    popoverController.sourceRect = popoverController.sourceView?.bounds ?? CGRect.zero
+                }
                 lengthVC.countdownMinutes = countdownMinutes
                 lengthVC.countdownSeconds = countdownSeconds
                 lengthVC.delegate = self
+            }
+        } else if segue.identifier == "AppearanceSegue" {
+            if let popoverController = segue.destination.popoverPresentationController {
+                popoverController.delegate = self
+                popoverController.sourceRect = popoverController.sourceView?.bounds ?? CGRect.zero
             }
         }
             

@@ -68,7 +68,6 @@ class CountdownLengthController: UIViewController {
         } else if textField == minutesTextField && newInt > 999 {
             return false
         }
-        print("Hello iPad")
         
         return true
     }
