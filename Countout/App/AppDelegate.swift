@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let countdown = CountdownTimer.sharedClient
     var backgroundTime: Date?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         application.isIdleTimerDisabled = true
         
         countdown.delegate = self
@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         updateOutput()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateOutput), name: NSNotification.Name.UIScreenDidConnect, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateOutput), name: NSNotification.Name.UIScreenDidDisconnect, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateOutput), name: UIScreen.didConnectNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateOutput), name: UIScreen.didDisconnectNotification, object: nil)
         
         return true
     }

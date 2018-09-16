@@ -32,7 +32,7 @@ extension UserDefaults {
     
     func set(_ value: UIImage?, forKey key: String) {
         if let value = value {
-            setValue(UIImagePNGRepresentation(value), forKey: key)
+            setValue(value.pngData(), forKey: key)
         } else {
             setValue(nil, forKey: key)
         }

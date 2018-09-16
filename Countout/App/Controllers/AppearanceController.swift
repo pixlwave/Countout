@@ -131,7 +131,7 @@ class AppearanceController: UIViewController {
         countdownView.setFont(name: appearance.fontName, size: appearance.fontScale)
         countdownView.textColor = appearance.textColor
         
-        fontWeightButton.setTitle(appearance.fontWeight == "UltraLight" ? "Bold" : "Light", for: UIControlState())
+        fontWeightButton.setTitle(appearance.fontWeight == "UltraLight" ? "Bold" : "Light", for: .normal)
         
         if let countdownController = presentingViewController as? CountdownController {
             if UIDevice.current.userInterfaceIdiom == .pad { countdownController.updateAppearance() }
@@ -142,8 +142,8 @@ class AppearanceController: UIViewController {
 
 // MARK: UIImagePickerControllerDelegate
 extension AppearanceController: UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
             appearance.backgroundImage = image
             updateAppearance()
         }
