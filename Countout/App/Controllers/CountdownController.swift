@@ -133,7 +133,7 @@ class CountdownController: UIViewController {
     }
     
     func updateCountdownLength() {
-        let length = (countdownMinutes * 60) + countdownSeconds // TODO: countdownMinutes.minutes
+        let length = (countdownMinutes * 60) + countdownSeconds; #warning("TODO: implement countdownMinutes.minutes")
         countdown.length = length
         
         (UIApplication.shared.delegate as! CountdownTimerDelegate).countdownHasChanged()
@@ -229,7 +229,7 @@ extension CountdownController: UITextFieldDelegate {
         
         guard let newInt = Int(text + string) else { return false }     // must be an Int
         
-        // TODO: Swifty this more
+        #warning("TODO: Make this more Swifty?")
         if textField == secondsTextField && newInt > 59 {
             return false
         } else if textField == minutesTextField && newInt > 999 {

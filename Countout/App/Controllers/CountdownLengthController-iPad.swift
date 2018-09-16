@@ -54,7 +54,7 @@ class CountdownLengthController: UIViewController {
         }
     }
     
-    // FIXME: Only called manually on UIButton touch. Needs to be called for BT Keyboard
+    #warning("FIXME: Only called manually on UIButton touch. Needs to be called for BT Keyboard")
     func validateInput(_ string: String, forTextField textField: UITextField) -> Bool {
         guard let text = textField.text else { return false }    // must have an existing string
         
@@ -62,7 +62,7 @@ class CountdownLengthController: UIViewController {
         
         guard let newInt = Int(text + string) else { return false }     // must be an Int
         
-        // TODO: Swifty this more
+        #warning("TODO: Make this more Swifty?")
         if textField == secondsTextField && newInt > 59 {
             return false
         } else if textField == minutesTextField && newInt > 999 {

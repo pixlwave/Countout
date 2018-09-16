@@ -55,7 +55,7 @@ class AppearanceController: UIViewController {
         
         colorPicker = STColorPicker(frame: colorPickerBorder.bounds)
         colorPicker.colorHasChanged = { (color: UIColor?, location: CGPoint) in
-            // FIXME: Forced unwraps
+            #warning("FIXME: Remove forced unwraps")
             if self.pickColorOf == .text { self.appearance.textColor = color! } else { self.appearance.backgroundColor = color! }
             self.updateAppearance()
         }
