@@ -211,13 +211,13 @@
 					A50FF8801B70D4CE007834FE = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = NU8A5Y875P;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
 			buildConfigurationList = A50FF87C1B70D4CE007834FE /* Build configuration list for PBXProject "Countout" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -393,7 +393,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.pixlwave.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Countout/Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -409,7 +409,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.pixlwave.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Countout/Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
