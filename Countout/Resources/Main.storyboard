@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bDn-6d-Ff0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bDn-6d-Ff0">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
@@ -289,7 +289,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="VrU-8c-7yV" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="z3C-Fa-Bv2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -313,7 +313,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URR-4E-N1q" userLabel="Countdown View" customClass="CountdownView" customModule="Countout" customModuleProvider="target">
-                                <rect key="frame" x="67.5" y="66" width="240" height="180"/>
+                                <rect key="frame" x="67.5" y="78" width="240" height="180"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="URR-4E-N1q" secondAttribute="height" multiplier="4:3" id="IzK-JK-efb"/>
@@ -321,7 +321,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzr-S9-sm1" userLabel="Border View">
-                                <rect key="frame" x="16" y="283" width="343" height="344"/>
+                                <rect key="frame" x="16" y="293.5" width="343" height="333.5"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colours:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yeb-GH-RNU">
                                         <rect key="frame" x="20" y="98" width="45" height="16.5"/>
@@ -330,7 +330,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xkh-Yd-4At" userLabel="Color Picker Border">
-                                        <rect key="frame" x="20" y="122.5" width="303" height="201.5"/>
+                                        <rect key="frame" x="20" y="122.5" width="303" height="191"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tertiarySystemFillColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uon-mE-213" userLabel="Settings View">
@@ -355,7 +355,8 @@
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hCj-bM-3Jn">
-                                <rect key="frame" x="104.5" y="266" width="167" height="32"/>
+                                <rect key="frame" x="96.5" y="278" width="183" height="32"/>
+                                <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <segments>
                                     <segment title="Font"/>
                                     <segment title="Background"/>
@@ -367,7 +368,7 @@
                         </subviews>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Jzr-S9-sm1" firstAttribute="top" secondItem="hCj-bM-3Jn" secondAttribute="bottom" constant="-14" id="CZZ-cZ-6h8"/>
+                            <constraint firstItem="Jzr-S9-sm1" firstAttribute="top" secondItem="hCj-bM-3Jn" secondAttribute="centerY" id="CZZ-cZ-6h8"/>
                             <constraint firstItem="Jzr-S9-sm1" firstAttribute="leading" secondItem="G3d-v7-X9Z" secondAttribute="leadingMargin" id="NS0-ul-Kfd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jzr-S9-sm1" secondAttribute="trailing" id="O1g-Oj-uXZ"/>
                             <constraint firstItem="hCj-bM-3Jn" firstAttribute="top" secondItem="URR-4E-N1q" secondAttribute="bottom" constant="20" id="UvX-Uz-xcg"/>
@@ -725,7 +726,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CaN-RL-Zbw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gVl-ti-ZWx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
