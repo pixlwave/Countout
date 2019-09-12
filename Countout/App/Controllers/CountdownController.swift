@@ -133,7 +133,7 @@ class CountdownController: UIViewController {
     }
     
     func updateCountdownLength() {
-        let length = (countdownMinutes * 60) + countdownSeconds; #warning("TODO: implement countdownMinutes.minutes")
+        let length = (countdownMinutes * 60) + countdownSeconds
         countdown.length = length
         
         (UIApplication.shared.delegate as! CountdownTimerDelegate).countdownHasChanged()
