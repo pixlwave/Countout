@@ -3,20 +3,23 @@ import UIKit
 class Appearance {
     static let sharedClient = Appearance()
     
-    var backgroundColor: UIColor { didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") } }
-    var backgroundImage: UIImage? { didSet { UserDefaults.standard.set(backgroundImage, forKey: "Background Image") } }
-    var fontFamily: String { didSet { UserDefaults.standard.set(fontFamily, forKey: "Font Family") } }
-    var fontScale: CGFloat { didSet { UserDefaults.standard.set(fontScale, forKey: "Font Scale") } }
-    var fontWeight: String { didSet { UserDefaults.standard.set(fontWeight, forKey: "Font Weight") } }
-    var textColor: UIColor { didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") } }
-    
-    init() {
-        backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground
-        backgroundImage = UserDefaults.standard.image(forKey:"Background Image")
-        fontFamily = UserDefaults.standard.string(forKey: "Font Family") ?? "AvenirNext"
-        fontScale = UserDefaults.standard.cgFloat(forKey: "Font Scale") ?? 0.25
-        fontWeight = UserDefaults.standard.string(forKey: "Font Weight") ?? "UltraLight"
-        textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .white
+    var backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground {
+        didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }
+    }
+    var backgroundImage = UserDefaults.standard.image(forKey:"Background Image") {
+        didSet { UserDefaults.standard.set(backgroundImage, forKey: "Background Image") }
+    }
+    var fontFamily = UserDefaults.standard.string(forKey: "Font Family") ?? "AvenirNext" {
+        didSet { UserDefaults.standard.set(fontFamily, forKey: "Font Family") }
+    }
+    var fontScale = UserDefaults.standard.cgFloat(forKey: "Font Scale") ?? 0.25 {
+        didSet { UserDefaults.standard.set(fontScale, forKey: "Font Scale") }
+    }
+    var fontWeight = UserDefaults.standard.string(forKey: "Font Weight") ?? "UltraLight" {
+        didSet { UserDefaults.standard.set(fontWeight, forKey: "Font Weight") }
+    }
+    var textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .white {
+        didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") }
     }
     
     func reset() {
