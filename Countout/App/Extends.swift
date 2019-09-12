@@ -1,7 +1,6 @@
 import UIKit
 
 extension UserDefaults {
-    
     func color(forKey defaultName: String) -> UIColor? {
         if let colorData = data(forKey: defaultName) {
             return NSKeyedUnarchiver.unarchiveObject(with: colorData) as? UIColor
@@ -37,11 +36,9 @@ extension UserDefaults {
             setValue(nil, forKey: key)
         }
     }
-    
 }
 
 extension UIView {
-    
     func fadeIn() {
         UIView.animate(withDuration: 0.3) {
             self.alpha = 1.0
@@ -61,5 +58,9 @@ extension UIView {
         self.superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0))
         self.superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0))
     }
-    
+}
+
+
+extension UIColor {
+    static var countdownBackground: UIColor { UIColor(named: "Countdown Background Color")! }
 }

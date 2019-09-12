@@ -11,21 +11,21 @@ class Appearance {
     var textColor: UIColor { didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") } }
     
     init() {
-        backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? UIColor(red: 0.0, green: 0.0, blue: 72.0/255.0, alpha: 1.0)
+        backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground
         backgroundImage = UserDefaults.standard.image(forKey:"Background Image")
         fontFamily = UserDefaults.standard.string(forKey: "Font Family") ?? "AvenirNext"
         fontScale = UserDefaults.standard.cgFloat(forKey: "Font Scale") ?? 0.25
         fontWeight = UserDefaults.standard.string(forKey: "Font Weight") ?? "UltraLight"
-        textColor = UserDefaults.standard.color(forKey: "Text Color") ?? UIColor(red: 1.0, green:1.0, blue:1.0, alpha:1.0)
+        textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .white
     }
     
     func reset() {
-        backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 72.0/255.0, alpha: 1.0)
+        backgroundColor = .countdownBackground
         backgroundImage = nil
         fontFamily = "AvenirNext"
         fontScale = 0.25
         fontWeight = "UltraLight"
-        textColor = UIColor(red: 1.0, green:1.0, blue:1.0, alpha:1.0)
+        textColor = .white
     }
     
     var fontName: String {
