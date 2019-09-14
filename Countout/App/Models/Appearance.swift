@@ -6,9 +6,8 @@ class Appearance {
     var backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground {
         didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }
     }
-    #warning("Attempting to store >= 4194304 bytes of data in CFPreferences/NSUserDefaults on this platform is invalid.")
     var backgroundImage = UserDefaults.standard.image(forKey:"Background Image") {
-        didSet { UserDefaults.standard.set(backgroundImage, forKey: "Background Image") }
+        didSet { writeBackground() }
     }
     var fontFamily = UserDefaults.standard.string(forKey: "Font Family") ?? "AvenirNext" {
         didSet { UserDefaults.standard.set(fontFamily, forKey: "Font Family") }
@@ -23,6 +22,18 @@ class Appearance {
         didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") }
     }
     
+    init() {
+        // backgroundImage initially attempts to load from now removed user defaults storage
+        if backgroundImage == nil {
+            // load the background from disk if user defaults has no value
+            backgroundImage = readBackground()
+        } else {
+            // otherwise transition to storing backgroundImage as a file on disk
+            writeBackground()
+            UserDefaults.standard.removeObject(forKey: "Background Image")
+        }
+    }
+    
     func reset() {
         backgroundColor = .countdownBackground
         backgroundImage = nil
@@ -34,5 +45,19 @@ class Appearance {
     
     var fontName: String {
         return fontFamily + "-" + fontWeight
+    }
+    
+    func readBackground() -> UIImage? {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        return UIImage(contentsOfFile: documentDirectory.appendingPathComponent("Background.png").path)
+    }
+    
+    func writeBackground() {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        if let backgroundImage = backgroundImage {
+            try? backgroundImage.pngData()?.write(to:  documentDirectory.appendingPathComponent("Background.png"))
+        } else {
+            try? FileManager.default.removeItem(at: documentDirectory.appendingPathComponent("Background.png"))
+        }
     }
 }
