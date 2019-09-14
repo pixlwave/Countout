@@ -64,3 +64,10 @@ extension UIView {
 extension UIColor {
     static var countdownBackground: UIColor { UIColor(named: "Countdown Background Color")! }
 }
+
+
+extension STColorPicker {
+    open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        gestureRecognizers?.contains(gestureRecognizer) ?? false
+    }
+}
