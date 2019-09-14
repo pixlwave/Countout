@@ -6,6 +6,7 @@ class Appearance {
     var backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground {
         didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }
     }
+    #warning("Attempting to store >= 4194304 bytes of data in CFPreferences/NSUserDefaults on this platform is invalid.")
     var backgroundImage = UserDefaults.standard.image(forKey:"Background Image") {
         didSet { UserDefaults.standard.set(backgroundImage, forKey: "Background Image") }
     }
