@@ -17,6 +17,9 @@ class CountdownLengthController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        minutesTextField.delegate = self
+        secondsTextField.delegate = self
+        
         minutesTextField.inputView = UIView()
         secondsTextField.inputView = UIView()
     }
@@ -54,7 +57,6 @@ class CountdownLengthController: UIViewController {
         }
     }
     
-    #warning("FIXME: Only called manually on UIButton touch. Needs to be called for BT Keyboard")
     func validateInput(_ string: String, forTextField textField: UITextField) -> Bool {
         guard let text = textField.text else { return false }    // must have an existing string
         
@@ -82,5 +84,14 @@ class CountdownLengthController: UIViewController {
     
     @IBAction func cancel() {
         delegate.dismiss(animated: true, completion: nil)
+    }
+}
+
+
+// MARK: UITextFieldDelegate
+extension CountdownLengthController: UITextFieldDelegate {
+    // called when input is from an external keyboard and not the keypad buttons
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        validateInput(string, forTextField: textField)
     }
 }
