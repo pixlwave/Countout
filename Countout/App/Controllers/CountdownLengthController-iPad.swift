@@ -62,14 +62,14 @@ class CountdownLengthController: UIViewController {
         
         guard let newInt = Int(text + string) else { return false }     // must be an Int
         
-        #warning("TODO: Make this more Swifty?")
-        if textField == secondsTextField && newInt > 59 {
+        switch (textField, newInt) {
+        case (secondsTextField, 60...):
             return false
-        } else if textField == minutesTextField && newInt > 999 {
+        case (minutesTextField, 1000...):
             return false
+        default:
+            return true
         }
-        
-        return true
     }
     
     @IBAction func done() {
