@@ -71,12 +71,6 @@ class AppearanceController: UIViewController {
     }
     
     @IBAction func done() {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            if let countdownController = presentingViewController as? CountdownController {
-                countdownController.updateAppearance()
-            }
-        }
-        
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
@@ -134,7 +128,7 @@ class AppearanceController: UIViewController {
         fontWeightButton.setTitle(appearance.fontWeight == "UltraLight" ? "Bold" : "Light", for: .normal)
         
         if let countdownController = presentingViewController as? CountdownController {
-            if UIDevice.current.userInterfaceIdiom == .pad { countdownController.updateAppearance() }
+            countdownController.updateAppearance()
             countdownController.outputVC?.updateAppearance()
         }
     }
