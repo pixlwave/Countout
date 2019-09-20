@@ -24,6 +24,7 @@ class CountdownController: UIViewController {
     @IBOutlet var countdownLengthView: UIView!
     @IBOutlet weak var minutesTextField: UITextField!
     @IBOutlet weak var secondsTextField: UITextField!
+    var keyboardHeight: CGFloat = 0
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
@@ -40,6 +41,7 @@ class CountdownController: UIViewController {
         Bundle.main.loadNibNamed("CountdownLengthView", owner: self, options: nil)
         countdownLengthView.alpha = 0.0
         view.addSubview(countdownLengthView)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateKeyboardHeight(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         updateCountdownLength()
         
@@ -76,9 +78,9 @@ class CountdownController: UIViewController {
         super.viewWillLayoutSubviews()
         
         if UIScreen.main.bounds.height < 568 {
-            countdownLengthView.frame = CGRect(x: 0, y: countdownView.frame.maxY - 36, width: view.frame.width, height: view.frame.height - countdownView.frame.maxY - 180)
+            countdownLengthView.frame = CGRect(x: 0, y: countdownView.frame.maxY - 36, width: view.frame.width, height: view.frame.height - countdownView.frame.maxY - keyboardHeight)
         } else {
-            countdownLengthView.frame = CGRect(x: 0, y: countdownView.frame.maxY, width: view.frame.width, height: view.frame.height - countdownView.frame.maxY - 216)
+            countdownLengthView.frame = CGRect(x: 0, y: countdownView.frame.maxY, width: view.frame.width, height: view.frame.height - countdownView.frame.maxY - keyboardHeight)
         }
         
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -96,6 +98,12 @@ class CountdownController: UIViewController {
             countdownViewWidthConstraint.constant = 688
             // setConstraints(countdownViewLandscapeConstraints, enabled: false)
             // setConstraints(countdownViewPortraintConstraints, enabled: true)
+        }
+    }
+    
+    @objc func updateKeyboardHeight(_ notification: Notification) {
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            keyboardHeight = keyboardFrame.height
         }
     }
     
