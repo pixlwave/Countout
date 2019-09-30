@@ -24,7 +24,11 @@ class CountdownController: UIViewController {
     @IBOutlet var countdownLengthView: UIView!
     @IBOutlet weak var minutesTextField: UITextField!
     @IBOutlet weak var secondsTextField: UITextField!
-    var keyboardHeight: CGFloat = 0
+    var keyboardHeight: CGFloat = 0 {
+        didSet {
+            if keyboardHeight != oldValue { view.setNeedsLayout() }
+        }
+    }
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
