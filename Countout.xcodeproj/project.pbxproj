@@ -75,7 +75,10 @@
 		A50FF8781B70D4CE007834FE = {
 			isa = PBXGroup;
 			children = (
-				A50FF8831B70D4CE007834FE /* Countout */,
+				A5F38BDF242B6046006AFE0E /* Sources */,
+				A5F38BE0242B6079006AFE0E /* Resources */,
+				A5B629F41B76245C009996D0 /* Bridging-Header.h */,
+				A5B629E41B762435009996D0 /* STColorPicker */,
 				A50FF8821B70D4CE007834FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,18 +89,6 @@
 				A50FF8811B70D4CE007834FE /* Countout.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A50FF8831B70D4CE007834FE /* Countout */ = {
-			isa = PBXGroup;
-			children = (
-				A5C1CBE51F83BE9000B108F0 /* App */,
-				A5C1CBE91F83BF0400B108F0 /* Resources */,
-				A5B629E41B762435009996D0 /* STColorPicker */,
-				A5B629F41B76245C009996D0 /* Bridging-Header.h */,
-				A50FF8851B70D4CE007834FE /* Info.plist */,
-			);
-			path = Countout;
 			sourceTree = "<group>";
 		};
 		A5B629E41B762435009996D0 /* STColorPicker */ = {
@@ -121,18 +112,6 @@
 				A5B629E91B762435009996D0 /* glass@2x.png */,
 			);
 			path = resources;
-			sourceTree = "<group>";
-		};
-		A5C1CBE51F83BE9000B108F0 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				A50FF8861B70D4CE007834FE /* AppDelegate.swift */,
-				A54FDBF91B76903F008CECFA /* Extends.swift */,
-				A5C1CBE61F83BEAB00B108F0 /* Controllers */,
-				A5C1CBE71F83BEBB00B108F0 /* Models */,
-				A5C1CBE81F83BEC100B108F0 /* Views */,
-			);
-			path = App;
 			sourceTree = "<group>";
 		};
 		A5C1CBE61F83BEAB00B108F0 /* Controllers */ = {
@@ -164,7 +143,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A5C1CBE91F83BF0400B108F0 /* Resources */ = {
+		A5F38BDF242B6046006AFE0E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A50FF8861B70D4CE007834FE /* AppDelegate.swift */,
+				A54FDBF91B76903F008CECFA /* Extends.swift */,
+				A5C1CBE61F83BEAB00B108F0 /* Controllers */,
+				A5C1CBE71F83BEBB00B108F0 /* Models */,
+				A5C1CBE81F83BEC100B108F0 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		A5F38BE0242B6079006AFE0E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				A50FF8AA1B70D5E7007834FE /* Main.storyboard */,
@@ -173,6 +164,7 @@
 				A50FF8A61B70D5E7007834FE /* BackgroundAppearanceView.xib */,
 				A50FF8A71B70D5E7007834FE /* CountdownLengthView.xib */,
 				A50FF8A81B70D5E7007834FE /* FontAppearanceView.xib */,
+				A50FF8851B70D4CE007834FE /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -388,13 +380,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = NU8A5Y875P;
-				INFOPLIST_FILE = Countout/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.pixlwave.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Countout/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -406,13 +398,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = NU8A5Y875P;
-				INFOPLIST_FILE = Countout/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.pixlwave.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Countout/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
