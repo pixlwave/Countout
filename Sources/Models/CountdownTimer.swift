@@ -2,7 +2,7 @@ import Foundation
 
 class CountdownTimer: NSObject {
     
-    static let sharedClient = CountdownTimer()
+    static let shared = CountdownTimer()
     
     var delegate: CountdownTimerDelegate?
     var length = 0 { didSet { remaining = length } }

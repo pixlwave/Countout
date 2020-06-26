@@ -1,7 +1,7 @@
 import UIKit
 
 class Appearance {
-    static let sharedClient = Appearance()
+    static let shared = Appearance()
     
     var backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground {
         didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }

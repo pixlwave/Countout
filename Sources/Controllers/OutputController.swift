@@ -1,7 +1,7 @@
 import UIKit
 
 class OutputController: UIViewController {
-    var appearance = Appearance.sharedClient
+    var appearance = Appearance.shared
     
     @IBOutlet weak var countdownView: CountdownView!
 

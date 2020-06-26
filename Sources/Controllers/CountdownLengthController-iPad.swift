@@ -2,7 +2,7 @@ import UIKit
 
 class CountdownLengthController: UIViewController {
     
-    let countdown = CountdownTimer.sharedClient
+    let countdown = CountdownTimer.shared
     
     var countdownMinutes: Int!
     var countdownSeconds: Int!

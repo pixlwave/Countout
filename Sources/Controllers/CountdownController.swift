@@ -2,8 +2,8 @@ import UIKit
 
 class CountdownController: UIViewController {
     
-    let countdown = CountdownTimer.sharedClient
-    let appearance = Appearance.sharedClient
+    let countdown = CountdownTimer.shared
+    let appearance = Appearance.shared
     
     var outputExists = false {
         didSet {

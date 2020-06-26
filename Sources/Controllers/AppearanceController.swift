@@ -2,7 +2,7 @@ import UIKit
 
 class AppearanceController: UIViewController {
     
-    let appearance = Appearance.sharedClient
+    let appearance = Appearance.shared
     
     var colorPicker: STColorPicker!
     var pickColorOf = ColorOf.text
@@ -29,7 +29,7 @@ class AppearanceController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        countdownView.text = String(CountdownTimer.sharedClient.length / 60) + ":" + String(format: "%02d", (CountdownTimer.sharedClient.length % 60))
+        countdownView.text = String(CountdownTimer.shared.length / 60) + ":" + String(format: "%02d", (CountdownTimer.shared.length % 60))
         
         borderView.backgroundColor = UIColor.clear
         borderView.layer.cornerRadius = 6.0

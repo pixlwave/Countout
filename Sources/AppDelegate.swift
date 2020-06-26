@@ -9,7 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var externalWindow: UIWindow?
     var outputVC: OutputController?
     
-    let countdown = CountdownTimer.sharedClient
+    let countdown = CountdownTimer.shared
     var backgroundTime: Date?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
