@@ -3,15 +3,15 @@ import UIKit
 class Appearance: ObservableObject {
     static let shared = Appearance()
     
+    
+    // polluted keys: ["Background Image", "Font Family"]
     @Published var backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground {
         didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }
     }
     @Published var backgroundImage: UIImage? {
         didSet { writeBackground() }
     }
-    @Published var fontFamily = UserDefaults.standard.string(forKey: "Font Family") ?? "Avenir Next" {
-        didSet { UserDefaults.standard.set(fontFamily, forKey: "Font Family") }
-    }
+    let fontFamily = "Avenir Next"
     @Published var fontScale = UserDefaults.standard.cgFloat(forKey: "Font Scale") ?? 0.25 {
         didSet { UserDefaults.standard.set(fontScale, forKey: "Font Scale") }
     }
@@ -30,7 +30,6 @@ class Appearance: ObservableObject {
     func reset() {
         backgroundColor = .countdownBackground
         backgroundImage = nil
-        fontFamily = "Avenir Next"
         fontScale = 0.25
         fontWeight = "Ultra Light"
         textColor = .white
