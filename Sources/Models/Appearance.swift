@@ -1,58 +1,53 @@
 import UIKit
 
-class Appearance {
+class Appearance: ObservableObject {
     static let shared = Appearance()
     
-    var backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground {
+    @Published var backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground {
         didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }
     }
-    var backgroundImage = UserDefaults.standard.image(forKey:"Background Image") {
+    @Published var backgroundImage: UIImage? {
         didSet { writeBackground() }
     }
-    var fontFamily = UserDefaults.standard.string(forKey: "Font Family") ?? "AvenirNext" {
+    @Published var fontFamily = UserDefaults.standard.string(forKey: "Font Family") ?? "Avenir Next" {
         didSet { UserDefaults.standard.set(fontFamily, forKey: "Font Family") }
     }
-    var fontScale = UserDefaults.standard.cgFloat(forKey: "Font Scale") ?? 0.25 {
+    @Published var fontScale = UserDefaults.standard.cgFloat(forKey: "Font Scale") ?? 0.25 {
         didSet { UserDefaults.standard.set(fontScale, forKey: "Font Scale") }
     }
-    var fontWeight = UserDefaults.standard.string(forKey: "Font Weight") ?? "UltraLight" {
+    @Published var fontWeight = UserDefaults.standard.string(forKey: "Font Weight") ?? "Ultra Light" {
         didSet { UserDefaults.standard.set(fontWeight, forKey: "Font Weight") }
     }
-    var textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .white {
+    @Published var textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .white {
         didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") }
     }
     
     init() {
-        // backgroundImage initially attempts to load from now removed user defaults storage
-        if backgroundImage == nil {
-            // load the background from disk if user defaults has no value
-            backgroundImage = readBackground()
-        } else {
-            // otherwise transition to storing backgroundImage as a file on disk
-            writeBackground()
-            UserDefaults.standard.removeObject(forKey: "Background Image")
-        }
+        // load the backgroundImage from disk
+        readBackground()
     }
     
     func reset() {
         backgroundColor = .countdownBackground
         backgroundImage = nil
-        fontFamily = "AvenirNext"
+        fontFamily = "Avenir Next"
         fontScale = 0.25
-        fontWeight = "UltraLight"
+        fontWeight = "Ultra Light"
         textColor = .white
     }
     
-    var fontName: String {
-        return fontFamily + "-" + fontWeight
+    func toggleBold() {
+        fontWeight = fontWeight == "Ultra Light" ? "Demi Bold" : "Ultra Light"
     }
     
-    func readBackground() -> UIImage? {
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        return UIImage(contentsOfFile: documentDirectory.appendingPathComponent("Background.png").path)
+    var fontName: String { fontFamily + " " + fontWeight }
+    
+    private func readBackground() {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        backgroundImage = UIImage(contentsOfFile: documentDirectory.appendingPathComponent("Background.png").path)
     }
     
-    func writeBackground() {
+    private func writeBackground() {
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         if let backgroundImage = backgroundImage {
             try? backgroundImage.pngData()?.write(to:  documentDirectory.appendingPathComponent("Background.png"))

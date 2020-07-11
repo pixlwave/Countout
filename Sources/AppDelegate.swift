@@ -1,21 +1,19 @@
 import UIKit
+import SwiftUI
 
-@UIApplicationMain
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var countdownVC: CountdownController?
     
     var externalWindow: UIWindow?
-    var outputVC: OutputController?
+    var outputVC: UIHostingController<CountdownView>?
     
     let countdown = CountdownTimer.shared
-    var backgroundTime: Date?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         application.isIdleTimerDisabled = true
-        
-        countdown.delegate = self
         
         countdownVC = window?.rootViewController as? CountdownController
         
@@ -30,52 +28,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @objc func updateOutput() {
         if UIScreen.screens.count > 1 {
             externalWindow = UIWindow(frame: UIScreen.screens[1].bounds)
-            externalWindow?.screen = UIScreen.screens[1] 
+            externalWindow?.screen = UIScreen.screens[1]
             
-            outputVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Output") as? OutputController
+            outputVC = UIHostingController<CountdownView>(rootView: CountdownView())
             
             externalWindow?.rootViewController = outputVC
             externalWindow?.isHidden = false
             
-            countdownVC?.outputVC = outputVC
-            countdownVC?.outputExists = true
-            
-            countdownHasChanged()
+            // countdownVC?.outputExists = true
         } else {
             countdownVC?.outputVC = nil
             outputVC = nil
             externalWindow = nil
             
-            countdownVC?.outputExists = false
+            // countdownVC?.outputExists = false
         }
     }
     
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        if countdown.isActive() {
-            backgroundTime = Date()
-        }
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        if let backgroundTime = backgroundTime {
-            let timePassed = Int(Date().timeIntervalSince(backgroundTime))
-            countdown.addToRemaining(-timePassed)
-            
-            self.backgroundTime = nil
-        }
-    }
-
-}
-
-// MARK: CountdownTimerDelegate
-extension AppDelegate: CountdownTimerDelegate {
-    func countdownHasChanged() {
-        let remainingString = String(countdown.remaining / 60) + ":" + String(format: "%02d", (countdown.remaining % 60))
-        outputVC?.countdownView?.text = remainingString
-        countdownVC?.countdownView?.text = remainingString
-    }
-    
-    func countdownHasFinished() {
-        countdownVC?.countdownHasFinished()
-    }
 }

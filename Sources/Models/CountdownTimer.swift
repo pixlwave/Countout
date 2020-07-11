@@ -1,63 +1,69 @@
 import Foundation
 
-class CountdownTimer: NSObject {
+class CountdownTimer: ObservableObject {
     
     static let shared = CountdownTimer()
     
-    var delegate: CountdownTimerDelegate?
-    var length = 0 { didSet { remaining = length } }
-    private(set) var remaining = 0
+    enum State {
+        case reset, active, paused, finished
+    }
+    
+    var length: TimeInterval = 300 {
+        didSet { if state != .active { reset() } }
+    }
+    @Published var endDate = Date().addingTimeInterval(300)
+    
+    @Published private(set) var remaining: TimeInterval = 300
+    
     var runTimer: Timer?
     
+    @Published private(set) var state = State.reset
+    @Published var isScheduled = false
+    
     func start() {
-        if runTimer == nil && remaining != 0 {
-            runTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+        guard runTimer == nil, state != .finished else { return }
+        endDate = Date().addingTimeInterval(state == .paused ? remaining : length)
+        runTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            self.tick()
         }
+        state = .active
     }
     
     func stop() {
+        stopTimer()
+        state = .paused
+    }
+    
+    private func stopTimer() {
         runTimer?.invalidate()
         runTimer = nil
     }
     
     func reset() {
-        stop()
+        stopTimer()
         remaining = length
-        
-        delegate?.countdownHasChanged()
+        state = .reset
     }
     
-    func isActive() -> Bool {
-        return runTimer != nil
-    }
-    
-    @objc func tick() {
-        remaining -= 1
-        delegate?.countdownHasChanged()
+    func tick() {
+        remaining = endDate.timeIntervalSinceNow
         
-        if remaining == 0 {
-            stop()
-            delegate?.countdownHasFinished()
+        if Date() > endDate {
+            stopTimer()
+            state = .finished
         }
     }
     
-    func addToRemaining(_ amount: Int) {
-        remaining += amount
-        
-        if remaining < 0 {
-            stop()
-            remaining = 0
-            delegate?.countdownHasChanged()
-            delegate?.countdownHasFinished()
-        } else {
-            delegate?.countdownHasChanged()
+    func add(_ timeInterval: TimeInterval) {
+        switch state {
+        case .reset:
+            length += timeInterval
+        case .active:
+            endDate.addTimeInterval(timeInterval)
+            tick()
+        case .paused, .finished:
+            remaining += timeInterval
         }
     }
     
-}
-
-// MARK: CountdownTimerDelegate
-protocol CountdownTimerDelegate {
-    func countdownHasChanged()
-    func countdownHasFinished()
 }

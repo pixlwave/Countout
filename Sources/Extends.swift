@@ -1,12 +1,35 @@
-import UIKit
+import SwiftUI
+
+extension Color {
+    static let countdownBackground = Color(UIColor(named: "Countdown Background Color")!)
+}
+
+
+extension TimeInterval {
+    static let remainingFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional
+        formatter.allowedUnits = [.minute, .second]
+        formatter.zeroFormattingBehavior = .pad
+        return formatter
+    }()
+    
+    func remainingString() -> String {
+        var components = DateComponents()
+        components.second = Int(max(0.0, self.rounded(.up)))
+        return TimeInterval.remainingFormatter.string(from: components)!
+    }
+}
+
 
 extension UserDefaults {
-    func color(forKey defaultName: String) -> UIColor? {
-        if let colorData = data(forKey: defaultName) {
-            return NSKeyedUnarchiver.unarchiveObject(with: colorData) as? UIColor
-        } else {
-            return nil
-        }
+    func color(forKey defaultName: String) -> Color? {
+        guard
+            let colorData = data(forKey: defaultName),
+            let uiColor = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: colorData)
+        else { return nil }
+        
+        return Color(uiColor)
     }
     
     func image(forKey defaultName: String) -> UIImage? {
@@ -21,9 +44,9 @@ extension UserDefaults {
         return object(forKey: defaultName) as? CGFloat
     }
     
-    func set(_ value: UIColor?, forKey key: String) {
-        if let value = value {
-            setValue(NSKeyedArchiver.archivedData(withRootObject: value), forKey: key)
+    func set(_ value: Color?, forKey key: String) {
+        if let value = value, let data = try? NSKeyedArchiver.archivedData(withRootObject: UIColor(value), requiringSecureCoding: true) {
+            setValue(data, forKey: key)
         } else {
             setValue(nil, forKey: key)
         }
@@ -35,39 +58,5 @@ extension UserDefaults {
         } else {
             setValue(nil, forKey: key)
         }
-    }
-}
-
-extension UIView {
-    func fadeIn() {
-        UIView.animate(withDuration: 0.3) {
-            self.alpha = 1.0
-        }
-    }
-    
-    func fadeOut() {
-        UIView.animate(withDuration: 0.3) {
-            self.alpha = 0.0
-        }
-    }
-    
-    func constrainToMatchView(_ view: UIView) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0))
-        self.superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0))
-        self.superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0))
-        self.superview?.addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0))
-    }
-}
-
-
-extension UIColor {
-    static var countdownBackground: UIColor { UIColor(named: "Countdown Background Color")! }
-}
-
-
-extension STColorPicker {
-    open override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        gestureRecognizers?.contains(gestureRecognizer) ?? false
     }
 }
