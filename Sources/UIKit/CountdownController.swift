@@ -15,8 +15,6 @@ class CountdownController: UIViewController {
     @IBOutlet weak var minutesTextField: UITextField!
     @IBOutlet weak var secondsTextField: UITextField!
     
-    var outputVC: OutputController?
-    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return [UIInterfaceOrientationMask.portrait, UIInterfaceOrientationMask.portraitUpsideDown]

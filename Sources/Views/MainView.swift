@@ -97,7 +97,6 @@ struct MainView: View {
     }
     
     func plusOne() {
-        #warning("Re-enable the reset button if not yet started")
         countdown.add(60)
     }
 }

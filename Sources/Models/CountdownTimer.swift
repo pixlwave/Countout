@@ -68,7 +68,8 @@ class CountdownTimer: ObservableObject {
     func add(_ timeInterval: TimeInterval) {
         switch state {
         case .reset:
-            length += timeInterval
+            state = .paused
+            remaining += timeInterval   // add to remaining to allow resetting back to original length
         case .active:
             endDate.addTimeInterval(timeInterval)
             tick()
