@@ -10,8 +10,8 @@ extension TimeInterval {
     static let remainingFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .positional
-        formatter.allowedUnits = [.minute, .second]
-        formatter.zeroFormattingBehavior = .pad
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.zeroFormattingBehavior = .dropLeading
         return formatter
     }()
     
