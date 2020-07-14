@@ -555,43 +555,6 @@
             </objects>
             <point key="canvasLocation" x="-200" y="-127"/>
         </scene>
-        <!--Output Controller-->
-        <scene sceneID="pFW-hX-JVs">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ma-cc-eSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="Output" id="lQu-Oc-KIv" customClass="OutputController" customModule="Countout" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fxv-zp-Geb"/>
-                        <viewControllerLayoutGuide type="bottom" id="IZk-Pu-fR0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bdR-Z1-Er0">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7Z-c0-DQA" userLabel="Countdown View" customClass="CountdownView" customModule="Countout" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="k7Z-c0-DQA" firstAttribute="top" secondItem="fxv-zp-Geb" secondAttribute="top" id="0sN-4s-stR"/>
-                            <constraint firstAttribute="trailing" secondItem="k7Z-c0-DQA" secondAttribute="trailing" id="k5T-aN-gtQ"/>
-                            <constraint firstItem="IZk-Pu-fR0" firstAttribute="bottom" secondItem="k7Z-c0-DQA" secondAttribute="bottom" id="vRo-aG-a5d"/>
-                            <constraint firstItem="k7Z-c0-DQA" firstAttribute="leading" secondItem="bdR-Z1-Er0" secondAttribute="leading" id="z3j-cZ-UW6"/>
-                        </constraints>
-                    </view>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1024" height="768"/>
-                    <connections>
-                        <outlet property="countdownView" destination="k7Z-c0-DQA" id="hyw-Ig-0ad"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1069" y="74"/>
-        </scene>
     </scenes>
     <resources>
         <image name="appearance" width="24" height="24"/>

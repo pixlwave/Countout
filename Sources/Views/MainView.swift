@@ -20,30 +20,28 @@ struct MainView: View {
                             .opacity(hasDisplayConnected ? 0 : 1),
                          alignment: .bottomTrailing)
                 .padding(.horizontal)
+                .padding(.top, 8)
             
             HStack {
-                Text("Length:")
+                Text("minutes:")
+                    .font(Font.subheadline.weight(.thin))
                 TextField("", value: $countdownMinutes, formatter: NumberFormatter())
                     .keyboardType(.numbersAndPunctuation)
-                    .multilineTextAlignment(.trailing)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: 40)
+                    .frame(width: 60)
                     .onChange(of: countdownMinutes) { _ in
                         updateLength()
                     }
-                Text("minutes")
-                    .font(.subheadline)
-                    .padding(.trailing)
+                Text("seconds:")
+                    .font(Font.subheadline.weight(.thin))
+                    .padding(.leading)
                 TextField("", value: $countdownSeconds, formatter: NumberFormatter())
                     .keyboardType(.numbersAndPunctuation)
-                    .multilineTextAlignment(.trailing)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: 40)
+                    .frame(width: 60)
                     .onChange(of: countdownSeconds) { _ in
                         updateLength()
                     }
-                Text("seconds")
-                    .font(.subheadline)
             }
             
             Spacer()

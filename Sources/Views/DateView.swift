@@ -18,6 +18,7 @@ struct DateView: View {
                             .opacity(hasDisplayConnected ? 0 : 1),
                          alignment: .bottomTrailing)
                 .padding(.horizontal)
+                .padding(.top, 8)
             
             DatePicker("Date", selection: $countdown.endDate, displayedComponents: .hourAndMinute)
                 .datePickerStyle(GraphicalDatePickerStyle())
