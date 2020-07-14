@@ -1,7 +1,8 @@
 import SwiftUI
 
 extension Color {
-    static let countdownBackground = Color(UIColor(named: "Countdown Background Color")!)
+    static let countdownBackground = Color("Countdown Background Color")
+    static let countdownText = Color("Countdown Text Color")
 }
 
 

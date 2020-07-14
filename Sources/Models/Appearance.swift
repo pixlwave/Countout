@@ -15,10 +15,10 @@ class Appearance: ObservableObject {
     @Published var fontScale = UserDefaults.standard.cgFloat(forKey: "Font Scale") ?? 0.25 {
         didSet { UserDefaults.standard.set(fontScale, forKey: "Font Scale") }
     }
-    @Published var fontWeight = UserDefaults.standard.string(forKey: "Font Weight") ?? "Ultra Light" {
+    @Published var fontWeight = UserDefaults.standard.string(forKey: "Font Weight") ?? "Demi Bold" {
         didSet { UserDefaults.standard.set(fontWeight, forKey: "Font Weight") }
     }
-    @Published var textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .white {
+    @Published var textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .countdownText {
         didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") }
     }
     
@@ -31,12 +31,12 @@ class Appearance: ObservableObject {
         backgroundColor = .countdownBackground
         backgroundImage = nil
         fontScale = 0.25
-        fontWeight = "Ultra Light"
-        textColor = .white
+        fontWeight = "Demi Bold"
+        textColor = .countdownText
     }
     
     func toggleBold() {
-        fontWeight = fontWeight == "Ultra Light" ? "Demi Bold" : "Ultra Light"
+        fontWeight = fontWeight == "Regular" ? "Demi Bold" : "Regular"
     }
     
     var fontName: String { fontFamily + " " + fontWeight }
