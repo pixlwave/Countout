@@ -44,11 +44,13 @@ struct AppearanceView: View {
             }
             .padding()
             .navigationBarTitle("Appearance", displayMode: .inline)
-            .navigationBarItems(leading: Button("Reset") {
-                appearance.reset()
-            }, trailing: Button("Done") {
-                isPresented = false
-            })
+            .navigationBarItems(leading:
+                                    Button("Reset") {
+                                        appearance.reset()
+                                    }.font(.body),
+                                trailing: Button("Done") {
+                                    isPresented = false
+                                })
             .sheet(isPresented: $isPresentingPhotoPicker) {
                 PhotoPicker(isPresented: $isPresentingPhotoPicker)
             }

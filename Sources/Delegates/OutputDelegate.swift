@@ -12,9 +12,17 @@ class OutputDelegate: UIResponder, UIWindowSceneDelegate {
         let hostingController = UIHostingController<CountdownView>(rootView: CountdownView())
         window?.rootViewController = hostingController
         window?.isHidden = false
+        
+        OutputDisplay.shared.isConnected = true
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
+        OutputDisplay.shared.isConnected = false
         window = nil
     }
+}
+
+class OutputDisplay: ObservableObject {
+    static let shared = OutputDisplay()
+    @Published var isConnected = false
 }

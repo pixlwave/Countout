@@ -3,9 +3,9 @@ import SwiftUI
 struct ScheduleView: View {
     @ObservedObject var countdown = CountdownTimer.shared
     @ObservedObject var appearance = Appearance.shared
+    @ObservedObject var outputDisplay = OutputDisplay.shared
     
     @State private var isPresentingAppearance = false
-    var hasDisplayConnected = false
     
     var body: some View {
         VStack() {
@@ -15,7 +15,7 @@ struct ScheduleView: View {
                             .font(.caption)
                             .foregroundColor(.red)
                             .offset(x: -8, y: -5)
-                            .opacity(hasDisplayConnected ? 0 : 1),
+                            .opacity(outputDisplay.isConnected ? 0 : 1),
                          alignment: .bottomTrailing)
                 .padding(.horizontal)
                 .padding(.top, 8)

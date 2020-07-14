@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct CountdownView: View {
-    @State var hasDisplayConnected = false
     @ObservedObject var countdown = CountdownTimer.shared
     @ObservedObject var appearance = Appearance.shared
     
