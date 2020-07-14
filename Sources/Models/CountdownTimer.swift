@@ -18,11 +18,22 @@ class CountdownTimer: ObservableObject {
     var runTimer: Timer?
     
     @Published private(set) var state = State.reset
-    @Published var isScheduled = false
+    @Published var isScheduled = false {
+        didSet { if isScheduled { startScheduledTick() } }
+    }
     
     func start() {
         guard runTimer == nil, state != .finished else { return }
         endDate = Date().addingTimeInterval(state == .paused ? remaining : length)
+        runTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            self.tick()
+        }
+        state = .active
+    }
+    
+    func startScheduledTick() {
+        guard runTimer == nil, endDate > Date() else { return }
+        
         runTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             self.tick()
         }

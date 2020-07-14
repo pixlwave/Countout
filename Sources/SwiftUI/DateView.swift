@@ -31,6 +31,11 @@ struct DateView: View {
             
             Spacer()
         }
+        .onChange(of: countdown.endDate) { newValue in
+            if countdown.state != .active {
+                countdown.startScheduledTick()
+            }
+        }
         .sheet(isPresented: $isPresentingAppearance) {
             AppearanceView(isPresented: $isPresentingAppearance)
         }
