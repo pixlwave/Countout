@@ -82,6 +82,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A5A3CF4A24BDDF3C008705AC /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				A50FF8861B70D4CE007834FE /* AppDelegate.swift */,
+				A5A3CF4824BDD937008705AC /* ExternalSceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		A5C1CBE61F83BEAB00B108F0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,7 +120,7 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		A5D5251D24B9FE5700207EE3 /* SwiftUI */ = {
+		A5D5251D24B9FE5700207EE3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				A5D5251E24B9FE7000207EE3 /* MainView.swift */,
@@ -120,17 +129,16 @@
 				A5D5252124B9FE7000207EE3 /* CountdownView.swift */,
 				A5D5252324B9FE7000207EE3 /* PhotoPicker.swift */,
 			);
-			path = SwiftUI;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A5F38BDF242B6046006AFE0E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				A5D5252724B9FE7000207EE3 /* CountoutApp.swift */,
-				A50FF8861B70D4CE007834FE /* AppDelegate.swift */,
-				A5A3CF4824BDD937008705AC /* ExternalSceneDelegate.swift */,
 				A54FDBF91B76903F008CECFA /* Extends.swift */,
-				A5D5251D24B9FE5700207EE3 /* SwiftUI */,
+				A5A3CF4A24BDDF3C008705AC /* Delegates */,
+				A5D5251D24B9FE5700207EE3 /* Views */,
 				A5C1CBE71F83BEBB00B108F0 /* Models */,
 				A5C1CBE61F83BEAB00B108F0 /* Controllers */,
 				A5C1CBE81F83BEC100B108F0 /* UIKit */,
