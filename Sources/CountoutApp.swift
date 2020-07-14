@@ -11,7 +11,7 @@ struct CountoutApp: App {
             TabView(selection: $tabSelection) {
                 MainView()
                     .tabItem { Label("Countdown", systemImage: "stopwatch") }.tag(0)
-                DateView()
+                ScheduleView()
                     .tabItem { Label("Schedule", systemImage: "calendar") }.tag(1)
             }
             .onChange(of: tabSelection) { tabIndex in
