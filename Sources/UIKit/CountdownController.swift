@@ -23,17 +23,6 @@ class CountdownController: UIViewController {
         }
     }
     
-    func updateLengthLabel() {
-        let minutesSuffix = countdownMinutes == 1 ? "minute" : "minutes"
-        let secondsSuffix = countdownSeconds == 1 ? "second" : "seconds"
-        
-        lengthLabel.text = countdownSeconds == 0 ? "\(countdownMinutes) \(minutesSuffix)" : "\(countdownMinutes) \(minutesSuffix), \(countdownSeconds) \(secondsSuffix)"
-        
-        // update text fields
-        minutesTextField.text = String(countdownMinutes)
-        secondsTextField.text = String(countdownSeconds)
-    }
-    
     @IBAction func finishCountdownLength() {
         countdownMinutes = Int(minutesTextField.text!) ?? 0
         countdownSeconds = Int(secondsTextField.text!) ?? 0
@@ -57,21 +46,6 @@ extension CountdownController: UITextFieldDelegate {
             return false
         default:
             return true
-        }
-    }
-}
-
-
-extension UIView {
-    func fadeIn() {
-        UIView.animate(withDuration: 0.3) {
-            self.alpha = 1.0
-        }
-    }
-    
-    func fadeOut() {
-        UIView.animate(withDuration: 0.3) {
-            self.alpha = 0.0
         }
     }
 }

@@ -24,8 +24,6 @@
 		A5D5252F24B9FE7000207EE3 /* AppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252524B9FE7000207EE3 /* AppearanceView.swift */; };
 		A5D5253024B9FE7000207EE3 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252624B9FE7000207EE3 /* Appearance.swift */; };
 		A5D5253124B9FE7000207EE3 /* CountoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252724B9FE7000207EE3 /* CountoutApp.swift */; };
-		A5D957EF1B7B705D009CCC62 /* CountdownLengthController-iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D957EE1B7B705D009CCC62 /* CountdownLengthController-iPad.swift */; };
-		A5D957F11B7BE965009CCC62 /* KeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D957F01B7BE965009CCC62 /* KeypadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +46,6 @@
 		A5D5252524B9FE7000207EE3 /* AppearanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceView.swift; sourceTree = "<group>"; };
 		A5D5252624B9FE7000207EE3 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		A5D5252724B9FE7000207EE3 /* CountoutApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountoutApp.swift; sourceTree = "<group>"; };
-		A5D957EE1B7B705D009CCC62 /* CountdownLengthController-iPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CountdownLengthController-iPad.swift"; sourceTree = "<group>"; };
-		A5D957F01B7BE965009CCC62 /* KeypadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeypadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +100,6 @@
 				A59AA5701B70D80F007B3856 /* CountdownController.swift */,
 				A59AA5721B70D81A007B3856 /* AppearanceController.swift */,
 				A55FD61C1B78DA58000C6A4F /* OldCountdownView.swift */,
-				A5D957F01B7BE965009CCC62 /* KeypadView.swift */,
-				A5D957EE1B7B705D009CCC62 /* CountdownLengthController-iPad.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -226,10 +220,8 @@
 				A5A3CF4924BDD937008705AC /* OutputDelegate.swift in Sources */,
 				A5D5252824B9FE7000207EE3 /* MainView.swift in Sources */,
 				A5D5253024B9FE7000207EE3 /* Appearance.swift in Sources */,
-				A5D957F11B7BE965009CCC62 /* KeypadView.swift in Sources */,
 				A5D5252924B9FE7000207EE3 /* CountdownTimer.swift in Sources */,
 				A5D5253124B9FE7000207EE3 /* CountoutApp.swift in Sources */,
-				A5D957EF1B7B705D009CCC62 /* CountdownLengthController-iPad.swift in Sources */,
 				A50FF8871B70D4CE007834FE /* AppDelegate.swift in Sources */,
 				A5D5252B24B9FE7000207EE3 /* CountdownView.swift in Sources */,
 				A59AA5731B70D81A007B3856 /* AppearanceController.swift in Sources */,
