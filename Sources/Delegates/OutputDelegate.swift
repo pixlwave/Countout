@@ -1,7 +1,7 @@
 import UIKit
 import SwiftUI
 
-class ExternalSceneDelegate: UIResponder, UIWindowSceneDelegate {
+class OutputDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     

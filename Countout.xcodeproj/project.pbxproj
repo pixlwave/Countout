@@ -15,7 +15,7 @@
 		A55FD61D1B78DA58000C6A4F /* OldCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55FD61C1B78DA58000C6A4F /* OldCountdownView.swift */; };
 		A59AA5711B70D80F007B3856 /* CountdownController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AA5701B70D80F007B3856 /* CountdownController.swift */; };
 		A59AA5731B70D81A007B3856 /* AppearanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AA5721B70D81A007B3856 /* AppearanceController.swift */; };
-		A5A3CF4924BDD937008705AC /* ExternalSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3CF4824BDD937008705AC /* ExternalSceneDelegate.swift */; };
+		A5A3CF4924BDD937008705AC /* OutputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3CF4824BDD937008705AC /* OutputDelegate.swift */; };
 		A5D5252824B9FE7000207EE3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251E24B9FE7000207EE3 /* MainView.swift */; };
 		A5D5252924B9FE7000207EE3 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251F24B9FE7000207EE3 /* CountdownTimer.swift */; };
 		A5D5252A24B9FE7000207EE3 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252024B9FE7000207EE3 /* DateView.swift */; };
@@ -39,7 +39,7 @@
 		A55FD61C1B78DA58000C6A4F /* OldCountdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldCountdownView.swift; sourceTree = "<group>"; };
 		A59AA5701B70D80F007B3856 /* CountdownController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownController.swift; sourceTree = "<group>"; };
 		A59AA5721B70D81A007B3856 /* AppearanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceController.swift; sourceTree = "<group>"; };
-		A5A3CF4824BDD937008705AC /* ExternalSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalSceneDelegate.swift; sourceTree = "<group>"; };
+		A5A3CF4824BDD937008705AC /* OutputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputDelegate.swift; sourceTree = "<group>"; };
 		A5D5251E24B9FE7000207EE3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A5D5251F24B9FE7000207EE3 /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
 		A5D5252024B9FE7000207EE3 /* DateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				A50FF8861B70D4CE007834FE /* AppDelegate.swift */,
-				A5A3CF4824BDD937008705AC /* ExternalSceneDelegate.swift */,
+				A5A3CF4824BDD937008705AC /* OutputDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -223,7 +223,7 @@
 				A5D5252A24B9FE7000207EE3 /* DateView.swift in Sources */,
 				A55FD61D1B78DA58000C6A4F /* OldCountdownView.swift in Sources */,
 				A5D5252D24B9FE7000207EE3 /* PhotoPicker.swift in Sources */,
-				A5A3CF4924BDD937008705AC /* ExternalSceneDelegate.swift in Sources */,
+				A5A3CF4924BDD937008705AC /* OutputDelegate.swift in Sources */,
 				A5D5252824B9FE7000207EE3 /* MainView.swift in Sources */,
 				A5D5253024B9FE7000207EE3 /* Appearance.swift in Sources */,
 				A5D957F11B7BE965009CCC62 /* KeypadView.swift in Sources */,
