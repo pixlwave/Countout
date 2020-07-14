@@ -15,7 +15,6 @@
 		A55FD61D1B78DA58000C6A4F /* OldCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55FD61C1B78DA58000C6A4F /* OldCountdownView.swift */; };
 		A59AA5711B70D80F007B3856 /* CountdownController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AA5701B70D80F007B3856 /* CountdownController.swift */; };
 		A59AA5731B70D81A007B3856 /* AppearanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AA5721B70D81A007B3856 /* AppearanceController.swift */; };
-		A59AA5751B70D828007B3856 /* OutputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AA5741B70D828007B3856 /* OutputController.swift */; };
 		A5A3CF4924BDD937008705AC /* ExternalSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3CF4824BDD937008705AC /* ExternalSceneDelegate.swift */; };
 		A5D5252824B9FE7000207EE3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251E24B9FE7000207EE3 /* MainView.swift */; };
 		A5D5252924B9FE7000207EE3 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251F24B9FE7000207EE3 /* CountdownTimer.swift */; };
@@ -40,7 +39,6 @@
 		A55FD61C1B78DA58000C6A4F /* OldCountdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldCountdownView.swift; sourceTree = "<group>"; };
 		A59AA5701B70D80F007B3856 /* CountdownController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownController.swift; sourceTree = "<group>"; };
 		A59AA5721B70D81A007B3856 /* AppearanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceController.swift; sourceTree = "<group>"; };
-		A59AA5741B70D828007B3856 /* OutputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputController.swift; sourceTree = "<group>"; };
 		A5A3CF4824BDD937008705AC /* ExternalSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalSceneDelegate.swift; sourceTree = "<group>"; };
 		A5D5251E24B9FE7000207EE3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A5D5251F24B9FE7000207EE3 /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
@@ -91,14 +89,6 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
-		A5C1CBE61F83BEAB00B108F0 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				A59AA5741B70D828007B3856 /* OutputController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		A5C1CBE71F83BEBB00B108F0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,7 +130,6 @@
 				A5A3CF4A24BDDF3C008705AC /* Delegates */,
 				A5D5251D24B9FE5700207EE3 /* Views */,
 				A5C1CBE71F83BEBB00B108F0 /* Models */,
-				A5C1CBE61F83BEAB00B108F0 /* Controllers */,
 				A5C1CBE81F83BEC100B108F0 /* UIKit */,
 			);
 			path = Sources;
@@ -245,7 +234,6 @@
 				A5D5252B24B9FE7000207EE3 /* CountdownView.swift in Sources */,
 				A59AA5731B70D81A007B3856 /* AppearanceController.swift in Sources */,
 				A5D5252F24B9FE7000207EE3 /* AppearanceView.swift in Sources */,
-				A59AA5751B70D828007B3856 /* OutputController.swift in Sources */,
 				A54FDBFA1B76903F008CECFA /* Extends.swift in Sources */,
 				A59AA5711B70D80F007B3856 /* CountdownController.swift in Sources */,
 			);
