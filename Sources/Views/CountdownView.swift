@@ -4,6 +4,8 @@ struct CountdownView: View {
     @ObservedObject var countdown = CountdownTimer.shared
     @ObservedObject var appearance = Appearance.shared
     
+    var aspectRatio: CGFloat = 4 / 3
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -14,12 +16,12 @@ struct CountdownView: View {
                         .resizable(resizingMode: .stretch)
                 }
                 Text(countdown.remaining.remainingString())
-                    .frame(width: geometry.size.width, height: geometry.size.width / 4 * 3, alignment: .center)
+                    .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     .font(.custom(appearance.fontName, size: appearance.fontScale * geometry.size.width))
                     .foregroundColor(appearance.textColor)
             }
         }
-        .aspectRatio(4/3, contentMode: .fit)
+        .aspectRatio(aspectRatio, contentMode: .fit)
     }
 }
 

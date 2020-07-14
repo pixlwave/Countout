@@ -8,12 +8,14 @@ class OutputDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene, session.role == .windowExternalDisplay else { return }
         
-        window = UIWindow(windowScene: windowScene)
-        let hostingController = UIHostingController<CountdownView>(rootView: CountdownView())
-        window?.rootViewController = hostingController
-        window?.isHidden = false
+        let window = UIWindow(windowScene: windowScene)
+        let aspectRatio = window.bounds.width / window.bounds.height
+        let hostingController = UIHostingController<CountdownView>(rootView: CountdownView(aspectRatio: aspectRatio))
+        window.rootViewController = hostingController
+        window.isHidden = false
         
         OutputDisplay.shared.isConnected = true
+        self.window = window
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
