@@ -4,15 +4,18 @@ import SwiftUI
 struct CountoutApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
+    @State private var tabSelection = 0
+    
     var body: some Scene {
         WindowGroup {
-            TabView {
+            TabView(selection: $tabSelection) {
                 MainView()
-                    .tabItem { Label("Countdown", systemImage: "stopwatch") }
-                    .onAppear { CountdownTimer.shared.isScheduled = false }
+                    .tabItem { Label("Countdown", systemImage: "stopwatch") }.tag(0)
                 DateView()
-                    .tabItem { Label("Schedule", systemImage: "calendar") }
-                    .onAppear { CountdownTimer.shared.isScheduled = true }
+                    .tabItem { Label("Schedule", systemImage: "calendar") }.tag(1)
+            }
+            .onChange(of: tabSelection) { tabIndex in
+                CountdownTimer.shared.isScheduled = tabIndex == 1
             }
         }
     }
