@@ -10,15 +10,21 @@ extension TimeInterval {
     static let remainingFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .positional
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.zeroFormattingBehavior = .dropLeading
+        formatter.allowedUnits = [.minute, .second]
+        formatter.zeroFormattingBehavior = .pad
         return formatter
     }()
     
     func remainingString() -> String {
         var components = DateComponents()
         components.second = Int(max(0.0, self.rounded(.up)))
-        return TimeInterval.remainingFormatter.string(from: components)!
+        
+        var string = TimeInterval.remainingFormatter.string(from: components)!
+        if string.hasPrefix("0") {
+            string.removeFirst()
+        }
+        
+        return string
     }
 }
 
