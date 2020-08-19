@@ -10,7 +10,7 @@ struct CountoutApp: App {
         WindowGroup {
             TabView(selection: $tabSelection) {
                 MainView()
-                    .tabItem { Label("Countdown", systemImage: "stopwatch") }.tag(0)
+                    .tabItem { Label("Countdown", systemImage: "timer") }.tag(0)
                 ScheduleView()
                     .tabItem { Label("Schedule", systemImage: "calendar") }.tag(1)
             }

@@ -27,7 +27,8 @@ struct ScheduleView: View {
             Spacer()
             
             Button(action: { isPresentingAppearance.toggle() }) {
-                Label("Appearance", systemImage: "eyedropper")
+                Image(systemName: "paintpalette")
+                    .font(.title2)
             }
             
             Spacer()

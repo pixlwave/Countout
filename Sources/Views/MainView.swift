@@ -70,13 +70,24 @@ struct MainView: View {
                 .padding(.horizontal)
             }
             
-            Button(action: plusOne) {
-                Label("Add 1 Minute", systemImage: "hourglass.badge.plus")
-            }.padding()
-            
-            Button(action: { isPresentingAppearance.toggle() }) {
-                Label("Appearance", systemImage: "eyedropper")
-            }
+            HStack {
+                Button(action: plusOne) {
+                    Image(systemName: "gobackward.60")
+                        .font(.title2)
+                }.padding()
+                
+                Button(action: { isPresentingAppearance.toggle() }) {
+                    Image(systemName: "paintpalette")
+                        .font(.title2)
+                }.padding()
+                
+                Button(action: minusOne) {
+                    Image(systemName: "goforward.60")
+                        .font(.title2)
+                }
+                .padding()
+                .disabled(countdown.remaining <= 60)
+            }.padding(.top)
             
             Spacer()
         }
@@ -96,6 +107,10 @@ struct MainView: View {
     
     func plusOne() {
         countdown.add(60)
+    }
+    
+    func minusOne() {
+        countdown.add(-60)
     }
 }
 
