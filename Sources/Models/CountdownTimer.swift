@@ -4,13 +4,19 @@ class CountdownTimer: ObservableObject {
     
     static let shared = CountdownTimer()
     
+    enum TimerValue {
+        case countdown(TimeInterval)
+        case scheduled(Date)
+    }
+    
     enum State {
         case reset, active, paused, finished
     }
     
-    var length: TimeInterval = 300 {
+    var current: TimerValue = .countdown(300) {
         didSet { if state != .active { reset() } }
     }
+    
     @Published var endDate = Date().addingTimeInterval(300)
     
     @Published private(set) var remaining: TimeInterval = 300
@@ -18,25 +24,23 @@ class CountdownTimer: ObservableObject {
     var runTimer: Timer?
     
     @Published private(set) var state = State.reset
-    @Published var isScheduled = false {
-        didSet { if isScheduled { startScheduledTick() } }
-    }
     
     func start() {
         guard runTimer == nil, state != .finished else { return }
-        endDate = Date().addingTimeInterval(state == .paused ? remaining : length)
-        runTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            self.tick()
+        
+        switch current {
+        case .countdown(let length):
+            guard state != .finished else { break }
+            endDate = Date().addingTimeInterval(state == .paused ? remaining : length)
+        case .scheduled(let endDate):
+            guard endDate > Date() else { break }
+            self.endDate = endDate
         }
-        state = .active
-    }
-    
-    func startScheduledTick() {
-        guard runTimer == nil, endDate > Date() else { return }
         
         runTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             self.tick()
         }
+        
         state = .active
     }
     
@@ -52,7 +56,14 @@ class CountdownTimer: ObservableObject {
     
     func reset() {
         stopTimer()
-        remaining = length
+        
+        switch current {
+        case .countdown(let length):
+            remaining = length
+        case .scheduled:
+            break
+        }
+        
         state = .reset
     }
     

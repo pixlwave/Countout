@@ -8,15 +8,7 @@ struct CountoutApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TabView(selection: $tabSelection) {
-                MainView()
-                    .tabItem { Label("Countdown", systemImage: "timer") }.tag(0)
-                ScheduleView()
-                    .tabItem { Label("Schedule", systemImage: "calendar") }.tag(1)
-            }
-            .onChange(of: tabSelection) { tabIndex in
-                CountdownTimer.shared.isScheduled = tabIndex == 1
-            }
+            MainView()
         }
     }
 }

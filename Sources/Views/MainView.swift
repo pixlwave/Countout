@@ -5,8 +5,6 @@ struct MainView: View {
     @ObservedObject var appearance = Appearance.shared
     @ObservedObject var outputDisplay = OutputDisplay.shared
     
-    @State private var countdownMinutes = CountdownTimer.shared.length / 60
-    @State private var countdownSeconds = CountdownTimer.shared.length.truncatingRemainder(dividingBy: 60)
     @State private var isPresentingAppearance = false
     
     var body: some View {
@@ -22,27 +20,8 @@ struct MainView: View {
                 .padding(.horizontal)
                 .padding(.top, 8)
             
-            HStack {
-                Text("minutes:")
-                    .font(Font.subheadline.weight(.thin))
-                TextField("", value: $countdownMinutes, formatter: NumberFormatter())
-                    .keyboardType(.numbersAndPunctuation)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: 60)
-                    .onChange(of: countdownMinutes) { _ in
-                        updateLength()
-                    }
-                Text("seconds:")
-                    .font(Font.subheadline.weight(.thin))
-                    .padding(.leading)
-                TextField("", value: $countdownSeconds, formatter: NumberFormatter())
-                    .keyboardType(.numbersAndPunctuation)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: 60)
-                    .onChange(of: countdownSeconds) { _ in
-                        updateLength()
-                    }
-            }
+            CountdownCell()
+            ScheduledCell()
             
             Spacer()
             
@@ -93,15 +72,6 @@ struct MainView: View {
         }
         .sheet(isPresented: $isPresentingAppearance) {
             AppearanceView(isPresented: $isPresentingAppearance)
-        }
-    }
-    
-    func updateLength() {
-        countdown.length = (countdownMinutes.rounded() * 60) + countdownSeconds.rounded()
-        
-        if countdownSeconds > 59 {
-            countdownMinutes = CountdownTimer.shared.length / 60
-            countdownSeconds = CountdownTimer.shared.length.truncatingRemainder(dividingBy: 60)
         }
     }
     
