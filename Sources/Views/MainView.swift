@@ -5,8 +5,6 @@ struct MainView: View {
     @ObservedObject var appearance = Appearance.shared
     @ObservedObject var outputDisplay = OutputDisplay.shared
     
-    @State private var isPresentingAppearance = false
-    
     var body: some View {
         VStack() {
             CountdownView()
@@ -19,11 +17,17 @@ struct MainView: View {
                          alignment: .bottomTrailing)
                 .padding(.horizontal)
                 .padding(.top, 8)
+                .layoutPriority(1)
             
-            CountdownCell()
-            ScheduledCell()
+            TimerCell(timer: countdown.currentTimer)
+                .padding(.trailing)
             
-            Spacer()
+            List {
+                ForEach(countdown.timerQueue, id: \.self) { timer in
+                    TimerCell(timer: timer)
+                }
+                .onDelete(perform: delete)
+            }
             
             HStack {
                 Button(action: countdown.start) {
@@ -55,11 +59,6 @@ struct MainView: View {
                         .font(.title2)
                 }.padding()
                 
-                Button(action: { isPresentingAppearance.toggle() }) {
-                    Image(systemName: "paintpalette")
-                        .font(.title2)
-                }.padding()
-                
                 Button(action: minusOne) {
                     Image(systemName: "goforward.60")
                         .font(.title2)
@@ -67,11 +66,12 @@ struct MainView: View {
                 .padding()
                 .disabled(countdown.remaining <= 60)
             }.padding(.top)
-            
-            Spacer()
         }
-        .sheet(isPresented: $isPresentingAppearance) {
-            AppearanceView(isPresented: $isPresentingAppearance)
+    }
+    
+    func delete(at offsets: IndexSet) {
+        for index in offsets {
+            countdown.timerQueue.remove(at: index)
         }
     }
     

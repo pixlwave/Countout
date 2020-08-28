@@ -17,6 +17,7 @@
 		A58FDAF824F81A4C002608B4 /* ScheduledCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FDAF724F81A4C002608B4 /* ScheduledCell.swift */; };
 		A5A3CF4924BDD937008705AC /* OutputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3CF4824BDD937008705AC /* OutputDelegate.swift */; };
 		A5C28C6424F92C03000B77EA /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C28C6324F92C03000B77EA /* Length.swift */; };
+		A5C28C6624F94A9B000B77EA /* TimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C28C6524F94A9B000B77EA /* TimerCell.swift */; };
 		A5D5252824B9FE7000207EE3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251E24B9FE7000207EE3 /* MainView.swift */; };
 		A5D5252924B9FE7000207EE3 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251F24B9FE7000207EE3 /* CountdownTimer.swift */; };
 		A5D5252B24B9FE7000207EE3 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252124B9FE7000207EE3 /* CountdownView.swift */; };
@@ -39,6 +40,7 @@
 		A58FDAF724F81A4C002608B4 /* ScheduledCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledCell.swift; sourceTree = "<group>"; };
 		A5A3CF4824BDD937008705AC /* OutputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputDelegate.swift; sourceTree = "<group>"; };
 		A5C28C6324F92C03000B77EA /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
+		A5C28C6524F94A9B000B77EA /* TimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCell.swift; sourceTree = "<group>"; };
 		A5D5251E24B9FE7000207EE3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A5D5251F24B9FE7000207EE3 /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
 		A5D5252124B9FE7000207EE3 /* CountdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				A5D5251E24B9FE7000207EE3 /* MainView.swift */,
+				A5C28C6524F94A9B000B77EA /* TimerCell.swift */,
 				A58FDAF524F8103C002608B4 /* CountdownCell.swift */,
 				A58FDAF724F81A4C002608B4 /* ScheduledCell.swift */,
 				A5D5252524B9FE7000207EE3 /* AppearanceView.swift */,
@@ -220,6 +223,7 @@
 				A5D5252B24B9FE7000207EE3 /* CountdownView.swift in Sources */,
 				A5D5252F24B9FE7000207EE3 /* AppearanceView.swift in Sources */,
 				A54FDBFA1B76903F008CECFA /* Extends.swift in Sources */,
+				A5C28C6624F94A9B000B77EA /* TimerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

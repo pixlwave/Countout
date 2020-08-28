@@ -4,7 +4,7 @@ class CountdownTimer: ObservableObject {
     
     static let shared = CountdownTimer()
     
-    enum TimerValue {
+    enum TimerValue: Hashable {
         case countdown(TimeInterval)
         case scheduled(Date)
     }
@@ -13,11 +13,17 @@ class CountdownTimer: ObservableObject {
         case reset, active, paused, finished
     }
     
-    var currentTimer: TimerValue = .countdown(300) {
+    @Published var currentTimer: TimerValue = .countdown(300) {
         didSet { if state != .active { reset() } }
     }
     
-    var timerQueue = [TimerValue.scheduled(Date().addingTimeInterval(5 * 60))]
+    @Published var timerQueue = [
+        TimerValue.scheduled(Date().addingTimeInterval(5 * 60)),
+        TimerValue.scheduled(Date().addingTimeInterval(10 * 60)),
+        TimerValue.countdown(1200),
+        TimerValue.countdown(1200),
+        TimerValue.countdown(1200)
+    ]
     
     @Published var endDate = Date().addingTimeInterval(300)
     
@@ -89,6 +95,11 @@ class CountdownTimer: ObservableObject {
         case .paused, .finished:
             remaining += timeInterval
         }
+    }
+    
+    func nextTimer() {
+        guard timerQueue.count > 0 else { return }
+        currentTimer = timerQueue.removeFirst()
     }
     
 }
