@@ -5,11 +5,11 @@ struct ScheduledCell: View {
     
     @State var endDate = Date().addingTimeInterval(5 * 60)
     var body: some View {
-        DatePicker("Date", selection: $endDate, displayedComponents: .hourAndMinute)
-            .datePickerStyle(GraphicalDatePickerStyle())
+        DatePicker("", selection: $endDate)
+            .datePickerStyle(CompactDatePickerStyle())
             .frame(height: 50)
             .onChange(of: endDate) { newValue in
-                countdown.current = .scheduled(endDate)
+                countdown.currentTimer = .scheduled(endDate)
             }
     }
 }

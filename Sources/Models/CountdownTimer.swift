@@ -13,9 +13,11 @@ class CountdownTimer: ObservableObject {
         case reset, active, paused, finished
     }
     
-    var current: TimerValue = .countdown(300) {
+    var currentTimer: TimerValue = .countdown(300) {
         didSet { if state != .active { reset() } }
     }
+    
+    var timerQueue = [TimerValue.scheduled(Date().addingTimeInterval(5 * 60))]
     
     @Published var endDate = Date().addingTimeInterval(300)
     
@@ -28,7 +30,7 @@ class CountdownTimer: ObservableObject {
     func start() {
         guard runTimer == nil, state != .finished else { return }
         
-        switch current {
+        switch currentTimer {
         case .countdown(let length):
             guard state != .finished else { break }
             endDate = Date().addingTimeInterval(state == .paused ? remaining : length)
@@ -57,7 +59,7 @@ class CountdownTimer: ObservableObject {
     func reset() {
         stopTimer()
         
-        switch current {
+        switch currentTimer {
         case .countdown(let length):
             remaining = length
         case .scheduled:
