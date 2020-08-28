@@ -25,10 +25,16 @@ struct CountoutApp: App {
                         Spacer()
                     }
                     ToolbarItem(placement: .bottomBar) {
-                        Button {
-                            countdown.timerQueue.append(.countdown(300))
+                        Menu {
+                            Button("Countdown") {
+                                countdown.timerQueue.append(.countdown(300))
+                            }
+                            Button("Scheduled") {
+                                countdown.timerQueue.append(.scheduled(Date().addingTimeInterval(300)))
+                            }
                         } label: {
                             Image(systemName: "plus")
+                                .font(.title2)
                         }
                     }
                     ToolbarItem(placement: .bottomBar) {
