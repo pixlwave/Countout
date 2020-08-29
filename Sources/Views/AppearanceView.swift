@@ -13,13 +13,15 @@ struct AppearanceView: View {
                 
                 Spacer()
                 GroupBox(label: Text("Font")) {
-                    HStack {
-                        Slider(value: $appearance.fontScale, in: 0.1...0.4) {
-                            Text("Size")
-                        }
-                        Button(action: appearance.toggleBold) {
-                            Text("Bold")
-                        }
+                    Picker("Style", selection: $appearance.fontStyle) {
+                        Text("Normal").tag(Appearance.FontStyle.normal)
+                        Text("Light").tag(Appearance.FontStyle.light)
+                        Text("Serif").tag(Appearance.FontStyle.serif)
+                        Text("Rounded").tag(Appearance.FontStyle.rounded)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    Slider(value: $appearance.fontScale, in: 0.1...0.4) {
+                        Text("Size")
                     }
                     ColorPicker("Colour", selection: $appearance.textColor)
                         .frame(height: 32)

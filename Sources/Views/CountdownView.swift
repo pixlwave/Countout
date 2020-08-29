@@ -17,7 +17,7 @@ struct CountdownView: View {
                 }
                 Text(countdown.remaining.remainingString())
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
-                    .font(.custom(appearance.fontName, size: appearance.fontScale * geometry.size.width))
+                    .font(appearance.font(for: geometry.size.width))
                     .foregroundColor(appearance.textColor)
             }
         }

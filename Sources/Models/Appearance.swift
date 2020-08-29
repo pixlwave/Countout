@@ -1,22 +1,22 @@
-import UIKit
+import SwiftUI
 
 class Appearance: ObservableObject {
     static let shared = Appearance()
     
+    enum FontStyle: Int { case normal, light, serif, rounded }
     
-    // polluted keys: ["Background Image", "Font Family"]
+    // polluted keys: ["Background Image", "Font Family", "Font Weight"]
     @Published var backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground {
         didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }
     }
     @Published var backgroundImage: UIImage? {
         didSet { writeBackground() }
     }
-    let fontFamily = "Avenir Next"
     @Published var fontScale = UserDefaults.standard.cgFloat(forKey: "Font Scale") ?? 0.25 {
         didSet { UserDefaults.standard.set(fontScale, forKey: "Font Scale") }
     }
-    @Published var fontWeight = UserDefaults.standard.string(forKey: "Font Weight") ?? "Demi Bold" {
-        didSet { UserDefaults.standard.set(fontWeight, forKey: "Font Weight") }
+    @Published var fontStyle = FontStyle(rawValue: UserDefaults.standard.integer(forKey: "Font Style")) ?? .normal {
+        didSet { UserDefaults.standard.set(fontStyle.rawValue, forKey: "Font Style") }
     }
     @Published var textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .countdownText {
         didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") }
@@ -31,15 +31,24 @@ class Appearance: ObservableObject {
         backgroundColor = .countdownBackground
         backgroundImage = nil
         fontScale = 0.25
-        fontWeight = "Demi Bold"
+        fontStyle = .normal
         textColor = .countdownText
     }
     
-    func toggleBold() {
-        fontWeight = fontWeight == "Regular" ? "Demi Bold" : "Regular"
+    func font(for width: CGFloat) -> Font {
+        let size = fontScale * width
+        
+        switch fontStyle {
+        case .normal:
+            return Font.system(size: size, weight: .medium, design: .default).monospacedDigit()
+        case .light:
+            return Font.system(size: size, weight: .light, design: .default).monospacedDigit()
+        case .serif:
+            return Font.system(size: size, weight: .medium, design: .serif).monospacedDigit()
+        case .rounded:
+            return Font.system(size: size, weight: .medium, design: .rounded).monospacedDigit()
+        }
     }
-    
-    var fontName: String { fontFamily + " " + fontWeight }
     
     private func readBackground() {
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
