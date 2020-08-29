@@ -8,7 +8,7 @@ class CountdownTimer: ObservableObject {
         case reset, active, paused, finished
     }
     
-    @Published var current = Countdown(.length(300)) {
+    @Published var current = Countdown(Length(timeInterval: 300)) {
         didSet { if state != .active { reset() } }
     }
     
@@ -25,13 +25,12 @@ class CountdownTimer: ObservableObject {
     func start() {
         guard runTimer == nil, state != .finished else { return }
         
-        switch current.value {
-        case .length(let length):
-            guard state != .finished else { break }
-            endDate = Date().addingTimeInterval(state == .paused ? remaining : length)
-        case .date(let date):
-            guard date > Date() else { break }
-            self.endDate = date
+        if current.isScheduled {
+            guard current.date > Date() else { return }
+            self.endDate = current.date
+        } else {
+            guard state != .finished else { return }
+            endDate = Date().addingTimeInterval(state == .paused ? remaining : current.length.timeInterval)
         }
         
         runTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
@@ -54,11 +53,10 @@ class CountdownTimer: ObservableObject {
     func reset() {
         stopTimer()
         
-        switch current.value {
-        case .length(let length):
-            remaining = length
-        case .date(let date):
-            remaining = date.timeIntervalSinceNow
+        if current.isScheduled {
+            remaining = current.date.timeIntervalSinceNow
+        } else {
+            remaining = current.length.timeInterval
         }
         
         state = .reset

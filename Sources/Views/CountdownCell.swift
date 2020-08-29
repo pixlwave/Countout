@@ -4,11 +4,10 @@ struct CountdownCell: View {
     @ObservedObject var countdown: Countdown
     
     var body: some View {
-        switch countdown.value {
-        case .length:
-            LengthCell(countdown: countdown)
-        case .date:
+        if countdown.isScheduled {
             DateCell(countdown: countdown)
+        } else {
+            LengthCell(countdown: countdown)
         }
     }
 }

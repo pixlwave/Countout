@@ -2,7 +2,6 @@ import SwiftUI
 
 struct LengthCell: View {
     @ObservedObject var countdown: Countdown
-    @State private var length: Length = Length(timeInterval: 5 * 60)
     
     var body: some View {
         HStack {
@@ -10,20 +9,17 @@ struct LengthCell: View {
             
             Text("minutes:")
                 .font(Font.subheadline.weight(.thin))
-            TextField("", value: $length.minutes, formatter: NumberFormatter())
+            TextField("", value: $countdown.length.minutes, formatter: NumberFormatter())
                 .keyboardType(.numbersAndPunctuation)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 60)
             Text("seconds:")
                 .font(Font.subheadline.weight(.thin))
                 .padding(.leading)
-            TextField("", value: $length.seconds, formatter: NumberFormatter())
+            TextField("", value: $countdown.length.seconds, formatter: NumberFormatter())
                 .keyboardType(.numbersAndPunctuation)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 60)
-        }
-        .onChange(of: length) { _ in
-            countdown.value = .length(length.timeInterval)
         }
     }
 }

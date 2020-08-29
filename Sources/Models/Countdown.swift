@@ -2,23 +2,27 @@ import Foundation
 
 class Countdown: ObservableObject {
     
-    enum Value: Equatable {
-        case length(TimeInterval)
-        case date(Date)
+    let id = UUID()
+    @Published var length = Length(timeInterval: 0)
+    @Published var date = Date()
+    
+    let isScheduled: Bool
+    
+    init(_ length: Length) {
+        self.length = length
+        self.isScheduled = false
     }
     
-    let id = UUID()
-    @Published var value: Value
-    
-    init(_ value: Value) {
-        self.value = value
+    init(_ date: Date) {
+        self.date = date
+        self.isScheduled = true
     }
 }
 
 
 extension Countdown: Hashable {
     static func == (lhs: Countdown, rhs: Countdown) -> Bool {
-        lhs.id == rhs.id && lhs.value == rhs.value
+        lhs.id == rhs.id && lhs.length == rhs.length && lhs.date == rhs.date
     }
     
     func hash(into hasher: inout Hasher) {
