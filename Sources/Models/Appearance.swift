@@ -40,7 +40,7 @@ class Appearance: ObservableObject {
         
         switch fontStyle {
         case .normal:
-            return Font.system(size: size, weight: .medium, design: .default).monospacedDigit()
+            return Font.system(size: size, weight: .semibold, design: .default).monospacedDigit()
         case .light:
             return Font.system(size: size, weight: .light, design: .default).monospacedDigit()
         case .serif:
