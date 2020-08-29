@@ -4,20 +4,15 @@ class CountdownTimer: ObservableObject {
     
     static let shared = CountdownTimer()
     
-    enum TimerValue: Hashable {
-        case countdown(TimeInterval)
-        case scheduled(Date)
-    }
-    
     enum State {
         case reset, active, paused, finished
     }
     
-    @Published var currentTimer: TimerValue = .countdown(300) {
+    @Published var currentTimer = Countdown(.timer(300)) {
         didSet { if state != .active { reset() } }
     }
     
-    @Published var timerQueue = [TimerValue]()
+    @Published var timerQueue = [Countdown]()
     
     @Published var endDate = Date().addingTimeInterval(300)
     
@@ -30,11 +25,11 @@ class CountdownTimer: ObservableObject {
     func start() {
         guard runTimer == nil, state != .finished else { return }
         
-        switch currentTimer {
-        case .countdown(let length):
+        switch currentTimer.value {
+        case .timer(let length):
             guard state != .finished else { break }
             endDate = Date().addingTimeInterval(state == .paused ? remaining : length)
-        case .scheduled(let endDate):
+        case .schedule(let endDate):
             guard endDate > Date() else { break }
             self.endDate = endDate
         }
@@ -59,10 +54,10 @@ class CountdownTimer: ObservableObject {
     func reset() {
         stopTimer()
         
-        switch currentTimer {
-        case .countdown(let length):
+        switch currentTimer.value {
+        case .timer(let length):
             remaining = length
-        case .scheduled(let endDate):
+        case .schedule(let endDate):
             remaining = endDate.timeIntervalSinceNow
         }
         

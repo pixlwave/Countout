@@ -19,12 +19,12 @@ struct MainView: View {
                 .padding(.top, 8)
                 .layoutPriority(1)
             
-            TimerCell(timer: countdown.currentTimer)
+            CountdownCell(countdown: countdown.currentTimer)
                 .padding(.trailing)
             
             List {
                 ForEach(countdown.timerQueue, id: \.self) { timer in
-                    TimerCell(timer: timer)
+                    CountdownCell(countdown: timer)
                 }
                 .onDelete(perform: delete)
             }

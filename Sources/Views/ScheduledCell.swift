@@ -9,7 +9,7 @@ struct ScheduledCell: View {
             .datePickerStyle(CompactDatePickerStyle())
             .frame(height: 50)
             .onChange(of: endDate) { newValue in
-                countdown.currentTimer = .scheduled(endDate)
+                countdown.currentTimer.value = .schedule(endDate)
             }
     }
 }

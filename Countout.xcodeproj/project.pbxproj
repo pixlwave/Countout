@@ -12,12 +12,13 @@
 		A50FF8AE1B70D5E7007834FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50FF8A91B70D5E7007834FE /* LaunchScreen.storyboard */; };
 		A50FF8AF1B70D5E7007834FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50FF8AA1B70D5E7007834FE /* Main.storyboard */; };
 		A54FDBFA1B76903F008CECFA /* Extends.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FDBF91B76903F008CECFA /* Extends.swift */; };
+		A587DB7824FA68380066381A /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587DB7724FA68380066381A /* Countdown.swift */; };
 		A58FDAEE24F803F6002608B4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FDAED24F803F6002608B4 /* ImagePicker.swift */; };
-		A58FDAF624F8103C002608B4 /* CountdownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FDAF524F8103C002608B4 /* CountdownCell.swift */; };
+		A58FDAF624F8103C002608B4 /* TimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FDAF524F8103C002608B4 /* TimerCell.swift */; };
 		A58FDAF824F81A4C002608B4 /* ScheduledCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FDAF724F81A4C002608B4 /* ScheduledCell.swift */; };
 		A5A3CF4924BDD937008705AC /* OutputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3CF4824BDD937008705AC /* OutputDelegate.swift */; };
 		A5C28C6424F92C03000B77EA /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C28C6324F92C03000B77EA /* Length.swift */; };
-		A5C28C6624F94A9B000B77EA /* TimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C28C6524F94A9B000B77EA /* TimerCell.swift */; };
+		A5C28C6624F94A9B000B77EA /* CountdownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C28C6524F94A9B000B77EA /* CountdownCell.swift */; };
 		A5D5252824B9FE7000207EE3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251E24B9FE7000207EE3 /* MainView.swift */; };
 		A5D5252924B9FE7000207EE3 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251F24B9FE7000207EE3 /* CountdownTimer.swift */; };
 		A5D5252B24B9FE7000207EE3 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252124B9FE7000207EE3 /* CountdownView.swift */; };
@@ -35,12 +36,13 @@
 		A50FF8A91B70D5E7007834FE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A50FF8AA1B70D5E7007834FE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A54FDBF91B76903F008CECFA /* Extends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extends.swift; sourceTree = "<group>"; };
+		A587DB7724FA68380066381A /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 		A58FDAED24F803F6002608B4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		A58FDAF524F8103C002608B4 /* CountdownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownCell.swift; sourceTree = "<group>"; };
+		A58FDAF524F8103C002608B4 /* TimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCell.swift; sourceTree = "<group>"; };
 		A58FDAF724F81A4C002608B4 /* ScheduledCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledCell.swift; sourceTree = "<group>"; };
 		A5A3CF4824BDD937008705AC /* OutputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputDelegate.swift; sourceTree = "<group>"; };
 		A5C28C6324F92C03000B77EA /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
-		A5C28C6524F94A9B000B77EA /* TimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerCell.swift; sourceTree = "<group>"; };
+		A5C28C6524F94A9B000B77EA /* CountdownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownCell.swift; sourceTree = "<group>"; };
 		A5D5251E24B9FE7000207EE3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A5D5251F24B9FE7000207EE3 /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
 		A5D5252124B9FE7000207EE3 /* CountdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				A5D5251F24B9FE7000207EE3 /* CountdownTimer.swift */,
+				A587DB7724FA68380066381A /* Countdown.swift */,
 				A5D5252624B9FE7000207EE3 /* Appearance.swift */,
 				A5C28C6324F92C03000B77EA /* Length.swift */,
 			);
@@ -101,8 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				A5D5251E24B9FE7000207EE3 /* MainView.swift */,
-				A5C28C6524F94A9B000B77EA /* TimerCell.swift */,
-				A58FDAF524F8103C002608B4 /* CountdownCell.swift */,
+				A5C28C6524F94A9B000B77EA /* CountdownCell.swift */,
+				A58FDAF524F8103C002608B4 /* TimerCell.swift */,
 				A58FDAF724F81A4C002608B4 /* ScheduledCell.swift */,
 				A5D5252524B9FE7000207EE3 /* AppearanceView.swift */,
 				A5D5252124B9FE7000207EE3 /* CountdownView.swift */,
@@ -216,14 +219,15 @@
 				A5C28C6424F92C03000B77EA /* Length.swift in Sources */,
 				A58FDAF824F81A4C002608B4 /* ScheduledCell.swift in Sources */,
 				A5D5252924B9FE7000207EE3 /* CountdownTimer.swift in Sources */,
-				A58FDAF624F8103C002608B4 /* CountdownCell.swift in Sources */,
+				A58FDAF624F8103C002608B4 /* TimerCell.swift in Sources */,
 				A5D5253124B9FE7000207EE3 /* CountoutApp.swift in Sources */,
 				A50FF8871B70D4CE007834FE /* AppDelegate.swift in Sources */,
 				A58FDAEE24F803F6002608B4 /* ImagePicker.swift in Sources */,
+				A587DB7824FA68380066381A /* Countdown.swift in Sources */,
 				A5D5252B24B9FE7000207EE3 /* CountdownView.swift in Sources */,
 				A5D5252F24B9FE7000207EE3 /* AppearanceView.swift in Sources */,
 				A54FDBFA1B76903F008CECFA /* Extends.swift in Sources */,
-				A5C28C6624F94A9B000B77EA /* TimerCell.swift in Sources */,
+				A5C28C6624F94A9B000B77EA /* CountdownCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
