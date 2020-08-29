@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct TimerCell: View {
-    @ObservedObject var countdown = CountdownTimer.shared
+struct LengthCell: View {
+    @ObservedObject var countdown: Countdown
     @State private var length: Length = Length(timeInterval: 5 * 60)
     
     var body: some View {
@@ -23,7 +23,7 @@ struct TimerCell: View {
                 .frame(width: 60)
         }
         .onChange(of: length) { _ in
-            countdown.currentTimer.value = .timer(length.timeInterval)
+            countdown.value = .length(length.timeInterval)
         }
     }
 }

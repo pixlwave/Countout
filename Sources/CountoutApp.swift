@@ -27,10 +27,10 @@ struct CountoutApp: App {
                     ToolbarItem(placement: .bottomBar) {
                         Menu {
                             Button("Countdown") {
-                                countdown.timerQueue.append(Countdown(.timer(300)))
+                                countdown.queue.append(Countdown(.length(300)))
                             }
                             Button("Scheduled") {
-                                countdown.timerQueue.append(Countdown(.schedule(Date().addingTimeInterval(300))))
+                                countdown.queue.append(Countdown(.date(Date().addingTimeInterval(300))))
                             }
                         } label: {
                             Image(systemName: "plus")
@@ -42,11 +42,11 @@ struct CountoutApp: App {
                     }
                     ToolbarItem(placement: .bottomBar) {
                         Button {
-                            countdown.nextTimer()
+                            countdown.nextCountdown()
                         } label: {
                             Image(systemName: "arrowtriangle.right.square")
                         }
-                        .disabled(countdown.timerQueue.isEmpty)
+                        .disabled(countdown.queue.isEmpty)
                     }
                 }
         }

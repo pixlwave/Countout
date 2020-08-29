@@ -19,12 +19,12 @@ struct MainView: View {
                 .padding(.top, 8)
                 .layoutPriority(1)
             
-            CountdownCell(countdown: countdown.currentTimer)
+            CountdownCell(countdown: countdown.current)
                 .padding(.trailing)
             
             List {
-                ForEach(countdown.timerQueue, id: \.self) { timer in
-                    CountdownCell(countdown: timer)
+                ForEach(countdown.queue, id: \.self) { countdown in
+                    CountdownCell(countdown: countdown)
                 }
                 .onDelete(perform: delete)
             }
@@ -71,7 +71,7 @@ struct MainView: View {
     
     func delete(at offsets: IndexSet) {
         for index in offsets {
-            countdown.timerQueue.remove(at: index)
+            countdown.queue.remove(at: index)
         }
     }
     

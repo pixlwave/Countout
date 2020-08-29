@@ -8,11 +8,11 @@ class CountdownTimer: ObservableObject {
         case reset, active, paused, finished
     }
     
-    @Published var currentTimer = Countdown(.timer(300)) {
+    @Published var current = Countdown(.length(300)) {
         didSet { if state != .active { reset() } }
     }
     
-    @Published var timerQueue = [Countdown]()
+    @Published var queue = [Countdown]()
     
     @Published var endDate = Date().addingTimeInterval(300)
     
@@ -25,13 +25,13 @@ class CountdownTimer: ObservableObject {
     func start() {
         guard runTimer == nil, state != .finished else { return }
         
-        switch currentTimer.value {
-        case .timer(let length):
+        switch current.value {
+        case .length(let length):
             guard state != .finished else { break }
             endDate = Date().addingTimeInterval(state == .paused ? remaining : length)
-        case .schedule(let endDate):
-            guard endDate > Date() else { break }
-            self.endDate = endDate
+        case .date(let date):
+            guard date > Date() else { break }
+            self.endDate = date
         }
         
         runTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
@@ -54,11 +54,11 @@ class CountdownTimer: ObservableObject {
     func reset() {
         stopTimer()
         
-        switch currentTimer.value {
-        case .timer(let length):
+        switch current.value {
+        case .length(let length):
             remaining = length
-        case .schedule(let endDate):
-            remaining = endDate.timeIntervalSinceNow
+        case .date(let date):
+            remaining = date.timeIntervalSinceNow
         }
         
         state = .reset
@@ -86,9 +86,9 @@ class CountdownTimer: ObservableObject {
         }
     }
     
-    func nextTimer() {
-        guard timerQueue.count > 0 else { return }
-        currentTimer = timerQueue.removeFirst()
+    func nextCountdown() {
+        guard queue.count > 0 else { return }
+        current = queue.removeFirst()
     }
     
 }

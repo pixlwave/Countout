@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct CountdownCell: View {
-    let countdown: Countdown
+    @ObservedObject var countdown: Countdown
     
     var body: some View {
         switch countdown.value {
-        case .timer:
-            TimerCell()
-        case .schedule:
-            ScheduledCell()
+        case .length:
+            LengthCell(countdown: countdown)
+        case .date:
+            DateCell(countdown: countdown)
         }
     }
 }

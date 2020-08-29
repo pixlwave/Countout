@@ -2,11 +2,12 @@ import Foundation
 
 class Countdown: ObservableObject {
     
-    enum Value: Hashable {
-        case timer(TimeInterval)
-        case schedule(Date)
+    enum Value: Equatable {
+        case length(TimeInterval)
+        case date(Date)
     }
     
+    let id = UUID()
     @Published var value: Value
     
     init(_ value: Value) {
@@ -17,10 +18,10 @@ class Countdown: ObservableObject {
 
 extension Countdown: Hashable {
     static func == (lhs: Countdown, rhs: Countdown) -> Bool {
-        lhs.value == rhs.value
+        lhs.id == rhs.id && lhs.value == rhs.value
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(value)
+        hasher.combine(id)
     }
 }
