@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 class CountdownTimer: ObservableObject {
     
@@ -9,7 +10,12 @@ class CountdownTimer: ObservableObject {
     }
     
     @Published var current = Countdown(Length(timeInterval: 300)) {
-        didSet { if state != .active { reset() } }
+        didSet {
+            if state != .active { reset() }
+            currentSubscription = current.didChangePublisher.sink { value in
+                if self.state != .active { self.reset() }
+            }
+        }
     }
     
     @Published var queue = [Countdown]()
@@ -21,6 +27,14 @@ class CountdownTimer: ObservableObject {
     var runTimer: Timer?
     
     @Published private(set) var state = State.reset
+    
+    var currentSubscription: AnyCancellable?
+    
+    private init() {
+        currentSubscription = current.didChangePublisher.sink { value in
+            if self.state != .active { self.reset() }
+        }
+    }
     
     func start() {
         guard runTimer == nil, state != .finished else { return }

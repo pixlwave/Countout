@@ -1,12 +1,19 @@
 import Foundation
+import Combine
 
 class Countdown: ObservableObject {
     
     let id = UUID()
-    @Published var length = Length(timeInterval: 0)
-    @Published var date = Date()
+    @Published var length = Length(timeInterval: 0) {
+        didSet { didChangePublisher.send() }
+    }
+    @Published var date = Date() {
+        didSet { didChangePublisher.send() }
+    }
     
     let isScheduled: Bool
+    
+    let didChangePublisher = PassthroughSubject<Void, Never>()
     
     init(_ length: Length) {
         self.length = length
