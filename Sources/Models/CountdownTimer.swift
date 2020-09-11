@@ -16,9 +16,8 @@ class CountdownTimer: ObservableObject {
         didSet {
             reset()
             currentSubscription = current.didChangePublisher.sink { value in
-                if self.state != .active { self.reset() }
+                if self.state != .active || self.current.isScheduled { self.reset() }
             }
-            if current.isScheduled { start() }
         }
     }
     
@@ -36,7 +35,7 @@ class CountdownTimer: ObservableObject {
     
     private init() {
         currentSubscription = current.didChangePublisher.sink { value in
-            if self.state != .active { self.reset() }
+            if self.state != .active || self.current.isScheduled { self.reset() }
         }
     }
     
@@ -78,6 +77,8 @@ class CountdownTimer: ObservableObject {
         }
         
         state = .reset
+        
+        if current.isScheduled { start() }
     }
     
     func tick() {
