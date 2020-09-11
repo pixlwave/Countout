@@ -28,6 +28,8 @@ struct MainView: View {
                 }
                 .onDelete(perform: delete)
             }
+            .border(Color(.separator).opacity(0.7))
+            .padding(.horizontal)
             
             HStack {
                 Button(action: countdown.start) {
@@ -42,6 +44,7 @@ struct MainView: View {
                     Text("Reset")
                         .font(.title2)
                 }
+                .disabled(countdown.current.isScheduled)
                 .disabled(countdown.state == .reset)
                 .padding(.horizontal)
                 

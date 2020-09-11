@@ -100,7 +100,12 @@ class CountdownTimer: ObservableObject {
     
     func nextCountdown() {
         guard queue.count > 0 else { return }
+        if state == .active { stop() }
+        
         current = queue.removeFirst()
+        reset()
+        
+        if current.isScheduled { start() }
     }
     
 }
