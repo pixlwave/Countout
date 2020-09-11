@@ -11,8 +11,9 @@ struct CountdownQueue: View {
             
             Section {
                 ForEach(countdown.queue, id: \.self) { countdown in
-                    CountdownCell(countdown: countdown)
-                        .onTapGesture { self.countdown.load(countdown) }
+                    Button { self.countdown.load(countdown) } label: {
+                        CountdownCell(countdown: countdown)
+                    }
                 }
                 .onDelete(perform: delete)
             }
@@ -21,24 +22,22 @@ struct CountdownQueue: View {
                 HStack {
                     HStack {
                         Spacer()
-                        Text("Countdown")
-                            .foregroundColor(.accentColor)
+                        Button("Countdown") {
+                            countdown.queue.append(Countdown(Length(timeInterval: 300)))
+                        }
+                        .buttonStyle(BorderlessButtonStyle())
                         Spacer()
-                    }
-                    .onTapGesture {
-                        countdown.queue.append(Countdown(Length(timeInterval: 300)))
                     }
                     
                     Divider()
                     
                     HStack {
                         Spacer()
-                        Text("Scheduled")
-                            .foregroundColor(.accentColor)
+                        Button("Scheduled") {
+                            countdown.queue.append(Countdown(Date().addingTimeInterval(300)))
+                        }
+                        .buttonStyle(BorderlessButtonStyle())
                         Spacer()
-                    }
-                    .onTapGesture {
-                        countdown.queue.append(Countdown(Date().addingTimeInterval(300)))
                     }
                 }
             }

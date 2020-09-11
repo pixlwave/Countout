@@ -10,6 +10,13 @@ class Countdown: ObservableObject {
     @Published var date = Date() {
         didSet { didChangePublisher.send() }
     }
+    var description: String {
+        if isScheduled {
+            return date.description
+        } else {
+            return length.timeInterval.remainingString()
+        }
+    }
     
     let isScheduled: Bool
     

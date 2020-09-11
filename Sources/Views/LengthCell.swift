@@ -5,8 +5,6 @@ struct LengthCell: View {
     
     var body: some View {
         HStack {
-            Spacer()
-            
             Text("minutes:")
                 .font(Font.subheadline.weight(.thin))
             TextField("", value: $countdown.length.minutes, formatter: NumberFormatter())

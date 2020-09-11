@@ -5,7 +5,6 @@ struct DateCell: View {
     
     var body: some View {
         DatePicker("", selection: $countdown.date)
-            .datePickerStyle(CompactDatePickerStyle())
-            .frame(height: 50)
+            .datePickerStyle(GraphicalDatePickerStyle())
     }
 }
