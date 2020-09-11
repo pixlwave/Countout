@@ -10,11 +10,15 @@ class CountdownTimer: ObservableObject {
     }
     
     @Published var current = Countdown(Length(timeInterval: 300)) {
+        willSet {
+            if state == .active { stop() }
+        }
         didSet {
-            if state != .active { reset() }
+            reset()
             currentSubscription = current.didChangePublisher.sink { value in
                 if self.state != .active { self.reset() }
             }
+            if current.isScheduled { start() }
         }
     }
     
@@ -98,14 +102,14 @@ class CountdownTimer: ObservableObject {
         }
     }
     
-    func nextCountdown() {
+    func next() {
         guard queue.count > 0 else { return }
-        if state == .active { stop() }
-        
         current = queue.removeFirst()
-        reset()
-        
-        if current.isScheduled { start() }
+    }
+    
+    func load(_ countdown: Countdown) {
+        queue.removeAll { $0 == countdown }
+        current = countdown
     }
     
 }
