@@ -9,8 +9,10 @@ struct CountdownCell: View {
             Text(countdown.description)
                 .foregroundColor(.primary)
             Spacer()
-            Button("Edit") { isPresentingEditSheet.toggle() }
-                .buttonStyle(BorderlessButtonStyle())
+            Button { isPresentingEditSheet.toggle() } label: {
+                Image(systemName: countdown.isScheduled ? "calendar" : "timer")
+            }
+            .buttonStyle(BorderlessButtonStyle())
         }
         .sheet(isPresented: $isPresentingEditSheet) {
             if countdown.isScheduled {
@@ -26,6 +28,7 @@ struct CountdownCell_Previews: PreviewProvider {
     
     static var previews: some View {
         List {
+            CountdownCell(countdown: Countdown(Length(timeInterval: 300)))
             CountdownCell(countdown: Countdown(Date()))
         }
     }

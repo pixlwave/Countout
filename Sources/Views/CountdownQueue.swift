@@ -11,7 +11,7 @@ struct CountdownQueue: View {
             
             Section {
                 ForEach(countdown.queue, id: \.self) { countdown in
-                    Button { self.countdown.load(countdown) } label: {
+                    Button { withAnimation { self.countdown.load(countdown) } } label: {
                         CountdownCell(countdown: countdown)
                     }
                 }
@@ -23,7 +23,9 @@ struct CountdownQueue: View {
                     HStack {
                         Spacer()
                         Button("Countdown") {
-                            countdown.queue.append(Countdown(Length(timeInterval: 300)))
+                            withAnimation {
+                                countdown.queue.append(Countdown(Length(timeInterval: 300)))
+                            }
                         }
                         .buttonStyle(BorderlessButtonStyle())
                         Spacer()
@@ -34,7 +36,9 @@ struct CountdownQueue: View {
                     HStack {
                         Spacer()
                         Button("Scheduled") {
-                            countdown.queue.append(Countdown(Date().addingTimeInterval(300)))
+                            withAnimation {
+                                countdown.queue.append(Countdown(Date().addingTimeInterval(300)))
+                            }
                         }
                         .buttonStyle(BorderlessButtonStyle())
                         Spacer()
