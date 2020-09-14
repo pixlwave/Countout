@@ -1,18 +1,18 @@
 import SwiftUI
 
 struct CountdownQueue: View {
-    @ObservedObject var countdown = CountdownTimer.shared
+    @ObservedObject var counter = Counter.shared
     
     var body: some View {
         Form {
             Section {
-                CountdownCell(countdown: countdown.current)
+                CountdownCell(countdown: counter.current)
             }
             
-            if !countdown.queue.isEmpty {
+            if !counter.queue.isEmpty {
                 Section(header: Text("Queue")) {
-                    ForEach(countdown.queue, id: \.self) { countdown in
-                        Button { withAnimation { self.countdown.load(countdown) } } label: {
+                    ForEach(counter.queue, id: \.self) { countdown in
+                        Button { withAnimation { self.counter.load(countdown) } } label: {
                             CountdownCell(countdown: countdown)
                         }
                     }
@@ -26,7 +26,7 @@ struct CountdownQueue: View {
                         Spacer()
                         Button("Countdown") {
                             withAnimation {
-                                countdown.queue.append(Countdown(Length(timeInterval: 300)))
+                                counter.queue.append(Countdown(Length(timeInterval: 300)))
                             }
                         }
                         .buttonStyle(BorderlessButtonStyle())
@@ -39,7 +39,7 @@ struct CountdownQueue: View {
                         Spacer()
                         Button("Scheduled") {
                             withAnimation {
-                                countdown.queue.append(Countdown(Date().addingTimeInterval(300)))
+                                counter.queue.append(Countdown(Date().addingTimeInterval(300)))
                             }
                         }
                         .buttonStyle(BorderlessButtonStyle())
@@ -53,7 +53,7 @@ struct CountdownQueue: View {
     
     func delete(at offsets: IndexSet) {
         for index in offsets {
-            countdown.queue.remove(at: index)
+            counter.queue.remove(at: index)
         }
     }
 }

@@ -1,9 +1,9 @@
 import Foundation
 import Combine
 
-class CountdownTimer: ObservableObject {
+class Counter: ObservableObject {
     
-    static let shared = CountdownTimer()
+    static let shared = Counter()
     
     enum State {
         case reset, active, paused, finished

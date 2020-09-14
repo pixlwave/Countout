@@ -20,7 +20,7 @@
 		A5C28C6424F92C03000B77EA /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C28C6324F92C03000B77EA /* Length.swift */; };
 		A5C28C6624F94A9B000B77EA /* CountdownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C28C6524F94A9B000B77EA /* CountdownCell.swift */; };
 		A5D5252824B9FE7000207EE3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251E24B9FE7000207EE3 /* MainView.swift */; };
-		A5D5252924B9FE7000207EE3 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251F24B9FE7000207EE3 /* CountdownTimer.swift */; };
+		A5D5252924B9FE7000207EE3 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251F24B9FE7000207EE3 /* Counter.swift */; };
 		A5D5252B24B9FE7000207EE3 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252124B9FE7000207EE3 /* CountdownView.swift */; };
 		A5D5252D24B9FE7000207EE3 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252324B9FE7000207EE3 /* PhotoPicker.swift */; };
 		A5D5252F24B9FE7000207EE3 /* AppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252524B9FE7000207EE3 /* AppearanceView.swift */; };
@@ -44,7 +44,7 @@
 		A5C28C6324F92C03000B77EA /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
 		A5C28C6524F94A9B000B77EA /* CountdownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownCell.swift; sourceTree = "<group>"; };
 		A5D5251E24B9FE7000207EE3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		A5D5251F24B9FE7000207EE3 /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
+		A5D5251F24B9FE7000207EE3 /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		A5D5252124B9FE7000207EE3 /* CountdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		A5D5252324B9FE7000207EE3 /* PhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		A5D5252524B9FE7000207EE3 /* AppearanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceView.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		A5C1CBE71F83BEBB00B108F0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A5D5251F24B9FE7000207EE3 /* CountdownTimer.swift */,
+				A5D5251F24B9FE7000207EE3 /* Counter.swift */,
 				A587DB7724FA68380066381A /* Countdown.swift */,
 				A5D5252624B9FE7000207EE3 /* Appearance.swift */,
 				A5C28C6324F92C03000B77EA /* Length.swift */,
@@ -217,7 +217,7 @@
 				A5D5252824B9FE7000207EE3 /* MainView.swift in Sources */,
 				A5D5253024B9FE7000207EE3 /* Appearance.swift in Sources */,
 				A5C28C6424F92C03000B77EA /* Length.swift in Sources */,
-				A5D5252924B9FE7000207EE3 /* CountdownTimer.swift in Sources */,
+				A5D5252924B9FE7000207EE3 /* Counter.swift in Sources */,
 				A58FDAF624F8103C002608B4 /* LengthPicker.swift in Sources */,
 				A5D5253124B9FE7000207EE3 /* CountoutApp.swift in Sources */,
 				A50FF8871B70D4CE007834FE /* AppDelegate.swift in Sources */,

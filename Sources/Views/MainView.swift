@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var countdown = CountdownTimer.shared
+    @ObservedObject var counter = Counter.shared
     @ObservedObject var appearance = Appearance.shared
     @ObservedObject var outputDisplay = OutputDisplay.shared
     
@@ -22,27 +22,27 @@ struct MainView: View {
                 .layoutPriority(1)
             
             HStack {
-                Button(action: countdown.start) {
+                Button(action: counter.start) {
                     Text("Start")
                         .font(.title2)
                 }
-                .disabled(countdown.state == .active)
-                .disabled(countdown.state == .finished)
+                .disabled(counter.state == .active)
+                .disabled(counter.state == .finished)
                 .padding(.horizontal)
                 
-                Button(action: countdown.reset) {
+                Button(action: counter.reset) {
                     Text("Reset")
                         .font(.title2)
                 }
-                .disabled(countdown.current.isScheduled)
-                .disabled(countdown.state == .reset)
+                .disabled(counter.current.isScheduled)
+                .disabled(counter.state == .reset)
                 .padding(.horizontal)
                 
-                Button(action: countdown.stop) {
+                Button(action: counter.stop) {
                     Text("Stop")
                         .font(.title2)
                 }
-                .disabled(countdown.state != .active)
+                .disabled(counter.state != .active)
                 .padding(.horizontal)
             }
             
@@ -52,7 +52,7 @@ struct MainView: View {
                         .font(.title2)
                 }
                 .padding()
-                .disabled(countdown.current.isScheduled)
+                .disabled(counter.current.isScheduled)
                 
                 Button { isPresentingAppearance.toggle() } label: {
                     Image(systemName: "paintpalette")
@@ -64,8 +64,8 @@ struct MainView: View {
                         .font(.title2)
                 }
                 .padding()
-                .disabled(countdown.current.isScheduled)
-                .disabled(countdown.remaining <= 60)
+                .disabled(counter.current.isScheduled)
+                .disabled(counter.remaining <= 60)
             }
             
             CountdownQueue()
@@ -76,11 +76,11 @@ struct MainView: View {
     }
     
     func plusOne() {
-        countdown.add(60)
+        counter.add(60)
     }
     
     func minusOne() {
-        countdown.add(-60)
+        counter.add(-60)
     }
 }
 

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CountdownView: View {
-    @ObservedObject var countdown = CountdownTimer.shared
+    @ObservedObject var counter = Counter.shared
     @ObservedObject var appearance = Appearance.shared
     
     var aspectRatio: CGFloat = 4 / 3
@@ -15,7 +15,7 @@ struct CountdownView: View {
                     Image(uiImage: image)
                         .resizable(resizingMode: .stretch)
                 }
-                Text(countdown.remaining.remainingString)
+                Text(counter.remaining.remainingString)
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     .font(appearance.font(for: geometry.size.width))
                     .foregroundColor(appearance.textColor)
