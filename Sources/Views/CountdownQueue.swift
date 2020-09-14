@@ -4,7 +4,7 @@ struct CountdownQueue: View {
     @ObservedObject var countdown = CountdownTimer.shared
     
     var body: some View {
-        List {
+        Form {
             Section {
                 CountdownCell(countdown: countdown.current)
             }
@@ -46,7 +46,6 @@ struct CountdownQueue: View {
                 }
             }
         }
-        .listStyle(GroupedListStyle())
         .overlay(Divider(), alignment: .top)
     }
     

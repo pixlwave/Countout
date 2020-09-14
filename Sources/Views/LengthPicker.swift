@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct LengthCell: View {
+struct LengthPicker: View {
     @ObservedObject var countdown: Countdown
     
     var body: some View {

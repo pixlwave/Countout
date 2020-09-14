@@ -55,6 +55,7 @@ struct MainView: View {
                 Button { isPresentingAppearance.toggle() } label: {
                     Image(systemName: "paintpalette")
                 }
+                .padding()
                 
                 Button(action: minusOne) {
                     Image(systemName: "goforward.60")

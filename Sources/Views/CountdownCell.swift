@@ -16,9 +16,10 @@ struct CountdownCell: View {
         }
         .sheet(isPresented: $isPresentingEditSheet) {
             if countdown.isScheduled {
-                DateCell(countdown: countdown)
+                DatePicker("", selection: $countdown.date)
+                    .datePickerStyle(GraphicalDatePickerStyle())
             } else {
-                LengthCell(countdown: countdown)
+                LengthPicker(countdown: countdown)
             }
         }
     }
