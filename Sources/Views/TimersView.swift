@@ -17,6 +17,7 @@ struct TimersView: View {
                         }
                     }
                     .onDelete(perform: delete)
+                    .onMove(perform: move)
                 }
             }
             
@@ -51,8 +52,10 @@ struct TimersView: View {
     }
     
     func delete(at offsets: IndexSet) {
-        for index in offsets {
-            counter.queue.remove(at: index)
-        }
+        counter.queue.remove(atOffsets: offsets)
+    }
+    
+    func move(source: IndexSet, destination: Int) {
+        counter.queue.move(fromOffsets: source, toOffset: destination)
     }
 }
