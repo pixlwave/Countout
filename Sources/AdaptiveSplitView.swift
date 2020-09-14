@@ -8,7 +8,7 @@ struct AdaptiveSplitView: View {
             MainView()
         } else {
             NavigationView {
-                CountdownQueue()
+                TimersView()
                     .navigationTitle("Timers")
                 MainView()
                     .navigationBarTitleDisplayMode(.inline)

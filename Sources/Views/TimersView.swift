@@ -1,11 +1,11 @@
 import SwiftUI
 
-struct CountdownQueue: View {
+struct TimersView: View {
     @ObservedObject var counter = Counter.shared
     
     var body: some View {
         Form {
-            Section {
+            Section(header: Text("Current")) {
                 CountdownCell(countdown: counter.current)
             }
             

@@ -70,7 +70,7 @@ struct MainView: View {
             }
             
             if horizontalSizeClass == .compact {
-                CountdownQueue()
+                TimersView()
                     .overlay(Divider(), alignment: .top)
             } else {
                 Spacer()
