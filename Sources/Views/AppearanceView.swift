@@ -9,42 +9,45 @@ struct AppearanceView: View {
         NavigationView {
             VStack {
                 CountdownView()
-                    .padding(.horizontal)
+                    .padding()
                 
                 Spacer()
-                GroupBox(label: Text("Font")) {
-                    Picker("Style", selection: $appearance.fontStyle) {
-                        Text("Normal").tag(Appearance.FontStyle.normal)
-                        Text("Light").tag(Appearance.FontStyle.light)
-                        Text("Serif").tag(Appearance.FontStyle.serif)
-                        Text("Rounded").tag(Appearance.FontStyle.rounded)
+                
+                ScrollView {
+                    GroupBox(label: Text("Font")) {
+                        Picker("Style", selection: $appearance.fontStyle) {
+                            Text("Normal").tag(Appearance.FontStyle.normal)
+                            Text("Light").tag(Appearance.FontStyle.light)
+                            Text("Serif").tag(Appearance.FontStyle.serif)
+                            Text("Rounded").tag(Appearance.FontStyle.rounded)
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        Slider(value: $appearance.fontScale, in: 0.1...0.4) {
+                            Text("Size")
+                        }
+                        ColorPicker("Colour", selection: $appearance.textColor)
+                            .frame(height: 32)
                     }
-                    .pickerStyle(SegmentedPickerStyle())
-                    Slider(value: $appearance.fontScale, in: 0.1...0.4) {
-                        Text("Size")
-                    }
-                    ColorPicker("Colour", selection: $appearance.textColor)
-                        .frame(height: 32)
-                }
-                GroupBox(label: Text("Background")) {
-                    ColorPicker("Background", selection: $appearance.backgroundColor)
-                        .frame(height: 32)
-                    HStack {
-                        Text("Image")
-                        Spacer()
-                        Button("Load") {
-                            isPresentingPhotoPicker = true
-                        }.padding(.horizontal)
-                        Button("Clear") {
-                            appearance.backgroundImage = nil
+                    .padding(.horizontal)
+                    
+                    GroupBox(label: Text("Background")) {
+                        ColorPicker("Background", selection: $appearance.backgroundColor)
+                            .frame(height: 32)
+                        HStack {
+                            Text("Image")
+                            Spacer()
+                            Button("Load") {
+                                isPresentingPhotoPicker = true
+                            }.padding(.horizontal)
+                            Button("Clear") {
+                                appearance.backgroundImage = nil
+                            }
                         }
                     }
-
+                    .padding(.horizontal)
+                    .padding(.bottom)
                 }
-                
-                Spacer()
             }
-            .padding()
             .navigationBarTitle("Appearance", displayMode: .inline)
             .navigationBarItems(leading:
                                     Button("Reset") {

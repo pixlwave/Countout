@@ -50,7 +50,9 @@ struct MainView: View {
                 Button(action: plusOne) {
                     Image(systemName: "gobackward.60")
                         .font(.title2)
-                }.padding()
+                }
+                .padding()
+                .disabled(countdown.current.isScheduled)
                 
                 Button { isPresentingAppearance.toggle() } label: {
                     Image(systemName: "paintpalette")
@@ -62,6 +64,7 @@ struct MainView: View {
                         .font(.title2)
                 }
                 .padding()
+                .disabled(countdown.current.isScheduled)
                 .disabled(countdown.remaining <= 60)
             }
             
