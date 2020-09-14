@@ -9,6 +9,7 @@ struct AppearanceView: View {
         NavigationView {
             VStack {
                 CountdownView()
+                    .cornerRadius(7)
                     .padding()
                 
                 Spacer()

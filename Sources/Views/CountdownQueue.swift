@@ -48,7 +48,6 @@ struct CountdownQueue: View {
                 }
             }
         }
-        .overlay(Divider(), alignment: .top)
     }
     
     func delete(at offsets: IndexSet) {

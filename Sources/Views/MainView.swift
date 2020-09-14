@@ -5,6 +5,7 @@ struct MainView: View {
     @ObservedObject var appearance = Appearance.shared
     @ObservedObject var outputDisplay = OutputDisplay.shared
     
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State private var isPresentingAppearance = false
     
     var body: some View {
@@ -68,7 +69,12 @@ struct MainView: View {
                 .disabled(counter.remaining <= 60)
             }
             
-            CountdownQueue()
+            if horizontalSizeClass == .compact {
+                CountdownQueue()
+                    .overlay(Divider(), alignment: .top)
+            } else {
+                Spacer()
+            }
         }
         .sheet(isPresented: $isPresentingAppearance) {
             AppearanceView(isPresented: $isPresentingAppearance)
