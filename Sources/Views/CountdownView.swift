@@ -15,7 +15,7 @@ struct CountdownView: View {
                     Image(uiImage: image)
                         .resizable(resizingMode: .stretch)
                 }
-                Text(countdown.remaining.remainingString())
+                Text(countdown.remaining.remainingString)
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     .font(appearance.font(for: geometry.size.width))
                     .foregroundColor(appearance.textColor)

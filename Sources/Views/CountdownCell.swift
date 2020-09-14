@@ -22,6 +22,7 @@ struct CountdownCell: View {
                             .datePickerStyle(GraphicalDatePickerStyle())
                     } else {
                         LengthPicker(countdown: countdown)
+                            .foregroundColor(.primary)
                     }
                 }
                 .navigationBarTitle("Edit", displayMode: .inline)

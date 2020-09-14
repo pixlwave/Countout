@@ -8,6 +8,17 @@ extension Color {
 
 
 extension TimeInterval {
+    static let lengthFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .full
+        formatter.allowedUnits = [.minute, .second]
+        return formatter
+    }()
+    
+    var lengthString: String {
+        return TimeInterval.lengthFormatter.string(from: self) ?? ""
+    }
+    
     static let remainingFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .positional
@@ -16,11 +27,11 @@ extension TimeInterval {
         return formatter
     }()
     
-    func remainingString() -> String {
+    var remainingString: String {
         var components = DateComponents()
         components.second = Int(max(0.0, self.rounded(.up)))
         
-        var string = TimeInterval.remainingFormatter.string(from: components)!
+        var string = TimeInterval.remainingFormatter.string(from: components) ?? ""
         if string.hasPrefix("0") {
             string.removeFirst()
         }
@@ -31,15 +42,16 @@ extension TimeInterval {
 
 
 extension Date {
-    static let timeFormatter: DateFormatter = {
+    static let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
-        formatter.dateStyle = .none
+        formatter.dateStyle = .short
+        formatter.doesRelativeDateFormatting = true
         return formatter
     }()
     
     var timeString: String {
-        Date.timeFormatter.string(from: self)
+        Date.formatter.string(from: self)
     }
 }
 

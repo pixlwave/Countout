@@ -14,7 +14,7 @@ class Countdown: ObservableObject {
         if isScheduled {
             return date.timeString
         } else {
-            return length.timeInterval.remainingString()
+            return length.timeInterval.lengthString
         }
     }
     
