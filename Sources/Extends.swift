@@ -30,6 +30,20 @@ extension TimeInterval {
 }
 
 
+extension Date {
+    static let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+        return formatter
+    }()
+    
+    var timeString: String {
+        Date.timeFormatter.string(from: self)
+    }
+}
+
+
 extension UserDefaults {
     func color(forKey defaultName: String) -> Color? {
         guard

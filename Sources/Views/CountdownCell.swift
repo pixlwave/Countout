@@ -15,11 +15,19 @@ struct CountdownCell: View {
             .buttonStyle(BorderlessButtonStyle())
         }
         .sheet(isPresented: $isPresentingEditSheet) {
-            if countdown.isScheduled {
-                DatePicker("", selection: $countdown.date)
-                    .datePickerStyle(GraphicalDatePickerStyle())
-            } else {
-                LengthPicker(countdown: countdown)
+            NavigationView {
+                Form {
+                    if countdown.isScheduled {
+                        DatePicker("", selection: $countdown.date)
+                            .datePickerStyle(GraphicalDatePickerStyle())
+                    } else {
+                        LengthPicker(countdown: countdown)
+                    }
+                }
+                .navigationBarTitle("Edit", displayMode: .inline)
+                .navigationBarItems(trailing: Button("Done") {
+                    isPresentingEditSheet.toggle()
+                })
             }
         }
     }

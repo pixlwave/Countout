@@ -9,13 +9,15 @@ struct CountdownQueue: View {
                 CountdownCell(countdown: countdown.current)
             }
             
-            Section {
-                ForEach(countdown.queue, id: \.self) { countdown in
-                    Button { withAnimation { self.countdown.load(countdown) } } label: {
-                        CountdownCell(countdown: countdown)
+            if !countdown.queue.isEmpty {
+                Section(header: Text("Queue")) {
+                    ForEach(countdown.queue, id: \.self) { countdown in
+                        Button { withAnimation { self.countdown.load(countdown) } } label: {
+                            CountdownCell(countdown: countdown)
+                        }
                     }
+                    .onDelete(perform: delete)
                 }
-                .onDelete(perform: delete)
             }
             
             Section {

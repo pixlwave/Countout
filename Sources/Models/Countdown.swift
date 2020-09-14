@@ -12,7 +12,7 @@ class Countdown: ObservableObject {
     }
     var description: String {
         if isScheduled {
-            return date.description
+            return date.timeString
         } else {
             return length.timeInterval.remainingString()
         }
