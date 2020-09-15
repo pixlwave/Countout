@@ -54,6 +54,7 @@ struct MainView: View {
                 }
                 .padding()
                 .disabled(counter.current.isScheduled)
+                .disabled(counter.state == .finished)
                 
                 Button { isPresentingAppearance.toggle() } label: {
                     Image(systemName: "paintpalette")

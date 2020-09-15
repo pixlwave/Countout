@@ -15,6 +15,13 @@ struct CountdownView: View {
                     Image(uiImage: image)
                         .resizable(resizingMode: .stretch)
                 }
+                if counter.state == .finished {
+                    Rectangle()
+                        .foregroundColor(appearance.finishedColor)
+                } else if counter.remaining < 120 {
+                    Rectangle()
+                        .foregroundColor(appearance.warningColor)
+                }
                 Text(counter.remaining.remainingString)
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     .font(appearance.font(for: geometry.size.width))

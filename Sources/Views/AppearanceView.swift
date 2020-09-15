@@ -27,13 +27,12 @@ struct AppearanceView: View {
                             Text("Size")
                         }
                         ColorPicker("Colour", selection: $appearance.textColor)
-                            .frame(height: 32)
                     }
                     .padding(.horizontal)
                     
                     GroupBox(label: Text("Background")) {
                         ColorPicker("Background", selection: $appearance.backgroundColor)
-                            .frame(height: 32)
+                        
                         HStack {
                             Text("Image")
                             Spacer()
@@ -44,6 +43,13 @@ struct AppearanceView: View {
                                 appearance.backgroundImage = nil
                             }
                         }
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    
+                    GroupBox(label: Text("Triggers")) {
+                        ColorPicker("Warning", selection: $appearance.warningColor)
+                        ColorPicker("Finished", selection: $appearance.finishedColor)
                     }
                     .padding(.horizontal)
                     .padding(.bottom)

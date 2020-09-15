@@ -21,6 +21,12 @@ class Appearance: ObservableObject {
     @Published var textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .countdownText {
         didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") }
     }
+    @Published var warningColor = UserDefaults.standard.color(forKey: "Warning Color") ?? .orange {
+        didSet { UserDefaults.standard.set(warningColor, forKey: "Warning Color") }
+    }
+    @Published var finishedColor = UserDefaults.standard.color(forKey: "Finished Color") ?? .red {
+        didSet { UserDefaults.standard.set(finishedColor, forKey: "Finished Color") }
+    }
     
     init() {
         // load the backgroundImage from disk
