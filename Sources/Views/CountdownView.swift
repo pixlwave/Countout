@@ -15,13 +15,7 @@ struct CountdownView: View {
                     Image(uiImage: image)
                         .resizable(resizingMode: .stretch)
                 }
-                if counter.state == .finished {
-                    Rectangle()
-                        .foregroundColor(appearance.finishedColor)
-                } else if counter.remaining < 120 {
-                    Rectangle()
-                        .foregroundColor(appearance.warningColor)
-                }
+                TriggerView()
                 Text(counter.remaining.remainingString)
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     .font(appearance.font(for: geometry.size.width))
@@ -31,6 +25,30 @@ struct CountdownView: View {
         .aspectRatio(aspectRatio, contentMode: .fit)
     }
 }
+
+
+struct TriggerView: View {
+    @ObservedObject var counter = Counter.shared
+    @ObservedObject var appearance = Appearance.shared
+    
+    let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
+    @State var finishedIsHidden = false
+    
+    var body: some View {
+        if counter.remaining < 60 {
+            Rectangle()
+                .foregroundColor(appearance.secondWarningColor)
+                .opacity(counter.state == .finished && finishedIsHidden ? 0 : 1)
+                .onReceive(timer) { _ in
+                    finishedIsHidden.toggle()
+                }
+        } else if counter.remaining < 120 {
+            Rectangle()
+                .foregroundColor(appearance.warningColor)
+        }
+    }
+}
+
 
 struct CountdownView_Previews: PreviewProvider {
     static var previews: some View {
