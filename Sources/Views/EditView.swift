@@ -17,9 +17,9 @@ struct EditView: View {
             }
             
             Section {
-                Toggle("Early Warning", isOn: $countdown.earlyWarningEnabled)
-                if countdown.earlyWarningEnabled {
-                    Picker("Early Warning Time", selection: $countdown.earlyWarningTime) {
+                Toggle("Show Early Warning", isOn: $countdown.showsEarlyWarning)
+                if countdown.showsEarlyWarning {
+                    Picker("Trigger Time", selection: $countdown.earlyWarningTime) {
                         ForEach(2..<11) { minute in
                             Text("\(minute):00").tag(Double(minute * 60))
                         }
@@ -28,14 +28,14 @@ struct EditView: View {
             }
             
             Section {
-                Toggle("Final Warning", isOn: $countdown.finalWarningEnabled)
-                if countdown.finalWarningEnabled {
-                    Picker("Final Warning Time", selection: $countdown.finalWarningTime) {
+                Toggle("Show Final Warning", isOn: $countdown.showsFinalWarning)
+                if countdown.showsFinalWarning {
+                    Picker("Trigger Time", selection: $countdown.finalWarningTime) {
                         ForEach(0..<6) { minute in
                             Text("\(minute):00").tag(Double(minute * 60))
                         }
                     }
-                    Toggle("Flash", isOn: $countdown.flashWhenFinished)
+                    Toggle("Flash", isOn: $countdown.finalWarningFlashes)
                 }
             }
         }

@@ -35,18 +35,18 @@ struct TriggerView: View {
     @State var warningIsHidden = false
     
     var body: some View {
-        if counter.current.finalWarningEnabled && counter.remaining < counter.current.finalWarningTime {
+        if counter.current.showsFinalWarning && counter.remaining < counter.current.finalWarningTime {
             Rectangle()
                 .foregroundColor(appearance.finalWarningColor)
                 .opacity(counter.state == .finished && warningIsHidden ? 0 : 1)
                 .onReceive(timer) { _ in
-                    if counter.current.flashWhenFinished {
+                    if counter.current.finalWarningFlashes {
                         warningIsHidden.toggle()
                     } else {
                         warningIsHidden = false
                     }
                 }
-        } else if counter.current.earlyWarningEnabled && counter.remaining < counter.current.earlyWarningTime {
+        } else if counter.current.showsEarlyWarning && counter.remaining < counter.current.earlyWarningTime {
             Rectangle()
                 .foregroundColor(appearance.earlyWarningColor)
         }
