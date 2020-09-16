@@ -6,7 +6,6 @@ struct MainView: View {
     @ObservedObject var outputDisplay = OutputDisplay.shared
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    @State private var isPresentingAppearance = false
     
     var body: some View {
         VStack() {
@@ -56,11 +55,6 @@ struct MainView: View {
                 .disabled(counter.current.isScheduled)
                 .disabled(counter.state == .finished)
                 
-                Button { isPresentingAppearance.toggle() } label: {
-                    Image(systemName: "paintpalette")
-                }
-                .padding()
-                
                 Button(action: minusOne) {
                     Image(systemName: "goforward.60")
                         .font(.title2)
@@ -76,9 +70,6 @@ struct MainView: View {
             } else {
                 Spacer()
             }
-        }
-        .sheet(isPresented: $isPresentingAppearance) {
-            AppearanceView(isPresented: $isPresentingAppearance)
         }
     }
     
