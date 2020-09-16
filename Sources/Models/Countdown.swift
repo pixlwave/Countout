@@ -4,12 +4,21 @@ import Combine
 class Countdown: ObservableObject {
     
     let id = UUID()
+    
     @Published var length = Length(timeInterval: 0) {
         didSet { didChangePublisher.send() }
     }
     @Published var date = Date() {
         didSet { didChangePublisher.send() }
     }
+    let isScheduled: Bool
+    
+    @Published var hasFirstWarning = false
+    @Published var warningTime: TimeInterval = 120
+    @Published var hasSecondWarning = false
+    @Published var secondWarningTime: TimeInterval = 60
+    @Published var flashWhenFinished = false
+    
     var description: String {
         if isScheduled {
             return date.timeString
@@ -17,8 +26,6 @@ class Countdown: ObservableObject {
             return length.timeInterval.lengthString
         }
     }
-    
-    let isScheduled: Bool
     
     let didChangePublisher = PassthroughSubject<Void, Never>()
     
@@ -31,6 +38,7 @@ class Countdown: ObservableObject {
         self.date = date
         self.isScheduled = true
     }
+    
 }
 
 

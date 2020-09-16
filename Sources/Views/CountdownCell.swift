@@ -16,19 +16,11 @@ struct CountdownCell: View {
         }
         .sheet(isPresented: $isPresentingEditSheet) {
             NavigationView {
-                Form {
-                    if countdown.isScheduled {
-                        DatePicker("", selection: $countdown.date)
-                            .datePickerStyle(GraphicalDatePickerStyle())
-                    } else {
-                        LengthPicker(countdown: countdown)
-                            .foregroundColor(.primary)
-                    }
-                }
-                .navigationBarTitle("Edit", displayMode: .inline)
-                .navigationBarItems(trailing: Button("Done") {
-                    isPresentingEditSheet.toggle()
-                })
+                EditView(countdown: countdown)
+                    .navigationBarTitle("Edit", displayMode: .inline)
+                    .navigationBarItems(trailing: Button("Done") {
+                        isPresentingEditSheet.toggle()
+                    })
             }
         }
     }
