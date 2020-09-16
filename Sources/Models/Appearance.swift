@@ -21,11 +21,11 @@ class Appearance: ObservableObject {
     @Published var textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .countdownText {
         didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") }
     }
-    @Published var warningColor = UserDefaults.standard.color(forKey: "Warning Color") ?? .countdownWarning {
-        didSet { UserDefaults.standard.set(warningColor, forKey: "Warning Color") }
+    @Published var earlyWarningColor = UserDefaults.standard.color(forKey: "Early Warning Color") ?? .earlyWarning {
+        didSet { UserDefaults.standard.set(earlyWarningColor, forKey: "Early Warning Color") }
     }
-    @Published var secondWarningColor = UserDefaults.standard.color(forKey: "Second Warning Color") ?? .countdownSecondWarning {
-        didSet { UserDefaults.standard.set(secondWarningColor, forKey: "Second Warning Color") }
+    @Published var finalWarningColor = UserDefaults.standard.color(forKey: "Final Warning Color") ?? .finalWarning {
+        didSet { UserDefaults.standard.set(finalWarningColor, forKey: "Second Warning Color") }
     }
     
     init() {
@@ -39,8 +39,8 @@ class Appearance: ObservableObject {
         fontScale = 0.25
         fontStyle = .normal
         textColor = .countdownText
-        warningColor = .countdownWarning
-        secondWarningColor = .countdownSecondWarning
+        earlyWarningColor = .earlyWarning
+        finalWarningColor = .finalWarning
     }
     
     func font(for width: CGFloat) -> Font {

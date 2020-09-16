@@ -17,9 +17,9 @@ struct EditView: View {
             }
             
             Section {
-                Toggle("First Warning", isOn: $countdown.hasFirstWarning)
-                if countdown.hasFirstWarning {
-                    Picker("Warning Time", selection: $countdown.warningTime) {
+                Toggle("Early Warning", isOn: $countdown.earlyWarningEnabled)
+                if countdown.earlyWarningEnabled {
+                    Picker("Early Warning Time", selection: $countdown.earlyWarningTime) {
                         ForEach(2..<11) { minute in
                             Text("\(minute):00").tag(Double(minute * 60))
                         }
@@ -28,9 +28,9 @@ struct EditView: View {
             }
             
             Section {
-                Toggle("Second Warning", isOn: $countdown.hasSecondWarning)
-                if countdown.hasSecondWarning {
-                    Picker("Warning Time", selection: $countdown.secondWarningTime) {
+                Toggle("Final Warning", isOn: $countdown.finalWarningEnabled)
+                if countdown.finalWarningEnabled {
+                    Picker("Final Warning Time", selection: $countdown.finalWarningTime) {
                         ForEach(0..<6) { minute in
                             Text("\(minute):00").tag(Double(minute * 60))
                         }

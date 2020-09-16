@@ -13,10 +13,10 @@ class Countdown: ObservableObject {
     }
     let isScheduled: Bool
     
-    @Published var hasFirstWarning = false
-    @Published var warningTime: TimeInterval = 120
-    @Published var hasSecondWarning = false
-    @Published var secondWarningTime: TimeInterval = 60
+    @Published var earlyWarningEnabled = false
+    @Published var earlyWarningTime: TimeInterval = 120
+    @Published var finalWarningEnabled = false
+    @Published var finalWarningTime: TimeInterval = 60
     @Published var flashWhenFinished = false
     
     var description: String {

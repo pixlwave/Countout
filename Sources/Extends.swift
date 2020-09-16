@@ -4,8 +4,8 @@ extension Color {
     static let background = Color("Background Color")
     static let countdownBackground = Color("Countdown Background Color")
     static let countdownText = Color("Countdown Text Color")
-    static let countdownWarning = Color("Countdown Warning Color")
-    static let countdownSecondWarning = Color("Countdown Second Warning Color")
+    static let earlyWarning = Color("Early Warning Color")
+    static let finalWarning = Color("Final Warning Color")
 }
 
 

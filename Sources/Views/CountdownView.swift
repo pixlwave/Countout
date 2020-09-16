@@ -32,19 +32,23 @@ struct TriggerView: View {
     @ObservedObject var appearance = Appearance.shared
     
     let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
-    @State var finishedIsHidden = false
+    @State var warningIsHidden = false
     
     var body: some View {
-        if counter.current.hasSecondWarning && counter.remaining < counter.current.secondWarningTime {
+        if counter.current.finalWarningEnabled && counter.remaining < counter.current.finalWarningTime {
             Rectangle()
-                .foregroundColor(appearance.secondWarningColor)
-                .opacity(counter.state == .finished && finishedIsHidden ? 0 : 1)
+                .foregroundColor(appearance.finalWarningColor)
+                .opacity(counter.state == .finished && warningIsHidden ? 0 : 1)
                 .onReceive(timer) { _ in
-                    finishedIsHidden = counter.current.flashWhenFinished ? !finishedIsHidden : false
+                    if counter.current.flashWhenFinished {
+                        warningIsHidden.toggle()
+                    } else {
+                        warningIsHidden = false
+                    }
                 }
-        } else if counter.current.hasFirstWarning && counter.remaining < counter.current.warningTime {
+        } else if counter.current.earlyWarningEnabled && counter.remaining < counter.current.earlyWarningTime {
             Rectangle()
-                .foregroundColor(appearance.warningColor)
+                .foregroundColor(appearance.earlyWarningColor)
         }
     }
 }

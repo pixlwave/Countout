@@ -48,8 +48,8 @@ struct AppearanceView: View {
                     .padding(.bottom)
                     
                     GroupBox(label: Text("Triggers")) {
-                        ColorPicker("Warning", selection: $appearance.warningColor)
-                        ColorPicker("Finished", selection: $appearance.secondWarningColor)
+                        ColorPicker("Warning", selection: $appearance.earlyWarningColor)
+                        ColorPicker("Finished", selection: $appearance.finalWarningColor)
                     }
                     .padding(.horizontal)
                     .padding(.bottom)
