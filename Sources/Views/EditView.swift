@@ -35,7 +35,7 @@ struct EditView: View {
                             Text("\(minute):00").tag(Double(minute * 60))
                         }
                     }
-                    Toggle("Flash", isOn: $countdown.finalWarningFlashes)
+                    Toggle("Flash at 0:00", isOn: $countdown.finalWarningFlashes)
                 }
             }
         }
