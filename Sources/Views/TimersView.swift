@@ -23,29 +23,27 @@ struct TimersView: View {
             
             Section {
                 HStack {
-                    HStack {
-                        Spacer()
-                        Button("Countdown") {
-                            withAnimation {
-                                counter.queue.append(Countdown(Length(timeInterval: 300)))
-                            }
+                    Button {
+                        withAnimation {
+                            counter.queue.append(Countdown(Length(timeInterval: 300)))
                         }
-                        .buttonStyle(BorderlessButtonStyle())
+                    } label: {
                         Spacer()
-                    }
+                        Text("Countdown")
+                        Spacer()
+                    }.buttonStyle(BorderlessButtonStyle())
                     
                     Divider()
                     
-                    HStack {
-                        Spacer()
-                        Button("Scheduled") {
-                            withAnimation {
-                                counter.queue.append(Countdown(Date().addingTimeInterval(300)))
-                            }
+                    Button {
+                        withAnimation {
+                            counter.queue.append(Countdown(Date().addingTimeInterval(300)))
                         }
-                        .buttonStyle(BorderlessButtonStyle())
+                    } label: {
                         Spacer()
-                    }
+                        Text("Scheduled")
+                        Spacer()
+                    }.buttonStyle(BorderlessButtonStyle())
                 }
             }
         }
