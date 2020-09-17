@@ -39,6 +39,7 @@ struct EditView: View {
                 }
             }
         }
+        .navigationBarTitle("Edit Timer", displayMode: .inline)
     }
 }
 
@@ -49,19 +50,26 @@ struct LengthPicker: View {
     var body: some View {
         HStack {
             Spacer()
-            Text("minutes:")
-                .font(Font.subheadline.weight(.thin))
+            Text("Minutes:")
             TextField("", value: $countdown.length.minutes, formatter: NumberFormatter())
                 .keyboardType(.numbersAndPunctuation)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(width: 60)
-            Text("seconds:")
-                .font(Font.subheadline.weight(.thin))
+                .frame(width: 50)
+            Text("Seconds:")
                 .padding(.leading)
             TextField("", value: $countdown.length.seconds, formatter: NumberFormatter())
                 .keyboardType(.numbersAndPunctuation)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(width: 60)
+                .frame(width: 50)
+        }
+    }
+}
+
+
+struct EditView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            EditView(countdown: Countdown(Length(timeInterval: 300)))
         }
     }
 }

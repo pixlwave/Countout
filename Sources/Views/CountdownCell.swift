@@ -17,7 +17,6 @@ struct CountdownCell: View {
         .sheet(isPresented: $isPresentingEditSheet) {
             NavigationView {
                 EditView(countdown: countdown)
-                    .navigationBarTitle("Edit", displayMode: .inline)
                     .navigationBarItems(trailing: Button("Done") {
                         isPresentingEditSheet.toggle()
                     })
