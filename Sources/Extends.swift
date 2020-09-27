@@ -24,21 +24,30 @@ extension TimeInterval {
     static let remainingFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .positional
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.zeroFormattingBehavior = .dropLeading
+        return formatter
+    }()
+    
+    static let remainingSecondsFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional
         formatter.allowedUnits = [.minute, .second]
         formatter.zeroFormattingBehavior = .pad
         return formatter
     }()
-    
+
     var remainingString: String {
+        let seconds = Int(max(0.0, self.rounded(.up)))
+        
         var components = DateComponents()
-        components.second = Int(max(0.0, self.rounded(.up)))
+        components.second = seconds
         
-        var string = TimeInterval.remainingFormatter.string(from: components) ?? ""
-        if string.hasPrefix("0") {
-            string.removeFirst()
+        if seconds > 60 {
+            return TimeInterval.remainingFormatter.string(from: components) ?? ""
+        } else {
+            return String(TimeInterval.remainingSecondsFormatter.string(from: components)?.dropFirst() ?? Substring(""))
         }
-        
-        return string
     }
 }
 
