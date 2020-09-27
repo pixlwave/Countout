@@ -18,9 +18,8 @@ struct CountdownCell: View {
             NavigationView {
                 EditView(countdown: countdown)
                     .foregroundColor(.primary)
-                    .navigationBarItems(trailing: Button("Done") {
-                        isPresentingEditSheet = false
-                    })
+                    // removed whilst there's a bug with text fields that prevents done from working
+                    // .navigationBarItems(trailing: Button("Done") { isPresentingEditSheet = false })
             }
         }
     }
