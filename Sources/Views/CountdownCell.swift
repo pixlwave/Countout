@@ -7,6 +7,7 @@ struct CountdownCell: View {
     var body: some View {
         HStack {
             Text(countdown.description)
+                .foregroundColor(.primary)
             Spacer()
             Button { isPresentingEditSheet = true } label: {
                 Image(systemName: countdown.isScheduled ? "calendar" : "timer")
@@ -16,6 +17,7 @@ struct CountdownCell: View {
         .sheet(isPresented: $isPresentingEditSheet) {
             NavigationView {
                 EditView(countdown: countdown)
+                    .foregroundColor(.primary)
                     .navigationBarItems(trailing: Button("Done") {
                         isPresentingEditSheet = false
                     })
