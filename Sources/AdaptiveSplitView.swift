@@ -9,7 +9,7 @@ struct AdaptiveSplitView: View {
     var body: some View {
         if horizontalSizeClass == .compact {
             MainView()
-                .overlay(Button { isPresentingAppearance.toggle() } label: {
+                .overlay(Button { isPresentingAppearance = true } label: {
                     Image(systemName: "paintbrush")
                         .font(.title3)
                         .foregroundColor(appearance.textColor)
@@ -28,7 +28,7 @@ struct AdaptiveSplitView: View {
                     .navigationViewStyle(DoubleColumnNavigationViewStyle())
                     .toolbar {
                         ToolbarItem {
-                            Button { isPresentingAppearance.toggle() } label: {
+                            Button { isPresentingAppearance = true } label: {
                                 Image(systemName: "paintbrush")
                             }
                         }

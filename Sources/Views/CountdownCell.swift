@@ -7,9 +7,8 @@ struct CountdownCell: View {
     var body: some View {
         HStack {
             Text(countdown.description)
-                .foregroundColor(.primary)
             Spacer()
-            Button { isPresentingEditSheet.toggle() } label: {
+            Button { isPresentingEditSheet = true } label: {
                 Image(systemName: countdown.isScheduled ? "calendar" : "timer")
             }
             .buttonStyle(BorderlessButtonStyle())
@@ -18,7 +17,7 @@ struct CountdownCell: View {
             NavigationView {
                 EditView(countdown: countdown)
                     .navigationBarItems(trailing: Button("Done") {
-                        isPresentingEditSheet.toggle()
+                        isPresentingEditSheet = false
                     })
             }
         }

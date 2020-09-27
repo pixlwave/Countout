@@ -15,6 +15,7 @@ struct TimersView: View {
                         Button { withAnimation { self.counter.load(countdown) } } label: {
                             CountdownCell(countdown: countdown)
                         }
+                        .buttonStyle(PlainButtonStyle())
                     }
                     .onDelete(perform: delete)
                     .onMove(perform: move)
