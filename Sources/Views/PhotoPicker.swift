@@ -6,9 +6,12 @@ struct PhotoPicker: UIViewControllerRepresentable {
     @Binding var isLoadingPhoto: Bool
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
-        let configuration = PHPickerConfiguration(photoLibrary: .shared())
+        var configuration = PHPickerConfiguration(photoLibrary: .shared())
+        configuration.filter = .images
+        
         let controller = PHPickerViewController(configuration: configuration)
         controller.delegate = context.coordinator
+        
         return controller
     }
     
