@@ -41,7 +41,7 @@ struct AppearanceView: View {
                                 isPresentingPhotoPicker = true
                             }.padding(.horizontal)
                             Button("Clear") {
-                                appearance.backgroundImage = nil
+                                appearance.backgroundImageData = nil
                             }
                         }
                     }

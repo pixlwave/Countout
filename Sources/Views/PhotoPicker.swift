@@ -34,11 +34,9 @@ struct PhotoPicker: UIViewControllerRepresentable {
             guard let provider = results.first?.itemProvider, provider.canLoadObject(ofClass: UIImage.self) else { return }
             view.isLoadingPhoto = true
             
-            provider.loadObject(ofClass: UIImage.self) { image, error in
-                if let image = image as? UIImage {
-                    DispatchQueue.main.async {
-                        Appearance.shared.backgroundImage = image
-                    }
+            provider.loadDataRepresentation(forTypeIdentifier: UTType.image.identifier) { data, error in
+                if let data = data {
+                    Appearance.shared.backgroundImageData = data
                 }
                 self.view.isLoadingPhoto = false
                 self.view.isPresented = false

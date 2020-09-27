@@ -9,9 +9,7 @@ class Appearance: ObservableObject {
     @Published var backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground {
         didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }
     }
-    @Published var backgroundImage: UIImage? {
-        didSet { writeBackground() }
-    }
+    @Published private(set) var backgroundImage: UIImage?
     @Published var fontScale = UserDefaults.standard.cgFloat(forKey: "Font Scale") ?? 0.25 {
         didSet { UserDefaults.standard.set(fontScale, forKey: "Font Scale") }
     }
@@ -30,12 +28,12 @@ class Appearance: ObservableObject {
     
     init() {
         // load the backgroundImage from disk
-        readBackground()
+        if let data = backgroundImageData { backgroundImage = UIImage(data: data) }
     }
     
     func reset() {
         backgroundColor = .countdownBackground
-        backgroundImage = nil
+        backgroundImageData = nil
         fontScale = 0.25
         fontStyle = .normal
         textColor = .countdownText
@@ -58,17 +56,20 @@ class Appearance: ObservableObject {
         }
     }
     
-    private func readBackground() {
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-        backgroundImage = UIImage(contentsOfFile: documentDirectory.appendingPathComponent("Background.png").path)
-    }
-    
-    private func writeBackground() {
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-        if let backgroundImage = backgroundImage {
-            try? backgroundImage.pngData()?.write(to:  documentDirectory.appendingPathComponent("Background.png"))
-        } else {
-            try? FileManager.default.removeItem(at: documentDirectory.appendingPathComponent("Background.png"))
+    var backgroundImageData: Data? {
+        get {
+            guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+            return try? Data(contentsOf: documentDirectory.appendingPathComponent("Background Image.dat"))
+        }
+        set {
+            guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+            if let data = newValue {
+                try? data.write(to: documentDirectory.appendingPathComponent("Background Image.dat"))
+                DispatchQueue.main.async { self.backgroundImage = UIImage(data: data) }
+            } else {
+                try? FileManager.default.removeItem(at: documentDirectory.appendingPathComponent("Background Image.dat"))
+                DispatchQueue.main.async { self.backgroundImage = nil }
+            }
         }
     }
 }
