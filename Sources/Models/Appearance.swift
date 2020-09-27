@@ -63,9 +63,10 @@ class Appearance: ObservableObject {
         }
         set {
             guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-            if let data = newValue {
+            
+            if let data = newValue, let image = UIImage(data: data) {
                 try? data.write(to: documentDirectory.appendingPathComponent("Background Image.dat"))
-                DispatchQueue.main.async { self.backgroundImage = UIImage(data: data) }
+                DispatchQueue.main.async { self.backgroundImage = image }
             } else {
                 try? FileManager.default.removeItem(at: documentDirectory.appendingPathComponent("Background Image.dat"))
                 DispatchQueue.main.async { self.backgroundImage = nil }
