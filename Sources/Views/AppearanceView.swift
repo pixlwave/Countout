@@ -4,6 +4,7 @@ struct AppearanceView: View {
     @Binding var isPresented: Bool
     @ObservedObject var appearance = Appearance.shared
     @State private var isPresentingPhotoPicker = false
+    @State private var isLoadingPhoto = false
     
     var body: some View {
         NavigationView {
@@ -64,7 +65,14 @@ struct AppearanceView: View {
                                     isPresented = false
                                 })
             .sheet(isPresented: $isPresentingPhotoPicker) {
-                PhotoPicker(isPresented: $isPresentingPhotoPicker)
+                PhotoPicker(isPresented: $isPresentingPhotoPicker, isLoadingPhoto: $isLoadingPhoto)
+                    .overlay(
+                        ProgressView("Loading")
+                            .padding()
+                            .background(Color.background)
+                            .cornerRadius(15)
+                            .opacity(isLoadingPhoto ? 1 : 0)
+                    )
             }
         }
     }

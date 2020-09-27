@@ -3,6 +3,7 @@ import PhotosUI
 
 struct PhotoPicker: UIViewControllerRepresentable {
     @Binding var isPresented: Bool
+    @Binding var isLoadingPhoto: Bool
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
         let configuration = PHPickerConfiguration(photoLibrary: .shared())
@@ -28,6 +29,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
             guard let provider = results.first?.itemProvider, provider.canLoadObject(ofClass: UIImage.self) else { return }
+            view.isLoadingPhoto = true
             
             provider.loadObject(ofClass: UIImage.self) { image, error in
                 if let image = image as? UIImage {
@@ -35,9 +37,9 @@ struct PhotoPicker: UIViewControllerRepresentable {
                         Appearance.shared.backgroundImage = image
                     }
                 }
+                self.view.isLoadingPhoto = false
+                self.view.isPresented = false
             }
-            
-            view.isPresented = false
         }
     }
 }
