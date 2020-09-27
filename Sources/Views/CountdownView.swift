@@ -11,10 +11,11 @@ struct CountdownView: View {
             ZStack {
                 Rectangle()
                     .foregroundColor(appearance.backgroundColor)
-                if let image = appearance.backgroundImage {
-                    Image(uiImage: image)
-                        .resizable(resizingMode: .stretch)
-                }
+                    .overlay(appearance.backgroundImage.map { image in  // maps a non-nil value into a view
+                        Image(uiImage: image)
+                            .resizable(resizingMode: .stretch)
+                            .aspectRatio(contentMode: .fill)
+                    })  // overlay fixes text alignment in the z-stack due to aspect ratio modifier
                 TriggerView()
                 Text(counter.remaining.remainingString)
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
