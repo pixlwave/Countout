@@ -2,7 +2,6 @@ import SwiftUI
 import PhotosUI
 
 struct PhotoPicker: UIViewControllerRepresentable {
-    @Binding var isPresented: Bool
     @Binding var isLoadingPhoto: Bool
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
@@ -31,15 +30,21 @@ struct PhotoPicker: UIViewControllerRepresentable {
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            guard let provider = results.first?.itemProvider, provider.canLoadObject(ofClass: UIImage.self) else { return }
+            guard let provider = results.first?.itemProvider else {
+                picker.dismiss(animated: true)
+                return
+            }
+            
             view.isLoadingPhoto = true
             
             provider.loadDataRepresentation(forTypeIdentifier: UTType.image.identifier) { data, error in
                 if let data = data {
                     Appearance.shared.backgroundImageData = data
                 }
-                self.view.isLoadingPhoto = false
-                self.view.isPresented = false
+                DispatchQueue.main.async {
+                    picker.dismiss(animated: true)
+                    self.view.isLoadingPhoto = false
+                }
             }
         }
     }

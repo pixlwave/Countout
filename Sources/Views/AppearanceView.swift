@@ -65,7 +65,7 @@ struct AppearanceView: View {
                                     isPresented = false
                                 })
             .sheet(isPresented: $isPresentingPhotoPicker) {
-                PhotoPicker(isPresented: $isPresentingPhotoPicker, isLoadingPhoto: $isLoadingPhoto)
+                PhotoPicker(isLoadingPhoto: $isLoadingPhoto)
                     .overlay(
                         ZStack {
                             Rectangle()
