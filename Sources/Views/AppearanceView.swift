@@ -67,11 +67,15 @@ struct AppearanceView: View {
             .sheet(isPresented: $isPresentingPhotoPicker) {
                 PhotoPicker(isPresented: $isPresentingPhotoPicker, isLoadingPhoto: $isLoadingPhoto)
                     .overlay(
-                        ProgressView("Loading")
-                            .padding()
-                            .background(Color.background)
-                            .cornerRadius(15)
-                            .opacity(isLoadingPhoto ? 1 : 0)
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(Color.black.opacity(0.3))
+                            ProgressView("Loading")
+                                .padding()
+                                .background(Color.background)
+                                .cornerRadius(15)
+                        }
+                        .opacity(isLoadingPhoto ? 1 : 0)
                     )
             }
         }
