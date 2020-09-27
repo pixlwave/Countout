@@ -12,7 +12,6 @@ struct EditView: View {
                         .datePickerStyle(GraphicalDatePickerStyle())
                 } else {
                     LengthPicker(countdown: countdown)
-                        .foregroundColor(.primary)
                 }
             }
             
