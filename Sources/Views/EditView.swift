@@ -46,21 +46,47 @@ struct EditView: View {
 struct LengthPicker: View {
     @ObservedObject var countdown: Countdown
     
+    #warning("Using strings until number formatter updates without hitting return")
+    @State private var minutesString = "5"
+    @State private var secondsString = "0"
+    
     var body: some View {
         HStack {
             Spacer()
             Text("Minutes:")
-            TextField("", value: $countdown.length.minutes, formatter: NumberFormatter())
+            TextField("", text: $minutesString)
                 .keyboardType(.numbersAndPunctuation)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 50)
+                .onChange(of: minutesString) { value in
+                    if let minutes = Int(value), minutes >= 0 {
+                        countdown.length.minutes = minutes
+                    } else if value != "" {
+                        reloadStrings()
+                    }
+                }
             Text("Seconds:")
                 .padding(.leading)
-            TextField("", value: $countdown.length.seconds, formatter: NumberFormatter())
+            TextField("", text: $secondsString)
                 .keyboardType(.numbersAndPunctuation)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 50)
+                .onChange(of: secondsString) { value in
+                    if let seconds = Int(value), seconds >= 0 {
+                        countdown.length.seconds = seconds
+                    } else if value != "" {
+                        reloadStrings()
+                    }
+                }
         }
+        .onAppear {
+            reloadStrings()
+        }
+    }
+    
+    func reloadStrings() {
+        minutesString = "\(countdown.length.minutes)"
+        secondsString = "\(countdown.length.seconds)"
     }
 }
 
