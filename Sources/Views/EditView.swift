@@ -12,13 +12,15 @@ struct EditView: View {
                         .datePickerStyle(GraphicalDatePickerStyle())
                 } else {
                     LengthPicker(countdown: countdown)
+                        .foregroundColor(.primary)
                 }
             }
             
             Section {
                 Toggle("Show Early Warning", isOn: $countdown.showsEarlyWarning)
+                    .foregroundColor(.primary)
                 if countdown.showsEarlyWarning {
-                    Picker("Trigger Time", selection: $countdown.earlyWarningTime) {
+                    Picker(selection: $countdown.earlyWarningTime, label: Text("Trigger Time").foregroundColor(.primary)) {
                         ForEach(2..<11) { minute in
                             Text("\(minute):00").tag(Double(minute * 60))
                         }
@@ -28,13 +30,15 @@ struct EditView: View {
             
             Section {
                 Toggle("Show Final Warning", isOn: $countdown.showsFinalWarning)
+                    .foregroundColor(.primary)
                 if countdown.showsFinalWarning {
-                    Picker("Trigger Time", selection: $countdown.finalWarningTime) {
+                    Picker(selection: $countdown.finalWarningTime, label: Text("Trigger Time").foregroundColor(.primary)) {
                         ForEach(0..<6) { minute in
                             Text("\(minute):00").tag(Double(minute * 60))
                         }
                     }
                     Toggle("Flash at 0:00", isOn: $countdown.finalWarningFlashes)
+                        .foregroundColor(.primary)
                 }
             }
         }
