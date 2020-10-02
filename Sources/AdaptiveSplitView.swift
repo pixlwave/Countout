@@ -11,10 +11,13 @@ struct AdaptiveSplitView: View {
             MainView()
                 .overlay(Button { isPresentingAppearance = true } label: {
                     Image(systemName: "paintbrush")
-                        .font(.title3)
-                        .foregroundColor(appearance.textColor)
+                        .font(.body)
+                        .foregroundColor(appearance.backgroundColor)
                         .padding()
-                        .padding(.trailing, 10)
+                        .background(Circle()
+                                        .padding(11)
+                                        .foregroundColor(appearance.textColor))
+                        .offset(x: -12, y: 2)
                 }, alignment: .topTrailing)
                 .sheet(isPresented: $isPresentingAppearance) {
                     AppearanceView(isPresented: $isPresentingAppearance)
