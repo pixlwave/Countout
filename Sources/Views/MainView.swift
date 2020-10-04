@@ -1,4 +1,5 @@
 import SwiftUI
+import VisualEffects
 
 struct MainView: View {
     @ObservedObject var counter = Counter.shared
@@ -13,10 +14,11 @@ struct MainView: View {
                 .cornerRadius(15)
                 .overlay(Text("Display not connected")
                             .font(.caption)
-                            .foregroundColor(appearance.backgroundColor)
-                            .background(Capsule()
+                            .foregroundColor(.red)
+                            .padding(.horizontal, 5)
+                            .background(VisualEffectBlur(blurStyle: .prominent)
                                             .padding(.horizontal, -5)
-                                            .foregroundColor(appearance.textColor))
+                                            .clipShape(Capsule()))
                             .offset(x: 0, y: -10)
                             .opacity(outputDisplay.isConnected ? 0 : 1),
                          alignment: .bottom)

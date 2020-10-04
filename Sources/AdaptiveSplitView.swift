@@ -1,4 +1,5 @@
 import SwiftUI
+import VisualEffects
 
 struct AdaptiveSplitView: View {
     @ObservedObject var appearance = Appearance.shared
@@ -12,12 +13,11 @@ struct AdaptiveSplitView: View {
                 .overlay(Button { isPresentingAppearance = true } label: {
                     Image(systemName: "paintbrush")
                         .font(.body)
-                        .foregroundColor(appearance.backgroundColor)
-                        .padding()
-                        .background(Circle()
-                                        .padding(11)
-                                        .foregroundColor(appearance.textColor))
-                        .offset(x: -12, y: 2)
+                        .foregroundColor(appearance.backgroundImage == nil ? appearance.backgroundColor: .secondary)
+                        .padding(5)
+                        .background(VisualEffectBlur(blurStyle: .prominent)
+                                        .clipShape(Circle()))
+                        .offset(x: -23, y: 13)
                 }, alignment: .topTrailing)
                 .sheet(isPresented: $isPresentingAppearance) {
                     AppearanceView(isPresented: $isPresentingAppearance)
