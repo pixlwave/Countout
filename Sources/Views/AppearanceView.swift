@@ -57,13 +57,14 @@ struct AppearanceView: View {
                 }
             }
             .navigationBarTitle("Appearance", displayMode: .inline)
-            .navigationBarItems(leading:
-                                    Button("Reset") {
-                                        appearance.reset()
-                                    }.font(.body),
-                                trailing: Button("Done") {
-                                    isPresented = false
-                                })
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Reset") { appearance.reset() }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") { isPresented = false }
+                }
+            }
             .sheet(isPresented: $isPresentingPhotoPicker) {
                 PhotoPicker(isLoadingPhoto: $isLoadingPhoto)
                     .overlay(

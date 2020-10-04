@@ -18,7 +18,11 @@ struct CountdownCell: View {
             NavigationView {
                 EditView(countdown: countdown)
                     // removed whilst there's a bug with text fields that prevents done from working
-                    // .navigationBarItems(trailing: Button("Done") { isPresentingEditSheet = false })
+                    // .toolbar {
+                    //     ToolbarItem(placement: .confirmationAction) {
+                    //         Button("Done") { isPresentingEditSheet = false }
+                    //     }
+                    // }
             }
         }
     }
