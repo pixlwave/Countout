@@ -13,7 +13,6 @@ struct AdaptiveSplitView: View {
                 .overlay(Button { isPresentingAppearance = true } label: {
                     Image(systemName: "paintbrush")
                         .font(.body)
-                        .foregroundColor(Color.accentColor.opacity(0.9))
                         .padding(5)
                         .background(VisualEffectBlur(blurStyle: .systemThickMaterial)
                                         .clipShape(Circle()))
