@@ -13,12 +13,11 @@ struct AdaptiveSplitView: View {
                 .overlay(Button { isPresentingAppearance = true } label: {
                     Image(systemName: "paintbrush")
                         .font(.body)
-                        .foregroundColor(appearance.backgroundImage == nil ? appearance.backgroundColor: .secondary)
+                        .foregroundColor(Color.accentColor.opacity(0.9))
                         .padding(5)
-                        .background(VisualEffectBlur(blurStyle: .prominent)
+                        .background(VisualEffectBlur(blurStyle: .systemThickMaterial)
                                         .clipShape(Circle()))
-                        .offset(x: -23, y: 13)
-                }, alignment: .topTrailing)
+                }.offset(x: -23, y: 13), alignment: .topTrailing)
                 .sheet(isPresented: $isPresentingAppearance) {
                     AppearanceView(isPresented: $isPresentingAppearance)
                 }

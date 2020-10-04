@@ -16,7 +16,7 @@ struct MainView: View {
                             .font(.caption)
                             .foregroundColor(.red)
                             .padding(.horizontal, 5)
-                            .background(VisualEffectBlur(blurStyle: .prominent)
+                            .background(VisualEffectBlur(blurStyle: .systemThickMaterial)
                                             .padding(.horizontal, -5)
                                             .clipShape(Capsule()))
                             .offset(x: 0, y: -10)
