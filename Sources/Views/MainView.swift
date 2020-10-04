@@ -9,7 +9,7 @@ struct MainView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     var body: some View {
-        VStack() {
+        VStack(spacing: 15) {
             CountdownView()
                 .cornerRadius(15)
                 .overlay(Text("Display not connected")
@@ -56,7 +56,7 @@ struct MainView: View {
                     Image(systemName: "gobackward.60")
                         .font(.title2)
                 }
-                .padding()
+                .padding(.horizontal)
                 .disabled(counter.current.isScheduled)
                 .disabled(counter.state == .finished)
                 
@@ -64,10 +64,11 @@ struct MainView: View {
                     Image(systemName: "goforward.60")
                         .font(.title2)
                 }
-                .padding()
+                .padding(.horizontal)
                 .disabled(counter.current.isScheduled)
                 .disabled(counter.remaining <= 60)
             }
+            .padding(.bottom, 4)
             
             if horizontalSizeClass == .compact {
                 TimersView()
