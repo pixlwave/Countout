@@ -46,11 +46,10 @@ struct AppearanceView: View {
                         }
                     }
                     .padding(.horizontal)
-                    .padding(.bottom)
                     
                     GroupBox(label: Text("Triggers")) {
-                        ColorPicker("Warning", selection: $appearance.earlyWarningColor)
-                        ColorPicker("Finished", selection: $appearance.finalWarningColor)
+                        ColorPicker("Early Warning", selection: $appearance.earlyWarningColor)
+                        ColorPicker("Final Warning", selection: $appearance.finalWarningColor)
                     }
                     .padding(.horizontal)
                     .padding(.bottom)
