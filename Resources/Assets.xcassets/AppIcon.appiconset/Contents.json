@@ -11,21 +11,25 @@
       "size" : "20x20"
     },
     {
+      "filename" : "Icon_iPhoneSettings_29@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "Icon_iPhoneSettings_29@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
+      "filename" : "Icon_iPhoneSpotlight_40@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "Icon_iPhoneSpotlight_40@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
@@ -53,21 +57,25 @@
       "size" : "20x20"
     },
     {
+      "filename" : "Icon_iPadSettings_29.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
+      "filename" : "Icon_iPadSettings_29@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "Icon_iPadSpotlight_40.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
+      "filename" : "Icon_iPadSpotlight_40@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
