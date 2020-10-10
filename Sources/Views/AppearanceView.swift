@@ -10,6 +10,7 @@ struct AppearanceView: View {
         NavigationView {
             VStack {
                 CountdownView()
+                    .aspectRatio(4 / 3, contentMode: .fit)
                     .cornerRadius(7)
                     .padding()
                 

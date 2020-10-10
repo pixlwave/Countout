@@ -4,8 +4,6 @@ struct CountdownView: View {
     @ObservedObject var counter = Counter.shared
     @ObservedObject var appearance = Appearance.shared
     
-    var aspectRatio: CGFloat = 4 / 3
-    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -23,7 +21,7 @@ struct CountdownView: View {
                     .foregroundColor(appearance.textColor)
             }
         }
-        .aspectRatio(aspectRatio, contentMode: .fit)
+        .ignoresSafeArea()  // doesn't work alongside .aspectRatio modifier
     }
 }
 

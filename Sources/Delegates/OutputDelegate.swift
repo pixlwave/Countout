@@ -9,8 +9,7 @@ class OutputDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene, session.role == .windowExternalDisplay else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let aspectRatio = window.bounds.width / window.bounds.height
-        let hostingController = UIHostingController<CountdownView>(rootView: CountdownView(aspectRatio: aspectRatio))
+        let hostingController = UIHostingController<CountdownView>(rootView: CountdownView())
         hostingController.view.backgroundColor = .black
         window.rootViewController = hostingController
         window.isHidden = false

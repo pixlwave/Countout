@@ -11,6 +11,7 @@ struct MainView: View {
     var body: some View {
         VStack(spacing: 15) {
             CountdownView()
+                .aspectRatio(4 / 3, contentMode: .fit)
                 .cornerRadius(15)
                 .overlay(Text("Display not connected")
                             .font(.caption)
