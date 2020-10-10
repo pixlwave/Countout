@@ -11,6 +11,7 @@ class OutputDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         let aspectRatio = window.bounds.width / window.bounds.height
         let hostingController = UIHostingController<CountdownView>(rootView: CountdownView(aspectRatio: aspectRatio))
+        hostingController.view.backgroundColor = .black
         window.rootViewController = hostingController
         window.isHidden = false
         
