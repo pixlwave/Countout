@@ -21,7 +21,7 @@ struct EditView: View {
                     .foregroundColor(.primary)
                 if countdown.showsEarlyWarning {
                     Picker(selection: $countdown.earlyWarningTime, label: Text("Trigger Time").foregroundColor(.primary)) {
-                        ForEach(2..<11) { minute in
+                        ForEach([10, 9, 8, 7, 6, 5, 4, 3, 2], id: \.self) { minute in
                             Text("\(minute):00").tag(Double(minute * 60))
                         }
                     }
@@ -33,7 +33,7 @@ struct EditView: View {
                     .foregroundColor(.primary)
                 if countdown.showsFinalWarning {
                     Picker(selection: $countdown.finalWarningTime, label: Text("Trigger Time").foregroundColor(.primary)) {
-                        ForEach(0..<6) { minute in
+                        ForEach([5, 4, 3, 2, 1, 0], id: \.self) { minute in
                             Text("\(minute):00").tag(Double(minute * 60))
                         }
                     }
