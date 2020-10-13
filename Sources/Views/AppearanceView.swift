@@ -48,7 +48,7 @@ struct AppearanceView: View {
                     }
                     .padding(.horizontal)
                     
-                    GroupBox(label: Text("Triggers")) {
+                    GroupBox(label: Text("Warnings")) {
                         ColorPicker("Early Warning", selection: $appearance.earlyWarningColor)
                         ColorPicker("Final Warning", selection: $appearance.finalWarningColor)
                     }

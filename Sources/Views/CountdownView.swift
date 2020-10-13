@@ -14,7 +14,7 @@ struct CountdownView: View {
                             .resizable(resizingMode: .stretch)
                             .aspectRatio(contentMode: .fill)
                     })  // overlay fixes text alignment in the z-stack due to aspect ratio modifier
-                TriggerView()
+                WarningView()
                 Text(counter.remaining.remainingString)
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                     .font(appearance.font(for: geometry.size.width))
@@ -26,7 +26,7 @@ struct CountdownView: View {
 }
 
 
-struct TriggerView: View {
+struct WarningView: View {
     @ObservedObject var counter = Counter.shared
     @ObservedObject var appearance = Appearance.shared
     
