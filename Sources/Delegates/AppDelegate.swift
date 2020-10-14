@@ -1,6 +1,6 @@
 import UIKit
 
-class AppDelegate: NSObject, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, shouldSaveSecureApplicationState coder: NSCoder) -> Bool {
         coder.encode(Counter.shared.current.rawValue, forKey: "currentCountdown")
