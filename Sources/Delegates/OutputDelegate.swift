@@ -14,11 +14,13 @@ class OutputDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = hostingController
         window.isHidden = false
         
+        UIApplication.shared.isIdleTimerDisabled = true
         OutputDisplay.shared.isConnected = true
         self.window = window
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
+        UIApplication.shared.isIdleTimerDisabled = false
         OutputDisplay.shared.isConnected = false
         window = nil
     }

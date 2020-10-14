@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A50FF8871B70D4CE007834FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50FF8861B70D4CE007834FE /* AppDelegate.swift */; };
 		A50FF88E1B70D4CE007834FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50FF88D1B70D4CE007834FE /* Assets.xcassets */; };
 		A50FF8AE1B70D5E7007834FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50FF8A91B70D5E7007834FE /* LaunchScreen.storyboard */; };
 		A532E479250BAD8C008E79C9 /* TimersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532E478250BAD8C008E79C9 /* TimersView.swift */; };
@@ -31,7 +30,6 @@
 /* Begin PBXFileReference section */
 		A50FF8811B70D4CE007834FE /* Countout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50FF8851B70D4CE007834FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A50FF8861B70D4CE007834FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A50FF88D1B70D4CE007834FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A50FF8A91B70D5E7007834FE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A532E478250BAD8C008E79C9 /* TimersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimersView.swift; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 		A5A3CF4A24BDDF3C008705AC /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				A50FF8861B70D4CE007834FE /* AppDelegate.swift */,
 				A5A3CF4824BDD937008705AC /* OutputDelegate.swift */,
 			);
 			path = Delegates;
@@ -119,10 +116,10 @@
 			children = (
 				A5D5252724B9FE7000207EE3 /* CountoutApp.swift */,
 				A594905C250F7F7A00913102 /* AdaptiveSplitView.swift */,
-				A54FDBF91B76903F008CECFA /* Extends.swift */,
 				A5A3CF4A24BDDF3C008705AC /* Delegates */,
 				A5D5251D24B9FE5700207EE3 /* Views */,
 				A5C1CBE71F83BEBB00B108F0 /* Models */,
+				A54FDBF91B76903F008CECFA /* Extends.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -225,7 +222,6 @@
 				A5D5252924B9FE7000207EE3 /* Counter.swift in Sources */,
 				A58FDAF624F8103C002608B4 /* EditView.swift in Sources */,
 				A5D5253124B9FE7000207EE3 /* CountoutApp.swift in Sources */,
-				A50FF8871B70D4CE007834FE /* AppDelegate.swift in Sources */,
 				A587DB7824FA68380066381A /* Countdown.swift in Sources */,
 				A5D5252B24B9FE7000207EE3 /* CountdownView.swift in Sources */,
 				A5D5252F24B9FE7000207EE3 /* AppearanceView.swift in Sources */,
