@@ -105,3 +105,24 @@ extension UserDefaults {
         }
     }
 }
+
+
+extension Array where Element == Countdown {
+    init?(rawValue: String) {
+        guard
+            let data = rawValue.data(using: .utf8),
+            let decoded = try? JSONDecoder().decode([Countdown].self, from: data)
+        else { return nil }
+        
+        self = decoded
+    }
+    
+    var rawValue: String {
+        guard
+            let data = try? JSONEncoder().encode(Counter.shared.queue),
+            let string = String(data: data, encoding: .utf8)
+        else { return "[]" }
+        
+        return string
+    }
+}

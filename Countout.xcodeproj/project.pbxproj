@@ -25,6 +25,7 @@
 		A5D5252F24B9FE7000207EE3 /* AppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252524B9FE7000207EE3 /* AppearanceView.swift */; };
 		A5D5253024B9FE7000207EE3 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252624B9FE7000207EE3 /* Appearance.swift */; };
 		A5D5253124B9FE7000207EE3 /* CountoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252724B9FE7000207EE3 /* CountoutApp.swift */; };
+		A5FD83AD2536E64E008D93A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD83AC2536E64E008D93A9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		A5D5252524B9FE7000207EE3 /* AppearanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceView.swift; sourceTree = "<group>"; };
 		A5D5252624B9FE7000207EE3 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		A5D5252724B9FE7000207EE3 /* CountoutApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountoutApp.swift; sourceTree = "<group>"; };
+		A5FD83AC2536E64E008D93A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		A5A3CF4A24BDDF3C008705AC /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				A5FD83AC2536E64E008D93A9 /* AppDelegate.swift */,
 				A5A3CF4824BDD937008705AC /* OutputDelegate.swift */,
 			);
 			path = Delegates;
@@ -221,6 +224,7 @@
 				A5C28C6424F92C03000B77EA /* Length.swift in Sources */,
 				A5D5252924B9FE7000207EE3 /* Counter.swift in Sources */,
 				A58FDAF624F8103C002608B4 /* EditView.swift in Sources */,
+				A5FD83AD2536E64E008D93A9 /* AppDelegate.swift in Sources */,
 				A5D5253124B9FE7000207EE3 /* CountoutApp.swift in Sources */,
 				A587DB7824FA68380066381A /* Countdown.swift in Sources */,
 				A5D5252B24B9FE7000207EE3 /* CountdownView.swift in Sources */,

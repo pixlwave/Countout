@@ -1,6 +1,6 @@
 import Foundation
 
-struct Length: Equatable {
+struct Length: Codable, Equatable {
     var minutes: Int
     var seconds: Int {
         didSet {
