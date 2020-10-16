@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "launch_logo.pdf",
+      "filename" : "Launch Title.pdf",
       "idiom" : "iphone"
     },
     {
-      "filename" : "launch_logo-iPad.pdf",
+      "filename" : "Launch Title-iPad.pdf",
       "idiom" : "ipad"
     }
   ],

@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "filename" : "Launch Logo.pdf",
+      "idiom" : "iphone"
+    },
+    {
+      "filename" : "Launch Logo-iPad.pdf",
+      "idiom" : "ipad"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
