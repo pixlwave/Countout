@@ -9,7 +9,7 @@ struct MainView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     var body: some View {
-        VStack(spacing: 15) {
+        VStack(spacing: 18) {
             CountdownView()
                 .aspectRatio(4 / 3, contentMode: .fit)
                 .cornerRadius(15)
@@ -69,7 +69,6 @@ struct MainView: View {
                 .disabled(counter.current.isScheduled)
                 .disabled(counter.remaining <= 60)
             }
-            .padding(.bottom, 4)
             
             if horizontalSizeClass == .compact {
                 TimersView()
