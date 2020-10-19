@@ -37,7 +37,7 @@ struct TimersView: View {
                     
                     Button {
                         withAnimation {
-                            counter.queue.append(Countdown(Date().addingTimeInterval(300)))
+                            counter.queue.append(Countdown(Date().droppingSeconds().addingTimeInterval(300)))
                         }
                     } label: {
                         Spacer()

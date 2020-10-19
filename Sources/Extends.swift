@@ -64,6 +64,11 @@ extension Date {
     var timeString: String {
         Date.formatter.string(from: self)
     }
+    
+    func droppingSeconds() -> Date {
+        let components = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: self)
+        return Calendar.current.date(from: components) ?? self
+    }
 }
 
 
