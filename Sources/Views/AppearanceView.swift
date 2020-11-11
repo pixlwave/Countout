@@ -2,10 +2,11 @@ import SwiftUI
 import VisualEffects
 
 struct AppearanceView: View {
-    @Binding var isPresented: Bool
     @ObservedObject var appearance = Appearance.shared
     @State private var isPresentingPhotoPicker = false
     @State private var isLoadingPhoto = false
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
@@ -63,7 +64,7 @@ struct AppearanceView: View {
                     Button("Reset") { appearance.reset() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { isPresented = false }
+                    Button("Done") { presentationMode.wrappedValue.dismiss() }
                 }
             }
             .sheet(isPresented: $isPresentingPhotoPicker) {
@@ -85,9 +86,7 @@ struct AppearanceView: View {
 }
 
 struct AppearanceView_Previews: PreviewProvider {
-    @State static var isPresented = true
-    
     static var previews: some View {
-        AppearanceView(isPresented: $isPresented)
+        AppearanceView()
     }
 }

@@ -18,7 +18,7 @@ struct AdaptiveSplitView: View {
                                         .clipShape(Circle()))
                 }.offset(x: -23, y: 13), alignment: .topTrailing)
                 .sheet(isPresented: $isPresentingAppearance) {
-                    AppearanceView(isPresented: $isPresentingAppearance)
+                    AppearanceView()
                 }
         } else {
             NavigationView {
@@ -35,7 +35,7 @@ struct AdaptiveSplitView: View {
                         }
                     }
                     .sheet(isPresented: $isPresentingAppearance) {
-                        AppearanceView(isPresented: $isPresentingAppearance)
+                        AppearanceView()
                     }
             }
         }
