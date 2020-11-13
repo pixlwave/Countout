@@ -3,6 +3,7 @@ import SwiftUI
 
 struct EditView: View {
     @ObservedObject var countdown: Countdown
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         Form {
@@ -43,6 +44,13 @@ struct EditView: View {
             }
         }
         .navigationBarTitle("Edit Timer", displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Done") {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            }
+        }
     }
 }
 
