@@ -9,7 +9,7 @@ struct EditView: View {
         Form {
             Section {
                 if countdown.isScheduled {
-                    DatePicker("", selection: $countdown.date)
+                    DatePicker("Time and Date", selection: $countdown.date)
                         .datePickerStyle(GraphicalDatePickerStyle())
                 } else {
                     LengthPicker(countdown: countdown)
