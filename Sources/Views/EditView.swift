@@ -10,7 +10,7 @@ struct EditView: View {
             Section {
                 if countdown.isScheduled {
                     DatePicker("Time and Date", selection: $countdown.date)
-                        .datePickerStyle(GraphicalDatePickerStyle())
+                        .datePickerStyle(.graphical)
                 } else {
                     LengthPicker(countdown: countdown)
                         .foregroundColor(.primary)
@@ -67,8 +67,9 @@ struct LengthPicker: View {
             Spacer()
             Text("Minutes:")
             TextField("", text: $minutesString)
+                .textFieldStyle(.roundedBorder)
                 .keyboardType(.numbersAndPunctuation)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .submitLabel(.done)
                 .frame(width: 50)
                 .onChange(of: minutesString) { value in
                     if let minutes = Int(value), minutes >= 0 {
@@ -80,8 +81,9 @@ struct LengthPicker: View {
             Text("Seconds:")
                 .padding(.leading)
             TextField("", text: $secondsString)
+                .textFieldStyle(.roundedBorder)
                 .keyboardType(.numbersAndPunctuation)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .submitLabel(.done)
                 .frame(width: 50)
                 .onChange(of: secondsString) { value in
                     if let seconds = Int(value), seconds >= 0 {
