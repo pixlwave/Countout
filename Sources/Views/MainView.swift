@@ -1,5 +1,4 @@
 import SwiftUI
-import VisualEffects
 
 struct MainView: View {
     @ObservedObject var counter = Counter.shared
@@ -8,18 +7,21 @@ struct MainView: View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
+    var missingDisplayNotice: some View {
+        Text("Display not connected")
+            .font(.caption)
+            .foregroundColor(.red)
+            .padding(.horizontal, 5)
+            .background(.thickMaterial)
+            .clipShape(Capsule())
+    }
+    
     var body: some View {
         VStack(spacing: 18) {
             CountdownView()
                 .aspectRatio(4 / 3, contentMode: .fit)
                 .cornerRadius(15)
-                .overlay(Text("Display not connected")
-                            .font(.caption)
-                            .foregroundColor(.red)
-                            .padding(.horizontal, 5)
-                            .background(VisualEffectBlur(blurStyle: .systemThickMaterial)
-                                            .padding(.horizontal, -5)
-                                            .clipShape(Capsule()))
+                .overlay(missingDisplayNotice
                             .offset(x: 0, y: -10)
                             .opacity(outputDisplay.isConnected ? 0 : 1),
                          alignment: .bottom)

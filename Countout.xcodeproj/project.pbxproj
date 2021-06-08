@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,6 @@
 		A58FDAF624F8103C002608B4 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FDAF524F8103C002608B4 /* EditView.swift */; };
 		A594905D250F7F7A00913102 /* AdaptiveSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A594905C250F7F7A00913102 /* AdaptiveSplitView.swift */; };
 		A5A3CF4924BDD937008705AC /* OutputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3CF4824BDD937008705AC /* OutputDelegate.swift */; };
-		A5C1A569252A3380005E8199 /* VisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = A5C1A568252A3380005E8199 /* VisualEffects */; };
 		A5C28C6424F92C03000B77EA /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C28C6324F92C03000B77EA /* Length.swift */; };
 		A5C28C6624F94A9B000B77EA /* CountdownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C28C6524F94A9B000B77EA /* CountdownCell.swift */; };
 		A5D5252824B9FE7000207EE3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251E24B9FE7000207EE3 /* MainView.swift */; };
@@ -56,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5C1A569252A3380005E8199 /* VisualEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +152,6 @@
 			);
 			name = Countout;
 			packageProductDependencies = (
-				A5C1A568252A3380005E8199 /* VisualEffects */,
 			);
 			productName = Countout;
 			productReference = A50FF8811B70D4CE007834FE /* Countout.app */;
@@ -188,7 +185,6 @@
 			);
 			mainGroup = A50FF8781B70D4CE007834FE;
 			packageReferences = (
-				A5C1A567252A3380005E8199 /* XCRemoteSwiftPackageReference "VisualEffects" */,
 			);
 			productRefGroup = A50FF8821B70D4CE007834FE /* Products */;
 			projectDirPath = "";
@@ -339,8 +335,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -354,11 +349,8 @@
 				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = NU8A5Y875P;
 				INFOPLIST_FILE = Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.pixlwave.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -374,11 +366,8 @@
 				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = NU8A5Y875P;
 				INFOPLIST_FILE = Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.pixlwave.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -408,25 +397,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A5C1A567252A3380005E8199 /* XCRemoteSwiftPackageReference "VisualEffects" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/twostraws/VisualEffects";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A5C1A568252A3380005E8199 /* VisualEffects */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A5C1A567252A3380005E8199 /* XCRemoteSwiftPackageReference "VisualEffects" */;
-			productName = VisualEffects;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A50FF8791B70D4CE007834FE /* Project object */;
 }

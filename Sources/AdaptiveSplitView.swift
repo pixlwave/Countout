@@ -1,5 +1,4 @@
 import SwiftUI
-import VisualEffects
 
 struct AdaptiveSplitView: View {
     @ObservedObject var appearance = Appearance.shared
@@ -7,16 +6,22 @@ struct AdaptiveSplitView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State private var isPresentingAppearance = false
     
+    var appearanceOverlayButton: some View {
+        Button { isPresentingAppearance = true } label: {
+            Image(systemName: "paintbrush")
+                .font(.body)
+                .padding(5)
+                .background(.thickMaterial)
+                .clipShape(Circle())
+        }
+    }
+    
     var body: some View {
         if horizontalSizeClass == .compact {
             MainView()
-                .overlay(Button { isPresentingAppearance = true } label: {
-                    Image(systemName: "paintbrush")
-                        .font(.body)
-                        .padding(5)
-                        .background(VisualEffectBlur(blurStyle: .systemThickMaterial)
-                                        .clipShape(Circle()))
-                }.offset(x: -23, y: 13), alignment: .topTrailing)
+                .overlay(appearanceOverlayButton
+                            .offset(x: -23, y: 13),
+                         alignment: .topTrailing)
                 .sheet(isPresented: $isPresentingAppearance) {
                     AppearanceView()
                 }
