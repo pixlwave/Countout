@@ -1,5 +1,4 @@
 import SwiftUI
-import VisualEffects
 
 struct AppearanceView: View {
     @ObservedObject var appearance = Appearance.shared
@@ -75,7 +74,7 @@ struct AppearanceView: View {
                                 .foregroundColor(Color.black.opacity(0.3))
                             ProgressView("Loading")
                                 .padding()
-                                .background(VisualEffectBlur(blurStyle: .systemMaterial))
+                                .background(.regularMaterial)
                                 .cornerRadius(15)
                         }
                         .opacity(isLoadingPhoto ? 1 : 0)
