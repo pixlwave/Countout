@@ -12,7 +12,7 @@ struct CountdownCell: View {
             Button { isPresentingEditSheet = true } label: {
                 Image(systemName: countdown.isScheduled ? "calendar" : "timer")
             }
-            .buttonStyle(BorderlessButtonStyle())
+            .buttonStyle(.borderless)
         }
         .sheet(isPresented: $isPresentingEditSheet) {
             NavigationView {

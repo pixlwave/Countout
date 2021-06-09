@@ -25,7 +25,7 @@ struct AppearanceView: View {
                             Text("Serif").tag(Appearance.FontStyle.serif)
                             Text("Rounded").tag(Appearance.FontStyle.rounded)
                         }
-                        .pickerStyle(SegmentedPickerStyle())
+                        .pickerStyle(.segmented)
                         Slider(value: $appearance.fontScale, in: 0.1...0.4) {
                             Text("Size")
                         }

@@ -31,7 +31,7 @@ struct AdaptiveSplitView: View {
                     .navigationTitle("Timers")
                 MainView()
                     .navigationBarTitleDisplayMode(.inline)
-                    .navigationViewStyle(DoubleColumnNavigationViewStyle())
+                    .navigationViewStyle(.columns)
                     .toolbar {
                         ToolbarItem {
                             Button { isPresentingAppearance = true } label: {

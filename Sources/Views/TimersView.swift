@@ -31,7 +31,7 @@ struct TimersView: View {
                         Spacer()
                         Text("Countdown")
                         Spacer()
-                    }.buttonStyle(BorderlessButtonStyle())
+                    }.buttonStyle(.borderless)
                     
                     Divider()
                     
@@ -43,7 +43,7 @@ struct TimersView: View {
                         Spacer()
                         Text("Scheduled")
                         Spacer()
-                    }.buttonStyle(BorderlessButtonStyle())
+                    }.buttonStyle(.borderless)
                 }
             }
         }
