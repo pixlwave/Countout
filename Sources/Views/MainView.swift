@@ -12,8 +12,7 @@ struct MainView: View {
             .font(.caption)
             .foregroundColor(.red)
             .padding(.horizontal, 5)
-            .background(.thickMaterial)
-            .clipShape(Capsule())
+            .background(.thickMaterial, in: Capsule())
     }
     
     var body: some View {

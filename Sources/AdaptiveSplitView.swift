@@ -11,8 +11,7 @@ struct AdaptiveSplitView: View {
             Image(systemName: "paintbrush")
                 .font(.body)
                 .padding(5)
-                .background(.thickMaterial)
-                .clipShape(Circle())
+                .background(.thickMaterial, in: Circle())
         }
     }
     
