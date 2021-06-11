@@ -5,7 +5,7 @@ struct AppearanceView: View {
     @State private var isPresentingPhotoPicker = false
     @State private var isLoadingPhoto = false
     
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationView {
@@ -63,7 +63,7 @@ struct AppearanceView: View {
                     Button("Reset") { appearance.reset() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { presentationMode.wrappedValue.dismiss() }
+                    Button("Done") { dismiss() }
                 }
             }
             .sheet(isPresented: $isPresentingPhotoPicker) {
