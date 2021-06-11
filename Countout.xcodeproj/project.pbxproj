@@ -25,6 +25,7 @@
 		A5D5253024B9FE7000207EE3 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252624B9FE7000207EE3 /* Appearance.swift */; };
 		A5D5253124B9FE7000207EE3 /* CountoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5252724B9FE7000207EE3 /* CountoutApp.swift */; };
 		A5FD83AD2536E64E008D93A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD83AC2536E64E008D93A9 /* AppDelegate.swift */; };
+		A5FF120726738E8F00C4F983 /* LengthPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF120626738E8F00C4F983 /* LengthPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		A5D5252624B9FE7000207EE3 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		A5D5252724B9FE7000207EE3 /* CountoutApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountoutApp.swift; sourceTree = "<group>"; };
 		A5FD83AC2536E64E008D93A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A5FF120626738E8F00C4F983 /* LengthPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				A532E478250BAD8C008E79C9 /* TimersView.swift */,
 				A5C28C6524F94A9B000B77EA /* CountdownCell.swift */,
 				A58FDAF524F8103C002608B4 /* EditView.swift */,
+				A5FF120626738E8F00C4F983 /* LengthPicker.swift */,
 				A5D5252124B9FE7000207EE3 /* CountdownView.swift */,
 				A5D5252524B9FE7000207EE3 /* AppearanceView.swift */,
 				A5D5252324B9FE7000207EE3 /* PhotoPicker.swift */,
@@ -219,6 +222,7 @@
 				A5D5253024B9FE7000207EE3 /* Appearance.swift in Sources */,
 				A5C28C6424F92C03000B77EA /* Length.swift in Sources */,
 				A5D5252924B9FE7000207EE3 /* Counter.swift in Sources */,
+				A5FF120726738E8F00C4F983 /* LengthPicker.swift in Sources */,
 				A58FDAF624F8103C002608B4 /* EditView.swift in Sources */,
 				A5FD83AD2536E64E008D93A9 /* AppDelegate.swift in Sources */,
 				A5D5253124B9FE7000207EE3 /* CountoutApp.swift in Sources */,

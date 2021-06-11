@@ -54,57 +54,6 @@ struct EditView: View {
     }
 }
 
-
-struct LengthPicker: View {
-    @ObservedObject var countdown: Countdown
-    
-    #warning("Using strings until number formatter updates without hitting return")
-    @State private var minutesString = "5"
-    @State private var secondsString = "0"
-    
-    var body: some View {
-        HStack {
-            Spacer()
-            Text("Minutes:")
-            TextField("", text: $minutesString)
-                .textFieldStyle(.roundedBorder)
-                .keyboardType(.numbersAndPunctuation)
-                .submitLabel(.done)
-                .frame(width: 50)
-                .onChange(of: minutesString) { value in
-                    if let minutes = Int(value), minutes >= 0 {
-                        countdown.length.minutes = minutes
-                    } else if value != "" {
-                        reloadStrings()
-                    }
-                }
-            Text("Seconds:")
-                .padding(.leading)
-            TextField("", text: $secondsString)
-                .textFieldStyle(.roundedBorder)
-                .keyboardType(.numbersAndPunctuation)
-                .submitLabel(.done)
-                .frame(width: 50)
-                .onChange(of: secondsString) { value in
-                    if let seconds = Int(value), seconds >= 0 {
-                        countdown.length.seconds = seconds
-                    } else if value != "" {
-                        reloadStrings()
-                    }
-                }
-        }
-        .onAppear {
-            reloadStrings()
-        }
-    }
-    
-    func reloadStrings() {
-        minutesString = "\(countdown.length.minutes)"
-        secondsString = "\(countdown.length.seconds)"
-    }
-}
-
-
 struct EditView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
