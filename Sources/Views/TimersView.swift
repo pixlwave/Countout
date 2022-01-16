@@ -5,12 +5,12 @@ struct TimersView: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Current")) {
+            Section("Current") {
                 CountdownCell(countdown: counter.current)
             }
             
             if !counter.queue.isEmpty {
-                Section(header: Text("Queue")) {
+                Section("Queue") {
                     ForEach(counter.queue, id: \.self) { countdown in
                         Button { withAnimation { self.counter.load(countdown) } } label: {
                             CountdownCell(countdown: countdown)

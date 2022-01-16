@@ -45,6 +45,7 @@ struct AppearanceView: View {
                             Button("Clear") {
                                 appearance.backgroundImageData = nil
                             }
+                            .disabled(appearance.backgroundImage == nil)
                         }
                     }
                     .padding(.horizontal)
