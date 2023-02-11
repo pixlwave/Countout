@@ -38,7 +38,7 @@ extension TimeInterval {
     }()
 
     var remainingString: String {
-        let seconds = Int(max(0.0, self.rounded(.up)))
+        let seconds = Int(max(0.0, rounded(.up)))
         
         var components = DateComponents()
         components.second = seconds
@@ -95,7 +95,7 @@ extension UserDefaults {
     }
     
     func set(_ value: Color?, forKey key: String) {
-        if let value = value, let data = try? NSKeyedArchiver.archivedData(withRootObject: UIColor(value), requiringSecureCoding: true) {
+        if let value, let data = try? NSKeyedArchiver.archivedData(withRootObject: UIColor(value), requiringSecureCoding: true) {
             setValue(data, forKey: key)
         } else {
             setValue(nil, forKey: key)
@@ -103,7 +103,7 @@ extension UserDefaults {
     }
     
     func set(_ value: UIImage?, forKey key: String) {
-        if let value = value {
+        if let value {
             setValue(value.pngData(), forKey: key)
         } else {
             setValue(nil, forKey: key)

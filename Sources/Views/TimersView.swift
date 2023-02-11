@@ -12,7 +12,7 @@ struct TimersView: View {
             if !counter.queue.isEmpty {
                 Section("Queue") {
                     ForEach(counter.queue, id: \.self) { countdown in
-                        Button { withAnimation { self.counter.load(countdown) } } label: {
+                        Button { withAnimation { counter.load(countdown) } } label: {
                             CountdownCell(countdown: countdown)
                         }
                     }

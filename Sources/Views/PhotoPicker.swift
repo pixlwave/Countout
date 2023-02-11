@@ -38,7 +38,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
             view.isLoadingPhoto = true
             
             provider.loadDataRepresentation(forTypeIdentifier: UTType.image.identifier) { data, error in
-                if let data = data {
+                if let data {
                     Appearance.shared.backgroundImageData = data
                 }
                 DispatchQueue.main.async {

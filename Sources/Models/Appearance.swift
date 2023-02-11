@@ -28,7 +28,7 @@ class Appearance: ObservableObject {
     
     init() {
         // load the backgroundImage from disk
-        if let data = backgroundImageData { backgroundImage = UIImage(data: data) }
+        if let backgroundImageData { backgroundImage = UIImage(data: backgroundImageData) }
     }
     
     func reset() {
@@ -46,29 +46,26 @@ class Appearance: ObservableObject {
         
         switch fontStyle {
         case .normal:
-            return Font.system(size: size, weight: .semibold, design: .default).monospacedDigit()
+            return .system(size: size, weight: .semibold, design: .default).monospacedDigit()
         case .light:
-            return Font.system(size: size, weight: .light, design: .default).monospacedDigit()
+            return .system(size: size, weight: .light, design: .default).monospacedDigit()
         case .serif:
-            return Font.system(size: size, weight: .medium, design: .serif).monospacedDigit()
+            return .system(size: size, weight: .medium, design: .serif).monospacedDigit()
         case .rounded:
-            return Font.system(size: size, weight: .medium, design: .rounded).monospacedDigit()
+            return .system(size: size, weight: .medium, design: .rounded).monospacedDigit()
         }
     }
     
     var backgroundImageData: Data? {
         get {
-            guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-            return try? Data(contentsOf: documentDirectory.appendingPathComponent("Background Image.dat"))
+            return try? Data(contentsOf: URL.documentsDirectory.appendingPathComponent("Background Image.dat"))
         }
         set {
-            guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-            
-            if let data = newValue, let image = UIImage(data: data) {
-                try? data.write(to: documentDirectory.appendingPathComponent("Background Image.dat"))
+            if let newValue, let image = UIImage(data: newValue) {
+                try? newValue.write(to: URL.documentsDirectory.appendingPathComponent("Background Image.dat"))
                 DispatchQueue.main.async { self.backgroundImage = image }
             } else {
-                try? FileManager.default.removeItem(at: documentDirectory.appendingPathComponent("Background Image.dat"))
+                try? FileManager.default.removeItem(at: URL.documentsDirectory.appendingPathComponent("Background Image.dat"))
                 DispatchQueue.main.async { self.backgroundImage = nil }
             }
         }
