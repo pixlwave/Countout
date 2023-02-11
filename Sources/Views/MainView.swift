@@ -20,10 +20,11 @@ struct MainView: View {
             CountdownView()
                 .aspectRatio(4 / 3, contentMode: .fit)
                 .cornerRadius(15)
-                .overlay(missingDisplayNotice
-                            .offset(x: 0, y: -10)
-                            .opacity(outputDisplay.isConnected ? 0 : 1),
-                         alignment: .bottom)
+                .overlay(alignment: .bottom) {
+                    missingDisplayNotice
+                        .offset(x: 0, y: -10)
+                        .opacity(outputDisplay.isConnected ? 0 : 1)
+                }
                 .padding(.horizontal)
                 .padding(.top, 8)
                 .layoutPriority(1)
@@ -73,7 +74,7 @@ struct MainView: View {
             
             if horizontalSizeClass == .compact {
                 TimersView()
-                    .overlay(Divider(), alignment: .top)
+                    .overlay(alignment: .top) { Divider() }
             } else {
                 Spacer()
             }

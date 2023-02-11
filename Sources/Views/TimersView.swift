@@ -28,10 +28,10 @@ struct TimersView: View {
                             counter.queue.append(Countdown(Length(timeInterval: 300)))
                         }
                     } label: {
-                        Spacer()
                         Text("Countdown")
-                        Spacer()
-                    }.buttonStyle(.borderless)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderless)
                     
                     Divider()
                     
@@ -40,10 +40,10 @@ struct TimersView: View {
                             counter.queue.append(Countdown(Date().droppingSeconds().addingTimeInterval(300)))
                         }
                     } label: {
-                        Spacer()
                         Text("Scheduled")
-                        Spacer()
-                    }.buttonStyle(.borderless)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderless)
                 }
             }
         }
@@ -55,5 +55,11 @@ struct TimersView: View {
     
     func move(source: IndexSet, destination: Int) {
         counter.queue.move(fromOffsets: source, toOffset: destination)
+    }
+}
+
+struct TimersView_Previews: PreviewProvider {
+    static var previews: some View {
+        TimersView()
     }
 }

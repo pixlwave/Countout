@@ -5,19 +5,14 @@ struct CountdownCell: View {
     @State var isPresentingEditSheet = false
     
     var body: some View {
-        HStack {
-            Text(countdown.description)
-                .foregroundColor(.primary)
-            Spacer()
+        LabeledContent(countdown.description) {
             Button { isPresentingEditSheet = true } label: {
                 Image(systemName: countdown.isScheduled ? "calendar" : "timer")
             }
             .buttonStyle(.borderless)
         }
         .sheet(isPresented: $isPresentingEditSheet) {
-            NavigationView {
-                EditView(countdown: countdown)
-            }
+            EditView(countdown: countdown)
         }
     }
 }

@@ -6,31 +6,23 @@ struct AdaptiveSplitView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State private var isPresentingAppearance = false
     
-    var appearanceOverlayButton: some View {
-        Button { isPresentingAppearance = true } label: {
-            Image(systemName: "paintbrush")
-                .font(.body)
-                .padding(5)
-                .background(.thickMaterial, in: Circle())
-        }
-    }
-    
     var body: some View {
         if horizontalSizeClass == .compact {
             MainView()
-                .overlay(appearanceOverlayButton
-                            .offset(x: -23, y: 13),
-                         alignment: .topTrailing)
+                .overlay(alignment: .topTrailing) {
+                    appearanceOverlayButton
+                        .offset(x: -23, y: 13)
+                }
                 .sheet(isPresented: $isPresentingAppearance) {
                     AppearanceView()
                 }
         } else {
-            NavigationView {
+            NavigationSplitView {
                 TimersView()
                     .navigationTitle("Timers")
+            } detail: {
                 MainView()
                     .navigationBarTitleDisplayMode(.inline)
-                    .navigationViewStyle(.columns)
                     .toolbar {
                         ToolbarItem {
                             Button { isPresentingAppearance = true } label: {
@@ -42,6 +34,15 @@ struct AdaptiveSplitView: View {
                         AppearanceView()
                     }
             }
+        }
+    }
+    
+    var appearanceOverlayButton: some View {
+        Button { isPresentingAppearance = true } label: {
+            Image(systemName: "paintbrush")
+                .font(.body)
+                .padding(5)
+                .background(.thickMaterial, in: Circle())
         }
     }
 }

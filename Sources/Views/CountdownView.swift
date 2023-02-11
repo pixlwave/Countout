@@ -9,19 +9,23 @@ struct CountdownView: View {
             ZStack {
                 Rectangle()
                     .foregroundColor(appearance.backgroundColor)
-                    .overlay(appearance.backgroundImage.map { image in  // maps a non-nil value into a view
-                        Image(uiImage: image)
-                            .resizable(resizingMode: .stretch)
-                            .aspectRatio(contentMode: .fill)
-                    })  // overlay fixes text alignment in the z-stack due to aspect ratio modifier
+                    .overlay { // overlay fixes text alignment in the z-stack due to aspect ratio modifier
+                        appearance.backgroundImage.map { image in
+                            Image(uiImage: image)
+                                .resizable(resizingMode: .stretch)
+                                .aspectRatio(contentMode: .fill)
+                        }
+                    }
+                
                 WarningView()
+                
                 Text(counter.remaining.remainingString)
-                    .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
                     .font(appearance.font(for: geometry.size.width))
                     .foregroundColor(appearance.textColor)
             }
         }
-        .ignoresSafeArea()  // doesn't work alongside .aspectRatio modifier
+        .ignoresSafeArea() // doesn't work alongside .aspectRatio modifier
     }
 }
 
@@ -34,7 +38,7 @@ struct WarningView: View {
     @State var warningIsHidden = false
     
     var body: some View {
-        if counter.current.showsFinalWarning && counter.remaining < counter.current.finalWarningTime {
+        if counter.current.showsFinalWarning, counter.remaining < counter.current.finalWarningTime {
             Rectangle()
                 .foregroundColor(appearance.finalWarningColor)
                 .opacity(counter.state == .finished && warningIsHidden ? 0 : 1)

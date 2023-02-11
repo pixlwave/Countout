@@ -10,6 +10,7 @@ struct LengthPicker: View {
     var body: some View {
         HStack {
             Spacer()
+            
             Text("Minutes:")
             TextField("", text: $minutesString)
                 .textFieldStyle(.roundedBorder)
@@ -38,13 +39,19 @@ struct LengthPicker: View {
                     }
                 }
         }
-        .onAppear {
-            reloadStrings()
-        }
+        .onAppear(perform: reloadStrings)
     }
     
     func reloadStrings() {
         minutesString = "\(countdown.length.minutes)"
         secondsString = "\(countdown.length.seconds)"
+    }
+}
+
+struct LengthPicker_Previews: PreviewProvider {
+    static var previews: some View {
+        Form {
+            LengthPicker(countdown: Countdown(Length(timeInterval: 3600)))
+        }
     }
 }
