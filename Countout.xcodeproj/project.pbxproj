@@ -15,6 +15,7 @@
 		A58FDAF624F8103C002608B4 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58FDAF524F8103C002608B4 /* EditView.swift */; };
 		A594905D250F7F7A00913102 /* AdaptiveSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A594905C250F7F7A00913102 /* AdaptiveSplitView.swift */; };
 		A5A3CF4924BDD937008705AC /* OutputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3CF4824BDD937008705AC /* OutputDelegate.swift */; };
+		A5B66761299829B300746002 /* FormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B66760299829B300746002 /* FormattingTests.swift */; };
 		A5C28C6424F92C03000B77EA /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C28C6324F92C03000B77EA /* Length.swift */; };
 		A5C28C6624F94A9B000B77EA /* CountdownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C28C6524F94A9B000B77EA /* CountdownCell.swift */; };
 		A5D5252824B9FE7000207EE3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D5251E24B9FE7000207EE3 /* MainView.swift */; };
@@ -28,6 +29,16 @@
 		A5FF120726738E8F00C4F983 /* LengthPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF120626738E8F00C4F983 /* LengthPicker.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A5B66762299829B300746002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A50FF8791B70D4CE007834FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A50FF8801B70D4CE007834FE;
+			remoteInfo = Countout;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		A50FF8811B70D4CE007834FE /* Countout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50FF8851B70D4CE007834FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +50,8 @@
 		A58FDAF524F8103C002608B4 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		A594905C250F7F7A00913102 /* AdaptiveSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveSplitView.swift; sourceTree = "<group>"; };
 		A5A3CF4824BDD937008705AC /* OutputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputDelegate.swift; sourceTree = "<group>"; };
+		A5B6675E299829B300746002 /* CountoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5B66760299829B300746002 /* FormattingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattingTests.swift; sourceTree = "<group>"; };
 		A5C28C6324F92C03000B77EA /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
 		A5C28C6524F94A9B000B77EA /* CountdownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownCell.swift; sourceTree = "<group>"; };
 		A5D5251E24B9FE7000207EE3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -60,6 +73,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5B6675B299829B300746002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -68,6 +88,7 @@
 			children = (
 				A5F38BDF242B6046006AFE0E /* Sources */,
 				A5F38BE0242B6079006AFE0E /* Resources */,
+				A5B6675F299829B300746002 /* CountoutTests */,
 				A50FF8821B70D4CE007834FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				A50FF8811B70D4CE007834FE /* Countout.app */,
+				A5B6675E299829B300746002 /* CountoutTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +109,14 @@
 				A5A3CF4824BDD937008705AC /* OutputDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		A5B6675F299829B300746002 /* CountoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				A5B66760299829B300746002 /* FormattingTests.swift */,
+			);
+			path = CountoutTests;
 			sourceTree = "<group>";
 		};
 		A5C1CBE71F83BEBB00B108F0 /* Models */ = {
@@ -160,6 +190,24 @@
 			productReference = A50FF8811B70D4CE007834FE /* Countout.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A5B6675D299829B300746002 /* CountoutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5B66766299829B300746002 /* Build configuration list for PBXNativeTarget "CountoutTests" */;
+			buildPhases = (
+				A5B6675A299829B300746002 /* Sources */,
+				A5B6675B299829B300746002 /* Frameworks */,
+				A5B6675C299829B300746002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5B66763299829B300746002 /* PBXTargetDependency */,
+			);
+			name = CountoutTests;
+			productName = CountoutTests;
+			productReference = A5B6675E299829B300746002 /* CountoutTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -167,14 +215,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 1210;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = pixlwave;
 				TargetAttributes = {
 					A50FF8801B70D4CE007834FE = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = NU8A5Y875P;
 						LastSwiftMigration = 1020;
+					};
+					A5B6675D299829B300746002 = {
+						CreatedOnToolsVersion = 14.2;
+						DevelopmentTeam = NU8A5Y875P;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A50FF8801B70D4CE007834FE;
 					};
 				};
 			};
@@ -194,6 +248,7 @@
 			projectRoot = "";
 			targets = (
 				A50FF8801B70D4CE007834FE /* Countout */,
+				A5B6675D299829B300746002 /* CountoutTests */,
 			);
 		};
 /* End PBXProject section */
@@ -205,6 +260,13 @@
 			files = (
 				A50FF88E1B70D4CE007834FE /* Assets.xcassets in Resources */,
 				A50FF8AE1B70D5E7007834FE /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5B6675C299829B300746002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +297,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5B6675A299829B300746002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5B66761299829B300746002 /* FormattingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A5B66763299829B300746002 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A50FF8801B70D4CE007834FE /* Countout */;
+			targetProxy = A5B66762299829B300746002 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A50FF89E1B70D4CE007834FE /* Debug */ = {
@@ -379,6 +457,71 @@
 			};
 			name = Release;
 		};
+		A5B66764299829B300746002 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = NU8A5Y875P;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.CountoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Countout.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Countout";
+			};
+			name = Debug;
+		};
+		A5B66765299829B300746002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = NU8A5Y875P;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.CountoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Countout.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Countout";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -396,6 +539,15 @@
 			buildConfigurations = (
 				A50FF8A11B70D4CE007834FE /* Debug */,
 				A50FF8A21B70D4CE007834FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5B66766299829B300746002 /* Build configuration list for PBXNativeTarget "CountoutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5B66764299829B300746002 /* Debug */,
+				A5B66765299829B300746002 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
