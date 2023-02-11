@@ -1,6 +1,8 @@
 import SwiftUI
 import PhotosUI
 
+/// A custom photo picker that, unlike the SwiftUI one, remains presented until
+/// the picked image has been loaded and the backgroun image is set.
 struct PhotoPicker: UIViewControllerRepresentable {
     @Binding var isLoadingPhoto: Bool
     

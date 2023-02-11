@@ -18,7 +18,7 @@ extension TimeInterval {
     }()
     
     var lengthString: String {
-        return TimeInterval.lengthFormatter.string(from: self) ?? ""
+        TimeInterval.lengthFormatter.string(from: self) ?? ""
     }
     
     static let remainingFormatter: DateComponentsFormatter = {
@@ -83,15 +83,7 @@ extension UserDefaults {
     }
     
     func image(forKey defaultName: String) -> UIImage? {
-        if let imageData = data(forKey: defaultName) {
-            return UIImage(data: imageData)
-        } else {
-            return nil
-        }
-    }
-    
-    func cgFloat(forKey defaultName: String) -> CGFloat? {
-        return object(forKey: defaultName) as? CGFloat
+        data(forKey: defaultName).flatMap(UIImage.init)
     }
     
     func set(_ value: Color?, forKey key: String) {

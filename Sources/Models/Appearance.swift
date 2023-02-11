@@ -10,7 +10,7 @@ class Appearance: ObservableObject {
         didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }
     }
     @Published private(set) var backgroundImage: UIImage?
-    @Published var fontScale = UserDefaults.standard.cgFloat(forKey: "Font Scale") ?? 0.25 {
+    @Published var fontScale = UserDefaults.standard.value(forKey: "Font Scale") as? Double ?? 0.25 {
         didSet { UserDefaults.standard.set(fontScale, forKey: "Font Scale") }
     }
     @Published var fontStyle = FontStyle(rawValue: UserDefaults.standard.integer(forKey: "Font Style")) ?? .normal {
@@ -41,7 +41,7 @@ class Appearance: ObservableObject {
         finalWarningColor = .finalWarning
     }
     
-    func font(for width: CGFloat) -> Font {
+    func font(for width: Double) -> Font {
         let size = fontScale * width
         
         switch fontStyle {
