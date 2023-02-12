@@ -26,7 +26,8 @@ final class FormattingTests: XCTestCase {
         XCTAssertEqual(TimeInterval(60).lengthString, "1 minute", "When seconds is 0, it should be hidden.")
         XCTAssertEqual(TimeInterval(59).lengthString, "59 seconds")
         XCTAssertEqual(TimeInterval(1).lengthString, "1 second")
-        XCTAssertEqual(TimeInterval(0.1).lengthString, "0 seconds", "Fractional settings should be rounded naturally.")
+        XCTAssertEqual(TimeInterval(0.9).lengthString, "0 seconds", "Fractional settings should be truncated.")
+        XCTAssertEqual(TimeInterval(0.1).lengthString, "0 seconds", "Fractional settings should be truncated.")
         XCTAssertEqual(TimeInterval(0).lengthString, "0 seconds")
     }
     
@@ -34,12 +35,28 @@ final class FormattingTests: XCTestCase {
         let now = Date.now
         let components = Calendar.current.dateComponents([.hour, .minute], from: now)
         let symbol = (components.hour! / 12) > 0 ? Calendar.current.pmSymbol : Calendar.current.amSymbol
-        XCTAssertEqual(now.timeString, "Today, \(components.hour! % 12):\(components.minute!) \(symbol)", "Hours should not be shown.")
+        XCTAssertEqual(now.timeString, "Today, \(components.hour! % 12):\(components.minute!) \(symbol)",
+                       "The day should be formatted as Today.")
         
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: now)!
-        XCTAssertEqual(tomorrow.timeString, "Tomorrow, \(components.hour! % 12):\(components.minute!) \(symbol)", "Hours should not be shown.")
+        XCTAssertEqual(tomorrow.timeString, "Tomorrow, \(components.hour! % 12):\(components.minute!) \(symbol)",
+                       "The day should be formatted as Tomorrow.")
         
         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: now)!
-        XCTAssertEqual(yesterday.timeString, "Yesterday, \(components.hour! % 12):\(components.minute!) \(symbol)", "Hours should not be shown.")
+        XCTAssertEqual(yesterday.timeString, "Yesterday, \(components.hour! % 12):\(components.minute!) \(symbol)",
+                       "The day should be formatted as Yesterday.")
+        
+        let newYearsMidday = Calendar.current.date(from: DateComponents(year: 2023, month: 1, day: 1, hour: 12, minute: 0))!
+        XCTAssertEqual(newYearsMidday.timeString, "1/1/23, 12:00 PM")
+    }
+    
+    func testDroppingSeconds() {
+        let date = Calendar.current.date(bySettingHour: 9, minute: 41, second: 20, of: .now)!
+        let droppedSeconds = date.droppingSeconds()
+        
+        let components = Calendar.current.dateComponents([.hour, .minute, .second], from: droppedSeconds)
+        XCTAssertEqual(components.hour, 9)
+        XCTAssertEqual(components.minute, 41)
+        XCTAssertEqual(components.second, 0)
     }
 }

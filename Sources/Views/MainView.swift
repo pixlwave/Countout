@@ -5,15 +5,7 @@ struct MainView: View {
     @ObservedObject var appearance = Appearance.shared
     @ObservedObject var outputDisplay = OutputDisplay.shared
     
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    
-    var missingDisplayNotice: some View {
-        Text("Display not connected")
-            .font(.caption)
-            .foregroundColor(.red)
-            .padding(.horizontal, 5)
-            .background(.thickMaterial, in: Capsule())
-    }
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     var body: some View {
         VStack(spacing: 18) {
@@ -79,6 +71,14 @@ struct MainView: View {
                 Spacer()
             }
         }
+    }
+    
+    var missingDisplayNotice: some View {
+        Text("Display not connected")
+            .font(.caption)
+            .foregroundColor(.red)
+            .padding(.horizontal, 5)
+            .background(.thickMaterial, in: Capsule())
     }
     
     func plusOne() {

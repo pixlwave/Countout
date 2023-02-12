@@ -10,43 +10,19 @@ extension Color {
 
 
 extension TimeInterval {
-    static let lengthFormatter: DateComponentsFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .full
-        formatter.allowedUnits = [.minute, .second]
-        return formatter
-    }()
-    
     var lengthString: String {
-        TimeInterval.lengthFormatter.string(from: self) ?? ""
+        let duration = Duration.seconds(Int64(self))
+        return duration.formatted(.units(allowed: [.minutes, .seconds], width: .wide))
     }
-    
-    static let remainingFormatter: DateComponentsFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .positional
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.zeroFormattingBehavior = .dropLeading
-        return formatter
-    }()
-    
-    static let remainingSecondsFormatter: DateComponentsFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .positional
-        formatter.allowedUnits = [.minute, .second]
-        formatter.zeroFormattingBehavior = .pad
-        return formatter
-    }()
 
     var remainingString: String {
-        let seconds = Int(max(0.0, rounded(.up)))
+        let seconds = Int64(max(0.0, rounded(.up)))
+        let duration = Duration.seconds(seconds)
         
-        var components = DateComponents()
-        components.second = seconds
-        
-        if seconds > 60 {
-            return TimeInterval.remainingFormatter.string(from: components) ?? ""
+        if seconds >= 3600 {
+            return duration.formatted(.time(pattern: .hourMinuteSecond))
         } else {
-            return String(TimeInterval.remainingSecondsFormatter.string(from: components)?.dropFirst() ?? Substring(""))
+            return duration.formatted(.time(pattern: .minuteSecond))
         }
     }
 }
