@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct AdaptiveSplitView: View {
-    @ObservedObject var appearance = Appearance.shared
-    
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State private var isPresentingAppearance = false
     

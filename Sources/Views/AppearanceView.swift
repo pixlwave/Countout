@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct AppearanceView: View {
-    @ObservedObject var appearance = Appearance.shared
+    @EnvironmentObject private var appearance: Appearance
     @State private var isPresentingPhotoPicker = false
     @State private var isLoadingPhoto = false
     

@@ -17,6 +17,7 @@ struct LengthPicker: View {
                 .keyboardType(.numbersAndPunctuation)
                 .submitLabel(.done)
                 .frame(width: 50)
+                .accessibilityIdentifier("Minutes Text Field")
                 .onChange(of: minutesString) { value in
                     if let minutes = Int(value), minutes >= 0 {
                         countdown.length.minutes = minutes
@@ -31,6 +32,7 @@ struct LengthPicker: View {
                 .keyboardType(.numbersAndPunctuation)
                 .submitLabel(.done)
                 .frame(width: 50)
+                .accessibilityIdentifier("Seconds Text Field")
                 .onChange(of: secondsString) { value in
                     if let seconds = Int(value), seconds >= 0 {
                         countdown.length.seconds = seconds

@@ -6,10 +6,11 @@ struct CountdownCell: View {
     
     var body: some View {
         LabeledContent {
-            Button { isPresentingEditSheet = true } label: {
+            Button(action: edit) {
                 Image(systemName: countdown.isScheduled ? "calendar" : "timer")
             }
             .buttonStyle(.borderless)
+            .accessibilityLabel("Button")
         } label: {
             Text(countdown.description)
                 .foregroundColor(.primary)
@@ -17,6 +18,12 @@ struct CountdownCell: View {
         .sheet(isPresented: $isPresentingEditSheet) {
             EditView(countdown: countdown)
         }
+        .accessibilityLabel("Content")
+        .accessibilityAction(named: "Edit", edit)
+    }
+    
+    func edit() {
+        isPresentingEditSheet = true
     }
 }
 

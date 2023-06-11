@@ -1,9 +1,8 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var counter = Counter.shared
-    @ObservedObject var appearance = Appearance.shared
-    @ObservedObject var outputDisplay = OutputDisplay.shared
+    @EnvironmentObject private var counter: Counter
+    @EnvironmentObject private var outputDisplay: OutputDisplay
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     

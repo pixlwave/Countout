@@ -45,6 +45,10 @@ extension Date {
         let components = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: self)
         return Calendar.current.date(from: components) ?? self
     }
+    
+    static func today(atHour hour: Int, minute: Int) -> Date {
+        Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: .now) ?? .now
+    }
 }
 
 

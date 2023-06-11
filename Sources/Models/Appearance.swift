@@ -71,3 +71,23 @@ class Appearance: ObservableObject {
         }
     }
 }
+
+// MARK: - Mock States
+
+extension Appearance {
+    func mockOutputState() {
+        reset()
+        fontStyle = .light
+        fontScale = 0.2575
+        textColor = Color(.displayP3, red: 0.279054, green: 0.621774, blue: 0.827254)
+        backgroundColor = Color(.displayP3, red: 0.954636, green: 0.926699, blue: 0.306105)
+    }
+    
+    func mockEditState() {
+        reset()
+        fontStyle = .serif
+        fontScale = 0.3125
+        textColor = Color(.displayP3, red: 0.987309, green: 0.928095, blue: 0.841883)
+        backgroundColor = Color(.displayP3, red: 0.470398, green: 0.117514, blue: 0.0537412)
+    }
+}

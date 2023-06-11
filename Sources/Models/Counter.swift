@@ -1,14 +1,14 @@
-import Foundation
+import SwiftUI
 import Combine
 
 class Counter: ObservableObject {
-    
     static let shared = Counter()
     
     enum State {
         case reset, active, paused, finished
     }
     
+    #warning("Remove public setter (used in state restoration).")
     @Published var current = Countdown(Length(timeInterval: 300)) {
         willSet {
             if state == .active { stop() }
@@ -21,17 +21,18 @@ class Counter: ObservableObject {
         }
     }
     
+#warning("Remove public setter (used in state restoration).")
     @Published var queue = [Countdown]()
     
-    @Published var endDate = Date().addingTimeInterval(300)
+    @Published private var endDate = Date().addingTimeInterval(300)
     
     @Published private(set) var remaining: TimeInterval = 300
     
-    var runTimer: Timer?
+    private var runTimer: Timer?
     
     @Published private(set) var state = State.reset
     
-    var currentSubscription: AnyCancellable?
+    private var currentSubscription: AnyCancellable?
     
     private init() {
         currentSubscription = current.didChangePublisher.sink { value in
@@ -112,5 +113,36 @@ class Counter: ObservableObject {
         queue.removeAll { $0 == countdown }
         current = countdown
     }
+}
+
+// MARK: - Mock States
+
+extension Counter {
+    func mockDefaultState() {
+        current = Countdown(Length(timeInterval: 300))
+        queue = []
+        remaining = 300
+    }
     
+    func mockQueueState() {
+        current = Countdown(.today(atHour: 9, minute: 45))
+        queue = [
+            Countdown(.today(atHour: 10, minute: 00)),
+            Countdown(.today(atHour: 10, minute: 45)),
+            Countdown(.today(atHour: 11, minute: 15))
+        ]
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            queue.append(contentsOf: [Countdown(.today(atHour: 11, minute: 35)),
+                                      Countdown(.today(atHour: 12, minute: 00))])
+        }
+        remaining = 269
+        state = .active
+    }
+    
+    func mockOutputState() {
+        current = Countdown(Length(timeInterval: 480))
+        queue = []
+        remaining = 455
+        state = .active
+    }
 }

@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct CountdownView: View {
-    @ObservedObject var counter = Counter.shared
-    @ObservedObject var appearance = Appearance.shared
+    @EnvironmentObject private var counter: Counter
+    @EnvironmentObject private var appearance: Appearance
     
     var body: some View {
         GeometryReader { geometry in
@@ -31,8 +31,8 @@ struct CountdownView: View {
 
 
 struct WarningView: View {
-    @ObservedObject var counter = Counter.shared
-    @ObservedObject var appearance = Appearance.shared
+    @EnvironmentObject private var counter: Counter
+    @EnvironmentObject private var appearance: Appearance
     
     let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
     @State var warningIsHidden = false

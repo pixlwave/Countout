@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TimersView: View {
-    @ObservedObject var counter = Counter.shared
+    @EnvironmentObject private var counter: Counter
     
     var body: some View {
         Form {
@@ -15,6 +15,7 @@ struct TimersView: View {
                         Button { withAnimation { counter.load(countdown) } } label: {
                             CountdownCell(countdown: countdown)
                         }
+                        .accessibilityElement(children: .contain)
                     }
                     .onDelete(perform: delete)
                     .onMove(perform: move)
