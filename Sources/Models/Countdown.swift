@@ -1,23 +1,25 @@
 import Foundation
+import Observation
 import Combine
 
-class Countdown: Codable, ObservableObject, RawRepresentable {
+@Observable class Countdown: Codable, RawRepresentable {
     
     let id = UUID()
     
-    @Published var length = Length(timeInterval: 0) {
-        didSet { didChangePublisher.send() }
+    #warning("Remove empty willSet implementations that workaround an error in Observable.")
+    var length = Length(timeInterval: 0) {
+        willSet { } didSet { didChangePublisher.send() }
     }
-    @Published var date = Date() {
-        didSet { didChangePublisher.send() }
+    var date = Date() {
+        willSet { } didSet { didChangePublisher.send() }
     }
     let isScheduled: Bool
     
-    @Published var showsEarlyWarning = false
-    @Published var earlyWarningTime: TimeInterval = 120
-    @Published var showsFinalWarning = false
-    @Published var finalWarningTime: TimeInterval = 60
-    @Published var finalWarningFlashes = false
+    var showsEarlyWarning = false
+    var earlyWarningTime: TimeInterval = 120
+    var showsFinalWarning = false
+    var finalWarningTime: TimeInterval = 60
+    var finalWarningFlashes = false
     
     var description: String {
         if isScheduled {
@@ -27,16 +29,17 @@ class Countdown: Codable, ObservableObject, RawRepresentable {
         }
     }
     
+    #warning("Replace with Observation.")
     let didChangePublisher = PassthroughSubject<Void, Never>()
     
     init(_ length: Length) {
-        self.length = length
         self.isScheduled = false
+        self.length = length
     }
     
     init(_ date: Date) {
-        self.date = date
         self.isScheduled = true
+        self.date = date
     }
     
     
@@ -54,14 +57,14 @@ class Countdown: Codable, ObservableObject, RawRepresentable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        length = try container.decode(Length.self, forKey: .length)
-        date = try container.decode(Date.self, forKey: .date)
         isScheduled = try container.decode(Bool.self, forKey: .isScheduled)
         showsEarlyWarning = try container.decode(Bool.self, forKey: .showsEarlyWarning)
         earlyWarningTime = try container.decode(TimeInterval.self, forKey: .earlyWarningTime)
         showsFinalWarning = try container.decode(Bool.self, forKey: .showsFinalWarning)
         finalWarningTime = try container.decode(TimeInterval.self, forKey: .finalWarningTime)
         finalWarningFlashes = try container.decode(Bool.self, forKey: .finalWarningFlashes)
+        length = try container.decode(Length.self, forKey: .length)
+        date = try container.decode(Date.self, forKey: .date)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -84,14 +87,14 @@ class Countdown: Codable, ObservableObject, RawRepresentable {
             let decoded = try? JSONDecoder().decode(Countdown.self, from: data)
         else { return nil }
         
-        self.length = decoded.length
-        self.date = decoded.date
         self.isScheduled = decoded.isScheduled
         self.showsEarlyWarning = decoded.showsEarlyWarning
         self.earlyWarningTime = decoded.earlyWarningTime
         self.showsFinalWarning = decoded.showsFinalWarning
         self.finalWarningTime = decoded.finalWarningTime
         self.finalWarningFlashes = decoded.finalWarningFlashes
+        self.length = decoded.length
+        self.date = decoded.date
     }
     
     var rawValue: String {

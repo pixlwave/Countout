@@ -2,7 +2,7 @@ import SwiftUI
 
 
 struct EditView: View {
-    @ObservedObject var countdown: Countdown
+    @Bindable var countdown: Countdown
     @Environment(\.dismiss) var dismiss
     
     var body: some View {

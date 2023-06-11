@@ -2,6 +2,8 @@ import SwiftUI
 
 struct AdaptiveSplitView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
+    @Environment(Appearance.self) private var appearance
     @State private var isPresentingAppearance = false
     
     var body: some View {
@@ -12,7 +14,7 @@ struct AdaptiveSplitView: View {
                         .offset(x: -23, y: 13)
                 }
                 .sheet(isPresented: $isPresentingAppearance) {
-                    AppearanceView()
+                    AppearanceView(appearance: appearance)
                 }
         } else {
             NavigationSplitView {
@@ -29,7 +31,7 @@ struct AdaptiveSplitView: View {
                         }
                     }
                     .sheet(isPresented: $isPresentingAppearance) {
-                        AppearanceView()
+                        AppearanceView(appearance: appearance)
                     }
             }
         }

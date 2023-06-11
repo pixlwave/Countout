@@ -1,29 +1,31 @@
 import SwiftUI
+import Observation
 
-class Appearance: ObservableObject {
+#warning("Remove empty willSet implementations that workaround an error in Observable.")
+@Observable class Appearance {
     static let shared = Appearance()
     
     enum FontStyle: Int { case normal, light, serif, rounded }
     
     // polluted keys: ["Background Image", "Font Family", "Font Weight"]
-    @Published var backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground {
-        didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }
+    var backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground {
+        willSet { } didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }
     }
-    @Published private(set) var backgroundImage: UIImage?
-    @Published var fontScale = UserDefaults.standard.value(forKey: "Font Scale") as? Double ?? 0.25 {
-        didSet { UserDefaults.standard.set(fontScale, forKey: "Font Scale") }
+    private(set) var backgroundImage: UIImage? = nil
+    var fontScale = UserDefaults.standard.value(forKey: "Font Scale") as? Double ?? 0.25 {
+        willSet { } didSet { UserDefaults.standard.set(fontScale, forKey: "Font Scale") }
     }
-    @Published var fontStyle = FontStyle(rawValue: UserDefaults.standard.integer(forKey: "Font Style")) ?? .normal {
-        didSet { UserDefaults.standard.set(fontStyle.rawValue, forKey: "Font Style") }
+    var fontStyle = FontStyle(rawValue: UserDefaults.standard.integer(forKey: "Font Style")) ?? .normal {
+        willSet { } didSet { UserDefaults.standard.set(fontStyle.rawValue, forKey: "Font Style") }
     }
-    @Published var textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .countdownText {
-        didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") }
+    var textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .countdownText {
+        willSet { } didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") }
     }
-    @Published var earlyWarningColor = UserDefaults.standard.color(forKey: "Early Warning Color") ?? .earlyWarning {
-        didSet { UserDefaults.standard.set(earlyWarningColor, forKey: "Early Warning Color") }
+    var earlyWarningColor = UserDefaults.standard.color(forKey: "Early Warning Color") ?? .earlyWarning {
+        willSet { } didSet { UserDefaults.standard.set(earlyWarningColor, forKey: "Early Warning Color") }
     }
-    @Published var finalWarningColor = UserDefaults.standard.color(forKey: "Final Warning Color") ?? .finalWarning {
-        didSet { UserDefaults.standard.set(finalWarningColor, forKey: "Second Warning Color") }
+    var finalWarningColor = UserDefaults.standard.color(forKey: "Final Warning Color") ?? .finalWarning {
+        willSet { } didSet { UserDefaults.standard.set(finalWarningColor, forKey: "Second Warning Color") }
     }
     
     init() {

@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct AppearanceView: View {
-    @EnvironmentObject private var appearance: Appearance
+    @Bindable var appearance: Appearance
     @State private var isPresentingPhotoPicker = false
     @State private var isLoadingPhoto = false
     
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationStack {
@@ -102,6 +102,6 @@ struct AppearanceView: View {
 
 struct AppearanceView_Previews: PreviewProvider {
     static var previews: some View {
-        AppearanceView()
+        AppearanceView(appearance: .shared)
     }
 }

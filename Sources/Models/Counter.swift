@@ -1,7 +1,8 @@
 import SwiftUI
+import Observation
 import Combine
 
-class Counter: ObservableObject {
+@Observable class Counter {
     static let shared = Counter()
     
     enum State {
@@ -9,7 +10,7 @@ class Counter: ObservableObject {
     }
     
     #warning("Remove public setter (used in state restoration).")
-    @Published var current = Countdown(Length(timeInterval: 300)) {
+    var current = Countdown(Length(timeInterval: 300)) {
         willSet {
             if state == .active { stop() }
         }
@@ -22,17 +23,17 @@ class Counter: ObservableObject {
     }
     
 #warning("Remove public setter (used in state restoration).")
-    @Published var queue = [Countdown]()
+    var queue = [Countdown]()
     
-    @Published private var endDate = Date().addingTimeInterval(300)
+    private var endDate = Date().addingTimeInterval(300)
     
-    @Published private(set) var remaining: TimeInterval = 300
+    private(set) var remaining: TimeInterval = 300
     
-    private var runTimer: Timer?
+    private var runTimer: Timer? = nil
     
-    @Published private(set) var state = State.reset
+    private(set) var state = State.reset
     
-    private var currentSubscription: AnyCancellable?
+    private var currentSubscription: AnyCancellable? = nil
     
     private init() {
         currentSubscription = current.didChangePublisher.sink { value in

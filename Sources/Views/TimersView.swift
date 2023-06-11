@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TimersView: View {
-    @EnvironmentObject private var counter: Counter
+    @Environment(Counter.self) private var counter
     
     var body: some View {
         Form {

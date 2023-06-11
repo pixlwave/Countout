@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CountdownCell: View {
-    @ObservedObject var countdown: Countdown
+    let countdown: Countdown
     @State var isPresentingEditSheet = false
     
     var body: some View {

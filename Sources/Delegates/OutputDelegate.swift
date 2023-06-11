@@ -1,5 +1,5 @@
-import UIKit
 import SwiftUI
+import Observation
 
 class OutputDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -9,8 +9,8 @@ class OutputDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene, session.role == .windowExternalDisplayNonInteractive else { return }
         
         let rootView = CountdownView()
-            .environmentObject(Counter.shared)
-            .environmentObject(Appearance.shared)
+            .environment(Counter.shared)
+            .environment(Appearance.shared)
         
         let hostingController = UIHostingController(rootView: rootView)
         hostingController.view.backgroundColor = .black
@@ -31,7 +31,7 @@ class OutputDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
-class OutputDisplay: ObservableObject {
+@Observable class OutputDisplay {
     static let shared = OutputDisplay()
-    @Published var isConnected = false
+    var isConnected = false
 }

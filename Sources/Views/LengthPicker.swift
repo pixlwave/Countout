@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct LengthPicker: View {
-    @ObservedObject var countdown: Countdown
+    let countdown: Countdown
     
     #warning("Using strings until number formatter updates without hitting return")
     @State private var minutesString = "5"
@@ -18,10 +18,10 @@ struct LengthPicker: View {
                 .submitLabel(.done)
                 .frame(width: 50)
                 .accessibilityIdentifier("Minutes Text Field")
-                .onChange(of: minutesString) { value in
-                    if let minutes = Int(value), minutes >= 0 {
+                .onChange(of: minutesString) { _, newValue in
+                    if let minutes = Int(newValue), minutes >= 0 {
                         countdown.length.minutes = minutes
-                    } else if value != "" {
+                    } else if newValue != "" {
                         reloadStrings()
                     }
                 }
@@ -33,10 +33,10 @@ struct LengthPicker: View {
                 .submitLabel(.done)
                 .frame(width: 50)
                 .accessibilityIdentifier("Seconds Text Field")
-                .onChange(of: secondsString) { value in
-                    if let seconds = Int(value), seconds >= 0 {
+                .onChange(of: secondsString) { _, newValue in
+                    if let seconds = Int(newValue), seconds >= 0 {
                         countdown.length.seconds = seconds
-                    } else if value != "" {
+                    } else if newValue != "" {
                         reloadStrings()
                     }
                 }

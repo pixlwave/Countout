@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject private var counter: Counter
-    @EnvironmentObject private var outputDisplay: OutputDisplay
+    @Environment(Counter.self) private var counter
+    @Environment(OutputDisplay.self) private var outputDisplay
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
