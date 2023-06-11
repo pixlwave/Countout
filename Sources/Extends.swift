@@ -1,14 +1,5 @@
 import SwiftUI
 
-extension Color {
-    static let background = Color("Background Color")
-    static let countdownBackground = Color("Countdown Background Color")
-    static let countdownText = Color("Countdown Text Color")
-    static let earlyWarning = Color("Early Warning Color")
-    static let finalWarning = Color("Final Warning Color")
-}
-
-
 extension TimeInterval {
     var lengthString: String {
         let duration = Duration.seconds(Int64(self))
