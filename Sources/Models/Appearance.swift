@@ -1,7 +1,6 @@
 import SwiftUI
 import Observation
 
-#warning("Remove empty willSet implementations that workaround an error in Observable.")
 @Observable class Appearance {
     static let shared = Appearance()
     
@@ -9,23 +8,23 @@ import Observation
     
     // polluted keys: ["Background Image", "Font Family", "Font Weight"]
     var backgroundColor = UserDefaults.standard.color(forKey: "Background Color") ?? .countdownBackground {
-        willSet { } didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }
+        didSet { UserDefaults.standard.set(backgroundColor, forKey: "Background Color") }
     }
-    private(set) var backgroundImage: UIImage? = nil
+    private(set) var backgroundImage: UIImage?
     var fontScale = UserDefaults.standard.value(forKey: "Font Scale") as? Double ?? 0.25 {
-        willSet { } didSet { UserDefaults.standard.set(fontScale, forKey: "Font Scale") }
+        didSet { UserDefaults.standard.set(fontScale, forKey: "Font Scale") }
     }
     var fontStyle = FontStyle(rawValue: UserDefaults.standard.integer(forKey: "Font Style")) ?? .normal {
-        willSet { } didSet { UserDefaults.standard.set(fontStyle.rawValue, forKey: "Font Style") }
+        didSet { UserDefaults.standard.set(fontStyle.rawValue, forKey: "Font Style") }
     }
     var textColor = UserDefaults.standard.color(forKey: "Text Color") ?? .countdownText {
-        willSet { } didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") }
+        didSet { UserDefaults.standard.set(textColor, forKey: "Text Color") }
     }
     var earlyWarningColor = UserDefaults.standard.color(forKey: "Early Warning Color") ?? .earlyWarning {
-        willSet { } didSet { UserDefaults.standard.set(earlyWarningColor, forKey: "Early Warning Color") }
+        didSet { UserDefaults.standard.set(earlyWarningColor, forKey: "Early Warning Color") }
     }
     var finalWarningColor = UserDefaults.standard.color(forKey: "Final Warning Color") ?? .finalWarning {
-        willSet { } didSet { UserDefaults.standard.set(finalWarningColor, forKey: "Second Warning Color") }
+        didSet { UserDefaults.standard.set(finalWarningColor, forKey: "Second Warning Color") }
     }
     
     init() {

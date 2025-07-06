@@ -1,7 +1,6 @@
 import UIKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     func application(_ application: UIApplication, shouldSaveSecureApplicationState coder: NSCoder) -> Bool {
         coder.encode(Counter.shared.current.rawValue, forKey: "currentCountdown")
         coder.encode(Counter.shared.queue.rawValue, forKey: "countdownQueue")
@@ -22,5 +21,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
 }

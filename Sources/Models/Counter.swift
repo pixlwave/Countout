@@ -29,11 +29,11 @@ import Combine
     
     private(set) var remaining: TimeInterval = 300
     
-    private var runTimer: Timer? = nil
+    private var runTimer: Timer?
     
     private(set) var state = State.reset
     
-    private var currentSubscription: AnyCancellable? = nil
+    private var currentSubscription: AnyCancellable?
     
     private init() {
         currentSubscription = current.didChangePublisher.sink { value in

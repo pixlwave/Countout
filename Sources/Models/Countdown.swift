@@ -3,15 +3,13 @@ import Observation
 import Combine
 
 @Observable class Countdown: Codable, RawRepresentable {
-    
     let id = UUID()
     
-    #warning("Remove empty willSet implementations that workaround an error in Observable.")
     var length = Length(timeInterval: 0) {
-        willSet { } didSet { didChangePublisher.send() }
+        didSet { didChangePublisher.send() }
     }
     var date = Date() {
-        willSet { } didSet { didChangePublisher.send() }
+        didSet { didChangePublisher.send() }
     }
     let isScheduled: Bool
     
@@ -105,7 +103,6 @@ import Combine
         
         return string
     }
-    
 }
 
 
