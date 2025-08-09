@@ -19,7 +19,8 @@ struct AppearanceView: View {
                 
                 appearanceForm
             }
-            .navigationBarTitle("Appearance", displayMode: .inline)
+            .navigationTitle("Appearance")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Reset", action: appearance.reset)
@@ -34,7 +35,7 @@ struct AppearanceView: View {
                         ZStack {
                             Rectangle()
                                 .ignoresSafeArea()
-                                .foregroundColor(Color.black.opacity(0.3))
+                                .foregroundStyle(.black.opacity(0.3))
                             ProgressView("Loading")
                                 .padding()
                                 .background(.regularMaterial)

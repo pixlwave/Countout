@@ -17,7 +17,7 @@ struct CountdownCell: View {
             .matchedTransitionSource(id: editSheetID, in: namespace)
         } label: {
             Text(countdown.description)
-                .foregroundColor(.primary)
+                .tint(.primary)
         }
         .sheet(isPresented: $isPresentingEditSheet) {
             EditView(countdown: countdown)

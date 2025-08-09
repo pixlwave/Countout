@@ -75,7 +75,7 @@ struct MainView: View {
     var missingDisplayNotice: some View {
         Text("Display not connected")
             .font(.caption)
-            .foregroundColor(.red)
+            .foregroundStyle(.red)
             .padding(.horizontal, 5)
             .background(.thickMaterial, in: Capsule())
     }
