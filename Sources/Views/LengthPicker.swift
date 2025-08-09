@@ -16,6 +16,7 @@ struct LengthPicker: View {
                 .textFieldStyle(.roundedBorder)
                 .keyboardType(.numbersAndPunctuation)
                 .submitLabel(.done)
+                .padding(.vertical, -7) // Match the label height.
                 .frame(width: 50)
                 .accessibilityIdentifier("Minutes Text Field")
                 .onChange(of: minutesString) { _, newValue in
@@ -25,12 +26,14 @@ struct LengthPicker: View {
                         reloadStrings()
                     }
                 }
+            
             Text("Seconds:")
                 .padding(.leading)
             TextField("", text: $secondsString)
                 .textFieldStyle(.roundedBorder)
                 .keyboardType(.numbersAndPunctuation)
                 .submitLabel(.done)
+                .padding(.vertical, -7) // Match the label height.
                 .frame(width: 50)
                 .accessibilityIdentifier("Seconds Text Field")
                 .onChange(of: secondsString) { _, newValue in
