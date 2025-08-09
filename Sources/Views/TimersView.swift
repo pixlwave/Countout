@@ -51,7 +51,9 @@ struct TimersView: View {
     }
     
     func delete(at offsets: IndexSet) {
-        counter.queue.remove(atOffsets: offsets)
+        withAnimation {
+            counter.queue.remove(atOffsets: offsets)
+        }
     }
     
     func move(source: IndexSet, destination: Int) {
