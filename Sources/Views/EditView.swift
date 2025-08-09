@@ -47,7 +47,7 @@ struct EditView: View {
             .navigationBarTitle("Edit Timer", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
+                    Button(role: .confirm, action: dismiss.callAsFunction)
                 }
         }
         }

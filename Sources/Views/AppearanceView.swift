@@ -25,7 +25,7 @@ struct AppearanceView: View {
                     Button("Reset", action: appearance.reset)
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done", action: dismiss.callAsFunction)
+                    Button(role: .confirm, action: dismiss.callAsFunction)
                 }
             }
             .sheet(isPresented: $isPresentingPhotoPicker) {

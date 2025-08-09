@@ -22,7 +22,7 @@ import Combine
         }
     }
     
-#warning("Remove public setter (used in state restoration).")
+    #warning("Remove public setter (used in state restoration).")
     var queue = [Countdown]()
     
     private var endDate = Date().addingTimeInterval(300)
