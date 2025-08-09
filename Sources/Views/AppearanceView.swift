@@ -2,8 +2,11 @@ import SwiftUI
 
 struct AppearanceView: View {
     @Bindable var appearance: Appearance
+    
+    @Namespace private var namespace
     @State private var isPresentingPhotoPicker = false
     @State private var isLoadingPhoto = false
+    private let photoPickerID = "PhotoPicker"
     
     @Environment(\.dismiss) private var dismiss
     
@@ -39,6 +42,7 @@ struct AppearanceView: View {
                         }
                         .opacity(isLoadingPhoto ? 1 : 0)
                     }
+                    .navigationTransition(.zoom(sourceID: photoPickerID, in: namespace))
             }
         }
     }
@@ -77,17 +81,20 @@ struct AppearanceView: View {
                 ColorPicker("Colour", selection: $appearance.backgroundColor)
                 
                 LabeledContent("Image") {
-                    Button("Load") {
-                        isPresentingPhotoPicker = true
+                    HStack {
+                        Button("Load") {
+                            isPresentingPhotoPicker = true
+                        }
+                        .buttonStyle(.borderless)
+                        .padding(.horizontal)
+                        .matchedTransitionSource(id: photoPickerID, in: namespace)
+                        
+                        Button("Clear") {
+                            appearance.backgroundImageData = nil
+                        }
+                        .buttonStyle(.borderless)
+                        .disabled(appearance.backgroundImage == nil)
                     }
-                    .buttonStyle(.borderless)
-                    .padding(.horizontal)
-                    
-                    Button("Clear") {
-                        appearance.backgroundImageData = nil
-                    }
-                    .buttonStyle(.borderless)
-                    .disabled(appearance.backgroundImage == nil)
                 }
             }
             
@@ -103,5 +110,7 @@ struct AppearanceView: View {
 struct AppearanceView_Previews: PreviewProvider {
     static var previews: some View {
         AppearanceView(appearance: .shared)
+            .environment(Counter.shared)
+            .environment(Appearance.shared)
     }
 }

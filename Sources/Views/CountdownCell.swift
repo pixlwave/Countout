@@ -2,7 +2,10 @@ import SwiftUI
 
 struct CountdownCell: View {
     let countdown: Countdown
-    @State var isPresentingEditSheet = false
+    
+    @Namespace private var namespace
+    @State private var isPresentingEditSheet = false
+    private let editSheetID = "EditSheet"
     
     var body: some View {
         LabeledContent {
@@ -11,12 +14,14 @@ struct CountdownCell: View {
             }
             .buttonStyle(.borderless)
             .accessibilityLabel("Button")
+            .matchedTransitionSource(id: editSheetID, in: namespace)
         } label: {
             Text(countdown.description)
                 .foregroundColor(.primary)
         }
         .sheet(isPresented: $isPresentingEditSheet) {
             EditView(countdown: countdown)
+                .navigationTransition(.zoom(sourceID: editSheetID, in: namespace))
         }
         .accessibilityLabel("Content")
         .accessibilityAction(named: "Edit", edit)

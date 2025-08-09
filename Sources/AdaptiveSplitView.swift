@@ -3,8 +3,10 @@ import SwiftUI
 struct AdaptiveSplitView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
+    @Namespace private var namespace
     @Environment(Appearance.self) private var appearance
     @State private var isPresentingAppearance = false
+    private let appearanceSheetID = "AppearanceSheet"
     
     var body: some View {
         if horizontalSizeClass == .compact {
@@ -15,6 +17,7 @@ struct AdaptiveSplitView: View {
                 }
                 .sheet(isPresented: $isPresentingAppearance) {
                     AppearanceView(appearance: appearance)
+                        .navigationTransition(.zoom(sourceID: appearanceSheetID, in: namespace))
                 }
         } else {
             NavigationSplitView {
@@ -28,10 +31,12 @@ struct AdaptiveSplitView: View {
                             Button { isPresentingAppearance = true } label: {
                                 Image(systemName: "paintbrush")
                             }
+                            .matchedTransitionSource(id: appearanceSheetID, in: namespace)
                         }
                     }
                     .sheet(isPresented: $isPresentingAppearance) {
                         AppearanceView(appearance: appearance)
+                            .navigationTransition(.zoom(sourceID: appearanceSheetID, in: namespace))
                     }
             }
         }
@@ -44,5 +49,6 @@ struct AdaptiveSplitView: View {
                 .padding(5)
                 .background(.thickMaterial, in: Circle())
         }
+        .matchedTransitionSource(id: appearanceSheetID, in: namespace)
     }
 }
