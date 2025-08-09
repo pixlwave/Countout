@@ -59,8 +59,9 @@ struct TimersView: View {
     }
 }
 
-struct TimersView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimersView()
-    }
+// MARK: - Previews
+
+#Preview {
+    TimersView()
+        .environment(Counter.shared)
 }

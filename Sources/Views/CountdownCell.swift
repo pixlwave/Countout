@@ -32,22 +32,21 @@ struct CountdownCell: View {
     }
 }
 
-struct CountdownCell_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        Form {
-            Section {
-                CountdownCell(countdown: Countdown(Length(timeInterval: 300)))
+// MARK: - Previews
+
+#Preview {
+    Form {
+        Section {
+            CountdownCell(countdown: Countdown(Length(timeInterval: 300)))
+        }
+        
+        Section {
+            Button { } label: {
+                CountdownCell(countdown: Countdown(Date()))
             }
             
-            Section {
-                Button { } label: {
-                    CountdownCell(countdown: Countdown(Date()))
-                }
-                
-                Button { } label: {
-                    CountdownCell(countdown: Countdown(Length(timeInterval: 1200)))
-                }
+            Button { } label: {
+                CountdownCell(countdown: Countdown(Length(timeInterval: 1200)))
             }
         }
     }

@@ -54,8 +54,12 @@ struct EditView: View {
     }
 }
 
-struct EditView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditView(countdown: Countdown(Length(timeInterval: 300)))
-    }
+// MARK: - Previews
+
+#Preview("Countdown") {
+    EditView(countdown: Countdown(Length(timeInterval: 300)))
+}
+
+#Preview("Scheduled") {
+    EditView(countdown: Countdown(Date()))
 }

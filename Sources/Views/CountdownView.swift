@@ -56,10 +56,10 @@ struct WarningView: View {
     }
 }
 
+// MARK: - Previews
 
-struct CountdownView_Previews: PreviewProvider {
-    static var previews: some View {
-        CountdownView()
-            .previewLayout(.sizeThatFits)
-    }
+#Preview(traits: .sizeThatFitsLayout) {
+    CountdownView()
+        .environment(Counter.shared)
+        .environment(Appearance.shared)
 }

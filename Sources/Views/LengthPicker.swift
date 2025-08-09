@@ -50,10 +50,10 @@ struct LengthPicker: View {
     }
 }
 
-struct LengthPicker_Previews: PreviewProvider {
-    static var previews: some View {
-        Form {
-            LengthPicker(countdown: Countdown(Length(timeInterval: 3600)))
-        }
+// MARK: - Previews
+
+#Preview {
+    Form {
+        LengthPicker(countdown: Countdown(Length(timeInterval: 3600)))
     }
 }

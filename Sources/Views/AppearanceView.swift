@@ -107,10 +107,10 @@ struct AppearanceView: View {
     }
 }
 
-struct AppearanceView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppearanceView(appearance: .shared)
-            .environment(Counter.shared)
-            .environment(Appearance.shared)
-    }
+// MARK: - Previews
+
+#Preview {
+    AppearanceView(appearance: .shared)
+        .environment(Counter.shared)
+        .environment(Appearance.shared)
 }

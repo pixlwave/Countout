@@ -89,11 +89,11 @@ struct MainView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-            .environment(Counter.shared)
-            .environment(Appearance.shared)
-            .environment(OutputDisplay.shared)
-    }
+// MARK: - Previews
+
+#Preview {
+    MainView()
+        .environment(Counter.shared)
+        .environment(Appearance.shared)
+        .environment(OutputDisplay.shared)
 }
