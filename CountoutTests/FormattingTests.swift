@@ -35,19 +35,19 @@ final class FormattingTests: XCTestCase {
         let now = Date.now
         let components = Calendar.current.dateComponents([.hour, .minute], from: now)
         let symbol = (components.hour! / 12) > 0 ? Calendar.current.pmSymbol : Calendar.current.amSymbol
-        XCTAssertEqual(now.timeString, "Today, \(components.hour! % 12):\(components.minute!) \(symbol)",
+        XCTAssertEqual(now.timeString, "Today, \(components.hour! % 12):\(components.minute!)\u{202F}\(symbol)",
                        "The day should be formatted as Today.")
         
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: now)!
-        XCTAssertEqual(tomorrow.timeString, "Tomorrow, \(components.hour! % 12):\(components.minute!) \(symbol)",
+        XCTAssertEqual(tomorrow.timeString, "Tomorrow, \(components.hour! % 12):\(components.minute!)\u{202F}\(symbol)",
                        "The day should be formatted as Tomorrow.")
         
         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: now)!
-        XCTAssertEqual(yesterday.timeString, "Yesterday, \(components.hour! % 12):\(components.minute!) \(symbol)",
+        XCTAssertEqual(yesterday.timeString, "Yesterday, \(components.hour! % 12):\(components.minute!)\u{202F}\(symbol)",
                        "The day should be formatted as Yesterday.")
         
         let newYearsMidday = Calendar.current.date(from: DateComponents(year: 2023, month: 1, day: 1, hour: 12, minute: 0))!
-        XCTAssertEqual(newYearsMidday.timeString, "1/1/23, 12:00 PM")
+        XCTAssertEqual(newYearsMidday.timeString, "01/01/2023, 12:00\u{202F}pm")
     }
     
     func testDroppingSeconds() {
