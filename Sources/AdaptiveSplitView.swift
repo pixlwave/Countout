@@ -48,7 +48,22 @@ struct AdaptiveSplitView: View {
                 .font(.body)
                 .padding(5)
                 .background(.thickMaterial, in: Circle())
+                // Glass isn't working properly in combination with the matchedTransitionSource (beta 5).
+                // At this position it result in a crapped touch down animation and a rect background
+                // .background(Color(uiColor: .systemBackground).secondary, in: Circle())
+                // .glassEffect(.regular.interactive(), in: Circle())
         }
         .matchedTransitionSource(id: appearanceSheetID, in: namespace)
+        // And at this position the match animation looks a bit janky. Using a .glass button
+        // style with the transitionSource inside the label also has the same janky animation.
     }
+}
+
+// MARK: - Previews
+
+#Preview {
+    AdaptiveSplitView()
+        .environment(Counter.shared)
+        .environment(Appearance.shared)
+        .environment(OutputDisplay.shared)
 }
