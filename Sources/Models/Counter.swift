@@ -127,14 +127,15 @@ extension Counter {
     
     func mockQueueState() {
         current = Countdown(.today(atHour: 9, minute: 45))
-        queue = [
-            Countdown(.today(atHour: 10, minute: 00)),
-            Countdown(.today(atHour: 10, minute: 45)),
-            Countdown(.today(atHour: 11, minute: 15))
-        ]
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            queue.append(contentsOf: [Countdown(.today(atHour: 11, minute: 35)),
-                                      Countdown(.today(atHour: 12, minute: 00))])
+        queue = if UIDevice.current.userInterfaceIdiom == .phone {
+            [Countdown(.today(atHour: 10, minute: 00)),
+             Countdown(.today(atHour: 11, minute: 45))]
+        } else {
+            [Countdown(.today(atHour: 10, minute: 00)),
+             Countdown(.today(atHour: 10, minute: 45)),
+             Countdown(.today(atHour: 11, minute: 15)),
+             Countdown(.today(atHour: 11, minute: 35)),
+             Countdown(.today(atHour: 12, minute: 00))]
         }
         remaining = 269
         state = .active
