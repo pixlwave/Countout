@@ -23,6 +23,9 @@ struct AdaptiveSplitView: View {
             NavigationSplitView {
                 TimersView()
                     .navigationTitle("Timers")
+                    .navigationBarTitleDisplayMode(.large)
+                    .scrollContentBackground(.hidden)
+                    .background(.quinary)
             } detail: {
                 MainView()
                     .navigationBarTitleDisplayMode(.inline)
