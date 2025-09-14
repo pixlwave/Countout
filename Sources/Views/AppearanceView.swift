@@ -59,7 +59,7 @@ struct AppearanceView: View {
     
     var appearanceForm: some View {
         Form {
-            Section("Font") {
+            Section {
                 Slider(value: $appearance.fontScale, in: 0.1...0.4) {
                     Text("Size")
                 } minimumValueLabel: {
@@ -78,6 +78,9 @@ struct AppearanceView: View {
                 }
 
                 ColorPicker("Colour", selection: $appearance.textColor)
+            } header: {
+                Text("Font")
+                    .padding(.top)
             }
             
             Section("Background") {

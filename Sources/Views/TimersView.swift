@@ -5,8 +5,11 @@ struct TimersView: View {
     
     var body: some View {
         Form {
-            Section("Current") {
+            Section {
                 CountdownCell(countdown: counter.current)
+            } header: {
+                Text("Current")
+                    .padding(.top) // not strictly necessary in the sidebar but it helps when there aren't many timers.
             }
             
             if !counter.queue.isEmpty {
