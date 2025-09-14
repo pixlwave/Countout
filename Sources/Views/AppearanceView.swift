@@ -19,6 +19,7 @@ struct AppearanceView: View {
                 
                 appearanceForm
             }
+            .background() // without this the output preview has a grey background
             .navigationTitle("Appearance")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -43,7 +44,8 @@ struct AppearanceView: View {
                         }
                         .opacity(isLoadingPhoto ? 1 : 0)
                     }
-                    .navigationTransition(.zoom(sourceID: photoPickerID, in: namespace))
+                    // disabled as the second presentation has a full screen animation on the iPadOS 26 release candidate
+                    // .navigationTransition(.zoom(sourceID: photoPickerID, in: namespace))
             }
         }
     }
