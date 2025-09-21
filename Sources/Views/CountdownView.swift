@@ -34,7 +34,8 @@ struct WarningView: View {
     @Environment(Counter.self) private var counter
     @Environment(Appearance.self) private var appearance
     
-    let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
+    #warning("Re-write this with an AsyncTimerSequence?")
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect() // .common so updates continue when scrolling
     @State var warningIsHidden = false
     
     var body: some View {

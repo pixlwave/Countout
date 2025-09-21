@@ -52,9 +52,12 @@ import Combine
             endDate = Date().addingTimeInterval(state == .paused ? remaining : current.length.timeInterval)
         }
         
-        runTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+        #warning("Re-write this with an AsyncTimerSequence?")
+        let timer = Timer(timeInterval: 1, repeats: true) { _ in
             self.tick()
         }
+        RunLoop.main.add(timer, forMode: .common) // .common so updates continue when scrolling
+        runTimer = timer
         
         state = .active
     }
