@@ -17,6 +17,7 @@ struct CountoutApp: App {
     var body: some Scene {
         WindowGroup {
             AdaptiveSplitView()
+                .sceneAccessory { ExternalNonInteractiveAccessory { OutputView() } }
                 .environment(counter)
                 .environment(appearance)
                 .environment(outputDisplay)

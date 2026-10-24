@@ -23,13 +23,13 @@
           "path": "Delegates",
           "children": [
             { "path": "AppDelegate.swift", "target-membership": [ "Countout/compile-sources" ] },
-            { "path": "OutputDelegate.swift", "target-membership": [ "Countout/compile-sources" ] },
           ],
         }, {
           "kind": "group",
           "path": "Views",
           "children": [
             { "path": "MainView.swift", "encoding": "utf8", "target-membership": [ "Countout/compile-sources" ] },
+            { "path": "OutputView.swift", "target-membership": [ "Countout/compile-sources" ] },
             { "path": "TimersView.swift", "target-membership": [ "Countout/compile-sources" ] },
             { "path": "CountdownCell.swift", "target-membership": [ "Countout/compile-sources" ] },
             { "path": "EditView.swift", "target-membership": [ "Countout/compile-sources" ] },
@@ -248,7 +248,7 @@
     "GCC_WARN_UNINITIALIZED_AUTOS": "YES_AGGRESSIVE",
     "GCC_WARN_UNUSED_FUNCTION": "YES",
     "GCC_WARN_UNUSED_VARIABLE": "YES",
-    "IPHONEOS_DEPLOYMENT_TARGET": "26.0",
+    "IPHONEOS_DEPLOYMENT_TARGET": "27.0",
     "MTL_ENABLE_DEBUG_INFO[config=Debug]": "YES",
     "MTL_ENABLE_DEBUG_INFO[config=Release]": "NO",
     "ONLY_ACTIVE_ARCH[config=Debug]": "YES",
